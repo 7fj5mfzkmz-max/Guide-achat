@@ -1,0 +1,80 @@
+{
+  "categorie": "smartphones",
+  "produits": [
+    {
+      "id": "galaxy-a56",
+      "nom": "Samsung Galaxy A56",
+      "marque": "Samsung",
+      "prix_indicatif": 300,
+      "prix_note": "Prix généralement constaté, hors promotions ponctuelles.",
+      "caracteristiques": {
+        "ecran": "6,7\" Super AMOLED, FHD+, 120 Hz",
+        "processeur": "Exynos 1580 (4 nm)",
+        "ram": "8 Go",
+        "stockage": "128 ou 256 Go",
+        "batterie": "5 000 mAh, charge 45 W",
+        "photo": "50 Mpx principal + 12 Mpx ultra grand-angle + 5 Mpx macro",
+        "etancheite": "IP67",
+        "os": "Android, One UI"
+      },
+      "points_forts": ["Autonomie confortable", "Écran AMOLED fluide (120 Hz)", "Bonne résistance (IP67)"],
+      "points_faibles": ["Pas de téléobjectif dédié", "Photos en basse lumière perfectibles"],
+      "profil_adapte": ["polyvalent", "rapport qualité-prix", "budget"],
+      "scores": { "performance": 6, "autonomie": 8, "photo": 6, "prix": 9, "gaming": 5, "taille": 6 },
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-samsung-galaxy-a56",
+      "fabricant_url": "https://www.samsung.com/fr/smartphones/galaxy-a/galaxy-a56-5g/",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "xiaomi-15t",
+      "nom": "Xiaomi 15T",
+      "marque": "Xiaomi",
+      "prix_indicatif": 430,
+      "prix_note": "Prix généralement constaté, hors promotions ponctuelles.",
+      "caracteristiques": {
+        "ecran": "6,83\" AMOLED, 120 Hz, jusqu'à 3 200 nits",
+        "processeur": "MediaTek Dimensity 8400-Ultra (4 nm)",
+        "ram": "12 Go LPDDR5X",
+        "stockage": "256 ou 512 Go",
+        "batterie": "5 500 mAh, charge 67 W",
+        "photo": "Triple capteur Leica : 50 Mpx principal + 50 Mpx téléobjectif + 12 Mpx ultra grand-angle",
+        "etancheite": "IP68",
+        "os": "Android, HyperOS"
+      },
+      "points_forts": ["Excellent rapport qualité-prix", "Téléobjectif dédié (rare à ce prix)", "Grosse batterie, charge rapide"],
+      "points_faibles": ["Pas de charge sans fil", "Surcouche HyperOS chargée en apps préinstallées"],
+      "profil_adapte": ["rapport qualité-prix", "photo", "polyvalent"],
+      "scores": { "performance": 8, "autonomie": 8, "photo": 8, "prix": 8, "gaming": 7, "taille": 5 },
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-xiaomi-15t",
+      "fabricant_url": "https://www.mi.com/fr/product/xiaomi-15t/",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "iphone-17-pro",
+      "nom": "Apple iPhone 17 Pro",
+      "marque": "Apple",
+      "prix_indicatif": 1329,
+      "prix_note": "Prix neuf constaté, modèle 256 Go.",
+      "caracteristiques": {
+        "ecran": "6,3\" Super Retina XDR OLED, ProMotion 120 Hz",
+        "processeur": "Puce A19 Pro",
+        "ram": "12 Go",
+        "stockage": "256 Go à 1 To",
+        "batterie": "≈ 4 250 mAh, charge 40 W filaire / 25 W MagSafe",
+        "photo": "Triple capteur 48 Mpx (principal, ultra grand-angle, téléobjectif), zoom optique jusqu'à 8x",
+        "etancheite": "IP68",
+        "os": "iOS 26"
+      },
+      "points_forts": ["Suivi logiciel très long (6-7 ans)", "Vidéo et photo de référence", "Écosystème Apple intégré"],
+      "points_faibles": ["Prix élevé", "Chargeur non fourni", "Recharge moins rapide que la concurrence Android"],
+      "profil_adapte": ["photo", "performance", "durée de vie"],
+      "scores": { "performance": 9, "autonomie": 7, "photo": 9, "prix": 4, "gaming": 8, "taille": 6 },
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-apple-iphone-17-pro",
+      "fabricant_url": "https://www.apple.com/fr/iphone-17-pro/",
+      "date_verification": "2026-09"
+    }
+  ]
+}
