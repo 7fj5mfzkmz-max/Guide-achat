@@ -2,19 +2,26 @@
   "use strict";
 
   var root = document.documentElement;
+  var header = document.querySelector(".site-header");
+  var fab = document.getElementById("mobile-fab");
+  var drawer = document.getElementById("mobile-drawer");
+  var drawerClose = document.getElementById("drawer-close");
+  var backdrop = document.getElementById("drawer-backdrop");
   var themeButton = document.getElementById("theme-toggle");
-  var searchButton = document.getElementById("search-toggle");
-  var searchPanel = document.getElementById("site-search");
   var searchInput = document.getElementById("site-search-input");
   var searchResults = document.getElementById("site-search-results");
-  var searchClose = document.getElementById("search-close");
 
   function applyTheme(theme) {
     root.classList.toggle("dark-theme", theme === "dark");
     if (themeButton) {
       themeButton.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
-      themeButton.setAttribute("aria-label", theme === "dark" ? "Activer le thème clair" : "Activer le thème sombre");
-      themeButton.textContent = theme === "dark" ? "☀" : "◐";
+      themeButton.setAttribute("aria-label", theme === "dark" ? "Désactiver le thème sombre" : "Activer le thème sombre");
+      var strong = themeButton.querySelector("strong");
+      var small = themeButton.querySelector("small");
+      var icon = themeButton.querySelector(".drawer-action-icon");
+      if (strong) strong.textContent = theme === "dark" ? "Thème clair" : "Thème sombre";
+      if (small) small.textContent = theme === "dark" ? "Revenir aux couleurs claires" : "Adapter les couleurs à la lecture de nuit";
+      if (icon) icon.textContent = theme === "dark" ? "☀" : "◐";
     }
   }
 
@@ -31,23 +38,24 @@
     });
   }
 
-  function openSearch() {
-    if (!searchPanel) return;
-    searchPanel.hidden = false;
-    document.body.classList.add("search-open");
-    setTimeout(function () { if (searchInput) searchInput.focus(); }, 40);
+  function setDrawer(open) {
+    if (!drawer) return;
+    drawer.hidden = !open;
+    document.body.classList.toggle("drawer-open", open);
+    if (fab) fab.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open && searchInput) setTimeout(function () { searchInput.focus(); }, 80);
   }
+  if (fab) fab.addEventListener("click", function () { setDrawer(true); });
+  if (drawerClose) drawerClose.addEventListener("click", function () { setDrawer(false); });
+  if (backdrop) backdrop.addEventListener("click", function () { setDrawer(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setDrawer(false); });
 
-  function closeSearch() {
-    if (!searchPanel) return;
-    searchPanel.hidden = true;
-    document.body.classList.remove("search-open");
+  function updateHeader() {
+    if (!header) return;
+    header.classList.toggle("is-scrolled", window.scrollY > 18);
   }
-
-  if (searchButton) searchButton.addEventListener("click", openSearch);
-  if (searchClose) searchClose.addEventListener("click", closeSearch);
-  if (searchPanel) searchPanel.addEventListener("click", function (e) { if (e.target === searchPanel) closeSearch(); });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeSearch(); });
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
 
   var index = [];
   var pages = [
@@ -55,9 +63,7 @@
     { url: "smartphones.html", label: "Smartphones" }
   ];
 
-  function cleanText(text) {
-    return (text || "").replace(/\s+/g, " ").trim();
-  }
+  function cleanText(text) { return (text || "").replace(/\s+/g, " ").trim(); }
 
   function addPageToIndex(doc, page) {
     var seen = {};
@@ -76,10 +82,7 @@
   function loadIndex() {
     pages.forEach(function (page) {
       var current = location.pathname.split("/").pop() || "index.html";
-      if (current === page.url) {
-        addPageToIndex(document, page);
-        return;
-      }
+      if (current === page.url) { addPageToIndex(document, page); return; }
       fetch(page.url).then(function (r) { return r.ok ? r.text() : ""; }).then(function (html) {
         if (!html) return;
         var doc = new DOMParser().parseFromString(html, "text/html");
@@ -93,7 +96,7 @@
     var q = cleanText(query).toLowerCase();
     searchResults.innerHTML = "";
     if (!q) {
-      searchResults.innerHTML = '<p class="search-empty">Recherchez un sujet, une caractéristique ou un mot-clé.</p>';
+      searchResults.innerHTML = '<p class="search-empty">Recherchez une caractéristique, un usage ou un modèle.</p>';
       return;
     }
     var terms = q.split(/\s+/).filter(Boolean);
@@ -101,7 +104,6 @@
       var haystack = (item.title + " " + item.text).toLowerCase();
       return terms.every(function (term) { return haystack.indexOf(term) !== -1; });
     }).slice(0, 12);
-
     if (!matches.length) {
       searchResults.innerHTML = '<p class="search-empty">Aucun résultat. Essayez un terme plus général.</p>';
       return;
@@ -110,14 +112,14 @@
       var link = document.createElement("a");
       link.className = "search-result";
       link.href = item.url;
-      link.innerHTML = '<span class="search-result-page">' + item.page + '</span><strong></strong><p></p>';
+      link.innerHTML = '<span class="search-result-page"></span><strong></strong><p></p>';
+      link.querySelector(".search-result-page").textContent = item.page;
       link.querySelector("strong").textContent = item.title;
       link.querySelector("p").textContent = item.text;
-      link.addEventListener("click", closeSearch);
+      link.addEventListener("click", function () { setDrawer(false); });
       searchResults.appendChild(link);
     });
   }
-
   if (searchInput) searchInput.addEventListener("input", function () { renderResults(searchInput.value); });
   loadIndex();
 })();

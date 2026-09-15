@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="color-scheme" content="light">
+  <meta name="color-scheme" content="light dark">
   <title>Guide complet des smartphones : comment bien choisir en 2026 — Guide·Achat</title>
   <meta name="description" content="Guide d'achat smartphones : comprendre le processeur, la RAM, l'écran, la photo et la batterie en langage simple, puis comparer et choisir selon son budget.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,28 +32,39 @@
         <a href="montres.html">Montres</a>
         <a href="projecteurs.html">Projecteurs</a>
       </nav>
-      <div class="mobile-tools" aria-label="Outils du site">
-        <button id="search-toggle" class="mobile-tool" type="button" aria-label="Rechercher sur le guide">⌕</button>
-        <button id="theme-toggle" class="mobile-tool" type="button" aria-label="Activer le thème sombre" aria-pressed="false">◐</button>
-      </div>
+
     </div>
   </header>
 
-  <section id="site-search" class="site-search" hidden aria-label="Recherche sur le site">
-    <div class="site-search-panel" role="dialog" aria-modal="true" aria-labelledby="site-search-title">
-      <div class="site-search-head">
+  <div class="mobile-fab-wrap" aria-label="Outils du guide">
+    <button id="mobile-fab" class="mobile-fab" type="button" aria-label="Ouvrir les outils du guide" aria-expanded="false">
+      <span class="fab-icon" aria-hidden="true">⌕</span>
+    </button>
+  </div>
+
+  <section id="mobile-drawer" class="mobile-drawer" hidden aria-label="Outils du guide">
+    <button id="drawer-backdrop" class="drawer-backdrop" type="button" aria-label="Fermer les outils"></button>
+    <div class="drawer-sheet" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+      <div class="drawer-handle" aria-hidden="true"></div>
+      <div class="drawer-head">
         <div>
-          <span class="search-kicker">INDEX DU GUIDE</span>
-          <h2 id="site-search-title">Rechercher</h2>
+          <span class="drawer-kicker">GUIDE·ACHAT</span>
+          <h2 id="drawer-title">Outils</h2>
         </div>
-        <button id="search-close" class="search-close" type="button" aria-label="Fermer la recherche">×</button>
+        <button id="drawer-close" class="drawer-close" type="button" aria-label="Fermer">×</button>
       </div>
-      <label class="search-field">
-        <span class="sr-only">Rechercher</span>
-        <span aria-hidden="true">⌕</span>
-        <input id="site-search-input" type="search" autocomplete="off" placeholder="Ex. batterie, RAM, écran, iPhone…">
-      </label>
-      <div id="site-search-results" class="site-search-results"><p class="search-empty">Recherchez un sujet, une caractéristique ou un mot-clé.</p></div>
+      <div class="drawer-search">
+        <label class="drawer-search-field">
+          <span aria-hidden="true">⌕</span>
+          <input id="site-search-input" type="search" autocomplete="off" placeholder="Rechercher dans le guide…">
+        </label>
+        <div id="site-search-results" class="site-search-results"><p class="search-empty">Recherchez une caractéristique, un usage ou un modèle.</p></div>
+      </div>
+      <button id="theme-toggle" class="drawer-action" type="button" aria-pressed="false">
+        <span class="drawer-action-icon" aria-hidden="true">◐</span>
+        <span><strong>Thème sombre</strong><small>Adapter automatiquement les couleurs à la lecture de nuit</small></span>
+        <span class="drawer-switch" aria-hidden="true"></span>
+      </button>
     </div>
   </section>
 

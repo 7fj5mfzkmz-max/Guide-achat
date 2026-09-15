@@ -1108,3 +1108,237 @@ html.dark-theme .search-field { background:var(--surface-soft); }
     background:rgba(21,32,31,.9);
   }
 }
+
+/* =========================================================
+   MOBILE V5 — adaptive header + single utility button
+   ========================================================= */
+.mobile-fab-wrap,
+.mobile-drawer { display:none; }
+
+@media (max-width: 800px) {
+  /* Header remains in view, but changes density after the first scroll. */
+  .site-header,
+  .home-body .site-header {
+    position:sticky;
+    top:0;
+    z-index:80;
+    background:rgba(246,244,239,.96);
+    backdrop-filter:blur(16px) saturate(120%);
+    -webkit-backdrop-filter:blur(16px) saturate(120%);
+    border-bottom:1px solid var(--line);
+    box-shadow:0 3px 18px rgba(18,63,60,.05);
+    transition:box-shadow .22s ease, background .22s ease;
+  }
+  .site-header.is-scrolled,
+  .home-body .site-header.is-scrolled {
+    box-shadow:0 8px 24px rgba(18,63,60,.10);
+  }
+  .header-inner {
+    min-height:72px;
+    padding:.62rem .9rem;
+    transition:min-height .22s ease, padding .22s ease;
+  }
+  .site-header.is-scrolled .header-inner {
+    min-height:54px;
+    padding:.38rem .9rem;
+  }
+  .brand-logo { gap:.58rem; }
+  .brand-mark {
+    width:43px;
+    height:43px;
+    border-radius:13px;
+    transition:width .22s ease, height .22s ease, border-radius .22s ease;
+  }
+  .brand-mark svg { width:34px; height:34px; }
+  .site-header.is-scrolled .brand-mark {
+    width:34px;
+    height:34px;
+    border-radius:10px;
+  }
+  .site-header.is-scrolled .brand-mark svg { width:27px; height:27px; }
+  .brand-name b { font-size:1.08rem; }
+  .brand-name strong { font-size:1.06rem; }
+  .brand-name small {
+    display:block;
+    max-height:1.2em;
+    overflow:hidden;
+    opacity:1;
+    transition:max-height .2s ease, opacity .18s ease;
+  }
+  .site-header.is-scrolled .brand-name small {
+    max-height:0;
+    opacity:0;
+  }
+  .site-nav { display:none; }
+
+  /* One control only: visually quieter and less cluttered. */
+  .mobile-fab-wrap {
+    display:block;
+    position:fixed;
+    right:16px;
+    bottom:calc(16px + env(safe-area-inset-bottom));
+    z-index:90;
+  }
+  .mobile-fab {
+    width:54px;
+    height:54px;
+    border:1px solid rgba(18,63,60,.16);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:#123f3c;
+    color:#fffdf8;
+    box-shadow:0 10px 28px rgba(18,63,60,.24), 0 2px 5px rgba(0,0,0,.08);
+    font-size:1.35rem;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .mobile-fab:active { transform:scale(.94); }
+  .fab-icon { transform:translateY(-1px); }
+
+  .mobile-drawer[hidden] { display:none; }
+  .mobile-drawer {
+    display:block;
+    position:fixed;
+    inset:0;
+    z-index:100;
+  }
+  .drawer-backdrop {
+    position:absolute;
+    inset:0;
+    width:100%;
+    border:0;
+    background:rgba(12,31,30,.34);
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+  }
+  .drawer-sheet {
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:9px 16px calc(18px + env(safe-area-inset-bottom));
+    border:1px solid var(--line);
+    border-bottom:0;
+    border-radius:26px 26px 0 0;
+    background:var(--surface);
+    color:var(--ink);
+    box-shadow:0 -18px 55px rgba(0,0,0,.18);
+    max-height:min(78vh,680px);
+    overflow:auto;
+    animation:drawer-in .2s ease-out;
+  }
+  @keyframes drawer-in { from { transform:translateY(18px); opacity:.75; } to { transform:none; opacity:1; } }
+  .drawer-handle {
+    width:38px;
+    height:4px;
+    margin:1px auto 16px;
+    border-radius:99px;
+    background:var(--line-strong);
+  }
+  .drawer-head {
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:1rem;
+    margin-bottom:15px;
+  }
+  .drawer-kicker {
+    color:var(--accent-dark);
+    font-size:.62rem;
+    font-weight:800;
+    letter-spacing:.14em;
+  }
+  .drawer-head h2 {
+    margin:.25rem 0 0;
+    font:600 1.7rem/1 var(--font-display);
+  }
+  .drawer-close {
+    width:38px;
+    height:38px;
+    border:1px solid var(--line);
+    border-radius:50%;
+    background:var(--surface-soft);
+    color:var(--ink);
+    font-size:1.45rem;
+    line-height:1;
+  }
+  .drawer-search-field {
+    display:flex;
+    align-items:center;
+    gap:.7rem;
+    min-height:52px;
+    padding:0 .95rem;
+    border:1px solid var(--line-strong);
+    border-radius:16px;
+    background:var(--surface-soft);
+    color:var(--muted);
+  }
+  .drawer-search-field input {
+    width:100%;
+    min-width:0;
+    border:0;
+    outline:0;
+    background:transparent;
+    color:var(--ink);
+    font:500 1rem var(--font-body);
+  }
+  .site-search-results { margin-top:10px; max-height:34vh; overflow:auto; }
+  .search-result {
+    padding:.78rem .82rem;
+    border-radius:13px;
+    background:var(--surface-soft);
+  }
+  .drawer-action {
+    width:100%;
+    margin-top:14px;
+    display:grid;
+    grid-template-columns:42px 1fr 38px;
+    align-items:center;
+    gap:.75rem;
+    padding:.85rem .9rem;
+    border:1px solid var(--line);
+    border-radius:16px;
+    background:var(--surface-soft);
+    color:var(--ink);
+    text-align:left;
+  }
+  .drawer-action-icon {
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    border-radius:11px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    font-size:1.1rem;
+  }
+  .drawer-action strong { display:block; font-size:.9rem; }
+  .drawer-action small { display:block; margin-top:.15rem; color:var(--muted); font-size:.68rem; line-height:1.35; }
+  .drawer-switch {
+    width:34px;
+    height:20px;
+    border-radius:99px;
+    background:var(--line-strong);
+    position:relative;
+  }
+  .drawer-switch::after {
+    content:"";
+    position:absolute;
+    top:3px;
+    left:3px;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:var(--surface);
+    transition:transform .18s ease;
+  }
+  #theme-toggle[aria-pressed="true"] .drawer-switch { background:var(--accent); }
+  #theme-toggle[aria-pressed="true"] .drawer-switch::after { transform:translateX(14px); }
+
+  body.drawer-open { overflow:hidden; }
+  html.dark-theme .mobile-fab { background:#d8ad5d; color:#10201e; border-color:rgba(216,173,93,.5); box-shadow:0 10px 28px rgba(0,0,0,.38); }
+  html.dark-theme .site-header,
+  html.dark-theme .home-body .site-header { background:rgba(21,32,31,.96); }
+}
