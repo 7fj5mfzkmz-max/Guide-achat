@@ -12,7 +12,7 @@
 
   var resultsBox = document.getElementById("quiz-results");
   var category = form.dataset.category; // ex. "smartphones"
-  var dataUrl = "/data/" + category + ".json";
+  var dataUrl = category + ".json";
 
   // Bornes des tranches de budget (en euros). "max: null" = pas de plafond.
   var BUDGET_BANDS = {

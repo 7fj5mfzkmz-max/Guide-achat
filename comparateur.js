@@ -12,7 +12,7 @@
   var picker = document.getElementById("compare-picker");
   var resultBox = document.getElementById("compare-result");
   var category = box.dataset.category;
-  var dataUrl = "/data/" + category + ".json";
+  var dataUrl = category + ".json";
   var MAX_SELECTION = 5;
   var MIN_SELECTION = 2;
 
