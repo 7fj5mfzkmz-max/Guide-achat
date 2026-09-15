@@ -60,7 +60,9 @@
   var index = [];
   var pages = [
     { url: "index.html", label: "Accueil" },
-    { url: "smartphones.html", label: "Smartphones" }
+    { url: "smartphones.html", label: "Smartphones" },
+    { url: "lexique.html", label: "Lexique" },
+    { url: "comparateur.html", label: "Comparateur" }
   ];
 
   function cleanText(text) { return (text || "").replace(/\s+/g, " ").trim(); }
