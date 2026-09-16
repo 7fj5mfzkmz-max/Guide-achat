@@ -1,7 +1,3 @@
-/**
- * Choix guidé : filtre par budget + 1 à 3 priorités.
- * Les recommandations et fiches sont construites à partir du JSON local.
- */
 (function () {
   "use strict";
 
@@ -14,13 +10,12 @@
   var produitsCache = null;
   var MAX_PRIORITES = 3;
   var CRITERES = ["performance", "autonomie", "photo", "prix", "gaming", "taille"];
-
   var BUDGET_BANDS = {
-    "moins-200": { min: 0, max: 200, label: "moins de 200 €" },
-    "200-300": { min: 200, max: 300, label: "200–300 €" },
-    "300-500": { min: 300, max: 500, label: "300–500 €" },
-    "500-700": { min: 500, max: 700, label: "500–700 €" },
-    "700-plus": { min: 700, max: null, label: "700 € et plus" }
+    "moins-200": { min: 0, max: 200 },
+    "200-300": { min: 200, max: 300 },
+    "300-500": { min: 300, max: 500 },
+    "500-700": { min: 500, max: 700 },
+    "700-plus": { min: 700, max: null }
   };
 
   function chargerProduits() {
@@ -29,17 +24,18 @@
       if (!r.ok) throw new Error("Réponse HTTP " + r.status);
       return r.json();
     }).then(function (data) {
-      produitsCache = data.produits || [];
+      produitsCache = (data.produits || []).filter(function (p) {
+        return p.ready_for_recommendation !== false && typeof p.prix_indicatif === "number" && p.scores;
+      });
       return produitsCache;
     });
   }
 
   function scoreProduit(produit, priorites) {
-    var total = 0;
-    var poidsTotal = 0;
+    var total = 0, poidsTotal = 0;
     CRITERES.forEach(function (critere) {
       var poids = priorites.indexOf(critere) !== -1 ? 3 : 1;
-      var valeur = produit.scores && typeof produit.scores[critere] === "number" ? produit.scores[critere] : 5;
+      var valeur = typeof produit.scores[critere] === "number" ? produit.scores[critere] : 0;
       total += valeur * poids;
       poidsTotal += poids;
     });
@@ -54,14 +50,18 @@
     });
   }
 
+  function ajouterComparaison(id) {
+    var key = "guide-achat-compare-selection", ids = [];
+    try { ids = JSON.parse(sessionStorage.getItem(key) || "[]"); } catch (e) {}
+    if (ids.indexOf(id) === -1) ids.push(id);
+    ids = ids.slice(-5);
+    sessionStorage.setItem(key, JSON.stringify(ids));
+    window.location.href = "comparateur.html";
+  }
+
   function creerFiche(produit, rang) {
     var carte = document.createElement("article");
     carte.className = "fiche result-fiche";
-
-    var visual = document.createElement("div");
-    visual.className = "result-visual";
-    visual.innerHTML = '<span class="result-visual-index">' + String(rang + 1).padStart(2, "0") + '</span><span class="result-visual-brand">' + (produit.marque || "") + '</span><span class="result-visual-device" aria-hidden="true"></span>';
-    carte.appendChild(visual);
 
     var head = document.createElement("div");
     head.className = "fiche-head";
@@ -76,6 +76,11 @@
     badge.className = "result-rank";
     badge.textContent = rang === 0 ? "Correspond le mieux à vos critères" : "Alternative " + (rang + 1);
     carte.appendChild(badge);
+
+    var intro = document.createElement("p");
+    intro.className = "result-fit";
+    intro.textContent = produit.pour_qui || "Ce modèle correspond à une partie de vos critères.";
+    carte.appendChild(intro);
 
     var grid = document.createElement("div"); grid.className = "result-detail-grid";
     var specs = document.createElement("div");
@@ -101,29 +106,27 @@
     grid.appendChild(specs); grid.appendChild(forces); carte.appendChild(grid);
 
     var actions = document.createElement("div"); actions.className = "fiche-actions";
-    [
-      [produit.fabricant_url, "Fabricant"],
-      [produit.kimovil_url, "Kimovil"],
-      [produit.idealo_url, "Idealo"]
-    ].forEach(function (item) {
+    [[produit.fabricant_url, "Fabricant"], [produit.kimovil_url, "Kimovil"], [produit.idealo_url, "Idealo"]].forEach(function (item) {
       if (!item[0]) return;
       var a=document.createElement("a"); a.href=item[0]; a.target="_blank"; a.rel="noopener"; a.className="btn"; a.textContent=item[1]; actions.appendChild(a);
     });
-    var compare=document.createElement("a"); compare.href="#comparateur"; compare.className="btn btn-primary"; compare.textContent="Comparer ce modèle"; actions.appendChild(compare);
+    var compare=document.createElement("button"); compare.type="button"; compare.className="btn btn-primary"; compare.textContent="Comparer ce modèle";
+    compare.addEventListener("click", function () { ajouterComparaison(produit.id); });
+    actions.appendChild(compare);
     carte.appendChild(actions);
     return carte;
   }
 
-  function afficherResultats(produits, bandeId, priorites) {
+  function afficherResultats(produits, priorites) {
     resultsBox.innerHTML = "";
     if (!produits.length) {
       var vide=document.createElement("p"); vide.className="hint";
-      vide.textContent="Aucun modèle de notre sélection actuelle ne correspond à cette tranche de budget. Essayez une tranche voisine.";
+      vide.textContent="Aucun modèle documenté dans cette tranche de budget pour le moment. La sélection sera enrichie progressivement.";
       resultsBox.appendChild(vide); return;
     }
     var classes=produits.map(function(p){return {produit:p,score:scoreProduit(p,priorites)};}).sort(function(a,b){return b.score-a.score;}).slice(0,3);
     var intro=document.createElement("p"); intro.className="result-intro";
-    intro.textContent="Voici jusqu’à 3 modèles correspondant à votre budget et à vos priorités.";
+    intro.textContent="Voici jusqu’à 3 modèles documentés qui correspondent à votre budget et à vos priorités.";
     resultsBox.appendChild(intro);
     classes.forEach(function(entry,index){ resultsBox.appendChild(creerFiche(entry.produit,index)); });
   }
@@ -131,11 +134,9 @@
   form.addEventListener("change", function (event) {
     if (event.target.name !== "priorite") return;
     var checked = form.querySelectorAll('input[name="priorite"]:checked');
-    if (checked.length >= MAX_PRIORITES) {
-      form.querySelectorAll('input[name="priorite"]:not(:checked)').forEach(function (input) { input.disabled = true; });
-    } else {
-      form.querySelectorAll('input[name="priorite"]').forEach(function (input) { input.disabled = false; });
-    }
+    form.querySelectorAll('input[name="priorite"]').forEach(function (input) {
+      input.disabled = !input.checked && checked.length >= MAX_PRIORITES;
+    });
   });
 
   form.addEventListener("submit", function (event) {
@@ -149,7 +150,7 @@
     }
     resultsBox.innerHTML='<p class="hint">Recherche des modèles adaptés…</p>';
     chargerProduits().then(function(produits){
-      afficherResultats(filtrerParBudget(produits,budget),budget,priorites);
+      afficherResultats(filtrerParBudget(produits,budget),priorites);
     }).catch(function(err){
       resultsBox.innerHTML='<p class="hint">Le questionnaire n’a pas pu charger les données produits ('+err.message+').</p>';
     });

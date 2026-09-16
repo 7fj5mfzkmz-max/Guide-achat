@@ -17,10 +17,28 @@
         "etancheite": "IP67",
         "os": "Android, One UI"
       },
-      "points_forts": ["Autonomie confortable", "Écran AMOLED fluide (120 Hz)", "Bonne résistance (IP67)"],
-      "points_faibles": ["Pas de téléobjectif dédié", "Photos en basse lumière perfectibles"],
-      "profil_adapte": ["polyvalent", "rapport qualité-prix", "budget"],
-      "scores": { "performance": 6, "autonomie": 8, "photo": 6, "prix": 9, "gaming": 5, "taille": 6 },
+      "points_forts": [
+        "Autonomie confortable",
+        "Écran AMOLED fluide (120 Hz)",
+        "Bonne résistance (IP67)"
+      ],
+      "points_faibles": [
+        "Pas de téléobjectif dédié",
+        "Photos en basse lumière perfectibles"
+      ],
+      "profil_adapte": [
+        "polyvalent",
+        "rapport qualité-prix",
+        "budget"
+      ],
+      "scores": {
+        "performance": 6,
+        "autonomie": 8,
+        "photo": 6,
+        "prix": 9,
+        "gaming": 5,
+        "taille": 6
+      },
       "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
       "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-samsung-galaxy-a56",
       "fabricant_url": "https://www.samsung.com/fr/smartphones/galaxy-a/galaxy-a56-5g/",
@@ -42,10 +60,28 @@
         "etancheite": "IP68",
         "os": "Android, HyperOS"
       },
-      "points_forts": ["Excellent rapport qualité-prix", "Téléobjectif dédié (rare à ce prix)", "Grosse batterie, charge rapide"],
-      "points_faibles": ["Pas de charge sans fil", "Surcouche HyperOS chargée en apps préinstallées"],
-      "profil_adapte": ["rapport qualité-prix", "photo", "polyvalent"],
-      "scores": { "performance": 8, "autonomie": 8, "photo": 8, "prix": 8, "gaming": 7, "taille": 5 },
+      "points_forts": [
+        "Excellent rapport qualité-prix",
+        "Téléobjectif dédié (rare à ce prix)",
+        "Grosse batterie, charge rapide"
+      ],
+      "points_faibles": [
+        "Pas de charge sans fil",
+        "Surcouche HyperOS chargée en apps préinstallées"
+      ],
+      "profil_adapte": [
+        "rapport qualité-prix",
+        "photo",
+        "polyvalent"
+      ],
+      "scores": {
+        "performance": 8,
+        "autonomie": 8,
+        "photo": 8,
+        "prix": 8,
+        "gaming": 7,
+        "taille": 5
+      },
       "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
       "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-xiaomi-15t",
       "fabricant_url": "https://www.mi.com/fr/product/xiaomi-15t/",
@@ -67,14 +103,453 @@
         "etancheite": "IP68",
         "os": "iOS 26"
       },
-      "points_forts": ["Suivi logiciel très long (6-7 ans)", "Vidéo et photo de référence", "Écosystème Apple intégré"],
-      "points_faibles": ["Prix élevé", "Chargeur non fourni", "Recharge moins rapide que la concurrence Android"],
-      "profil_adapte": ["photo", "performance", "durée de vie"],
-      "scores": { "performance": 9, "autonomie": 7, "photo": 9, "prix": 4, "gaming": 8, "taille": 6 },
+      "points_forts": [
+        "Suivi logiciel très long (6-7 ans)",
+        "Vidéo et photo de référence",
+        "Écosystème Apple intégré"
+      ],
+      "points_faibles": [
+        "Prix élevé",
+        "Chargeur non fourni",
+        "Recharge moins rapide que la concurrence Android"
+      ],
+      "profil_adapte": [
+        "photo",
+        "performance",
+        "durée de vie"
+      ],
+      "scores": {
+        "performance": 9,
+        "autonomie": 7,
+        "photo": 9,
+        "prix": 4,
+        "gaming": 8,
+        "taille": 6
+      },
       "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
       "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-apple-iphone-17-pro",
       "fabricant_url": "https://www.apple.com/fr/iphone-17-pro/",
       "date_verification": "2026-09"
+    },
+    {
+      "id": "oneplus-15",
+      "nom": "OnePlus 15",
+      "marque": "OnePlus",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "batterie / autonomie"
+      ],
+      "critere_principal": "Batterie / autonomie",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "rog-phone-9",
+      "nom": "ROG Phone 9",
+      "marque": "ASUS",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "batterie / autonomie"
+      ],
+      "critere_principal": "Batterie / autonomie",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "galaxy-z-fold8",
+      "nom": "Galaxy Z Fold8",
+      "marque": "Samsung",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "écran / immersion"
+      ],
+      "critere_principal": "Écran / immersion",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "pixel-10-pro-xl",
+      "nom": "Pixel 10 Pro XL",
+      "marque": "Google",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "écran / immersion"
+      ],
+      "critere_principal": "Écran / immersion",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "pixel-10",
+      "nom": "Pixel 10",
+      "marque": "Google",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "photo"
+      ],
+      "critere_principal": "Photo",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "galaxy-s26-ultra",
+      "nom": "Galaxy S26 Ultra",
+      "marque": "Samsung",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "photo"
+      ],
+      "critere_principal": "Photo",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "iphone-18-pro-max",
+      "nom": "iPhone 18 Pro Max",
+      "marque": "Apple",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "vidéo / réalisation"
+      ],
+      "critere_principal": "Vidéo / réalisation",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "xperia-1-vii",
+      "nom": "Xperia 1 VII",
+      "marque": "Sony",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "vidéo / réalisation"
+      ],
+      "critere_principal": "Vidéo / réalisation",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "iphone-18-pro",
+      "nom": "iPhone 18 Pro",
+      "marque": "Apple",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "stockage / performances"
+      ],
+      "critere_principal": "Stockage / performances",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "galaxy-s26-plus",
+      "nom": "Galaxy S26+",
+      "marque": "Samsung",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "stockage / performances"
+      ],
+      "critere_principal": "Stockage / performances",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "pixel-10a",
+      "nom": "Pixel 10a",
+      "marque": "Google",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "rapport qualité-prix"
+      ],
+      "critere_principal": "Rapport qualité-prix",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "oneplus-nord-5",
+      "nom": "OnePlus Nord 5",
+      "marque": "OnePlus",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "rapport qualité-prix"
+      ],
+      "critere_principal": "Rapport qualité-prix",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "iphone-duo",
+      "nom": "iPhone Duo",
+      "marque": "Apple",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "originalité / design unique"
+      ],
+      "critere_principal": "Originalité / design unique",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "nothing-phone-4",
+      "nom": "Nothing Phone (4)",
+      "marque": "Nothing",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "originalité / design unique"
+      ],
+      "critere_principal": "Originalité / design unique",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "xiaomi-16-pro",
+      "nom": "Xiaomi 16 Pro",
+      "marque": "Xiaomi",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "polyvalence / multimédia"
+      ],
+      "critere_principal": "Polyvalence / multimédia",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "honor-magic-8-pro",
+      "nom": "Honor Magic 8 Pro",
+      "marque": "Honor",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "polyvalence / multimédia"
+      ],
+      "critere_principal": "Polyvalence / multimédia",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "galaxy-s26",
+      "nom": "Galaxy S26",
+      "marque": "Samsung",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "compact / ergonomie"
+      ],
+      "critere_principal": "Compact / ergonomie",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "pixel-10-pro",
+      "nom": "Pixel 10 Pro",
+      "marque": "Google",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "compact / ergonomie"
+      ],
+      "critere_principal": "Compact / ergonomie",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "motorola-edge-70-pro",
+      "nom": "Motorola Edge 70 Pro",
+      "marque": "Motorola",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "robustesse / durabilité"
+      ],
+      "critere_principal": "Robustesse / durabilité",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "xiaomi-16-ultra",
+      "nom": "Xiaomi 16 Ultra",
+      "marque": "Xiaomi",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "robustesse / durabilité"
+      ],
+      "critere_principal": "Robustesse / durabilité",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
     }
   ]
 }

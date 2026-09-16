@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="article-page smartphone-page">
+<body class="">
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="brand-logo" aria-label="Guide d’achat — accueil">
@@ -90,19 +90,20 @@
     <ol>
       <li><a href="#introduction">Introduction</a></li>
       <li><a href="#ios-android">iPhone ou Android ?</a></li>
-      <li><a href="#gammes">Les gammes</a></li>
+      <li><a href="#gammes">Les différentes gammes</a></li>
       <li><a href="#processeur">Le processeur</a></li>
       <li><a href="#ram">La RAM</a></li>
       <li><a href="#stockage">Le stockage</a></li>
-      <li><a href="#batterie">La batterie</a></li>
       <li><a href="#ecran">L'écran</a></li>
-      <li><a href="#frequence">Les Hz</a></li>
+      <li><a href="#frequence">La fréquence de rafraîchissement</a></li>
       <li><a href="#photo">La photo</a></li>
+      <li><a href="#batterie">La batterie</a></li>
       <li><a href="#recharge">La recharge</a></li>
       <li><a href="#fonctionnalites">Les fonctionnalités</a></li>
-      <li><a href="#choisir-usage">À vous de choisir</a></li>
+      <li><a href="#choisir-usage">Comment choisir selon son usage</a></li>
+      <li><a href="#catalogue">Explorer le catalogue</a></li>
       <li><a href="#ou-comparer">Comparer les modèles</a></li>
-      <li><a href="#faq">Questions fréquentes</a></li>
+      <li><a href="#ou-comparer">Où comparer</a></li>
       <li><a href="#sources">Sources</a></li>
     </ol>
   </nav>
@@ -272,7 +273,7 @@
     </ul>
   </section>
 
-  <section id="choisir-usage" class="section choice-section">
+  <section id="choisir-usage" class="section">
     <h2><span class="num">13</span> Comment choisir selon son usage</h2>
     <p>Plutôt que de viser « le meilleur téléphone », il est plus efficace de partir de votre usage réel : réseaux sociaux et messagerie, photo/vidéo, jeux, ou usage professionnel polyvalent. Le questionnaire ci-dessous applique ce raisonnement à notre sélection actuelle.</p>
 
@@ -290,14 +291,33 @@
           </div>
         </div>
         <div class="quiz-field">
-          <span class="q-label">Priorités — jusqu'à 3 choix</span>
+          <span class="q-label">Qu'est-ce qui compte le plus pour vous ? <small>Choisissez jusqu'à 3 critères.</small></span>
           <div class="quiz-options">
             <label><input type="checkbox" name="priorite" value="autonomie">Autonomie</label>
             <label><input type="checkbox" name="priorite" value="photo">Photo</label>
             <label><input type="checkbox" name="priorite" value="performance">Performance</label>
-            <label><input type="checkbox" name="priorite" value="gaming">Gaming</label>
-            <label><input type="checkbox" name="priorite" value="taille">Taille compacte</label>
+            <label><input type="checkbox" name="priorite" value="gaming">Jeux</label>
+            <label><input type="checkbox" name="priorite" value="taille">Format compact</label>
             <label><input type="checkbox" name="priorite" value="prix">Rapport qualité-prix</label>
+          </div>
+        </div>
+        <div class="quiz-field">
+          <span class="q-label">Quelle taille vous convient ?</span>
+          <div class="quiz-options quiz-options-secondary">
+            <label><input type="radio" name="taille_usage" value="compact">Petit et facile à tenir</label>
+            <label><input type="radio" name="taille_usage" value="standard">Taille classique</label>
+            <label><input type="radio" name="taille_usage" value="grand">Grand écran</label>
+            <label><input type="radio" name="taille_usage" value="indifferent">Peu importe</label>
+          </div>
+        </div>
+        <div class="quiz-field">
+          <span class="q-label">Une fonction indispensable ?</span>
+          <div class="quiz-options quiz-options-secondary">
+            <label><input type="radio" name="indispensable" value="nfc">Paiement sans contact</label>
+            <label><input type="radio" name="indispensable" value="esim">eSIM</label>
+            <label><input type="radio" name="indispensable" value="ip">Résistance à l'eau</label>
+            <label><input type="radio" name="indispensable" value="sans-fil">Recharge sans fil</label>
+            <label><input type="radio" name="indispensable" value="aucune">Aucune</label>
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Voir les recommandations</button>
@@ -306,15 +326,27 @@
     </div>
   </section>
 
+  <section id="catalogue" class="section catalogue-section">
+    <h2><span class="num">14</span> Explorer le catalogue</h2>
+    <p>Retrouvez les modèles référencés dans le guide. Les fiches sont regroupées par gamme de prix et peuvent être ouvertes progressivement pour éviter de transformer la page en catalogue interminable.</p>
+    <div class="catalogue-tools">
+      <label class="catalogue-search-label" for="catalogue-search">Vous cherchez un modèle ou une marque ?</label>
+      <input id="catalogue-search" class="catalogue-search" type="search" placeholder="Ex. Samsung, Pixel, iPhone…" autocomplete="off">
+      <p id="catalogue-status" class="hint" aria-live="polite">Chargement du catalogue…</p>
+    </div>
+    <div id="catalogue" data-category="smartphones">
+      <div id="catalogue-groups"></div>
+    </div>
+  </section>
 
-  <section id="ou-comparer" class="section compare-section">
-    <h2><span class="num">14</span> Comparer les modèles</h2>
-    <p>Une fois quelques modèles identifiés grâce à ce guide, mettez-les côte à côte ici avant de vérifier leurs caractéristiques et leurs prix sur les sources externes.</p>
+  <section id="ou-comparer" class="section">
+    <h2><span class="num">15</span> Où comparer</h2>
+    <p>Une fois un modèle identifié grâce à ce guide, deux étapes avant d'acheter :</p>
     <ul>
-      <li><strong>Kimovil</strong> pour vérifier les caractéristiques précises entre plusieurs modèles.</li>
-      <li><strong>Idealo</strong> pour vérifier les prix chez différents revendeurs.</li>
+      <li><strong>Kimovil</strong> pour comparer les caractéristiques précises entre plusieurs modèles.</li>
+      <li><strong>Idealo</strong> pour comparer les prix chez différents revendeurs et repérer le meilleur moment pour acheter.</li>
     </ul>
-    <p>Le comparateur ci-dessous fonctionne localement avec les données du guide. Il ne récupère ni ne stocke les prix des plateformes externes.</p>
+    <p>Ce site ne récupère ni ne stocke les prix de ces plateformes : les boutons des fiches produits ci-dessus renvoient directement vers elles.</p>
 
     <div class="tool-box" id="comparateur" data-category="smartphones">
       <h3>Comparateur local</h3>
@@ -369,6 +401,7 @@
 </div>
 
 <script src="questionnaire.js"></script>
+<script src="catalogue.js"></script>
 <script src="comparateur.js"></script>
 </main>
 
