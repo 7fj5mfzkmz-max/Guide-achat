@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="">
+<body class="article-page smartphone-page">
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="brand-logo" aria-label="Guide d’achat — accueil">
@@ -90,20 +90,19 @@
     <ol>
       <li><a href="#introduction">Introduction</a></li>
       <li><a href="#ios-android">iPhone ou Android ?</a></li>
-      <li><a href="#gammes">Les différentes gammes</a></li>
+      <li><a href="#gammes">Les gammes</a></li>
       <li><a href="#processeur">Le processeur</a></li>
       <li><a href="#ram">La RAM</a></li>
       <li><a href="#stockage">Le stockage</a></li>
-      <li><a href="#ecran">L'écran</a></li>
-      <li><a href="#frequence">La fréquence de rafraîchissement</a></li>
-      <li><a href="#photo">La photo</a></li>
       <li><a href="#batterie">La batterie</a></li>
+      <li><a href="#ecran">L'écran</a></li>
+      <li><a href="#frequence">Les Hz</a></li>
+      <li><a href="#photo">La photo</a></li>
       <li><a href="#recharge">La recharge</a></li>
       <li><a href="#fonctionnalites">Les fonctionnalités</a></li>
-      <li><a href="#choisir-usage">Comment choisir selon son usage</a></li>
-      <li><a href="#meilleurs-modeles">Les meilleurs modèles</a></li>
-      <li><a href="#modeles-eviter">Les modèles à éviter</a></li>
-      <li><a href="#ou-comparer">Où comparer</a></li>
+      <li><a href="#choisir-usage">À vous de choisir</a></li>
+      <li><a href="#ou-comparer">Comparer les modèles</a></li>
+      <li><a href="#faq">Questions fréquentes</a></li>
       <li><a href="#sources">Sources</a></li>
     </ol>
   </nav>
@@ -273,7 +272,7 @@
     </ul>
   </section>
 
-  <section id="choisir-usage" class="section">
+  <section id="choisir-usage" class="section choice-section">
     <h2><span class="num">13</span> Comment choisir selon son usage</h2>
     <p>Plutôt que de viser « le meilleur téléphone », il est plus efficace de partir de votre usage réel : réseaux sociaux et messagerie, photo/vidéo, jeux, ou usage professionnel polyvalent. Le questionnaire ci-dessous applique ce raisonnement à notre sélection actuelle.</p>
 
@@ -291,14 +290,14 @@
           </div>
         </div>
         <div class="quiz-field">
-          <span class="q-label">Priorité</span>
+          <span class="q-label">Priorités — jusqu'à 3 choix</span>
           <div class="quiz-options">
-            <label><input type="radio" name="priorite" value="autonomie">Autonomie</label>
-            <label><input type="radio" name="priorite" value="photo">Photo</label>
-            <label><input type="radio" name="priorite" value="performance">Performance</label>
-            <label><input type="radio" name="priorite" value="gaming">Gaming</label>
-            <label><input type="radio" name="priorite" value="taille">Taille compacte</label>
-            <label><input type="radio" name="priorite" value="prix">Rapport qualité-prix</label>
+            <label><input type="checkbox" name="priorite" value="autonomie">Autonomie</label>
+            <label><input type="checkbox" name="priorite" value="photo">Photo</label>
+            <label><input type="checkbox" name="priorite" value="performance">Performance</label>
+            <label><input type="checkbox" name="priorite" value="gaming">Gaming</label>
+            <label><input type="checkbox" name="priorite" value="taille">Taille compacte</label>
+            <label><input type="checkbox" name="priorite" value="prix">Rapport qualité-prix</label>
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Voir les recommandations</button>
@@ -307,120 +306,15 @@
     </div>
   </section>
 
-  <section id="meilleurs-modeles" class="section">
-    <h2><span class="num">14</span> Les meilleurs modèles</h2>
-    <p>Trois profils bien distincts, chacun vérifié à la date indiquée sur sa fiche. Cette sélection s'élargira au fil des mises à jour du guide.</p>
 
-    
-    <article class="fiche" id="produit-galaxy-a56">
-      <div class="fiche-head">
-        <div>
-          <p class="fiche-name">Samsung Galaxy A56</p>
-          <p class="fiche-brand">Samsung</p>
-        </div>
-        <div class="fiche-price">
-          <span class="amount">≈ 300 €</span>
-          <span class="label">Prix généralement constaté, hors promotions ponctuelles.</span>
-        </div>
-      </div>
-      <div class="fiche-cols">
-        <div class="pour">
-          <h4>Points forts</h4>
-          <ul><li>Autonomie confortable</li><li>Écran AMOLED fluide (120 Hz)</li><li>Bonne résistance (IP67)</li></ul>
-        </div>
-        <div class="contre">
-          <h4>Points faibles</h4>
-          <ul><li>Pas de téléobjectif dédié</li><li>Photos en basse lumière perfectibles</li></ul>
-        </div>
-      </div>
-      <p class="fiche-ideal"><strong>Idéal pour :</strong> polyvalent, rapport qualité-prix, budget</p>
-      <div class="fiche-actions">
-        <a class="btn btn-primary" href="https://www.kimovil.com/fr/ou-acheter-samsung-galaxy-a56" target="_blank" rel="noopener">Comparer les caractéristiques sur Kimovil</a>
-        <a class="btn" href="https://www.idealo.fr/cat/19116/smartphones.html" target="_blank" rel="noopener">Comparer les prix sur Idealo</a>
-        <a class="btn" href="https://www.samsung.com/fr/smartphones/galaxy-a/galaxy-a56-5g/" target="_blank" rel="noopener">Fiche fabricant</a>
-      </div>
-    </article>
-    
-    <article class="fiche" id="produit-xiaomi-15t">
-      <div class="fiche-head">
-        <div>
-          <p class="fiche-name">Xiaomi 15T</p>
-          <p class="fiche-brand">Xiaomi</p>
-        </div>
-        <div class="fiche-price">
-          <span class="amount">≈ 430 €</span>
-          <span class="label">Prix généralement constaté, hors promotions ponctuelles.</span>
-        </div>
-      </div>
-      <div class="fiche-cols">
-        <div class="pour">
-          <h4>Points forts</h4>
-          <ul><li>Excellent rapport qualité-prix</li><li>Téléobjectif dédié (rare à ce prix)</li><li>Grosse batterie, charge rapide</li></ul>
-        </div>
-        <div class="contre">
-          <h4>Points faibles</h4>
-          <ul><li>Pas de charge sans fil</li><li>Surcouche HyperOS chargée en apps préinstallées</li></ul>
-        </div>
-      </div>
-      <p class="fiche-ideal"><strong>Idéal pour :</strong> rapport qualité-prix, photo, polyvalent</p>
-      <div class="fiche-actions">
-        <a class="btn btn-primary" href="https://www.kimovil.com/fr/ou-acheter-xiaomi-15t" target="_blank" rel="noopener">Comparer les caractéristiques sur Kimovil</a>
-        <a class="btn" href="https://www.idealo.fr/cat/19116/smartphones.html" target="_blank" rel="noopener">Comparer les prix sur Idealo</a>
-        <a class="btn" href="https://www.mi.com/fr/product/xiaomi-15t/" target="_blank" rel="noopener">Fiche fabricant</a>
-      </div>
-    </article>
-    
-    <article class="fiche" id="produit-iphone-17-pro">
-      <div class="fiche-head">
-        <div>
-          <p class="fiche-name">Apple iPhone 17 Pro</p>
-          <p class="fiche-brand">Apple</p>
-        </div>
-        <div class="fiche-price">
-          <span class="amount">≈ 1329 €</span>
-          <span class="label">Prix neuf constaté, modèle 256 Go.</span>
-        </div>
-      </div>
-      <div class="fiche-cols">
-        <div class="pour">
-          <h4>Points forts</h4>
-          <ul><li>Suivi logiciel très long (6-7 ans)</li><li>Vidéo et photo de référence</li><li>Écosystème Apple intégré</li></ul>
-        </div>
-        <div class="contre">
-          <h4>Points faibles</h4>
-          <ul><li>Prix élevé</li><li>Chargeur non fourni</li><li>Recharge moins rapide que la concurrence Android</li></ul>
-        </div>
-      </div>
-      <p class="fiche-ideal"><strong>Idéal pour :</strong> photo, performance, durée de vie</p>
-      <div class="fiche-actions">
-        <a class="btn btn-primary" href="https://www.kimovil.com/fr/ou-acheter-apple-iphone-17-pro" target="_blank" rel="noopener">Comparer les caractéristiques sur Kimovil</a>
-        <a class="btn" href="https://www.idealo.fr/cat/19116/smartphones.html" target="_blank" rel="noopener">Comparer les prix sur Idealo</a>
-        <a class="btn" href="https://www.apple.com/fr/iphone-17-pro/" target="_blank" rel="noopener">Fiche fabricant</a>
-      </div>
-    </article>
-    
-  </section>
-
-  <section id="modeles-eviter" class="section">
-    <h2><span class="num">15</span> Les modèles à éviter</h2>
-    <p>Plutôt qu'une liste de modèles précis (qui change trop vite pour rester fiable), voici les signaux d'alerte à repérer sur n'importe quelle fiche technique :</p>
+  <section id="ou-comparer" class="section compare-section">
+    <h2><span class="num">14</span> Comparer les modèles</h2>
+    <p>Une fois quelques modèles identifiés grâce à ce guide, mettez-les côte à côte ici avant de vérifier leurs caractéristiques et leurs prix sur les sources externes.</p>
     <ul>
-      <li>Un processeur déjà ancien vendu au prix d'un modèle récent, sans réduction correspondante.</li>
-      <li>Aucune certification IP mentionnée sur un modèle haut de gamme.</li>
-      <li>Moins de 128 Go de stockage sans option d'extension par carte microSD.</li>
-      <li>Aucun engagement clair du fabricant sur le nombre d'années de mises à jour.</li>
-      <li>Un nombre de mégapixels mis en avant sans aucune information sur la taille du capteur.</li>
+      <li><strong>Kimovil</strong> pour vérifier les caractéristiques précises entre plusieurs modèles.</li>
+      <li><strong>Idealo</strong> pour vérifier les prix chez différents revendeurs.</li>
     </ul>
-  </section>
-
-  <section id="ou-comparer" class="section">
-    <h2><span class="num">16</span> Où comparer</h2>
-    <p>Une fois un modèle identifié grâce à ce guide, deux étapes avant d'acheter :</p>
-    <ul>
-      <li><strong>Kimovil</strong> pour comparer les caractéristiques précises entre plusieurs modèles.</li>
-      <li><strong>Idealo</strong> pour comparer les prix chez différents revendeurs et repérer le meilleur moment pour acheter.</li>
-    </ul>
-    <p>Ce site ne récupère ni ne stocke les prix de ces plateformes : les boutons des fiches produits ci-dessus renvoient directement vers elles.</p>
+    <p>Le comparateur ci-dessous fonctionne localement avec les données du guide. Il ne récupère ni ne stocke les prix des plateformes externes.</p>
 
     <div class="tool-box" id="comparateur" data-category="smartphones">
       <h3>Comparateur local</h3>

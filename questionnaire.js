@@ -58,6 +58,11 @@
     var carte = document.createElement("article");
     carte.className = "fiche result-fiche";
 
+    var visual = document.createElement("div");
+    visual.className = "result-visual";
+    visual.innerHTML = '<span class="result-visual-index">' + String(rang + 1).padStart(2, "0") + '</span><span class="result-visual-brand">' + (produit.marque || "") + '</span><span class="result-visual-device" aria-hidden="true"></span>';
+    carte.appendChild(visual);
+
     var head = document.createElement("div");
     head.className = "fiche-head";
     var identite = document.createElement("div");
