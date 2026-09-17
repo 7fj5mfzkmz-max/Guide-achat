@@ -10,8 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
 </head>
-<body class="">
+<body class="site-redesign">
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="brand-logo" aria-label="Guide d’achat — accueil">
@@ -74,6 +75,18 @@
   <span class="eyebrow">Smartphones</span>
 </div>
 
+<div class="container article-hero-stage">
+  <div class="article-hero-copy">
+    <span class="eyebrow">Le guide en pratique</span>
+    <h1>Comprendre un smartphone avant de regarder les chiffres.</h1>
+    <p>Un parcours visuel pour passer du besoin réel aux caractéristiques, puis aux modèles et au prix.</p>
+  </div>
+  <div class="article-hero-visual media-slot" data-media-slot="smartphone-hero" aria-label="Emplacement réservé à une photo ou illustration d'un smartphone">
+    <div class="media-phone-stack"><span></span><i></i></div>
+    <span class="media-slot-note">Photo / illustration à remplacer</span>
+  </div>
+</div>
+
 <div class="container article-header">
   <h1>Guide complet des smartphones : comment bien choisir en 2026</h1>
   <p class="article-meta">Mis à jour le 2026-09 — 3 produits actuellement sélectionnés dans cette catégorie</p>
@@ -108,7 +121,7 @@
     </ol>
   </nav>
 
-  <div class="chapter-illustration chapter-illustration-intro" aria-hidden="true">
+  <div class="chapter-illustration media-illustration chapter-illustration-intro" aria-hidden="true">
     <svg viewBox="0 0 200 130" focusable="false">
       <rect class="ci-phone" x="70" y="18" width="60" height="104" rx="14"/>
       <rect class="ci-phone-screen" x="78" y="32" width="44" height="76" rx="3"/>
@@ -283,7 +296,8 @@
         <div class="quiz-field">
           <span class="q-label">Budget</span>
           <div class="quiz-options">
-            <label><input type="radio" name="budget" value="moins-200">moins de 200 €</label>
+            <label><input type="radio" name="budget" value="moins-100">moins de 100 €</label>
+            <label><input type="radio" name="budget" value="100-200">100–200 €</label>
             <label><input type="radio" name="budget" value="200-300">200–300 €</label>
             <label><input type="radio" name="budget" value="300-500">300–500 €</label>
             <label><input type="radio" name="budget" value="500-700">500–700 €</label>

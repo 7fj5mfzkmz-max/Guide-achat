@@ -550,6 +550,596 @@
       "fabricant_url": "",
       "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
       "date_verification": null
+    },
+    {
+      "id": "galaxy-a17-5g",
+      "nom": "Samsung Galaxy A17 5G",
+      "marque": "Samsung",
+      "prix_indicatif": 199,
+      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Samsung Galaxy A17 5G",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "redmi-note-15-4g",
+      "nom": "Xiaomi Redmi Note 15 4G",
+      "marque": "Xiaomi",
+      "prix_indicatif": 199,
+      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi Note 15 4G",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "redmi-note-15-5g",
+      "nom": "Xiaomi Redmi Note 15 5G",
+      "marque": "Xiaomi",
+      "prix_indicatif": 143,
+      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi Note 15 5G",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "realme-p3-5g",
+      "nom": "realme P3 5G",
+      "marque": "realme",
+      "prix_indicatif": null,
+      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du realme P3 5G",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "realme-c67",
+      "nom": "realme C67",
+      "marque": "realme",
+      "prix_indicatif": 151,
+      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du realme C67",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "redmi-15c",
+      "nom": "Xiaomi Redmi 15C",
+      "marque": "Xiaomi",
+      "prix_indicatif": 153,
+      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi 15C",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "realme-c75",
+      "nom": "realme C75",
+      "marque": "realme",
+      "prix_indicatif": 169,
+      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du realme C75",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "redmi-note-14-5g",
+      "nom": "Xiaomi Redmi Note 14 5G",
+      "marque": "Xiaomi",
+      "prix_indicatif": null,
+      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi Note 14 5G",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "moto-g55-5g",
+      "nom": "Motorola Moto G55 5G",
+      "marque": "Motorola",
+      "prix_indicatif": null,
+      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Motorola Moto G55 5G",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "honor-400-lite",
+      "nom": "HONOR 400 Lite",
+      "marque": "HONOR",
+      "prix_indicatif": null,
+      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du HONOR 400 Lite",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "poco-c85",
+      "nom": "POCO C85",
+      "marque": "POCO",
+      "prix_indicatif": null,
+      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du POCO C85",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "redmi-note-11s",
+      "nom": "Xiaomi Redmi Note 11S",
+      "marque": "Xiaomi",
+      "prix_indicatif": null,
+      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi Note 11S",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "galaxy-a23-5g",
+      "nom": "Samsung Galaxy A23 5G",
+      "marque": "Samsung",
+      "prix_indicatif": null,
+      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Samsung Galaxy A23 5G",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "moto-g06-power",
+      "nom": "Motorola Moto G06 Power",
+      "marque": "Motorola",
+      "prix_indicatif": null,
+      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Motorola Moto G06 Power",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "moto-g06",
+      "nom": "Motorola Moto G06",
+      "marque": "Motorola",
+      "prix_indicatif": 90,
+      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Motorola Moto G06",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "blackview-shark-8",
+      "nom": "Blackview Shark 8",
+      "marque": "Blackview",
+      "prix_indicatif": 86,
+      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Blackview Shark 8",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "zte-blade-v70-vita",
+      "nom": "ZTE Blade V70 Vita",
+      "marque": "ZTE",
+      "prix_indicatif": 92,
+      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du ZTE Blade V70 Vita",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "redmi-a5",
+      "nom": "Xiaomi Redmi A5",
+      "marque": "Xiaomi",
+      "prix_indicatif": 98,
+      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi A5",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "poco-c71",
+      "nom": "POCO C71",
+      "marque": "POCO",
+      "prix_indicatif": 81,
+      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du POCO C71",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "redmi-a3",
+      "nom": "Xiaomi Redmi A3",
+      "marque": "Xiaomi",
+      "prix_indicatif": 99,
+      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi A3",
+      "idealo_url": "",
+      "kimovil_url": ""
     }
-  ]
+  ],
+  "catalogue_meta": {
+    "derniere_verification": "2026-09-17",
+    "note": "Les prix indicatifs sont des repères de catalogue, pas des prix garantis. Vérifier l'offre, la version, le vendeur et le marché avant publication.",
+    "sources": [
+      "Frandroid",
+      "Les Numériques",
+      "JVTECH",
+      "Kimovil"
+    ]
+  }
 }

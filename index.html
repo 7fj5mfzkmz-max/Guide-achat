@@ -10,8 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=Caveat:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
 </head>
-<body class="home-body">
+<body class="home-body site-redesign">
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="brand-logo" aria-label="Guide d’achat, accueil">
@@ -79,6 +80,18 @@
         <h1>Comprendre, comparer, choisir en toute simplicité</h1>
         <p class="hero-lead">Pas besoin de s'y connaître : on vous aide à comprendre l'essentiel, trouver ce qui vous correspond et faire votre choix.</p>
       </div>
+      <div class="hero-media-stage" aria-hidden="true">
+        <div class="media-grid-line"></div>
+        <div class="media-device media-device-back"></div>
+        <div class="media-device media-device-front">
+          <span class="media-device-screen"></span>
+          <span class="media-device-camera"></span>
+        </div>
+        <span class="media-float-tag media-float-a">COMPRENDRE</span>
+        <span class="media-float-tag media-float-b">COMPARER</span>
+        <span class="media-float-dot"></span>
+        <span class="media-slot-note">Photo / illustration à placer ici</span>
+      </div>
       <div class="hero-aside" aria-hidden="true">
         <svg class="hero-illustration" viewBox="0 0 320 320" focusable="false">
           <circle class="hi-orbit" cx="230" cy="95" r="72"/>
@@ -119,7 +132,11 @@
     <div class="cat-grid">
       
         
-        <a class="cat-card cat-card-featured" href="smartphones.html">
+        <a class="cat-card cat-card-featured cat-card-visual" href="smartphones.html">
+          <div class="cat-card-media" aria-hidden="true">
+            <div class="cat-phone-mock"><span></span></div>
+            <span class="cat-media-caption">Photo produit / illustration</span>
+          </div>
           <div class="cat-card-top"><span class="cat-index">01</span><span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="cat-svg"><rect x="6" y="3" width="12" height="18" rx="3"/><line x1="10" y1="18.3" x2="14" y2="18.3"/></svg></span></div>
           <h3>Smartphones</h3>
           <p>Processeur, écran, photo, batterie : comprendre avant de choisir.</p>

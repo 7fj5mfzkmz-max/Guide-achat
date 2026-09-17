@@ -11,6 +11,8 @@
   var MAX_PRIORITES = 3;
   var CRITERES = ["performance", "autonomie", "photo", "prix", "gaming", "taille"];
   var BUDGET_BANDS = {
+    "moins-100": { min: 0, max: 100 },
+    "100-200": { min: 100, max: 200 },
     "moins-200": { min: 0, max: 200 },
     "200-300": { min: 200, max: 300 },
     "300-500": { min: 300, max: 500 },

@@ -11,7 +11,9 @@
   var products = [];
 
   var GROUPS = [
-    { id: "moins-300", label: "Moins de 300 €", test: function (p) { return typeof p.prix_indicatif === "number" && p.prix_indicatif < 300; } },
+    { id: "moins-100", label: "Moins de 100 €", test: function (p) { return typeof p.prix_indicatif === "number" && p.prix_indicatif < 100; } },
+    { id: "100-200", label: "100 à 200 €", test: function (p) { return typeof p.prix_indicatif === "number" && p.prix_indicatif >= 100 && p.prix_indicatif < 200; } },
+    { id: "200-300", label: "200 à 300 €", test: function (p) { return typeof p.prix_indicatif === "number" && p.prix_indicatif >= 200 && p.prix_indicatif < 300; } },
     { id: "300-500", label: "300 à 500 €", test: function (p) { return typeof p.prix_indicatif === "number" && p.prix_indicatif >= 300 && p.prix_indicatif < 500; } },
     { id: "500-700", label: "500 à 700 €", test: function (p) { return typeof p.prix_indicatif === "number" && p.prix_indicatif >= 500 && p.prix_indicatif < 700; } },
     { id: "700-plus", label: "700 € et plus", test: function (p) { return typeof p.prix_indicatif === "number" && p.prix_indicatif >= 700; } },
