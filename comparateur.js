@@ -22,7 +22,9 @@
     if (params) ids=params.split(",").filter(Boolean);
     return ids.slice(0,MAX_SELECTION);
   }
-  function saveSelection(ids) { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(ids.slice(0,MAX_SELECTION))); }
+  function saveSelection(ids) {
+    try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(ids.slice(0,MAX_SELECTION))); } catch(e) {}
+  }
   function idsSelectionnes() { return Array.prototype.slice.call(picker.querySelectorAll("input:checked")).map(function(i){return i.value;}); }
 
   function construirePicker(initial) {

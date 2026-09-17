@@ -1720,3 +1720,64 @@ html.dark-theme .search-field { background:var(--surface-soft); }
 @media (prefers-reduced-motion: reduce) {
   .site-redesign *, .site-redesign *::before, .site-redesign *::after { scroll-behavior:auto !important; animation:none !important; transition:none !important; }
 }
+
+
+/* =========================================================
+   FINAL HARMONIZATION v10
+   Consolidates the latest visual direction without replacing it.
+   ========================================================= */
+
+/* Prevent layout layers from creating accidental horizontal overflow. */
+html, body { max-width:100%; overflow-x:hidden; }
+.site-redesign img, .site-redesign svg, .site-redesign video,
+.site-redesign iframe { max-width:100%; }
+.site-redesign .container,
+.site-redesign .header-inner { min-width:0; }
+
+/* Keep the mobile utility above editorial content, but below the drawer. */
+.site-redesign .mobile-fab-wrap { z-index:90; }
+.site-redesign .mobile-drawer { z-index:200; }
+.site-redesign .drawer-sheet { max-height:min(88vh, 760px); overflow:auto; }
+
+/* Sticky lexicon navigation must never cover the header. */
+.site-redesign .lexique-nav { z-index:40; }
+@media (max-width:800px) {
+  .site-redesign .lexique-nav {
+    top:58px;
+    max-width:100%;
+    scrollbar-width:none;
+  }
+  .site-redesign .lexique-nav::-webkit-scrollbar { display:none; }
+
+  .site-redesign .hero-media-stage,
+  .site-redesign .article-hero-stage,
+  .site-redesign .lexique-visual-intro,
+  .site-redesign .lex-entry,
+  .site-redesign .cat-grid,
+  .site-redesign .result-detail-grid {
+    min-width:0;
+    width:100%;
+    max-width:100%;
+  }
+
+  .site-redesign .cat-card-featured h3,
+  .site-redesign .cat-card-featured p,
+  .site-redesign .cat-card-featured .cat-link,
+  .site-redesign .cat-card-featured .cat-card-top {
+    overflow-wrap:anywhere;
+  }
+
+  .site-redesign .compare-picker,
+  .site-redesign .table-wrap {
+    max-width:100%;
+  }
+
+  .site-redesign .table-wrap { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-redesign [data-reveal] {
+    opacity:1 !important;
+    transform:none !important;
+  }
+}

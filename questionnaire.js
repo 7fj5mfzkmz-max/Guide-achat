@@ -48,8 +48,32 @@
     var bande = BUDGET_BANDS[bandeId];
     if (!bande) return produits;
     return produits.filter(function (p) {
-      return p.prix_indicatif >= bande.min && (bande.max === null || p.prix_indicatif <= bande.max);
+      return p.prix_indicatif >= bande.min && (bande.max === null || p.prix_indicatif < bande.max);
     });
+  }
+
+  function texteProduit(produit) {
+    return JSON.stringify(produit || {}).toLowerCase();
+  }
+
+  function correspondTaille(produit, choix) {
+    if (!choix || choix === "indifferent") return true;
+    var score = produit.scores && typeof produit.scores.taille === "number" ? produit.scores.taille : null;
+    if (score === null) return true;
+    if (choix === "compact") return score >= 8;
+    if (choix === "standard") return score >= 5 && score < 8;
+    if (choix === "grand") return score < 5;
+    return true;
+  }
+
+  function correspondIndispensable(produit, choix) {
+    if (!choix || choix === "aucune") return true;
+    var t = texteProduit(produit);
+    if (choix === "nfc") return /nfc|sans contact/.test(t);
+    if (choix === "esim") return /esim/.test(t);
+    if (choix === "ip") return /ip6[5678]|ip5[234]/.test(t);
+    if (choix === "sans-fil") return /recharge sans fil|charge sans fil|qi|magsafe/.test(t);
+    return true;
   }
 
   function ajouterComparaison(id) {
@@ -146,13 +170,18 @@
     var data=new FormData(form);
     var budget=data.get("budget");
     var priorites=data.getAll("priorite").slice(0,MAX_PRIORITES);
+    var tailleUsage=data.get("taille_usage");
+    var indispensable=data.get("indispensable");
     if (!budget || !priorites.length) {
       resultsBox.innerHTML='<p class="hint">Choisissez un budget et au moins une priorité (jusqu’à 3) pour obtenir vos recommandations.</p>';
       return;
     }
     resultsBox.innerHTML='<p class="hint">Recherche des modèles adaptés…</p>';
     chargerProduits().then(function(produits){
-      afficherResultats(filtrerParBudget(produits,budget),priorites);
+      var candidats = filtrerParBudget(produits,budget).filter(function (p) {
+        return correspondTaille(p, tailleUsage) && correspondIndispensable(p, indispensable);
+      });
+      afficherResultats(candidats,priorites);
     }).catch(function(err){
       resultsBox.innerHTML='<p class="hint">Le questionnaire n’a pas pu charger les données produits ('+err.message+').</p>';
     });

@@ -18,6 +18,49 @@
     <nav class="site-nav" aria-label="Catégories"><a href="smartphones.html">Smartphones</a><a href="pc-portables.html">PC portables</a><a href="batteries.html">Batteries</a><a href="ecouteurs.html">Écouteurs</a><a href="montres.html">Montres</a><a href="projecteurs.html">Projecteurs</a></nav>
   </div></header>
 
+  <div class="mobile-fab-wrap" aria-label="Outils du guide">
+    <button id="mobile-fab" class="mobile-fab" type="button" aria-label="Ouvrir les outils du guide" aria-expanded="false">
+      <span class="fab-icon" aria-hidden="true">⌕</span>
+    </button>
+  </div>
+
+  <section id="mobile-drawer" class="mobile-drawer" hidden aria-label="Outils du guide">
+    <button id="drawer-backdrop" class="drawer-backdrop" type="button" aria-label="Fermer les outils"></button>
+    <div class="drawer-sheet" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+      <div class="drawer-handle" aria-hidden="true"></div>
+      <div class="drawer-head">
+        <div>
+          <span class="drawer-kicker">GUIDE·ACHAT</span>
+          <h2 id="drawer-title">Outils</h2>
+        </div>
+        <button id="drawer-close" class="drawer-close" type="button" aria-label="Fermer">×</button>
+      </div>
+      <nav class="drawer-nav" aria-label="Catégories">
+        <span class="drawer-nav-label">Catégories</span>
+        <a href="smartphones.html">Smartphones</a>
+        <a href="pc-portables.html">PC portables</a>
+        <a href="batteries.html">Batteries</a>
+        <a href="ecouteurs.html">Écouteurs</a>
+        <a href="montres.html">Montres</a>
+        <a href="projecteurs.html">Projecteurs</a>
+      </nav>
+      <div class="drawer-search">
+        <label class="drawer-search-field">
+          <span aria-hidden="true">⌕</span>
+          <input id="site-search-input" type="search" autocomplete="off" placeholder="Rechercher dans le guide…">
+        </label>
+        <div id="site-search-results" class="site-search-results"><p class="search-empty">Recherchez une caractéristique, un usage ou un modèle.</p></div>
+      </div>
+      <button id="theme-toggle" class="drawer-action" type="button" aria-pressed="false">
+        <span class="drawer-action-icon" aria-hidden="true">◐</span>
+        <span><strong>Thème sombre</strong><small>Adapter automatiquement les couleurs à la lecture de nuit</small></span>
+        <span class="drawer-switch" aria-hidden="true"></span>
+      </button>
+    </div>
+  </section>
+
+  
+
   <main id="main"><div class="container">
     <nav class="breadcrumb"><a href="index.html">Accueil</a> / Comprendre les mots techniques</nav>
     <span class="eyebrow">Comprendre</span>

@@ -642,8 +642,8 @@
       "id": "realme-p3-5g",
       "nom": "realme P3 5G",
       "marque": "realme",
-      "prix_indicatif": null,
-      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "prix_indicatif": 190,
+      "prix_note": "Prix indicatif relevé le 17/09/2026 ; variable selon version, vendeur et marché.",
       "tranche_prix": "100-200",
       "ready_for_recommendation": false,
       "caracteristiques": {
@@ -665,7 +665,8 @@
       "image_url": "",
       "image_alt": "Illustration du realme P3 5G",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09-17"
     },
     {
       "id": "realme-c67",
@@ -816,8 +817,8 @@
       "id": "honor-400-lite",
       "nom": "HONOR 400 Lite",
       "marque": "HONOR",
-      "prix_indicatif": null,
-      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "prix_indicatif": 184,
+      "prix_note": "Prix indicatif relevé le 17/09/2026 ; variable selon version, vendeur et marché.",
       "tranche_prix": "100-200",
       "ready_for_recommendation": false,
       "caracteristiques": {
@@ -839,14 +840,15 @@
       "image_url": "",
       "image_alt": "Illustration du HONOR 400 Lite",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09-17"
     },
     {
       "id": "poco-c85",
       "nom": "POCO C85",
       "marque": "POCO",
-      "prix_indicatif": null,
-      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "prix_indicatif": 127,
+      "prix_note": "Prix indicatif relevé le 17/09/2026 ; variable selon version, vendeur et marché.",
       "tranche_prix": "moins-100",
       "ready_for_recommendation": false,
       "caracteristiques": {
@@ -868,7 +870,8 @@
       "image_url": "",
       "image_alt": "Illustration du POCO C85",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09-17"
     },
     {
       "id": "redmi-note-11s",
@@ -932,8 +935,8 @@
       "id": "moto-g06-power",
       "nom": "Motorola Moto G06 Power",
       "marque": "Motorola",
-      "prix_indicatif": null,
-      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "prix_indicatif": 105,
+      "prix_note": "Prix indicatif relevé le 17/09/2026 ; variable selon version, vendeur et marché.",
       "tranche_prix": "moins-100",
       "ready_for_recommendation": false,
       "caracteristiques": {
@@ -955,7 +958,8 @@
       "image_url": "",
       "image_alt": "Illustration du Motorola Moto G06 Power",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09-17"
     },
     {
       "id": "moto-g06",
@@ -1130,6 +1134,120 @@
       "image_alt": "Illustration du Xiaomi Redmi A3",
       "idealo_url": "",
       "kimovil_url": ""
+    },
+    {
+      "id": "samsung-galaxy-a06",
+      "nom": "Samsung Galaxy A06",
+      "marque": "Samsung",
+      "prix_indicatif": 94,
+      "prix_note": "Prix indicatif relevé le 17/09/2026 ; variable selon version, vendeur et marché.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-samsung-galaxy-a06",
+      "fabricant_url": "",
+      "date_verification": "2026-09-17",
+      "ready_for_recommendation": false
+    },
+    {
+      "id": "xiaomi-redmi-a7-prointernational-4gb-64gb",
+      "nom": "Xiaomi Redmi A7 Pro",
+      "marque": "Xiaomi",
+      "prix_indicatif": 92,
+      "prix_note": "Prix indicatif relevé le 17/09/2026 ; variable selon version, vendeur et marché.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-xiaomi-redmi-a7-prointernational-4gb-64gb",
+      "fabricant_url": "",
+      "date_verification": "2026-09-17",
+      "ready_for_recommendation": false
+    },
+    {
+      "id": "doogee-note-56-pro",
+      "nom": "Doogee Note 56 Pro",
+      "marque": "Doogee",
+      "prix_indicatif": 99,
+      "prix_note": "Prix indicatif relevé le 17/09/2026 ; variable selon version, vendeur et marché.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-doogee-note-56-pro",
+      "fabricant_url": "",
+      "date_verification": "2026-09-17",
+      "ready_for_recommendation": false
+    },
+    {
+      "id": "samsung-galaxy-a05",
+      "nom": "Samsung Galaxy A05",
+      "marque": "Samsung",
+      "prix_indicatif": 85,
+      "prix_note": "Prix indicatif relevé le 17/09/2026 ; variable selon version, vendeur et marché.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-samsung-galaxy-a05",
+      "fabricant_url": "",
+      "date_verification": "2026-09-17",
+      "ready_for_recommendation": false
+    },
+    {
+      "id": "xiaomi-redmi-17",
+      "nom": "Xiaomi Redmi 17 4G",
+      "marque": "Xiaomi",
+      "prix_indicatif": 143,
+      "prix_note": "Prix indicatif relevé le 17/09/2026 ; variable selon version, vendeur et marché.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-xiaomi-redmi-17",
+      "fabricant_url": "",
+      "date_verification": "2026-09-17",
+      "ready_for_recommendation": false
+    },
+    {
+      "id": "xiaomi-redmi-17-5g",
+      "nom": "Xiaomi Redmi 17 5G",
+      "marque": "Xiaomi",
+      "prix_indicatif": 168,
+      "prix_note": "Prix indicatif relevé le 17/09/2026 ; variable selon version, vendeur et marché.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-xiaomi-redmi-17-5g",
+      "fabricant_url": "",
+      "date_verification": "2026-09-17",
+      "ready_for_recommendation": false
     }
   ],
   "catalogue_meta": {
@@ -1141,5 +1259,9 @@
       "JVTECH",
       "Kimovil"
     ]
+  },
+  "meta": {
+    "catalogue_price_reference_date": "2026-09-17",
+    "price_reference_note": "Prix indicatifs ; vérifier le vendeur, la version et le marché avant publication."
   }
 }
