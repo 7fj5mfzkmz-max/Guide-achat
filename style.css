@@ -1781,3 +1781,46 @@ html, body { max-width:100%; overflow-x:hidden; }
     transform:none !important;
   }
 }
+
+/* =========================================================
+   Story sections — grande illustration + texte + repères,
+   inspiré d'un principe de site vitrine à défilement (une
+   caractéristique = une scène), adapté en sobre pour un guide.
+   ========================================================= */
+.story-section { margin:3.5rem 0; }
+.story-crumb { margin:0 0 .75rem; font:700 .72rem var(--font-body); letter-spacing:.1em; text-transform:uppercase; color:var(--accent-dark); }
+.story-media {
+  border-radius:22px;
+  background:linear-gradient(160deg,var(--accent-soft),var(--surface-soft));
+  display:flex; align-items:center; justify-content:center;
+  padding:2rem;
+  overflow:hidden;
+}
+.story-illustration { width:100%; max-width:340px; height:auto; }
+.si-batt-body,.si-screen-frame { fill:var(--surface); stroke:var(--ink); stroke-width:3; }
+.si-batt-nub { fill:var(--ink); }
+.si-batt-fill { fill:var(--accent); }
+.si-batt-bolt { fill:var(--ink); }
+.si-screen-panel { fill:var(--ink); }
+.si-pixel-grid circle { fill:var(--accent); }
+.si-lens-big { fill:none; stroke:var(--ink); stroke-width:3.5; }
+.si-lens-big-inner { fill:var(--ink); }
+
+.story-grid { display:grid; grid-template-columns:1.3fr 1fr; gap:1.75rem; margin-top:1.5rem; align-items:start; }
+.story-copy h3 { margin:0 0 .6rem; font-size:clamp(1.3rem,2.6vw,1.7rem); }
+.story-navigate {
+  background:var(--ink); color:#fffdf8;
+  border-radius:18px; padding:1.4rem 1.5rem;
+}
+.story-navigate-head { display:block; font:700 .68rem var(--font-body); letter-spacing:.1em; text-transform:uppercase; color:var(--accent-light,#e6c889); margin-bottom:1rem; }
+.story-stats { display:flex; gap:1.5rem; margin-bottom:1rem; flex-wrap:wrap; }
+.story-stats div { display:flex; flex-direction:column; }
+.story-stats b { font-family:var(--font-display); font-size:1.8rem; line-height:1; }
+.story-stats span { font-size:.68rem; color:rgba(255,253,248,.7); margin-top:.25rem; max-width:8rem; }
+.story-navigate p { margin:0; font-size:.85rem; color:rgba(255,253,248,.82); border-top:1px solid rgba(255,253,248,.18); padding-top:.9rem; }
+
+@media (max-width: 760px) {
+  .story-grid { grid-template-columns:1fr; }
+  .story-media { padding:1.25rem; }
+  .story-illustration { max-width:230px; }
+}

@@ -1,14 +1,11 @@
-# Guide·Achat — version harmonisée v10
+# Guide·Achat — v11 harmonisée
 
-Version statique destinée à GitHub Pages.
+Base complète issue de la version visuelle v9 + audit Claude + story sections batterie/écran.
 
-Cette version réunit :
-- la direction visuelle éditoriale v9 ;
-- les corrections structurelles issues de l'audit Claude ;
-- le tiroir mobile également présent sur le lexique ;
-- le questionnaire avec budget, taille et fonction indispensable réellement pris en compte ;
-- la transmission questionnaire → comparateur via sessionStorage ;
-- le catalogue low-cost actualisé au 17 septembre 2026 ;
-- une couche finale de compatibilité responsive sans recréer un nouveau design system.
-
-Les prix sont indicatifs et doivent être revérifiés avant publication commerciale.
+Principes :
+- ne pas empiler de nouvelles couches graphiques sans audit ;
+- conserver les textes éditoriaux de l'auteur ;
+- mobile/iPhone prioritaire ;
+- illustrations et animations comme supports pédagogiques ;
+- GSAP comme référence d'animation du projet ;
+- smartphones.json comme source centrale des données.

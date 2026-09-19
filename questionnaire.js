@@ -52,9 +52,7 @@
     });
   }
 
-  function texteProduit(produit) {
-    return JSON.stringify(produit || {}).toLowerCase();
-  }
+  function texteProduit(produit) { return JSON.stringify(produit || {}).toLowerCase(); }
 
   function correspondTaille(produit, choix) {
     if (!choix || choix === "indifferent") return true;
@@ -169,18 +167,16 @@
     event.preventDefault();
     var data=new FormData(form);
     var budget=data.get("budget");
-    var priorites=data.getAll("priorite").slice(0,MAX_PRIORITES);
     var tailleUsage=data.get("taille_usage");
     var indispensable=data.get("indispensable");
+    var priorites=data.getAll("priorite").slice(0,MAX_PRIORITES);
     if (!budget || !priorites.length) {
       resultsBox.innerHTML='<p class="hint">Choisissez un budget et au moins une priorité (jusqu’à 3) pour obtenir vos recommandations.</p>';
       return;
     }
     resultsBox.innerHTML='<p class="hint">Recherche des modèles adaptés…</p>';
     chargerProduits().then(function(produits){
-      var candidats = filtrerParBudget(produits,budget).filter(function (p) {
-        return correspondTaille(p, tailleUsage) && correspondIndispensable(p, indispensable);
-      });
+      var candidats = filtrerParBudget(produits,budget).filter(function(p){ return correspondTaille(p,tailleUsage) && correspondIndispensable(p,indispensable); });
       afficherResultats(candidats,priorites);
     }).catch(function(err){
       resultsBox.innerHTML='<p class="hint">Le questionnaire n’a pas pu charger les données produits ('+err.message+').</p>';
