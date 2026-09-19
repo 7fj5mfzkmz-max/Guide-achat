@@ -121,6 +121,13 @@
     </ol>
   </nav>
 
+  <nav class="story-nav-strip" aria-label="Accès rapide aux sections illustrées">
+    <a href="#batterie">🔋 Batterie</a>
+    <a href="#ecran">📱 Écran</a>
+    <a href="#ram">🧠 RAM</a>
+    <a href="#photo">📷 Photo</a>
+  </nav>
+
   <div class="chapter-illustration media-illustration chapter-illustration-intro" aria-hidden="true">
     <svg viewBox="0 0 200 130" focusable="false">
       <rect class="ci-phone" x="70" y="18" width="60" height="104" rx="14"/>
@@ -187,16 +194,38 @@
     <p><strong>Est-ce important pour vous ?</strong> Beaucoup, si vous jouez ou gardez votre téléphone longtemps ; moins, pour un usage strictement appels/messages/réseaux sociaux, où même un processeur d'entrée de gamme récent suffit.</p>
   </section>
 
-  <section id="ram" class="section">
-    <h2><span class="num">05</span> La RAM</h2>
-    <p><strong>Qu'est-ce que c'est ?</strong> La mémoire vive : elle garde en attente les applications déjà ouvertes.</p>
-    <p><strong>À quoi ça sert ?</strong> Plus il y en a, plus vous pouvez revenir instantanément à une application déjà utilisée sans qu'elle ait besoin de recharger.</p>
-    <p><strong>Est-ce important pour vous ?</strong> 8 Go est un minimum confortable en 2026 ; 12 Go apporte un vrai confort si vous jonglez entre beaucoup d'applications ou faites du multitâche intensif. Au-delà, le gain devient marginal pour un usage courant.</p>
-  </section>
+  <div class="story-section" id="ram">
+    <p class="story-crumb">Chapitre II</p>
+    <div class="story-media" aria-hidden="true">
+      <svg class="story-illustration" viewBox="0 0 400 260" focusable="false">
+        <rect class="si-app-card" x="60" y="120" width="110" height="90" rx="14"/>
+        <rect class="si-app-card" x="145" y="80" width="110" height="90" rx="14"/>
+        <rect class="si-app-card si-app-card-active" x="230" y="40" width="110" height="90" rx="14"/>
+        <line class="si-app-line" x1="80" y1="145" x2="150" y2="145"/><line class="si-app-line" x1="80" y1="165" x2="130" y2="165"/>
+        <line class="si-app-line" x1="165" y1="105" x2="235" y2="105"/><line class="si-app-line" x1="165" y1="125" x2="215" y2="125"/>
+        <line class="si-app-line si-app-line-active" x1="250" y1="65" x2="320" y2="65"/><line class="si-app-line si-app-line-active" x1="250" y1="85" x2="300" y2="85"/>
+      </svg>
+    </div>
+    <div class="story-grid">
+      <div class="story-copy">
+        <h3>La RAM</h3>
+        <p><strong>Qu'est-ce que c'est ?</strong> La mémoire vive : elle garde en attente les applications déjà ouvertes, comme plusieurs fenêtres laissées telles quelles sur un bureau.</p>
+        <p><strong>Est-ce important pour vous ?</strong> 8 Go est un minimum confortable en 2026 ; 12 Go apporte un vrai confort si vous jonglez entre beaucoup d'applications. Au-delà, le gain devient marginal pour un usage courant.</p>
+      </div>
+      <div class="story-navigate">
+        <span class="story-navigate-head">Repère</span>
+        <div class="story-stats">
+          <div><b>8</b><span>Go, minimum confortable</span></div>
+          <div><b>12</b><span>Go, confort multitâche</span></div>
+        </div>
+        <p>Plus il y a de RAM, plus vous revenez instantanément à une application déjà ouverte sans qu'elle ait besoin de recharger.</p>
+      </div>
+    </div>
+  </div>
 
   <section id="stockage" class="section">
     <h2><span class="num">06</span> Le stockage</h2>
-    <p><strong>Qu'est-ce que c'est ?</strong> L'espace disponible pour vos photos, vidéos, applications et fichiers.</p>
+    <p><strong>Qu'est-ce que c'est ?</strong> L'espace disponible pour vos photos, vidéos, applications et fichiers — un tiroir de rangement, différent de la RAM qui elle ne fait que garder les applications en attente.</p>
     <p><strong>À quoi ça sert ?</strong> Une fois plein, le téléphone ralentit et vous empêche d'installer ou de mettre à jour des applications.</p>
     <p><strong>Est-ce important pour vous ?</strong> 128 Go convient à un usage léger ; 256 Go est le choix le plus sûr si vous filmez beaucoup ou gardez le téléphone longtemps. Vérifiez qu'une carte microSD est acceptée si vous comptez sur du stockage extensible, de moins en moins de modèles le proposent.</p>
   </section>
@@ -275,16 +304,34 @@
     </div>
   </section>
 
-  <section id="photo" class="section">
-    <h2><span class="num">10</span> La photo</h2>
-    <p><strong>Qu'est-ce que c'est ?</strong> Le nombre de mégapixels (Mpx) indique combien de points compose une photo, mais dit peu de choses sur sa qualité réelle.</p>
-    <p><strong>À quoi ça sert ?</strong> La taille physique du capteur, l'ouverture (le chiffre « f/ »), la stabilisation optique et surtout le traitement logiciel (l'algorithme qui reconstruit l'image) pèsent bien plus lourd que le nombre de mégapixels dans le résultat final.</p>
-    <div class="repere">
-      <div class="repere-label">Ce que le chiffre ne dit pas</div>
-      <p>Un capteur 50 Mpx avec un grand capteur physique et un bon traitement logiciel produit souvent de meilleures photos qu'un capteur 200 Mpx sur un petit capteur bon marché. Les mégapixels ne sont utiles que pour recadrer ou zoomer numériquement sans trop perdre en netteté.</p>
+  <div class="story-section" id="photo">
+    <p class="story-crumb">Chapitre III</p>
+    <div class="story-media" aria-hidden="true">
+      <svg class="story-illustration" viewBox="0 0 400 260" focusable="false">
+        <line class="si-ray" x1="20" y1="60" x2="150" y2="120"/><line class="si-ray" x1="20" y1="110" x2="150" y2="128"/><line class="si-ray" x1="20" y1="160" x2="150" y2="136"/>
+        <circle class="si-lens-outer" cx="185" cy="130" r="55"/>
+        <circle class="si-lens-mid" cx="185" cy="130" r="36"/>
+        <circle class="si-lens-core" cx="185" cy="130" r="16"/>
+        <rect class="si-sensor" x="270" y="95" width="70" height="70" rx="8"/>
+        <path class="si-ois-arrow" d="M270 60c25-14 55-14 75 4M355 58l-10 10-4-14Z"/>
+      </svg>
     </div>
-    <p><strong>Est-ce important pour vous ?</strong> Si la photo est votre priorité, regardez les avis comparatifs de vraies photos (pas seulement la fiche technique) et privilégiez un téléobjectif dédié si vous zoomez souvent.</p>
-  </section>
+    <div class="story-grid">
+      <div class="story-copy">
+        <h3>La photo</h3>
+        <p><strong>Qu'est-ce que c'est ?</strong> Le nombre de mégapixels (Mpx) indique combien de points compose une photo, mais dit peu de choses sur sa qualité réelle : la taille du capteur, l'objectif, la stabilisation et le traitement logiciel pèsent bien plus lourd.</p>
+        <p><strong>Est-ce important pour vous ?</strong> Si la photo est votre priorité, regardez des photos comparatives réelles et privilégiez un téléobjectif dédié si vous zoomez souvent.</p>
+      </div>
+      <div class="story-navigate">
+        <span class="story-navigate-head">Repère</span>
+        <div class="story-stats">
+          <div><b>50</b><span>Mpx, standard actuel</span></div>
+          <div><b>OIS</b><span>stabilisation optique</span></div>
+        </div>
+        <p>Un capteur 50 Mpx avec un grand capteur physique produit souvent de meilleures photos qu'un capteur 200 Mpx sur un petit capteur bon marché.</p>
+      </div>
+    </div>
+  </div>
 
   <section id="recharge" class="section">
     <h2><span class="num">11</span> La recharge</h2>
@@ -468,5 +515,42 @@
     </div>
   </footer>
   <script src="site-tools.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+  (function () {
+    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.querySelectorAll(".story-section").forEach(function (section) {
+      var media = section.querySelector(".story-media");
+      var copy = section.querySelector(".story-copy");
+      var nav = section.querySelector(".story-navigate");
+      if (reduce) return; // éléments déjà visibles par défaut, on n'anime pas
+
+      gsap.set([media, copy, nav], { opacity: 0, y: 18 });
+      gsap.to([media, copy, nav], {
+        opacity: 1, y: 0, duration: .6, ease: "power2.out", stagger: .08,
+        scrollTrigger: { trigger: section, start: "top 80%", once: true }
+      });
+
+      // Chiffres qui montent progressivement (uniquement les valeurs numériques)
+      section.querySelectorAll(".story-stats b").forEach(function (el) {
+        var raw = el.textContent.trim();
+        var match = raw.match(/^(\d+)(\+?)$/);
+        if (!match) return; // ex. "OIS" : pas de compteur, juste le fondu ci-dessus
+        var target = parseInt(match[1], 10);
+        var suffix = match[2] || "";
+        var counter = { val: 0 };
+        gsap.to(counter, {
+          val: target, duration: 1.1, ease: "power1.out",
+          scrollTrigger: { trigger: section, start: "top 80%", once: true },
+          onUpdate: function () { el.textContent = Math.round(counter.val) + suffix; }
+        });
+      });
+    });
+  })();
+  </script>
 </body>
 </html>

@@ -1805,6 +1805,33 @@ html, body { max-width:100%; overflow-x:hidden; }
 .si-pixel-grid circle { fill:var(--accent); }
 .si-lens-big { fill:none; stroke:var(--ink); stroke-width:3.5; }
 .si-lens-big-inner { fill:var(--ink); }
+.si-app-card { fill:var(--surface); stroke:var(--ink); stroke-width:2.4; opacity:.55; }
+.si-app-card-active { opacity:1; stroke-width:3; }
+.si-app-line { stroke:var(--ink); stroke-width:3; stroke-linecap:round; opacity:.4; }
+.si-app-line-active { stroke:var(--accent); opacity:1; }
+.si-ray { stroke:var(--accent); stroke-width:2; stroke-dasharray:4 4; opacity:.6; }
+.si-lens-outer { fill:none; stroke:var(--ink); stroke-width:2.5; }
+.si-lens-mid { fill:none; stroke:var(--ink); stroke-width:2; opacity:.6; }
+.si-lens-core { fill:var(--ink); }
+.si-sensor { fill:var(--accent-soft); stroke:var(--ink); stroke-width:2.5; }
+.si-ois-arrow { fill:none; stroke:var(--accent-dark); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+
+/* Navigateur compact de sections (équivalent tactile du bloc "NAVIGATE") */
+.story-nav-strip { display:flex; gap:.5rem; overflow-x:auto; padding:.25rem .1rem 1rem; margin:1.5rem 0 0; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+.story-nav-strip::-webkit-scrollbar { display:none; }
+.story-nav-strip a {
+  flex:none; scroll-snap-align:start;
+  padding:.5rem 1rem; border-radius:999px;
+  border:1px solid var(--line); background:var(--surface);
+  color:var(--ink); text-decoration:none; font-size:.82rem; font-weight:600;
+  white-space:nowrap;
+}
+.story-nav-strip a:hover,.story-nav-strip a:active { background:var(--accent-soft); border-color:var(--accent); }
+.story-nav-strip { scroll-snap-type:x proximity; }
+
+@media (min-width:760px) {
+  .story-nav-strip { position:sticky; top:70px; z-index:5; background:var(--bg); }
+}
 
 .story-grid { display:grid; grid-template-columns:1.3fr 1fr; gap:1.75rem; margin-top:1.5rem; align-items:start; }
 .story-copy h3 { margin:0 0 .6rem; font-size:clamp(1.3rem,2.6vw,1.7rem); }
