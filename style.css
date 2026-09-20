@@ -1796,71 +1796,15 @@ html, body { max-width:100%; overflow-x:hidden; }
   padding:2rem;
   overflow:hidden;
 }
-.story-illustration { width:100%; max-width:230px; height:auto; }
+.story-illustration { width:100%; max-width:340px; height:auto; }
 .si-batt-body,.si-screen-frame { fill:var(--surface); stroke:var(--ink); stroke-width:3; }
 .si-batt-nub { fill:var(--ink); }
 .si-batt-fill { fill:var(--accent); }
-.si-batt-fill-dim { fill:var(--accent); opacity:.35; }
 .si-batt-bolt { fill:var(--ink); }
 .si-screen-panel { fill:var(--ink); }
-.si-notch { fill:var(--surface); opacity:.85; }
-.si-pixel { fill:var(--accent); }
-.si-pixel-dim { fill:var(--accent); opacity:.3; }
-.si-app-card { fill:var(--surface); stroke:var(--ink); stroke-width:2.4; opacity:.45; }
-.si-app-card-mid { opacity:.75; }
-.si-app-card-active { opacity:1; stroke-width:3; fill:var(--surface); }
-.si-app-bar { fill:var(--ink); opacity:.5; }
-.si-app-bar-active { fill:var(--accent); opacity:1; }
-.si-app-line-active { stroke:var(--ink); stroke-width:2.5; stroke-linecap:round; opacity:.7; }
-.si-ray { stroke:var(--accent); stroke-width:2; stroke-dasharray:5 5; opacity:.7; }
-.si-lens-outer { fill:none; stroke:var(--ink); stroke-width:3; }
-.si-lens-mid { fill:none; stroke:var(--ink); stroke-width:2; opacity:.55; }
-.si-lens-core { fill:var(--ink); }
-.si-lens-glint { fill:var(--surface); opacity:.85; }
-.si-sensor-body { fill:var(--surface); stroke:var(--ink); stroke-width:3; }
-.si-sensor-grid { stroke:var(--accent); stroke-width:1.4; opacity:.7; }
-
-/* Switch mode rapide / approfondi */
-.deep-toggle-row { display:flex; align-items:center; gap:.7rem; margin:1.1rem 0 0; }
-.deep-toggle { display:flex; align-items:center; gap:.65rem; cursor:pointer; user-select:none; }
-.deep-toggle input { position:absolute; opacity:0; pointer-events:none; }
-.deep-toggle-track { width:42px; height:24px; border-radius:999px; background:var(--line-strong); position:relative; transition:background .18s ease; flex:none; }
-.deep-toggle-thumb { position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:var(--surface); box-shadow:0 1px 3px rgba(0,0,0,.25); transition:transform .18s ease; }
-.deep-toggle input:checked ~ .deep-toggle-track { background:var(--accent); }
-.deep-toggle input:checked ~ .deep-toggle-track .deep-toggle-thumb { transform:translateX(18px); }
-.deep-toggle input:focus-visible ~ .deep-toggle-track { outline:2px solid var(--accent-dark); outline-offset:2px; }
-.deep-toggle-label { font-size:.88rem; font-weight:600; color:var(--ink); }
-.deep-toggle-state { font:700 .68rem var(--font-body); letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
-
-/* Bloc "approfondi" : masqué en mode rapide, montré quand le switch est activé */
-.story-detail { display:none; }
-.story-detail h4 { font-size:.95rem; margin:1rem 0 .35rem; }
-.story-detail h4:first-of-type { margin-top:0; }
-.story-detail .placeholder-tag { display:inline-block; font:700 .62rem var(--font-body); letter-spacing:.07em; text-transform:uppercase; color:var(--accent-dark); background:var(--accent-soft); padding:.2rem .55rem; border-radius:999px; margin-bottom:.5rem; }
-.story-detail .placeholder { font-style:italic; color:var(--muted); margin:0 0 .5rem; }
-
-body.deep-mode .story-copy { display:none; }
-body.deep-mode .story-detail { display:block; }
-
-/* Repère "section actuelle" dans la barre de navigation compacte */
-.story-nav-strip a.is-current { background:var(--ink); border-color:var(--ink); color:#fffdf8; }
-
-/* Navigateur compact de sections (équivalent tactile du bloc "NAVIGATE") */
-.story-nav-strip { display:flex; gap:.5rem; overflow-x:auto; padding:.25rem .1rem 1rem; margin:1.5rem 0 0; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
-.story-nav-strip::-webkit-scrollbar { display:none; }
-.story-nav-strip a {
-  flex:none; scroll-snap-align:start;
-  padding:.5rem 1rem; border-radius:999px;
-  border:1px solid var(--line); background:var(--surface);
-  color:var(--ink); text-decoration:none; font-size:.82rem; font-weight:600;
-  white-space:nowrap;
-}
-.story-nav-strip a:hover,.story-nav-strip a:active { background:var(--accent-soft); border-color:var(--accent); }
-.story-nav-strip { scroll-snap-type:x proximity; }
-
-@media (min-width:760px) {
-  .story-nav-strip { position:sticky; top:70px; z-index:5; background:var(--bg); }
-}
+.si-pixel-grid circle { fill:var(--accent); }
+.si-lens-big { fill:none; stroke:var(--ink); stroke-width:3.5; }
+.si-lens-big-inner { fill:var(--ink); }
 
 .story-grid { display:grid; grid-template-columns:1.3fr 1fr; gap:1.75rem; margin-top:1.5rem; align-items:start; }
 .story-copy h3 { margin:0 0 .6rem; font-size:clamp(1.3rem,2.6vw,1.7rem); }
@@ -1880,3 +1824,14 @@ body.deep-mode .story-detail { display:block; }
   .story-media { padding:1.25rem; }
   .story-illustration { max-width:230px; }
 }
+
+/* Lexique — lecture courte / approfondie */
+.lexique-mode{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin:2rem 0;padding:1rem 1.15rem;border:1px solid var(--line);background:var(--surface);position:relative;z-index:2}
+.lexique-mode>div{display:flex;flex-direction:column;gap:.25rem}.lexique-mode strong{font-size:.82rem}.lexique-mode span{font-size:.72rem;color:var(--muted)}
+#deep-toggle{appearance:none;border:1px solid var(--ink);background:var(--ink);color:#fff;padding:.7rem 1rem;font:700 .72rem var(--font-body);cursor:pointer;display:inline-flex;align-items:center;gap:.65rem;white-space:nowrap}
+#deep-toggle i{display:block;width:30px;height:16px;border-radius:99px;background:rgba(255,255,255,.25);position:relative}#deep-toggle i:after{content:"";position:absolute;top:3px;left:3px;width:10px;height:10px;border-radius:50%;background:#fff;transition:transform .2s ease}#deep-toggle.is-on i:after{transform:translateX(14px)}#deep-toggle.is-on{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.lex-deep{margin-top:1rem}.lex-deep[hidden]{display:none}.deep-block{padding:1rem 0;border-top:1px solid var(--line)}.deep-block span{display:block;font:700 .65rem var(--font-body);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.45rem}.deep-block p{margin:0;max-width:70ch;color:var(--muted);font-size:.86rem;line-height:1.7}
+.ip-scale{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}.ip-scale>div{padding:1rem;background:var(--surface-soft);border:1px solid var(--line)}.ip-scale h4{margin:0 0 .8rem;font:700 .8rem var(--font-body);text-transform:uppercase;letter-spacing:.05em}.ip-scale ol{margin:0;padding-left:1.4rem}.ip-scale li{margin:.4rem 0;color:var(--muted);font-size:.78rem;line-height:1.45}.ip-scale li b{color:var(--ink);display:inline-block;min-width:1.1rem}
+.lexique-deep .lex-quick{display:none}.lexique-deep .lex-entry{padding-bottom:2rem}
+@media(max-width:640px){.lexique-mode{align-items:stretch;flex-direction:column}.lexique-mode button{width:100%;justify-content:center}.ip-scale{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#deep-toggle i:after{transition:none}}

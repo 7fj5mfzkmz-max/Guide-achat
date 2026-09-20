@@ -121,22 +121,6 @@
     </ol>
   </nav>
 
-  <nav class="story-nav-strip" aria-label="Accès rapide aux sections illustrées">
-    <a href="#batterie">🔋 Batterie</a>
-    <a href="#ecran">📱 Écran</a>
-    <a href="#ram">🧠 RAM</a>
-    <a href="#photo">📷 Photo</a>
-  </nav>
-
-  <div class="deep-toggle-row">
-    <label class="deep-toggle">
-      <input type="checkbox" id="deep-toggle-input">
-      <span class="deep-toggle-track" aria-hidden="true"><span class="deep-toggle-thumb"></span></span>
-      <span class="deep-toggle-label">Explications approfondies</span>
-    </label>
-    <span class="deep-toggle-state" id="deep-toggle-state">OFF</span>
-  </div>
-
   <div class="chapter-illustration media-illustration chapter-illustration-intro" aria-hidden="true">
     <svg viewBox="0 0 200 130" focusable="false">
       <rect class="ci-phone" x="70" y="18" width="60" height="104" rx="14"/>
@@ -203,50 +187,16 @@
     <p><strong>Est-ce important pour vous ?</strong> Beaucoup, si vous jouez ou gardez votre téléphone longtemps ; moins, pour un usage strictement appels/messages/réseaux sociaux, où même un processeur d'entrée de gamme récent suffit.</p>
   </section>
 
-  <div class="story-section" id="ram">
-    <p class="story-crumb">Chapitre II</p>
-    <div class="story-media" aria-hidden="true">
-      <svg class="story-illustration" viewBox="0 0 240 200" focusable="false">
-        <rect class="si-app-card" x="20" y="90" width="100" height="76" rx="12"/>
-        <rect class="si-app-bar" x="20" y="90" width="100" height="16" rx="8"/>
-        <rect class="si-app-card si-app-card-mid" x="70" y="55" width="100" height="76" rx="12"/>
-        <rect class="si-app-bar" x="70" y="55" width="100" height="16" rx="8"/>
-        <rect class="si-app-card si-app-card-active" x="120" y="20" width="100" height="76" rx="12"/>
-        <rect class="si-app-bar-active" x="120" y="20" width="100" height="16" rx="8"/>
-        <line class="si-app-line-active" x1="134" y1="52" x2="204" y2="52"/>
-        <line class="si-app-line-active" x1="134" y1="68" x2="184" y2="68"/>
-        <line class="si-app-line-active" x1="134" y1="84" x2="196" y2="84"/>
-      </svg>
-    </div>
-    <div class="story-grid">
-      <div class="story-copy">
-        <h3>La RAM</h3>
-        <p><strong>Qu'est-ce que c'est ?</strong> La mémoire vive : elle garde en attente les applications déjà ouvertes, comme plusieurs fenêtres laissées telles quelles sur un bureau.</p>
-        <p><strong>Est-ce important pour vous ?</strong> 8 Go est un minimum confortable en 2026 ; 12 Go apporte un vrai confort si vous jonglez entre beaucoup d'applications. Au-delà, le gain devient marginal pour un usage courant.</p>
-      </div>
-      <div class="story-detail">
-        <span class="placeholder-tag">Espace réservé : contenu à fournir</span>
-        <h4>C'est quoi ?</h4>
-        <p class="placeholder">[Texte approfondi à venir]</p>
-        <h4>Comment ça fonctionne ?</h4>
-        <p class="placeholder">[Texte approfondi à venir]</p>
-        <h4>Concrètement ?</h4>
-        <p class="placeholder">[Texte approfondi à venir]</p>
-      </div>
-      <div class="story-navigate">
-        <span class="story-navigate-head">Repère</span>
-        <div class="story-stats">
-          <div><b>8</b><span>Go, minimum confortable</span></div>
-          <div><b>12</b><span>Go, confort multitâche</span></div>
-        </div>
-        <p>Plus il y a de RAM, plus vous revenez instantanément à une application déjà ouverte sans qu'elle ait besoin de recharger.</p>
-      </div>
-    </div>
-  </div>
+  <section id="ram" class="section">
+    <h2><span class="num">05</span> La RAM</h2>
+    <p><strong>Qu'est-ce que c'est ?</strong> La mémoire vive : elle garde en attente les applications déjà ouvertes.</p>
+    <p><strong>À quoi ça sert ?</strong> Plus il y en a, plus vous pouvez revenir instantanément à une application déjà utilisée sans qu'elle ait besoin de recharger.</p>
+    <p><strong>Est-ce important pour vous ?</strong> 8 Go est un minimum confortable en 2026 ; 12 Go apporte un vrai confort si vous jonglez entre beaucoup d'applications ou faites du multitâche intensif. Au-delà, le gain devient marginal pour un usage courant.</p>
+  </section>
 
   <section id="stockage" class="section">
     <h2><span class="num">06</span> Le stockage</h2>
-    <p><strong>Qu'est-ce que c'est ?</strong> L'espace disponible pour vos photos, vidéos, applications et fichiers — un tiroir de rangement, différent de la RAM qui elle ne fait que garder les applications en attente.</p>
+    <p><strong>Qu'est-ce que c'est ?</strong> L'espace disponible pour vos photos, vidéos, applications et fichiers.</p>
     <p><strong>À quoi ça sert ?</strong> Une fois plein, le téléphone ralentit et vous empêche d'installer ou de mettre à jour des applications.</p>
     <p><strong>Est-ce important pour vous ?</strong> 128 Go convient à un usage léger ; 256 Go est le choix le plus sûr si vous filmez beaucoup ou gardez le téléphone longtemps. Vérifiez qu'une carte microSD est acceptée si vous comptez sur du stockage extensible, de moins en moins de modèles le proposent.</p>
   </section>
@@ -254,12 +204,12 @@
   <div class="story-section" id="batterie">
     <p class="story-crumb">Chapitre II</p>
     <div class="story-media" aria-hidden="true">
-      <svg class="story-illustration" viewBox="0 0 200 260" focusable="false">
-        <rect class="si-batt-nub" x="85" y="6" width="30" height="16" rx="5"/>
-        <rect class="si-batt-body" x="55" y="20" width="90" height="228" rx="20"/>
-        <rect class="si-batt-fill-dim" x="70" y="38" width="60" height="60" rx="6"/>
-        <rect class="si-batt-fill" x="70" y="150" width="60" height="82" rx="6"/>
-        <path class="si-batt-bolt" d="M108 108 84 150h16l-7 36 30-46h-17l8-32Z"/>
+      <svg class="story-illustration" viewBox="0 0 400 260" focusable="false">
+        <rect class="si-batt-body" x="70" y="30" width="200" height="200" rx="28"/>
+        <rect class="si-batt-nub" x="150" y="10" width="40" height="24" rx="8"/>
+        <rect class="si-batt-fill" x="90" y="150" width="160" height="60" rx="6"/>
+        <rect class="si-batt-fill" x="90" y="95" width="160" height="45" rx="6" opacity=".55"/>
+        <path class="si-batt-bolt" d="M186 70 150 138h26l-10 58 48-74h-28l14-52Z"/>
       </svg>
     </div>
     <div class="story-grid">
@@ -267,15 +217,6 @@
         <h3>La batterie</h3>
         <p><strong>Qu'est-ce que c'est ?</strong> La capacité de la batterie, exprimée en mAh (milliampères-heure).</p>
         <p><strong>Est-ce important pour vous ?</strong> Regardez plutôt l'autonomie annoncée en heures d'utilisation (ou de vidéo) dans des tests indépendants, à comparer entre modèles plutôt que le mAh brut.</p>
-      </div>
-      <div class="story-detail">
-        <span class="placeholder-tag">Espace réservé : contenu à fournir</span>
-        <h4>C'est quoi ?</h4>
-        <p class="placeholder">[Texte approfondi à venir]</p>
-        <h4>Comment ça fonctionne ?</h4>
-        <p class="placeholder">[Texte approfondi à venir]</p>
-        <h4>Concrètement ?</h4>
-        <p class="placeholder">[Texte approfondi à venir]</p>
       </div>
       <div class="story-navigate">
         <span class="story-navigate-head">Repère</span>
@@ -296,15 +237,15 @@
   <div class="story-section" id="ecran">
     <p class="story-crumb">Chapitre III</p>
     <div class="story-media" aria-hidden="true">
-      <svg class="story-illustration" viewBox="0 0 200 260" focusable="false">
-        <rect class="si-screen-frame" x="42" y="10" width="116" height="240" rx="24"/>
-        <rect class="si-screen-panel" x="54" y="24" width="92" height="212" rx="8"/>
-        <rect class="si-notch" x="88" y="30" width="24" height="7" rx="3.5"/>
-        <g>
-          <circle class="si-pixel" cx="70" cy="64" r="5"/><circle class="si-pixel-dim" cx="90" cy="64" r="5"/><circle class="si-pixel" cx="110" cy="64" r="5"/><circle class="si-pixel-dim" cx="130" cy="64" r="5"/>
-          <circle class="si-pixel-dim" cx="70" cy="86" r="5"/><circle class="si-pixel" cx="90" cy="86" r="5"/><circle class="si-pixel-dim" cx="110" cy="86" r="5"/><circle class="si-pixel" cx="130" cy="86" r="5"/>
-          <circle class="si-pixel" cx="70" cy="108" r="5"/><circle class="si-pixel-dim" cx="90" cy="108" r="5"/><circle class="si-pixel" cx="110" cy="108" r="5"/><circle class="si-pixel-dim" cx="130" cy="108" r="5"/>
+      <svg class="story-illustration" viewBox="0 0 400 260" focusable="false">
+        <rect class="si-screen-frame" x="120" y="15" width="160" height="230" rx="22"/>
+        <rect class="si-screen-panel" x="134" y="30" width="132" height="200" rx="6"/>
+        <g class="si-pixel-grid">
+          <circle cx="160" cy="70" r="6"/><circle cx="184" cy="70" r="6"/><circle cx="208" cy="70" r="6"/><circle cx="232" cy="70" r="6"/>
+          <circle cx="160" cy="94" r="6"/><circle cx="184" cy="94" r="6"/><circle cx="208" cy="94" r="6"/><circle cx="232" cy="94" r="6"/>
+          <circle cx="160" cy="118" r="6"/><circle cx="184" cy="118" r="6"/><circle cx="208" cy="118" r="6"/><circle cx="232" cy="118" r="6"/>
         </g>
+        <circle class="si-lens-big" cx="60" cy="80" r="34"/><circle class="si-lens-big-inner" cx="60" cy="80" r="14"/>
       </svg>
     </div>
     <div class="story-grid">
@@ -312,15 +253,6 @@
         <h3>L'écran</h3>
         <p><strong>Qu'est-ce que c'est ?</strong> OLED et AMOLED désignent une technologie où chaque pixel produit sa propre lumière (contrairement au LCD), ce qui donne des noirs profonds et de meilleurs contrastes. LTPO fait varier la fréquence de rafraîchissement pour économiser la batterie.</p>
         <p><strong>Est-ce important pour vous ?</strong> Oui pour la vidéo et les jeux ; un écran LCD reste correct pour un usage basique et permet souvent de baisser le prix.</p>
-      </div>
-      <div class="story-detail">
-        <span class="placeholder-tag">Espace réservé : contenu à fournir</span>
-        <h4>C'est quoi ?</h4>
-        <p class="placeholder">[Texte approfondi à venir]</p>
-        <h4>Comment ça fonctionne ?</h4>
-        <p class="placeholder">[Texte approfondi à venir]</p>
-        <h4>Concrètement ?</h4>
-        <p class="placeholder">[Texte approfondi à venir]</p>
       </div>
       <div class="story-navigate">
         <span class="story-navigate-head">Repère</span>
@@ -343,45 +275,16 @@
     </div>
   </section>
 
-  <div class="story-section" id="photo">
-    <p class="story-crumb">Chapitre III</p>
-    <div class="story-media" aria-hidden="true">
-      <svg class="story-illustration" viewBox="0 0 240 200" focusable="false">
-        <line class="si-ray" x1="15" y1="45" x2="85" y2="85"/><line class="si-ray" x1="15" y1="75" x2="85" y2="92"/><line class="si-ray" x1="15" y1="105" x2="85" y2="99"/>
-        <circle class="si-lens-outer" cx="100" cy="92" r="46"/>
-        <circle class="si-lens-mid" cx="100" cy="92" r="30"/>
-        <circle class="si-lens-core" cx="100" cy="92" r="13"/>
-        <circle class="si-lens-glint" cx="93" cy="83" r="4"/>
-        <rect class="si-sensor-body" x="142" y="68" width="52" height="52" rx="6"/>
-        <line class="si-sensor-grid" x1="159" y1="68" x2="159" y2="120"/><line class="si-sensor-grid" x1="177" y1="68" x2="177" y2="120"/>
-        <line class="si-sensor-grid" x1="142" y1="86" x2="194" y2="86"/><line class="si-sensor-grid" x1="142" y1="103" x2="194" y2="103"/>
-      </svg>
+  <section id="photo" class="section">
+    <h2><span class="num">10</span> La photo</h2>
+    <p><strong>Qu'est-ce que c'est ?</strong> Le nombre de mégapixels (Mpx) indique combien de points compose une photo, mais dit peu de choses sur sa qualité réelle.</p>
+    <p><strong>À quoi ça sert ?</strong> La taille physique du capteur, l'ouverture (le chiffre « f/ »), la stabilisation optique et surtout le traitement logiciel (l'algorithme qui reconstruit l'image) pèsent bien plus lourd que le nombre de mégapixels dans le résultat final.</p>
+    <div class="repere">
+      <div class="repere-label">Ce que le chiffre ne dit pas</div>
+      <p>Un capteur 50 Mpx avec un grand capteur physique et un bon traitement logiciel produit souvent de meilleures photos qu'un capteur 200 Mpx sur un petit capteur bon marché. Les mégapixels ne sont utiles que pour recadrer ou zoomer numériquement sans trop perdre en netteté.</p>
     </div>
-    <div class="story-grid">
-      <div class="story-copy">
-        <h3>La photo</h3>
-        <p><strong>Qu'est-ce que c'est ?</strong> Le nombre de mégapixels (Mpx) indique combien de points compose une photo, mais dit peu de choses sur sa qualité réelle : la taille du capteur, l'objectif, la stabilisation et le traitement logiciel pèsent bien plus lourd.</p>
-        <p><strong>Est-ce important pour vous ?</strong> Si la photo est votre priorité, regardez des photos comparatives réelles et privilégiez un téléobjectif dédié si vous zoomez souvent.</p>
-      </div>
-      <div class="story-detail">
-        <span class="placeholder-tag">Espace réservé : contenu à fournir</span>
-        <h4>C'est quoi ?</h4>
-        <p class="placeholder">[Texte approfondi à venir]</p>
-        <h4>Comment ça fonctionne ?</h4>
-        <p class="placeholder">[Texte approfondi à venir]</p>
-        <h4>Concrètement ?</h4>
-        <p class="placeholder">[Texte approfondi à venir]</p>
-      </div>
-      <div class="story-navigate">
-        <span class="story-navigate-head">Repère</span>
-        <div class="story-stats">
-          <div><b>50</b><span>Mpx, standard actuel</span></div>
-          <div><b>OIS</b><span>stabilisation optique</span></div>
-        </div>
-        <p>Un capteur 50 Mpx avec un grand capteur physique produit souvent de meilleures photos qu'un capteur 200 Mpx sur un petit capteur bon marché.</p>
-      </div>
-    </div>
-  </div>
+    <p><strong>Est-ce important pour vous ?</strong> Si la photo est votre priorité, regardez les avis comparatifs de vraies photos (pas seulement la fiche technique) et privilégiez un téléobjectif dédié si vous zoomez souvent.</p>
+  </section>
 
   <section id="recharge" class="section">
     <h2><span class="num">11</span> La recharge</h2>
@@ -565,74 +468,5 @@
     </div>
   </footer>
   <script src="site-tools.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script>
-  (function () {
-    // Switch mode rapide / approfondi
-    var toggle = document.getElementById("deep-toggle-input");
-    var state = document.getElementById("deep-toggle-state");
-    if (toggle) {
-      toggle.addEventListener("change", function () {
-        document.body.classList.toggle("deep-mode", toggle.checked);
-        if (state) state.textContent = toggle.checked ? "ON" : "OFF";
-      });
-    }
-
-    // Repère de section active dans la barre de navigation compacte
-    var navLinks = document.querySelectorAll(".story-nav-strip a");
-    var sections = Array.prototype.map.call(navLinks, function (a) {
-      return document.getElementById(a.getAttribute("href").slice(1));
-    }).filter(Boolean);
-    if (sections.length && "IntersectionObserver" in window) {
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          var link = document.querySelector('.story-nav-strip a[href="#' + entry.target.id + '"]');
-          if (!link) return;
-          if (entry.isIntersecting) {
-            navLinks.forEach(function (a) { a.classList.remove("is-current"); });
-            link.classList.add("is-current");
-          }
-        });
-      }, { rootMargin: "-40% 0px -50% 0px" });
-      sections.forEach(function (s) { observer.observe(s); });
-    }
-  })();
-  </script>
-  <script>
-  (function () {
-    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    gsap.registerPlugin(ScrollTrigger);
-
-    document.querySelectorAll(".story-section").forEach(function (section) {
-      var media = section.querySelector(".story-media");
-      var copy = section.querySelector(".story-copy");
-      var nav = section.querySelector(".story-navigate");
-      if (reduce) return; // éléments déjà visibles par défaut, on n'anime pas
-
-      gsap.set([media, copy, nav], { opacity: 0, y: 18 });
-      gsap.to([media, copy, nav], {
-        opacity: 1, y: 0, duration: .6, ease: "power2.out", stagger: .08,
-        scrollTrigger: { trigger: section, start: "top 80%", once: true }
-      });
-
-      // Chiffres qui montent progressivement (uniquement les valeurs numériques)
-      section.querySelectorAll(".story-stats b").forEach(function (el) {
-        var raw = el.textContent.trim();
-        var match = raw.match(/^(\d+)(\+?)$/);
-        if (!match) return; // ex. "OIS" : pas de compteur, juste le fondu ci-dessus
-        var target = parseInt(match[1], 10);
-        var suffix = match[2] || "";
-        var counter = { val: 0 };
-        gsap.to(counter, {
-          val: target, duration: 1.1, ease: "power1.out",
-          scrollTrigger: { trigger: section, start: "top 80%", once: true },
-          onUpdate: function () { el.textContent = Math.round(counter.val) + suffix; }
-        });
-      });
-    });
-  })();
-  </script>
 </body>
 </html>
