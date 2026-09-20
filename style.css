@@ -1796,25 +1796,54 @@ html, body { max-width:100%; overflow-x:hidden; }
   padding:2rem;
   overflow:hidden;
 }
-.story-illustration { width:100%; max-width:340px; height:auto; }
+.story-illustration { width:100%; max-width:230px; height:auto; }
 .si-batt-body,.si-screen-frame { fill:var(--surface); stroke:var(--ink); stroke-width:3; }
 .si-batt-nub { fill:var(--ink); }
 .si-batt-fill { fill:var(--accent); }
+.si-batt-fill-dim { fill:var(--accent); opacity:.35; }
 .si-batt-bolt { fill:var(--ink); }
 .si-screen-panel { fill:var(--ink); }
-.si-pixel-grid circle { fill:var(--accent); }
-.si-lens-big { fill:none; stroke:var(--ink); stroke-width:3.5; }
-.si-lens-big-inner { fill:var(--ink); }
-.si-app-card { fill:var(--surface); stroke:var(--ink); stroke-width:2.4; opacity:.55; }
-.si-app-card-active { opacity:1; stroke-width:3; }
-.si-app-line { stroke:var(--ink); stroke-width:3; stroke-linecap:round; opacity:.4; }
-.si-app-line-active { stroke:var(--accent); opacity:1; }
-.si-ray { stroke:var(--accent); stroke-width:2; stroke-dasharray:4 4; opacity:.6; }
-.si-lens-outer { fill:none; stroke:var(--ink); stroke-width:2.5; }
-.si-lens-mid { fill:none; stroke:var(--ink); stroke-width:2; opacity:.6; }
+.si-notch { fill:var(--surface); opacity:.85; }
+.si-pixel { fill:var(--accent); }
+.si-pixel-dim { fill:var(--accent); opacity:.3; }
+.si-app-card { fill:var(--surface); stroke:var(--ink); stroke-width:2.4; opacity:.45; }
+.si-app-card-mid { opacity:.75; }
+.si-app-card-active { opacity:1; stroke-width:3; fill:var(--surface); }
+.si-app-bar { fill:var(--ink); opacity:.5; }
+.si-app-bar-active { fill:var(--accent); opacity:1; }
+.si-app-line-active { stroke:var(--ink); stroke-width:2.5; stroke-linecap:round; opacity:.7; }
+.si-ray { stroke:var(--accent); stroke-width:2; stroke-dasharray:5 5; opacity:.7; }
+.si-lens-outer { fill:none; stroke:var(--ink); stroke-width:3; }
+.si-lens-mid { fill:none; stroke:var(--ink); stroke-width:2; opacity:.55; }
 .si-lens-core { fill:var(--ink); }
-.si-sensor { fill:var(--accent-soft); stroke:var(--ink); stroke-width:2.5; }
-.si-ois-arrow { fill:none; stroke:var(--accent-dark); stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; }
+.si-lens-glint { fill:var(--surface); opacity:.85; }
+.si-sensor-body { fill:var(--surface); stroke:var(--ink); stroke-width:3; }
+.si-sensor-grid { stroke:var(--accent); stroke-width:1.4; opacity:.7; }
+
+/* Switch mode rapide / approfondi */
+.deep-toggle-row { display:flex; align-items:center; gap:.7rem; margin:1.1rem 0 0; }
+.deep-toggle { display:flex; align-items:center; gap:.65rem; cursor:pointer; user-select:none; }
+.deep-toggle input { position:absolute; opacity:0; pointer-events:none; }
+.deep-toggle-track { width:42px; height:24px; border-radius:999px; background:var(--line-strong); position:relative; transition:background .18s ease; flex:none; }
+.deep-toggle-thumb { position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:var(--surface); box-shadow:0 1px 3px rgba(0,0,0,.25); transition:transform .18s ease; }
+.deep-toggle input:checked ~ .deep-toggle-track { background:var(--accent); }
+.deep-toggle input:checked ~ .deep-toggle-track .deep-toggle-thumb { transform:translateX(18px); }
+.deep-toggle input:focus-visible ~ .deep-toggle-track { outline:2px solid var(--accent-dark); outline-offset:2px; }
+.deep-toggle-label { font-size:.88rem; font-weight:600; color:var(--ink); }
+.deep-toggle-state { font:700 .68rem var(--font-body); letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+
+/* Bloc "approfondi" : masqué en mode rapide, montré quand le switch est activé */
+.story-detail { display:none; }
+.story-detail h4 { font-size:.95rem; margin:1rem 0 .35rem; }
+.story-detail h4:first-of-type { margin-top:0; }
+.story-detail .placeholder-tag { display:inline-block; font:700 .62rem var(--font-body); letter-spacing:.07em; text-transform:uppercase; color:var(--accent-dark); background:var(--accent-soft); padding:.2rem .55rem; border-radius:999px; margin-bottom:.5rem; }
+.story-detail .placeholder { font-style:italic; color:var(--muted); margin:0 0 .5rem; }
+
+body.deep-mode .story-copy { display:none; }
+body.deep-mode .story-detail { display:block; }
+
+/* Repère "section actuelle" dans la barre de navigation compacte */
+.story-nav-strip a.is-current { background:var(--ink); border-color:var(--ink); color:#fffdf8; }
 
 /* Navigateur compact de sections (équivalent tactile du bloc "NAVIGATE") */
 .story-nav-strip { display:flex; gap:.5rem; overflow-x:auto; padding:.25rem .1rem 1rem; margin:1.5rem 0 0; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
