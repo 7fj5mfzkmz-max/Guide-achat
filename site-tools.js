@@ -27,7 +27,7 @@
 
   var savedTheme = null;
   try { savedTheme = localStorage.getItem("guide-achat-theme"); } catch (e) {}
-  var initialTheme = savedTheme || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  var initialTheme = savedTheme || "dark";
   applyTheme(initialTheme);
 
   if (themeButton) {
