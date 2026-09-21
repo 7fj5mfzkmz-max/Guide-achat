@@ -114,7 +114,6 @@
 
       var details = document.createElement("details");
       details.className = "catalogue-group";
-      if (group.id !== "a-documenter") details.open = true;
 
       var summary = document.createElement("summary");
       var left = document.createElement("span");
