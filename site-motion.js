@@ -30,9 +30,20 @@
       qs('.story-stats b').forEach((n,i)=>{
         gs.from(n,{x:i%2?-50:50,opacity:0,duration:.8,ease:'power3.out',scrollTrigger:{trigger:n,start:'top 82%'}});
       });
-      qs('.lex-visual-art').forEach((art)=>{
-        gs.to(art.querySelector('.visual-core'),{rotation:405,ease:'none',scrollTrigger:{trigger:art,start:'top 85%',end:'bottom 25%',scrub:1}});
-        gs.to(art.querySelector('.visual-pulse'),{scale:1.35,opacity:.2,ease:'none',scrollTrigger:{trigger:art,start:'top 85%',end:'bottom 25%',scrub:1}});
+      qs('.lex-visual').forEach((visual,i)=>{
+        const art=visual.querySelector('.lex-art-svg');
+        if(!art) return;
+        const paths=art.querySelectorAll('.art-line,.art-arrow,.wifi-arc,.radio,.nfc-wave,.esim-wave,.art-pulse,.art-orbit,.coil,.bt-symbol');
+        paths.forEach((path,j)=>{
+          const len=path.getTotalLength ? path.getTotalLength() : 220;
+          gs.set(path,{strokeDasharray:len,strokeDashoffset:len});
+          gs.to(path,{strokeDashoffset:0,duration:.9,ease:'power2.out',delay:j*.035,scrollTrigger:{trigger:visual,start:'top 82%'}});
+        });
+        gs.fromTo(art,{y:22,rotate:i%2?-1.5:1.5,scale:.94},{y:0,rotate:i%2?1:-1,scale:1,ease:'none',scrollTrigger:{trigger:visual,start:'top 92%',end:'bottom 20%',scrub:1.1}});
+        const moving=art.querySelectorAll('.art-dot,.art-pulse,.sun-core,.network-core,.nfc-dot,.wifi-dot,.iris-hole');
+        moving.forEach((el,j)=>gs.to(el,{scale:1.18,transformOrigin:'center',duration:1.5+j*.15,repeat:-1,yoyo:true,ease:'sine.inOut',delay:j*.12}));
+        const halo=art.querySelector('.art-halo');
+        if(halo) gs.to(halo,{scale:1.12,opacity:.7,duration:2.8,repeat:-1,yoyo:true,ease:'sine.inOut'});
       });
       qs('.cat-card').forEach((card,i)=>{
         const art=card.querySelector('.cat-card-media');
@@ -55,4 +66,11 @@
     sections.forEach(s=>io.observe(s));
   }
   basicReveal(); gsapInit(); nav(); lexActive();
+  if(!reduce && window.gsap){
+    qs('.lex-visual').forEach(v=>{
+      const art=v.querySelector('.lex-art-svg'); if(!art) return;
+      v.addEventListener('pointermove',e=>{const r=v.getBoundingClientRect(); const x=(e.clientX-r.left)/r.width-.5; const y=(e.clientY-r.top)/r.height-.5; gsap.to(art,{x:x*12,y:y*9,rotateY:x*3,rotateX:-y*3,duration:.45,ease:'power2.out',overwrite:true})});
+      v.addEventListener('pointerleave',()=>gsap.to(art,{x:0,y:0,rotateX:0,rotateY:0,duration:.7,ease:'power3.out'}));
+    });
+  }
 })();
