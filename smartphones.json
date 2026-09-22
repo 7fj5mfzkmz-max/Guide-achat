@@ -42,7 +42,8 @@
       "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
       "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-samsung-galaxy-a56",
       "fabricant_url": "https://www.samsung.com/fr/smartphones/galaxy-a/galaxy-a56-5g/",
-      "date_verification": "2026-09"
+      "date_verification": "2026-09",
+      "ready_for_recommendation": true
     },
     {
       "id": "xiaomi-15t",
@@ -85,7 +86,8 @@
       "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
       "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-xiaomi-15t",
       "fabricant_url": "https://www.mi.com/fr/product/xiaomi-15t/",
-      "date_verification": "2026-09"
+      "date_verification": "2026-09",
+      "ready_for_recommendation": true
     },
     {
       "id": "iphone-17-pro",
@@ -129,7 +131,8 @@
       "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
       "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-apple-iphone-17-pro",
       "fabricant_url": "https://www.apple.com/fr/iphone-17-pro/",
-      "date_verification": "2026-09"
+      "date_verification": "2026-09",
+      "ready_for_recommendation": true
     },
     {
       "id": "oneplus-15",
@@ -602,29 +605,46 @@
       "nom": "Xiaomi Redmi Note 15 4G",
       "marque": "Xiaomi",
       "prix_indicatif": 199,
-      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "prix_note": "Prix généralement constaté (6 Go/128 Go), hors promotions.",
       "tranche_prix": "100-200",
-      "ready_for_recommendation": false,
+      "ready_for_recommendation": true,
       "caracteristiques": {
-        "ecran": "À documenter",
-        "processeur": "À documenter",
-        "ram": "À documenter",
-        "stockage": "À documenter",
-        "batterie": "À documenter",
-        "photo": "À documenter",
-        "etancheite": "À documenter",
-        "os": "À documenter"
+        "ecran": "6,77\" AMOLED, FHD+, 120 Hz, jusqu'à 3200 nits",
+        "processeur": "MediaTek Helio G100 (6 nm)",
+        "ram": "6 ou 8 Go",
+        "stockage": "128 ou 256 Go",
+        "batterie": "6 000 mAh",
+        "photo": "108 Mpx principal (f/1.7) + capteur secondaire",
+        "etancheite": "Non précisée",
+        "os": "Android 15, HyperOS"
       },
-      "points_forts": [],
-      "points_faibles": [],
+      "points_forts": [
+        "Écran AMOLED 120 Hz très lumineux",
+        "Très grosse batterie (6000 mAh)",
+        "Capteur principal 108 Mpx"
+      ],
+      "points_faibles": [
+        "Pas de 5G (version 4G)",
+        "Pas de certification IP annoncée"
+      ],
       "profil_adapte": [
+        "autonomie",
+        "rapport qualité-prix",
         "budget"
       ],
-      "scores": {},
+      "scores": {
+        "performance": 5,
+        "autonomie": 9,
+        "photo": 6,
+        "prix": 8,
+        "gaming": 4,
+        "taille": 5
+      },
       "image_url": "",
       "image_alt": "Illustration du Xiaomi Redmi Note 15 4G",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09"
     },
     {
       "id": "redmi-note-15-5g",
@@ -706,58 +726,90 @@
       "nom": "realme C67",
       "marque": "realme",
       "prix_indicatif": 151,
-      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "prix_note": "Prix généralement constaté (6-8 Go/128 Go), hors promotions.",
       "tranche_prix": "100-200",
-      "ready_for_recommendation": false,
+      "ready_for_recommendation": true,
       "caracteristiques": {
-        "ecran": "À documenter",
-        "processeur": "À documenter",
-        "ram": "À documenter",
-        "stockage": "À documenter",
-        "batterie": "À documenter",
-        "photo": "À documenter",
-        "etancheite": "À documenter",
-        "os": "À documenter"
+        "ecran": "6,72\" LCD IPS, FHD+, 90 Hz, jusqu'à 950 nits",
+        "processeur": "Snapdragon 685 (6 nm)",
+        "ram": "6 ou 8 Go",
+        "stockage": "128 Go, extensible microSD jusqu'à 2 To",
+        "batterie": "5 000 mAh, charge 33 W",
+        "photo": "108 Mpx principal (f/1.75) + capteur de profondeur",
+        "etancheite": "IP54",
+        "os": "Android 14, 3 ans de mises à jour annoncés"
       },
-      "points_forts": [],
-      "points_faibles": [],
-      "profil_adapte": [
-        "budget"
+      "points_forts": [
+        "Capteur principal 108 Mpx",
+        "3 ans de mises à jour annoncés",
+        "Charge rapide 33 W"
       ],
-      "scores": {},
+      "points_faibles": [
+        "Photo en retrait la nuit",
+        "Pas idéal pour le jeu"
+      ],
+      "profil_adapte": [
+        "budget",
+        "rapport qualité-prix"
+      ],
+      "scores": {
+        "performance": 4,
+        "autonomie": 6,
+        "photo": 5,
+        "prix": 8,
+        "gaming": 3,
+        "taille": 5
+      },
       "image_url": "",
       "image_alt": "Illustration du realme C67",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09"
     },
     {
       "id": "redmi-15c",
       "nom": "Xiaomi Redmi 15C",
       "marque": "Xiaomi",
       "prix_indicatif": 153,
-      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "prix_note": "Prix généralement constaté (4-8 Go/128-256 Go), hors promotions.",
       "tranche_prix": "100-200",
-      "ready_for_recommendation": false,
+      "ready_for_recommendation": true,
       "caracteristiques": {
-        "ecran": "À documenter",
-        "processeur": "À documenter",
-        "ram": "À documenter",
-        "stockage": "À documenter",
-        "batterie": "À documenter",
-        "photo": "À documenter",
-        "etancheite": "À documenter",
-        "os": "À documenter"
+        "ecran": "6,9\" LCD IPS, HD+, 120 Hz, jusqu'à 600 nits",
+        "processeur": "MediaTek Helio G81 Ultra (12 nm)",
+        "ram": "4, 6 ou 8 Go",
+        "stockage": "128 ou 256 Go, extensible microSD",
+        "batterie": "Grande capacité (gamme d'entrée), charge rapide",
+        "photo": "Caractéristiques précises non confirmées par nos sources actuelles",
+        "etancheite": "IP64",
+        "os": "Android, HyperOS"
       },
-      "points_forts": [],
-      "points_faibles": [],
-      "profil_adapte": [
-        "budget"
+      "points_forts": [
+        "Grand écran 120 Hz pour ce prix",
+        "IP64, rare en entrée de gamme",
+        "Stockage extensible par microSD"
       ],
-      "scores": {},
+      "points_faibles": [
+        "Pas de charge sans fil",
+        "Photo en retrait la nuit"
+      ],
+      "profil_adapte": [
+        "budget",
+        "rapport qualité-prix"
+      ],
+      "scores": {
+        "performance": 3,
+        "autonomie": 7,
+        "photo": 4,
+        "prix": 9,
+        "gaming": 2,
+        "taille": 5
+      },
       "image_url": "",
       "image_alt": "Illustration du Xiaomi Redmi 15C",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09"
     },
     {
       "id": "realme-c75",
@@ -984,203 +1036,315 @@
       "nom": "Motorola Moto G06 Power",
       "marque": "Motorola",
       "prix_indicatif": null,
-      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "prix_note": "Prix généralement constaté (4 Go/64 Go), hors promotions.",
       "tranche_prix": "moins-100",
-      "ready_for_recommendation": false,
+      "ready_for_recommendation": true,
       "caracteristiques": {
-        "ecran": "À documenter",
-        "processeur": "À documenter",
-        "ram": "À documenter",
-        "stockage": "À documenter",
-        "batterie": "À documenter",
-        "photo": "À documenter",
-        "etancheite": "À documenter",
-        "os": "À documenter"
+        "ecran": "6,88\" LCD, HD+, 120 Hz",
+        "processeur": "MediaTek Helio G81 Ultra (12 nm)",
+        "ram": "4 Go",
+        "stockage": "64 ou 128 Go, extensible microSD",
+        "batterie": "Grande capacité (variante « Power » de la gamme G06)",
+        "photo": "50 Mpx principal (f/1.8) + 5 Mpx secondaire",
+        "etancheite": "IP64",
+        "os": "Android, quasi stock"
       },
-      "points_forts": [],
-      "points_faibles": [],
+      "points_forts": [
+        "Batterie renforcée par rapport au G06 standard",
+        "Android proche de la version stock",
+        "IP64 et NFC"
+      ],
+      "points_faibles": [
+        "Poids plus élevé (220 g)",
+        "Seulement 4 Go de RAM"
+      ],
       "profil_adapte": [
+        "autonomie",
         "budget"
       ],
-      "scores": {},
+      "scores": {
+        "performance": 3,
+        "autonomie": 8,
+        "photo": 4,
+        "prix": 9,
+        "gaming": 2,
+        "taille": 4
+      },
       "image_url": "",
       "image_alt": "Illustration du Motorola Moto G06 Power",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09"
     },
     {
       "id": "moto-g06",
       "nom": "Motorola Moto G06",
       "marque": "Motorola",
       "prix_indicatif": 90,
-      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "prix_note": "Prix généralement constaté (4 Go/64 Go), hors promotions.",
       "tranche_prix": "moins-100",
-      "ready_for_recommendation": false,
+      "ready_for_recommendation": true,
       "caracteristiques": {
-        "ecran": "À documenter",
-        "processeur": "À documenter",
-        "ram": "À documenter",
-        "stockage": "À documenter",
-        "batterie": "À documenter",
-        "photo": "À documenter",
-        "etancheite": "À documenter",
-        "os": "À documenter"
+        "ecran": "6,88\" LCD, HD+, 120 Hz, jusqu'à 450 nits",
+        "processeur": "MediaTek Helio G81 Ultra (12 nm)",
+        "ram": "4 Go",
+        "stockage": "64, 128 ou 256 Go, extensible microSD",
+        "batterie": "5 000 mAh (selon version)",
+        "photo": "50 Mpx principal (f/1.8) + capteur secondaire",
+        "etancheite": "IP64",
+        "os": "Android, quasi stock"
       },
-      "points_forts": [],
-      "points_faibles": [],
-      "profil_adapte": [
-        "budget"
+      "points_forts": [
+        "Android proche de la version stock",
+        "IP64 et NFC à ce prix",
+        "Dos en similicuir soigné"
       ],
-      "scores": {},
+      "points_faibles": [
+        "Seulement 4 Go de RAM",
+        "Écran basse résolution (HD+)"
+      ],
+      "profil_adapte": [
+        "budget",
+        "rapport qualité-prix"
+      ],
+      "scores": {
+        "performance": 3,
+        "autonomie": 6,
+        "photo": 4,
+        "prix": 9,
+        "gaming": 2,
+        "taille": 5
+      },
       "image_url": "",
       "image_alt": "Illustration du Motorola Moto G06",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09"
     },
     {
       "id": "blackview-shark-8",
       "nom": "Blackview Shark 8",
       "marque": "Blackview",
       "prix_indicatif": 86,
-      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "prix_note": "Prix généralement constaté (8 Go/128-256 Go), hors promotions.",
       "tranche_prix": "moins-100",
-      "ready_for_recommendation": false,
+      "ready_for_recommendation": true,
       "caracteristiques": {
-        "ecran": "À documenter",
-        "processeur": "À documenter",
-        "ram": "À documenter",
-        "stockage": "À documenter",
-        "batterie": "À documenter",
-        "photo": "À documenter",
-        "etancheite": "À documenter",
-        "os": "À documenter"
+        "ecran": "6,78\" LCD IPS, FHD+, 120 Hz, jusqu'à 580 nits",
+        "processeur": "MediaTek Helio G99 (6 nm)",
+        "ram": "8 Go",
+        "stockage": "128 ou 256 Go, extensible microSD",
+        "batterie": "5 000 mAh, charge 33 W",
+        "photo": "64 Mpx principal",
+        "etancheite": "IP53",
+        "os": "Android 13"
       },
-      "points_forts": [],
-      "points_faibles": [],
-      "profil_adapte": [
-        "budget"
+      "points_forts": [
+        "8 Go de RAM à ce prix, rare",
+        "Capteur 64 Mpx",
+        "NFC inclus"
       ],
-      "scores": {},
+      "points_faibles": [
+        "Android 13, suivi logiciel incertain sur une petite marque",
+        "IP53 : protection limitée"
+      ],
+      "profil_adapte": [
+        "budget",
+        "rapport qualité-prix"
+      ],
+      "scores": {
+        "performance": 4,
+        "autonomie": 6,
+        "photo": 4,
+        "prix": 9,
+        "gaming": 3,
+        "taille": 5
+      },
       "image_url": "",
       "image_alt": "Illustration du Blackview Shark 8",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09"
     },
     {
       "id": "zte-blade-v70-vita",
       "nom": "ZTE Blade V70 Vita",
       "marque": "ZTE",
       "prix_indicatif": 92,
-      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "prix_note": "Prix généralement constaté (8 Go/256 Go), hors promotions.",
       "tranche_prix": "moins-100",
-      "ready_for_recommendation": false,
+      "ready_for_recommendation": true,
       "caracteristiques": {
-        "ecran": "À documenter",
-        "processeur": "À documenter",
-        "ram": "À documenter",
-        "stockage": "À documenter",
-        "batterie": "À documenter",
-        "photo": "À documenter",
-        "etancheite": "À documenter",
-        "os": "À documenter"
+        "ecran": "6,7\" LCD IPS, HD+, jusqu'à 500-550 nits",
+        "processeur": "Unisoc Tiger T606 (12 nm)",
+        "ram": "8 Go",
+        "stockage": "128 ou 256 Go",
+        "batterie": "5 000 mAh, charge 22,5 W",
+        "photo": "50 Mpx principal (f/1.8) + capteur secondaire",
+        "etancheite": "IP54",
+        "os": "Android 14, 3 ans de mises à jour annoncés"
       },
-      "points_forts": [],
-      "points_faibles": [],
-      "profil_adapte": [
-        "budget"
+      "points_forts": [
+        "8 Go de RAM à ce prix",
+        "3 ans de mises à jour annoncés",
+        "NFC inclus"
       ],
-      "scores": {},
+      "points_faibles": [
+        "Processeur d'entrée de gamme (Unisoc T606)",
+        "Résistance aux chutes limitée selon les tests"
+      ],
+      "profil_adapte": [
+        "budget",
+        "rapport qualité-prix"
+      ],
+      "scores": {
+        "performance": 3,
+        "autonomie": 6,
+        "photo": 4,
+        "prix": 8,
+        "gaming": 2,
+        "taille": 6
+      },
       "image_url": "",
       "image_alt": "Illustration du ZTE Blade V70 Vita",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09"
     },
     {
       "id": "redmi-a5",
       "nom": "Xiaomi Redmi A5",
       "marque": "Xiaomi",
       "prix_indicatif": 98,
-      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "prix_note": "Prix généralement constaté (4 Go/128 Go), hors promotions.",
       "tranche_prix": "moins-100",
-      "ready_for_recommendation": false,
+      "ready_for_recommendation": true,
       "caracteristiques": {
-        "ecran": "À documenter",
-        "processeur": "À documenter",
-        "ram": "À documenter",
-        "stockage": "À documenter",
-        "batterie": "À documenter",
-        "photo": "À documenter",
-        "etancheite": "À documenter",
-        "os": "À documenter"
+        "ecran": "6,88\" LCD, HD+, 120 Hz, jusqu'à 450 nits",
+        "processeur": "Unisoc T7250 (Tiger T615)",
+        "ram": "3 ou 4 Go",
+        "stockage": "64 ou 128 Go, extensible microSD jusqu'à 1 To",
+        "batterie": "5 200 mAh, charge 15 W",
+        "photo": "32 Mpx principal (f/2.0)",
+        "etancheite": "Non précisée",
+        "os": "Android 15 (édition Go)"
       },
-      "points_forts": [],
-      "points_faibles": [],
-      "profil_adapte": [
-        "budget"
+      "points_forts": [
+        "Prix d'entrée très accessible",
+        "Bonne autonomie (5200 mAh)",
+        "Grand écran 120 Hz pour ce budget"
       ],
-      "scores": {},
+      "points_faibles": [
+        "RAM limitée (3-4 Go, édition Go)",
+        "Charge lente (15 W)"
+      ],
+      "profil_adapte": [
+        "budget",
+        "prix"
+      ],
+      "scores": {
+        "performance": 2,
+        "autonomie": 7,
+        "photo": 3,
+        "prix": 10,
+        "gaming": 1,
+        "taille": 5
+      },
       "image_url": "",
       "image_alt": "Illustration du Xiaomi Redmi A5",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09"
     },
     {
       "id": "poco-c71",
       "nom": "POCO C71",
       "marque": "POCO",
       "prix_indicatif": 81,
-      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "prix_note": "Prix généralement constaté (3 Go/64 Go), hors promotions.",
       "tranche_prix": "moins-100",
-      "ready_for_recommendation": false,
+      "ready_for_recommendation": true,
       "caracteristiques": {
-        "ecran": "À documenter",
-        "processeur": "À documenter",
-        "ram": "À documenter",
-        "stockage": "À documenter",
-        "batterie": "À documenter",
-        "photo": "À documenter",
-        "etancheite": "À documenter",
-        "os": "À documenter"
+        "ecran": "6,88\" LCD IPS, HD+, 120 Hz, jusqu'à 450 nits",
+        "processeur": "Unisoc Tiger T615 (12 nm)",
+        "ram": "3 ou 4 Go",
+        "stockage": "64 ou 128 Go, extensible microSD",
+        "batterie": "5 200 mAh, charge 15 W",
+        "photo": "32 Mpx principal (f/2.0)",
+        "etancheite": "Résistant aux éclaboussures (pas de certification IP)",
+        "os": "Android 15, 2 ans de mises à jour annoncés"
       },
-      "points_forts": [],
-      "points_faibles": [],
-      "profil_adapte": [
-        "budget"
+      "points_forts": [
+        "Prix d'entrée très accessible",
+        "Bonne autonomie (5200 mAh)",
+        "Grand écran 120 Hz"
       ],
-      "scores": {},
+      "points_faibles": [
+        "RAM limitée (3-4 Go)",
+        "Pas de certification IP officielle"
+      ],
+      "profil_adapte": [
+        "budget",
+        "prix"
+      ],
+      "scores": {
+        "performance": 2,
+        "autonomie": 7,
+        "photo": 3,
+        "prix": 10,
+        "gaming": 1,
+        "taille": 5
+      },
       "image_url": "",
       "image_alt": "Illustration du POCO C71",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09"
     },
     {
       "id": "redmi-a3",
       "nom": "Xiaomi Redmi A3",
       "marque": "Xiaomi",
       "prix_indicatif": 99,
-      "prix_note": "Prix indicatif observé en septembre 2026 ; variable selon version, vendeur et marché.",
+      "prix_note": "Prix généralement constaté (3-4 Go/64-128 Go), hors promotions.",
       "tranche_prix": "moins-100",
-      "ready_for_recommendation": false,
+      "ready_for_recommendation": true,
       "caracteristiques": {
-        "ecran": "À documenter",
-        "processeur": "À documenter",
-        "ram": "À documenter",
-        "stockage": "À documenter",
-        "batterie": "À documenter",
-        "photo": "À documenter",
-        "etancheite": "À documenter",
-        "os": "À documenter"
+        "ecran": "6,71\" LCD IPS, HD+, 90 Hz, jusqu'à 500 nits",
+        "processeur": "MediaTek Helio G36",
+        "ram": "3 ou 4 Go",
+        "stockage": "64 ou 128 Go, extensible microSD jusqu'à 1 To",
+        "batterie": "5 000 mAh, charge 10-18 W",
+        "photo": "8 Mpx principal (f/2.0)",
+        "etancheite": "Non précisée",
+        "os": "Android 14"
       },
-      "points_forts": [],
-      "points_faibles": [],
-      "profil_adapte": [
-        "budget"
+      "points_forts": [
+        "Prix d'entrée accessible",
+        "Bonne autonomie (5000 mAh)",
+        "Stockage extensible jusqu'à 1 To"
       ],
-      "scores": {},
+      "points_faibles": [
+        "Photo modeste (8 Mpx)",
+        "RAM limitée en multitâche"
+      ],
+      "profil_adapte": [
+        "budget",
+        "prix"
+      ],
+      "scores": {
+        "performance": 2,
+        "autonomie": 7,
+        "photo": 2,
+        "prix": 9,
+        "gaming": 1,
+        "taille": 5
+      },
       "image_url": "",
       "image_alt": "Illustration du Xiaomi Redmi A3",
       "idealo_url": "",
-      "kimovil_url": ""
+      "kimovil_url": "",
+      "date_verification": "2026-09"
     }
   ],
   "catalogue_meta": {
