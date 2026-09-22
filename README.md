@@ -9,3 +9,11 @@ Principes :
 - illustrations et animations comme supports pédagogiques ;
 - GSAP comme référence d'animation du projet ;
 - smartphones.json comme source centrale des données.
+
+
+## Réédition v17
+- Base graphique conservée depuis v15 : vert + bleu en mode clair, orange en mode sombre.
+- Recherche indépendante dans la barre supérieure.
+- Thème indépendant lune/soleil dans la barre supérieure.
+- Illustrations supprimées à l’exception du logo Guide·Achat.
+- Contrastes clair/sombre renforcés.
