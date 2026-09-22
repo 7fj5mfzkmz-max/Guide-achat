@@ -17,3 +17,13 @@ Principes :
 - Thème indépendant lune/soleil dans la barre supérieure.
 - Illustrations supprimées à l’exception du logo Guide·Achat.
 - Contrastes clair/sombre renforcés.
+
+## v19 — catalogue, contrast et recherche
+
+- Les critères du questionnaire smartphones sont explicitement lisibles en mode clair.
+- Le catalogue dispose maintenant de filtres visibles par budget, critère principal et marque.
+- Les groupes de prix ouvrent automatiquement le premier groupe correspondant.
+- Les fiches catalogue affichent clairement marque, critère principal, prix et profils adaptés en mode clair comme sombre.
+- La recherche globale a été renforcée : accents ignorés, recherche par mots partiels, tolérance aux petites fautes, synonymes d'usage, recherche dans les caractéristiques et les modèles du catalogue, classement par pertinence.
+- Les placeholders graphiques laissés par la suppression des illustrations ont été retirés.
+- Les anciennes animations ciblant des illustrations supprimées ont été nettoyées.

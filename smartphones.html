@@ -36,8 +36,6 @@
 </nav>
 <div aria-label="Outils du guide" class="header-tools"><button aria-controls="search-panel" aria-expanded="false" aria-label="Ouvrir la recherche" class="header-tool header-tool-search" id="search-toggle" type="button">⌕</button><button aria-label="Activer le thème sombre" aria-pressed="false" class="header-tool header-tool-theme" id="theme-toggle" type="button"><span aria-hidden="true" class="theme-icon">☾</span></button></div></div>
 </header>
-
-
 <section aria-label="Recherche" class="search-panel" hidden="True" id="search-panel"><button aria-label="Fermer la recherche" class="search-panel-backdrop" type="button"></button><div aria-labelledby="search-panel-title" aria-modal="true" class="search-panel-sheet" role="dialog"><div class="search-panel-head"><div><span class="drawer-kicker">GUIDE·ACHAT</span><h2 id="search-panel-title">Rechercher</h2></div><button aria-label="Fermer la recherche" class="drawer-close" id="search-close" type="button">×</button></div><label class="drawer-search-field" for="site-search-input"><span aria-hidden="true">⌕</span><input autocomplete="off" id="site-search-input" placeholder="Rechercher dans le guide…" type="search"/></label><div class="site-search-results" id="site-search-results"><p class="search-empty">Recherchez une caractéristique, un usage ou un modèle.</p></div></div></section><main id="main">
 <div class="container">
 <nav class="breadcrumb"><a href="index.html">Accueil</a> / Smartphones</nav>
@@ -49,7 +47,6 @@
 <h1>Comprendre un smartphone avant de regarder les chiffres.</h1>
 <p>Un parcours visuel pour passer du besoin réel aux caractéristiques, puis aux modèles et au prix.</p>
 </div>
-
 </div>
 <div class="container article-header">
 <h1>Guide complet des smartphones : comment bien choisir en 2026</h1>
@@ -81,7 +78,6 @@
 <li><a href="#sources">Sources</a></li>
 </ol>
 </nav>
-
 <section class="section" id="introduction">
 <h2><span class="num">01</span> Introduction</h2>
 <p>Ce guide s'adresse à celles et ceux qui n'ont pas envie de passer des heures à décrypter des fiches techniques avant d'acheter un smartphone. Il ne prétend pas remplacer un test complet : il explique ce qui mérite votre attention, écarte ce qui relève surtout du marketing, et propose une sélection resserrée.</p>
@@ -91,7 +87,6 @@
 <span class="chapter-eyebrow">Chapitre I</span>
 <h3>Les bases : système et gammes</h3>
 </div>
-
 <section class="section" id="ios-android">
 <h2><span class="num">02</span> iPhone ou Android ?</h2>
 <p>Ce choix pèse plus que n'importe quelle fiche technique, car il détermine l'écosystème dans lequel vous restez enfermé pendant plusieurs années (photos, messages, applications achetées).</p>
@@ -112,7 +107,6 @@
 <span class="chapter-eyebrow">Chapitre II</span>
 <h3>Ce qu'il y a dedans : processeur, RAM, stockage, batterie</h3>
 </div>
-
 <section class="section" id="processeur">
 <h2><span class="num">04</span> Le processeur</h2>
 <p><strong>Qu'est-ce que c'est ?</strong> Le composant qui exécute tous les calculs du téléphone : ouverture d'applications, jeux, traitement photo.</p>
@@ -133,9 +127,7 @@
 </section>
 <div class="story-section" id="batterie">
 <p class="story-crumb">Chapitre II</p>
-<div aria-hidden="true" class="story-media">
 
-</div>
 <div class="story-grid">
 <div class="story-copy">
 <h3>La batterie</h3>
@@ -158,9 +150,7 @@
 </div>
 <div class="story-section" id="ecran">
 <p class="story-crumb">Chapitre III</p>
-<div aria-hidden="true" class="story-media">
 
-</div>
 <div class="story-grid">
 <div class="story-copy">
 <h3>L'écran</h3>
@@ -209,7 +199,6 @@
 <span class="chapter-eyebrow">Dernier chapitre</span>
 <h3>Les fonctionnalités à vérifier</h3>
 </div>
-
 <section class="section" id="fonctionnalites">
 <h2><span class="num">12</span> Les fonctionnalités</h2>
 <ul>
@@ -278,8 +267,8 @@
 <div class="catalogue-tools">
 <label class="catalogue-search-label" for="catalogue-search">Vous cherchez un modèle ou une marque ?</label>
 <input autocomplete="off" class="catalogue-search" id="catalogue-search" placeholder="Ex. Samsung, Pixel, iPhone…" type="search"/>
-<p aria-live="polite" class="hint" id="catalogue-status">Chargement du catalogue…</p>
-</div>
+<p aria-live="polite" class="hint" id="catalogue-status">Cherchez un modèle ou une marque, puis affinez par budget et par usage. Les fiches affichent aussi les critères auxquels chaque modèle est adapté.</p>
+<div aria-label="Filtres du catalogue" class="catalogue-filters" id="catalogue-filters"><label class="catalogue-filter"><span>Budget</span><select id="catalogue-budget"><option value="">Tous les budgets</option><option value="moins-200">Moins de 200 €</option><option value="200-300">200 à 300 €</option><option value="300-500">300 à 500 €</option><option value="500-700">500 à 700 €</option><option value="700-plus">700 € et plus</option></select></label><label class="catalogue-filter"><span>Critère principal</span><select id="catalogue-criterion"><option value="">Tous les critères</option><option value="autonomie">Autonomie</option><option value="photo">Photo</option><option value="performance">Performance</option><option value="gaming">Jeux</option><option value="taille">Format compact</option><option value="prix">Rapport qualité-prix</option></select></label><label class="catalogue-filter"><span>Marque</span><select id="catalogue-brand"><option value="">Toutes les marques</option></select></label><button class="btn" id="catalogue-reset" type="button">Réinitialiser</button></div></div>
 <div data-category="smartphones" id="catalogue">
 <div id="catalogue-groups"></div>
 </div>

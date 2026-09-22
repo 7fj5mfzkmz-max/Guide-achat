@@ -612,3 +612,75 @@ html.dark-theme body.site-redesign .tool-box h3{color:var(--ink)}
   html.dark-theme body.site-redesign .tool-box{box-shadow:8px 8px 0 var(--accent-2)}
   html.dark-theme body.site-redesign .tool-box{box-shadow:8px 8px 0 var(--accent)}
 }
+
+/* v19 — catalogue and selection controls: explicit light/dark contrast */
+body.site-redesign .quiz-options label,
+body.site-redesign .catalogue-group,
+body.site-redesign .catalogue-card,
+body.site-redesign .catalogue-search,
+body.site-redesign .catalogue-filter select{
+  color:var(--ink);
+}
+html:not(.dark-theme) body.site-redesign .quiz-options{background:#cfd4ca}
+html:not(.dark-theme) body.site-redesign .quiz-options label{background:#ffffff;color:#0b0d0b}
+html:not(.dark-theme) body.site-redesign .quiz-options label:hover{background:#eef1ea}
+html:not(.dark-theme) body.site-redesign .quiz-options input{accent-color:#5e9f00}
+html:not(.dark-theme) body.site-redesign .catalogue-search{background:#ffffff;color:#0b0d0b;border-color:#aeb6aa}
+html:not(.dark-theme) body.site-redesign .catalogue-search::placeholder{color:#70786f}
+html:not(.dark-theme) body.site-redesign .catalogue-group{background:#ffffff!important;border-color:#cbd0c8!important}
+html:not(.dark-theme) body.site-redesign .catalogue-group summary{background:#f0f2ec;color:#0b0d0b}
+html:not(.dark-theme) body.site-redesign .catalogue-group summary:hover{background:#e6eae1}
+html:not(.dark-theme) body.site-redesign .catalogue-card{background:#ffffff!important;color:#0b0d0b;border-color:#d2d6cf!important;padding:1.15rem;display:flex;flex-direction:column;gap:.2rem}
+html:not(.dark-theme) body.site-redesign .catalogue-brand{color:#596158;font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+html:not(.dark-theme) body.site-redesign .catalogue-role{color:#5e9f00;font-size:.62rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+html:not(.dark-theme) body.site-redesign .catalogue-card h3{color:#0b0d0b;font-size:1.45rem;margin:.65rem 0 .1rem}
+html:not(.dark-theme) body.site-redesign .catalogue-price{color:#087aa2;font-weight:900;margin:0}
+html:not(.dark-theme) body.site-redesign .catalogue-profile{color:#596158;font-size:.82rem;line-height:1.45}
+html:not(.dark-theme) body.site-redesign .catalogue-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin:.4rem 0 .8rem}
+html:not(.dark-theme) body.site-redesign .catalogue-tags span{border:1px solid #cbd0c8;background:#f0f2ec;color:#3f463f;padding:.3rem .45rem;font-size:.62rem;font-weight:700}
+html:not(.dark-theme) body.site-redesign .catalogue-actions{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:auto;padding-top:.8rem;border-top:1px solid #e0e3dd}
+html:not(.dark-theme) body.site-redesign .catalogue-no-result{border:1px dashed #aeb6aa;padding:1.2rem;color:#596158}
+html:not(.dark-theme) body.site-redesign .catalogue-filter select{background:#ffffff;color:#0b0d0b;border:1px solid #aeb6aa}
+
+.catalogue-filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin-top:1rem}
+.catalogue-filter{display:flex;flex-direction:column;gap:.35rem}
+.catalogue-filter>span{font-size:.62rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.catalogue-filter select{width:100%;padding:.75rem .8rem;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);outline:none}
+.catalogue-filter select:focus{border-color:var(--accent)}
+.catalogue-filters #catalogue-reset{align-self:end;min-height:44px}
+.catalogue-group summary{display:flex;justify-content:space-between;align-items:center;list-style:none}
+.catalogue-group summary::-webkit-details-marker{display:none}
+.catalogue-group summary>span{display:flex;align-items:center;gap:.8rem}
+.catalogue-group summary small{font-size:.62rem;color:var(--muted);font-weight:600}
+.catalogue-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);padding:1px}
+.catalogue-card{min-height:250px}
+
+html.dark-theme body.site-redesign .quiz-options{background:var(--line)}
+html.dark-theme body.site-redesign .quiz-options label{background:#151713;color:#f3f1e8}
+html.dark-theme body.site-redesign .quiz-options label:hover{background:#20221d}
+html.dark-theme body.site-redesign .catalogue-search{background:#151713;color:#f3f1e8}
+html.dark-theme body.site-redesign .catalogue-group{background:#151713!important;color:#f3f1e8;border-color:var(--line)!important}
+html.dark-theme body.site-redesign .catalogue-group summary{background:#1c1e1a;color:#f3f1e8}
+html.dark-theme body.site-redesign .catalogue-card{background:#151713!important;color:#f3f1e8;border-color:var(--line)!important}
+html.dark-theme body.site-redesign .catalogue-brand{color:#aaa69c;font-size:.65rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+html.dark-theme body.site-redesign .catalogue-role{color:#ff704c;font-size:.62rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+html.dark-theme body.site-redesign .catalogue-card h3{color:#f3f1e8;font-size:1.45rem;margin:.65rem 0 .1rem}
+html.dark-theme body.site-redesign .catalogue-price{color:#7aaed6;font-weight:900;margin:0}
+html.dark-theme body.site-redesign .catalogue-profile{color:#d0cdc2;font-size:.82rem;line-height:1.45}
+html.dark-theme body.site-redesign .catalogue-tags span{border:1px solid var(--line);background:#1c1e1a;color:#d0cdc2;padding:.3rem .45rem;font-size:.62rem;font-weight:700}
+html.dark-theme body.site-redesign .catalogue-actions{border-color:var(--line)}
+html.dark-theme body.site-redesign .catalogue-no-result{border-color:var(--line-strong);color:#d0cdc2}
+html.dark-theme body.site-redesign .catalogue-filter select{background:#151713;color:#f3f1e8;border-color:var(--line-strong)}
+
+/* No visual placeholder is allowed after the illustration cleanup. */
+body.site-redesign .story-media,
+body.site-redesign .hero-media-stage,
+body.site-redesign .article-hero-visual,
+body.site-redesign .chapter-illustration,
+body.site-redesign .visual-intro-stage{display:none!important}
+
+@media(max-width:700px){
+  .catalogue-filters{grid-template-columns:1fr}
+  .catalogue-grid{grid-template-columns:1fr}
+  .catalogue-card{min-height:0}
+}
