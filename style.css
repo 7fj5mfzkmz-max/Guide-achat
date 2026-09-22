@@ -269,3 +269,178 @@ body.site-redesign .deep-block{background:#ebe7dd;}
 body.site-redesign .lexique-note{color:var(--muted);}
 @media(max-width:900px){body.site-redesign .sommaire{top:68px;}body.site-redesign .lexique-nav{top:68px;}body.site-redesign .tool-box{box-shadow:10px 10px 0 var(--accent-2);}}
 @media(max-width:620px){body.site-redesign .sommaire{top:68px;margin-bottom:3rem;}body.site-redesign .article-hero-stage{box-shadow:10px 10px 0 var(--accent-2);}}
+
+/* =========================================================
+   GUIDE·ACHAT — CLEANUP PASS / 04
+   Fix: hero collisions + complete dark-theme contrast system.
+   ========================================================= */
+
+/* The interior hero is deliberately split into two zones. The previous
+   absolute visual occupied the whole stage and could sit over the copy. */
+body.site-redesign .article-hero-stage{
+  min-height:500px;
+  display:grid;
+  grid-template-columns:minmax(0,1.02fr) minmax(280px,.98fr);
+  align-items:center;
+  gap:2rem;
+  padding:4rem clamp(1.5rem,4vw,4rem);
+  isolation:isolate;
+}
+body.site-redesign .article-hero-copy{
+  position:relative;
+  z-index:3;
+  max-width:34rem;
+  padding-right:1rem;
+}
+body.site-redesign .article-hero-copy h1{
+  color:var(--paper);
+  font-size:clamp(3rem,6vw,6.7rem);
+  line-height:.9;
+  max-width:8ch;
+  margin:.8rem 0 1rem;
+}
+body.site-redesign .article-hero-copy p{
+  color:#c9c6bc;
+  max-width:30rem;
+  margin:0;
+}
+body.site-redesign .article-hero-visual{
+  position:relative;
+  inset:auto;
+  z-index:2;
+  min-height:340px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+body.site-redesign .article-hero-visual:before{
+  content:"";
+  position:absolute;
+  width:72%;
+  aspect-ratio:1;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;
+  transform:rotate(-14deg);
+}
+body.site-redesign .article-hero-visual .media-phone-stack{
+  position:relative;
+  z-index:2;
+  transform:rotate(-7deg) translateX(1rem);
+}
+body.site-redesign .article-hero-visual .media-slot-note{
+  z-index:4;
+  right:auto;
+  left:0;
+  bottom:.5rem;
+  color:#a9a59b;
+}
+
+/* Dark theme: the redesign now switches its own paper/ink system too. */
+html.dark-theme{
+  --paper:#11120f;
+  --paper-2:#1b1d19;
+  --ink:#f3f1e8;
+  --ink-2:#d0cdc2;
+  --muted:#aaa69c;
+  --line:rgba(243,241,232,.17);
+  --accent:#ff704c;
+  --accent-2:#7aaed6;
+}
+html.dark-theme body.site-redesign{background:var(--paper);color:var(--ink)}
+html.dark-theme body.site-redesign .site-header,
+html.dark-theme body.site-redesign .site-header.is-scrolled{
+  background:rgba(17,18,15,.94);
+  border-color:var(--line);
+}
+html.dark-theme body.site-redesign .site-nav a{color:#d0cdc2}
+html.dark-theme body.site-redesign .site-nav a:hover,
+html.dark-theme body.site-redesign .site-nav a[aria-current="page"]{color:var(--ink)}
+html.dark-theme body.site-redesign .brand-name{color:var(--ink)}
+html.dark-theme body.site-redesign .brand-mark{border-color:var(--ink)}
+html.dark-theme body.site-redesign .brand-mark .bag,
+html.dark-theme body.site-redesign .brand-mark .handle{stroke:var(--ink)}
+html.dark-theme body.site-redesign .home-hero,
+html.dark-theme body.site-redesign .article-hero,
+html.dark-theme body.site-redesign .visual-intro,
+html.dark-theme body.site-redesign .lexique-hero,
+html.dark-theme body.site-redesign .lexique-section{background:var(--paper);color:var(--ink)}
+html.dark-theme body.site-redesign .home-hero:before{background:linear-gradient(90deg,transparent 49.95%,rgba(243,241,232,.08) 50%,transparent 50.05%),linear-gradient(rgba(243,241,232,.035) 1px,transparent 1px);background-size:100% 100%,100% 88px}
+html.dark-theme body.site-redesign .home-hero .hero-lead,
+html.dark-theme body.site-redesign .section-intro p,
+html.dark-theme body.site-redesign .article-hero p,
+html.dark-theme body.site-redesign .article-lead{color:var(--ink-2)}
+html.dark-theme body.site-redesign .article-header h1,
+html.dark-theme body.site-redesign .section-intro h2,
+html.dark-theme body.site-redesign .article-hero h1,
+html.dark-theme body.site-redesign .visual-intro h1,
+html.dark-theme body.site-redesign .story-copy h2,
+html.dark-theme body.site-redesign .lex-entry>h3{color:var(--ink)}
+html.dark-theme body.site-redesign .breadcrumb a,
+html.dark-theme body.site-redesign .section p,
+html.dark-theme body.site-redesign .section li,
+html.dark-theme body.site-redesign .cat-card p,
+html.dark-theme body.site-redesign .lex-grid p,
+html.dark-theme body.site-redesign .deep-block p{color:var(--ink-2)}
+html.dark-theme body.site-redesign .article-hero-stage,
+html.dark-theme body.site-redesign .lex-visual,
+html.dark-theme body.site-redesign .visual-intro-stage,
+html.dark-theme body.site-redesign .tool-box{background:#20221d;color:var(--ink)}
+html.dark-theme body.site-redesign .article-hero-stage:before{background:linear-gradient(90deg,transparent 49.8%,rgba(243,241,232,.12) 50%,transparent 50.2%),linear-gradient(rgba(243,241,232,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(243,241,232,.06) 1px,transparent 1px);background-size:100% 100%,44px 44px,44px 44px}
+html.dark-theme body.site-redesign .cat-card{background:#151713;color:var(--ink)}
+html.dark-theme body.site-redesign .cat-card:hover{background:#20231d}
+html.dark-theme body.site-redesign .cat-card-featured{background:#e9e6dc;color:#11120f}
+html.dark-theme body.site-redesign .cat-card-featured:hover{background:#f0ede4}
+html.dark-theme body.site-redesign .cat-card-featured p,
+html.dark-theme body.site-redesign .cat-card-featured .cat-media-caption{color:#55544e}
+html.dark-theme body.site-redesign .cat-card-featured .cat-icon{color:#11120f!important}
+html.dark-theme body.site-redesign .cat-card-media{background:#20221d;border-color:var(--line)}
+html.dark-theme body.site-redesign .cat-card-featured .cat-card-media{background:#d9d5ca}
+html.dark-theme body.site-redesign .cat-phone-mock{border-color:var(--ink)!important;box-shadow:18px 18px 0 #30332c!important}
+html.dark-theme body.site-redesign .cat-card-featured .cat-phone-mock{border-color:#11120f!important;box-shadow:18px 18px 0 var(--accent)!important}
+html.dark-theme body.site-redesign .sommaire,
+html.dark-theme body.site-redesign .lexique-nav{background:rgba(17,18,15,.96);border-color:var(--line)}
+html.dark-theme body.site-redesign .sommaire a,
+html.dark-theme body.site-redesign .lexique-nav a{color:#aaa69c}
+html.dark-theme body.site-redesign .sommaire a:hover,
+html.dark-theme body.site-redesign .lexique-nav a:hover,
+html.dark-theme body.site-redesign .lexique-nav a.is-active{color:var(--ink)}
+html.dark-theme body.site-redesign .keypoints,
+html.dark-theme body.site-redesign .repere,
+html.dark-theme body.site-redesign .lexique-mode,
+html.dark-theme body.site-redesign .deep-block{background:#1c1e1a;color:var(--ink)}
+html.dark-theme body.site-redesign .keypoints strong,
+html.dark-theme body.site-redesign .repere strong{color:var(--ink)}
+html.dark-theme body.site-redesign .story-section,
+html.dark-theme body.site-redesign .site-footer{background:#090a08;color:var(--ink)}
+html.dark-theme body.site-redesign .story-copy p,
+html.dark-theme body.site-redesign .footer-copy{color:#b4b0a6}
+html.dark-theme body.site-redesign .method-grid>div{background:#151713;color:var(--ink)}
+html.dark-theme body.site-redesign .drawer-sheet{background:#151713;border-color:var(--line)}
+html.dark-theme body.site-redesign .drawer-search-field,
+html.dark-theme body.site-redesign .drawer-action{background:#0e100d;color:var(--ink);border-color:var(--line)}
+html.dark-theme body.site-redesign .drawer-search-field input{color:var(--ink)}
+html.dark-theme body.site-redesign .drawer-action small{color:var(--muted)}
+html.dark-theme body.site-redesign .catalogue-search,
+html.dark-theme body.site-redesign .compare-picker>*{background:#151713;color:var(--ink);border-color:var(--line)}
+html.dark-theme body.site-redesign .catalogue-group,
+html.dark-theme body.site-redesign .catalogue-item,
+html.dark-theme body.site-redesign .product-card{background:#151713!important;color:var(--ink);border-color:var(--line)!important}
+html.dark-theme body.site-redesign .lex-grid>div{border-color:var(--line)}
+html.dark-theme body.site-redesign .lex-art-svg .art-text{fill:var(--ink-2)}
+
+@media(max-width:900px){
+  body.site-redesign .article-hero-stage{
+    grid-template-columns:1fr;
+    min-height:0;
+    padding:3rem 1.5rem;
+  }
+  body.site-redesign .article-hero-copy{max-width:42rem;padding-right:0}
+  body.site-redesign .article-hero-visual{min-height:300px;margin-top:1rem}
+}
+@media(max-width:620px){
+  body.site-redesign .article-hero-stage{padding:2.5rem 1.1rem}
+  body.site-redesign .article-hero-copy h1{font-size:clamp(2.8rem,13vw,5rem)}
+  body.site-redesign .article-hero-visual{min-height:250px}
+  body.site-redesign .article-hero-visual .media-phone-stack{transform:rotate(-7deg) scale(.82)}
+  body.site-redesign .article-hero-visual .media-slot-note{left:.5rem}
+}
