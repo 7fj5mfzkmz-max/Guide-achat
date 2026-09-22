@@ -67,3 +67,14 @@ html:not(.dark-theme){
 .lex-entry:after{content:"";display:block;clear:both}
 @media(max-width:900px){.lex-visual,.lex-entry:nth-of-type(even) .lex-visual{float:none;width:100%;height:300px;margin:.5rem 0 2rem;shape-outside:none;-webkit-shape-outside:none}.lex-entry>h3{max-width:none}.lex-visual-meta{right:1rem}.lex-grid{grid-template-columns:1fr}}
 @media(max-width:620px){.lex-visual,.lex-entry:nth-of-type(even) .lex-visual{height:260px;margin-bottom:1.5rem}.lex-entry{padding:3rem 0}.lex-grid>div{min-height:0}}
+
+
+/* GUIDE·ACHAT — original illustration layer */
+.illustration-label{font:700 9px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;fill:currentColor}
+.hero-illustration .hi-accent{fill:#b8ff18;stroke:none}
+.hero-illustration .hi-outline{fill:none;stroke:#e7eee4;stroke-width:2}
+.hero-illustration .hi-muted{fill:none;stroke:#778176;stroke-width:1.5}
+.hero-illustration .hi-accent-line{fill:none;stroke:#b8ff18;stroke-width:2}
+.hero-illustration .hi-fill{fill:#151a16;stroke:#e7eee4;stroke-width:2}
+.cat-card-media{overflow:hidden}
+.cat-media-caption,.media-slot-note{font:700 8px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase}

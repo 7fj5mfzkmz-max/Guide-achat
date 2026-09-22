@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=Caveat:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
 </head>
 <body class="home-body site-redesign">
   <header class="site-header">
@@ -90,23 +91,31 @@
         <span class="media-float-tag media-float-a">COMPRENDRE</span>
         <span class="media-float-tag media-float-b">COMPARER</span>
         <span class="media-float-dot"></span>
-        <span class="media-slot-note">Photo / illustration à placer ici</span>
+        <span class="media-slot-note">OBJET · USAGE · CHOIX</span>
       </div>
       <div class="hero-aside" aria-hidden="true">
-        <svg class="hero-illustration" viewBox="0 0 320 320" focusable="false">
-          <circle class="hi-orbit" cx="230" cy="95" r="72"/>
-          <circle class="hi-dot" cx="256" cy="235" r="30"/>
-          <rect class="hi-laptop-base" x="34" y="188" width="176" height="14" rx="6"/>
-          <path class="hi-laptop-screen" d="M56 96h132a8 8 0 0 1 8 8v78H48v-78a8 8 0 0 1 8-8Z"/>
-          <rect class="hi-laptop-screen-inner" x="66" y="108" width="112" height="66" rx="4"/>
-          <rect class="hi-phone" x="182" y="70" width="86" height="172" rx="20"/>
-          <rect class="hi-phone-screen" x="191" y="88" width="68" height="136" rx="4"/>
-          <circle class="hi-phone-cam" cx="225" cy="80" r="3"/>
-          <rect class="hi-earbuds-case" x="46" y="214" width="46" height="34" rx="10"/>
-          <circle class="hi-earbud" cx="60" cy="231" r="6"/>
-          <circle class="hi-earbud" cx="78" cy="231" r="6"/>
-          <circle class="hi-watch-face" cx="256" cy="235" r="17"/>
-          <path class="hi-watch-band" d="M256 218v-10M256 252v10"/>
+        <svg class="hero-illustration editorial-hero-art" viewBox="0 0 320 320" focusable="false">
+          <defs>
+            <linearGradient id="guideAccent" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#b8ff18"/>
+              <stop offset="1" stop-color="#75d8ff"/>
+            </linearGradient>
+          </defs>
+          <circle class="hi-muted" cx="157" cy="155" r="116"/>
+          <circle class="hi-muted" cx="157" cy="155" r="84"/>
+          <path class="hi-accent-line" d="M41 214C91 158 111 79 174 66c47-10 69 24 104 12"/>
+          <path class="hi-outline" d="M67 73h67l18 18v92H67z"/>
+          <path class="hi-outline" d="M84 92h50M84 110h34M84 128h48M84 146h28"/>
+          <rect class="hi-fill" x="175" y="111" width="69" height="119" rx="16"/>
+          <rect x="184" y="126" width="51" height="79" rx="7" fill="url(#guideAccent)" opacity=".18"/>
+          <circle class="hi-accent" cx="209.5" cy="119" r="2.5"/>
+          <path class="hi-outline" d="M191 217h38"/>
+          <path class="hi-accent-line" d="M55 246h83M55 257h52"/>
+          <circle class="hi-accent" cx="267" cy="72" r="7"/>
+          <circle class="hi-muted" cx="267" cy="72" r="17"/>
+          <path class="hi-accent-line" d="M267 45v-12M267 111v-12M240 72h-12M306 72h-12"/>
+          <text x="48" y="286" class="illustration-label">GUIDE / 01</text>
+          <text x="201" y="286" class="illustration-label">CHOISIR</text>
         </svg>
       </div>
       <nav class="hero-route" aria-label="Accès rapide">
@@ -135,7 +144,7 @@
         <a class="cat-card cat-card-featured cat-card-visual" href="smartphones.html">
           <div class="cat-card-media" aria-hidden="true">
             <div class="cat-phone-mock"><span></span></div>
-            <span class="cat-media-caption">Photo produit / illustration</span>
+            <span class="cat-media-caption">FORME · FONCTION</span>
           </div>
           <div class="cat-card-top"><span class="cat-index">01</span><span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="cat-svg"><rect x="6" y="3" width="12" height="18" rx="3"/><line x1="10" y1="18.3" x2="14" y2="18.3"/></svg></span></div>
           <h3>Smartphones</h3>
