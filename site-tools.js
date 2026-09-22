@@ -27,7 +27,7 @@
 
   var savedTheme = null;
   try { savedTheme = localStorage.getItem("guide-achat-theme"); } catch (e) {}
-  var initialTheme = savedTheme || "dark";
+  var initialTheme = savedTheme || "light";
   applyTheme(initialTheme);
 
   if (themeButton) {
@@ -56,6 +56,15 @@
   }
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
+
+  // Editorial navigation: mark the current section without changing routing.
+  (function markCurrentNav(){
+    var current = location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll(".site-nav a").forEach(function(link){
+      var href = (link.getAttribute("href") || "").split("#")[0];
+      if (href === current) link.setAttribute("aria-current", "page");
+    });
+  })();
 
   var index = [];
   var pages = [
