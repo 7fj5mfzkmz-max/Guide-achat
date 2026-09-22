@@ -541,3 +541,74 @@ html.dark-theme .search-result p,.search-result p{color:var(--muted)}
 }
 body.site-redesign .hero-orbit{display:none!important}
 body.site-redesign .lexique-visual-intro{grid-template-columns:1fr;min-height:0}
+
+/* =========================================================
+   v18 — mobile controls + visual cleanup after illustration removal
+   ========================================================= */
+.header-tools{
+  position:relative;
+  z-index:30;
+  pointer-events:auto;
+}
+.header-tool{
+  position:relative;
+  z-index:31;
+  pointer-events:auto;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  -webkit-appearance:none;
+  appearance:none;
+}
+
+/* The featured smartphone card no longer reserves space for the illustration
+   that was removed. Its editorial content is now the visual itself. */
+body.site-redesign .cat-card-featured{
+  min-height:340px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:.35rem;
+}
+body.site-redesign .cat-card-featured h3{
+  color:var(--paper);
+  margin-top:2.5rem;
+}
+body.site-redesign .cat-card-featured p{
+  color:#b9b6ad;
+  max-width:32rem;
+}
+body.site-redesign .cat-card-featured .cat-link{
+  position:static;
+  margin-top:auto;
+  padding-top:2rem;
+}
+
+/* The questionnaire is a functional tool, not a second oversized hero. */
+html:not(.dark-theme) body.site-redesign .tool-box{
+  background:#0b0d0b;
+  color:#f4f5ef;
+  border:0;
+  box-shadow:12px 12px 0 var(--accent-2);
+}
+html:not(.dark-theme) body.site-redesign .tool-box h3{
+  color:#f4f5ef;
+}
+html:not(.dark-theme) body.site-redesign .tool-box .hint{
+  color:#aaa79e;
+}
+html.dark-theme body.site-redesign .tool-box{
+  background:#20221d;
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:12px 12px 0 var(--accent);
+}
+html.dark-theme body.site-redesign .tool-box h3{color:var(--ink)}
+
+@media(max-width:620px){
+  body.site-redesign .cat-card-featured{min-height:300px;padding:1.25rem}
+  body.site-redesign .cat-card-featured h3{margin-top:1.75rem}
+  body.site-redesign .cat-card-featured .cat-link{padding-top:1.5rem}
+  html:not(.dark-theme) body.site-redesign .tool-box,
+  html.dark-theme body.site-redesign .tool-box{box-shadow:8px 8px 0 var(--accent-2)}
+  html.dark-theme body.site-redesign .tool-box{box-shadow:8px 8px 0 var(--accent)}
+}
