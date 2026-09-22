@@ -7,7 +7,8 @@
   var drawer = document.getElementById("mobile-drawer");
   var drawerClose = document.getElementById("drawer-close");
   var backdrop = document.getElementById("drawer-backdrop");
-  var themeButton = document.getElementById("theme-toggle");
+  var themeButton = document.getElementById("header-theme");
+  var headerSearch = document.getElementById("header-search");
   var searchInput = document.getElementById("site-search-input");
   var searchResults = document.getElementById("site-search-results");
 
@@ -15,13 +16,11 @@
     root.classList.toggle("dark-theme", theme === "dark");
     if (themeButton) {
       themeButton.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
-      themeButton.setAttribute("aria-label", theme === "dark" ? "Désactiver le thème sombre" : "Activer le thème sombre");
+      themeButton.setAttribute("aria-label", theme === "dark" ? "Activer le mode clair" : "Activer le mode sombre");
       var strong = themeButton.querySelector("strong");
       var small = themeButton.querySelector("small");
-      var icon = themeButton.querySelector(".drawer-action-icon");
-      if (strong) strong.textContent = theme === "dark" ? "Thème clair" : "Thème sombre";
-      if (small) small.textContent = theme === "dark" ? "Revenir aux couleurs claires" : "Adapter les couleurs à la lecture de nuit";
-      if (icon) icon.textContent = theme === "dark" ? "☀" : "◐";
+      var icon = themeButton;
+      if (icon) icon.textContent = theme === "dark" ? "☀" : "☾";
     }
   }
 
@@ -45,6 +44,7 @@
     if (fab) fab.setAttribute("aria-expanded", open ? "true" : "false");
     if (open && searchInput) setTimeout(function () { searchInput.focus(); }, 80);
   }
+  if (headerSearch) headerSearch.addEventListener("click", function () { setDrawer(true); });
   if (fab) fab.addEventListener("click", function () { setDrawer(true); });
   if (drawerClose) drawerClose.addEventListener("click", function () { setDrawer(false); });
   if (backdrop) backdrop.addEventListener("click", function () { setDrawer(false); });

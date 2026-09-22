@@ -1,257 +1,183 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="color-scheme" content="light dark">
-  <title>Guide·Achat : comprendre avant d'acheter</title>
-  <meta name="description" content="Guide d'achat indépendant : comprendre les caractéristiques techniques, choisir selon son usage et comparer avant d'acheter.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=Caveat:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="light" name="color-scheme"/>
+<title>Guide·Achat : comprendre avant d'acheter</title>
+<meta content="Guide d'achat indépendant : comprendre les caractéristiques techniques, choisir selon son usage et comparer avant d'acheter." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&amp;family=Caveat:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script defer="" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
 </head>
 <body class="home-body site-redesign">
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="brand-logo" aria-label="Guide d’achat, accueil">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 56 56" focusable="false">
-            <path class="bag" d="M13 20h30l-2.4 27H15.4L13 20Z"/>
-            <path class="handle" d="M20 20v-5.2a8 8 0 0 1 16 0V20"/>
-            <path class="cursor" d="m31 27 15 12-7.2.8 3.1 7-3.7 1.7-3.2-7-4.7 4.8-.3-19.3Z"/>
-          </svg>
-        </span>
-        <span class="brand-name"><b>Guide</b><strong>d’achat</strong><small>Bien choisir, c’est mieux consommer</small></span>
-      </a>
-      <nav class="site-nav" aria-label="Catégories">
-        <a href="smartphones.html">Smartphones</a>
-        <a href="pc-portables.html">PC portables</a>
-        <a href="batteries.html">Batteries</a>
-        <a href="ecouteurs.html">Écouteurs</a>
-        <a href="montres.html">Montres</a>
-        <a href="projecteurs.html">Projecteurs</a>
-      </nav>
+<header class="site-header">
+<div class="header-inner">
+<a aria-label="Guide d’achat, accueil" class="brand-logo" href="index.html">
+<span aria-hidden="true" class="brand-mark">
+<svg focusable="false" viewbox="0 0 56 56">
+<path class="bag" d="M13 20h30l-2.4 27H15.4L13 20Z"></path>
+<path class="handle" d="M20 20v-5.2a8 8 0 0 1 16 0V20"></path>
+<path class="cursor" d="m31 27 15 12-7.2.8 3.1 7-3.7 1.7-3.2-7-4.7 4.8-.3-19.3Z"></path>
+</svg>
+</span>
+<span class="brand-name"><b>Guide</b><strong>d’achat</strong><small>Bien choisir, c’est mieux consommer</small></span>
+</a>
+<nav aria-label="Catégories" class="site-nav">
+<a href="smartphones.html">Smartphones</a>
+<a href="pc-portables.html">PC portables</a>
+<a href="batteries.html">Batteries</a>
+<a href="ecouteurs.html">Écouteurs</a>
+<a href="montres.html">Montres</a>
+<a href="projecteurs.html">Projecteurs</a>
+</nav>
+<div aria-label="Outils" class="header-tools"><button aria-expanded="false" aria-label="Rechercher dans le guide" class="header-tool" id="header-search" type="button">⌕</button><button aria-label="Activer le mode sombre" aria-pressed="false" class="header-tool theme-icon" id="header-theme" type="button">☾</button></div></div>
+</header>
 
-    </div>
-  </header>
-
-  <div class="mobile-fab-wrap" aria-label="Outils du guide">
-    <button id="mobile-fab" class="mobile-fab" type="button" aria-label="Ouvrir les outils du guide" aria-expanded="false">
-      <span class="fab-icon" aria-hidden="true">⌕</span>
-    </button>
-  </div>
-
-  <section id="mobile-drawer" class="mobile-drawer" hidden aria-label="Outils du guide">
-    <button id="drawer-backdrop" class="drawer-backdrop" type="button" aria-label="Fermer les outils"></button>
-    <div class="drawer-sheet" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
-      <div class="drawer-handle" aria-hidden="true"></div>
-      <div class="drawer-head">
-        <div>
-          <span class="drawer-kicker">GUIDE·ACHAT</span>
-          <h2 id="drawer-title">Outils</h2>
-        </div>
-        <button id="drawer-close" class="drawer-close" type="button" aria-label="Fermer">×</button>
-      </div>
-      <div class="drawer-search">
-        <label class="drawer-search-field">
-          <span aria-hidden="true">⌕</span>
-          <input id="site-search-input" type="search" autocomplete="off" placeholder="Rechercher dans le guide…">
-        </label>
-        <div id="site-search-results" class="site-search-results"><p class="search-empty">Recherchez une caractéristique, un usage ou un modèle.</p></div>
-      </div>
-      <button id="theme-toggle" class="drawer-action" type="button" aria-pressed="false">
-        <span class="drawer-action-icon" aria-hidden="true">◐</span>
-        <span><strong>Thème sombre</strong><small>Adapter automatiquement les couleurs à la lecture de nuit</small></span>
-        <span class="drawer-switch" aria-hidden="true"></span>
-      </button>
-    </div>
-  </section>
-
-  <main id="main">
+<section aria-label="Outils du guide" class="mobile-drawer" hidden="" id="mobile-drawer">
+<button aria-label="Fermer les outils" class="drawer-backdrop" id="drawer-backdrop" type="button"></button>
+<div aria-labelledby="drawer-title" aria-modal="true" class="drawer-sheet" role="dialog">
+<div aria-hidden="true" class="drawer-handle"></div>
+<div class="drawer-head">
+<div>
+<span class="drawer-kicker">GUIDE·ACHAT</span>
+<h2 id="drawer-title">Rechercher</h2>
+</div>
+<button aria-label="Fermer" class="drawer-close" id="drawer-close" type="button">×</button>
+</div>
+<div class="drawer-search">
+<label class="drawer-search-field">
+<span aria-hidden="true">⌕</span>
+<input autocomplete="off" id="site-search-input" placeholder="Rechercher dans le guide…" type="search"/>
+</label>
+<div class="site-search-results" id="site-search-results"><p class="search-empty">Recherchez une caractéristique, un usage ou un modèle.</p></div>
+</div>
+</div>
+</section>
+<main id="main">
 <div class="home-page">
-  <section class="home-hero">
-    <div class="container-wide home-hero-layout">
-      <div class="hero-orbit orbit-a" aria-hidden="true"></div>
-      <div class="hero-orbit orbit-b" aria-hidden="true"></div>
-      <div class="hero-copy">
-        <div class="hero-kicker">GUIDE D'ACHAT INDÉPENDANT</div>
-        <h1>Comprendre, comparer, choisir en toute simplicité</h1>
-        <p class="hero-lead">Pas besoin de s'y connaître : on vous aide à comprendre l'essentiel, trouver ce qui vous correspond et faire votre choix.</p>
-      </div>
-      <div class="hero-media-stage" aria-hidden="true">
-        <div class="media-grid-line"></div>
-        <div class="media-device media-device-back"></div>
-        <div class="media-device media-device-front">
-          <span class="media-device-screen"></span>
-          <span class="media-device-camera"></span>
-        </div>
-        <span class="media-float-tag media-float-a">COMPRENDRE</span>
-        <span class="media-float-tag media-float-b">COMPARER</span>
-        <span class="media-float-dot"></span>
-        <span class="media-slot-note">OBJET · USAGE · CHOIX</span>
-      </div>
-      <div class="hero-aside" aria-hidden="true">
-        <svg class="hero-illustration editorial-hero-art" viewBox="0 0 320 320" focusable="false">
-          <defs>
-            <linearGradient id="guideAccent" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#b8ff18"/>
-              <stop offset="1" stop-color="#75d8ff"/>
-            </linearGradient>
-          </defs>
-          <circle class="hi-muted" cx="157" cy="155" r="116"/>
-          <circle class="hi-muted" cx="157" cy="155" r="84"/>
-          <path class="hi-accent-line" d="M41 214C91 158 111 79 174 66c47-10 69 24 104 12"/>
-          <path class="hi-outline" d="M67 73h67l18 18v92H67z"/>
-          <path class="hi-outline" d="M84 92h50M84 110h34M84 128h48M84 146h28"/>
-          <rect class="hi-fill" x="175" y="111" width="69" height="119" rx="16"/>
-          <rect x="184" y="126" width="51" height="79" rx="7" fill="url(#guideAccent)" opacity=".18"/>
-          <circle class="hi-accent" cx="209.5" cy="119" r="2.5"/>
-          <path class="hi-outline" d="M191 217h38"/>
-          <path class="hi-accent-line" d="M55 246h83M55 257h52"/>
-          <circle class="hi-accent" cx="267" cy="72" r="7"/>
-          <circle class="hi-muted" cx="267" cy="72" r="17"/>
-          <path class="hi-accent-line" d="M267 45v-12M267 111v-12M240 72h-12M306 72h-12"/>
-          <text x="48" y="286" class="illustration-label">GUIDE / 01</text>
-          <text x="201" y="286" class="illustration-label">CHOISIR</text>
-        </svg>
-      </div>
-      <nav class="hero-route" aria-label="Accès rapide">
-        <a class="hero-step" href="lexique.html"><b>01</b><span>Comprendre</span></a>
-        <i aria-hidden="true"></i>
-        <a class="hero-step" href="smartphones.html#ou-comparer"><b>02</b><span>Comparer</span></a>
-        <i aria-hidden="true"></i>
-        <a class="hero-step" href="smartphones.html#choisir-usage"><b>03</b><span>Choisir</span></a>
-      </nav>
-    </div>
-
-  </section>
-
-  <section class="container-wide home-section">
-    <div class="section-intro section-intro-editorial">
-      <div>
-        <span class="section-label">CATÉGORIES</span>
-        <h2>Choisir un guide</h2>
-      </div>
-      <p>Chaque catégorie suit la même logique : caractéristiques → usages → budget → sélection → comparaison.</p>
-    </div>
-
-    <div class="cat-grid">
-      
-        
-        <a class="cat-card cat-card-featured cat-card-visual" href="smartphones.html">
-          <div class="cat-card-media" aria-hidden="true">
-            <div class="cat-phone-mock"><span></span></div>
-            <span class="cat-media-caption">FORME · FONCTION</span>
-          </div>
-          <div class="cat-card-top"><span class="cat-index">01</span><span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="cat-svg"><rect x="6" y="3" width="12" height="18" rx="3"/><line x1="10" y1="18.3" x2="14" y2="18.3"/></svg></span></div>
-          <h3>Smartphones</h3>
-          <p>Processeur, écran, photo, batterie : comprendre avant de choisir.</p>
-          <span class="cat-link">Lire le guide <span aria-hidden="true">→</span></span>
-        </a>
-        
-      
-        
-        <div class="cat-card cat-card-disabled cat-card-secondary">
-          <div class="cat-card-top"><span class="cat-index">02</span><span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="cat-svg"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20l-2-3H4l-2 3Z"/></svg></span></div>
-          <h3>PC portables</h3>
-          <p>Bureautique, création, gaming : le bon PC selon l&#39;usage.</p>
-          <span class="soon">Bientôt disponible</span>
-        </div>
-        
-      
-        
-        <div class="cat-card cat-card-disabled cat-card-secondary">
-          <div class="cat-card-top"><span class="cat-index">03</span><span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="cat-svg"><rect x="3" y="7" width="16" height="10" rx="2"/><rect x="20" y="10" width="2" height="4" rx="1"/><line x1="7" y1="10" x2="7" y2="14"/></svg></span></div>
-          <h3>Batteries externes</h3>
-          <p>mAh, watts, Power Delivery : s&#39;y retrouver simplement.</p>
-          <span class="soon">Bientôt disponible</span>
-        </div>
-        
-      
-        
-        <div class="cat-card cat-card-disabled cat-card-secondary">
-          <div class="cat-card-top"><span class="cat-index">04</span><span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="cat-svg"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="2.5" y="13" width="4" height="7" rx="2"/><rect x="17.5" y="13" width="4" height="7" rx="2"/></svg></span></div>
-          <h3>Écouteurs Bluetooth</h3>
-          <p>Autonomie, réduction de bruit, codecs : ce qui compte vraiment.</p>
-          <span class="soon">Bientôt disponible</span>
-        </div>
-        
-      
-        
-        <div class="cat-card cat-card-disabled cat-card-secondary">
-          <div class="cat-card-top"><span class="cat-index">05</span><span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="cat-svg"><circle cx="12" cy="12" r="6.2"/><path d="M12 8.6V12l2.4 1.4M9.3 3h5.4l-.6 3.4H9.9L9.3 3ZM9.3 21h5.4l-.6-3.4H9.9l-.6 3.4Z"/></svg></span></div>
-          <h3>Montres</h3>
-          <p>Une sélection resserrée de modèles fiables et abordables.</p>
-          <span class="soon">Bientôt disponible</span>
-        </div>
-        
-      
-        
-        <div class="cat-card cat-card-disabled cat-card-secondary">
-          <div class="cat-card-top"><span class="cat-index">06</span><span class="cat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" class="cat-svg"><rect x="2" y="7" width="14" height="10" rx="2"/><circle cx="9" cy="12" r="3"/><path d="M16 10.5 22 8v8l-6-2.5Z"/></svg></span></div>
-          <h3>Projecteurs</h3>
-          <p>Luminosité, contraste, distance de projection expliqués.</p>
-          <span class="soon">Bientôt disponible</span>
-        </div>
-        
-      
-    </div>
-  </section>
-
-  <section class="container-wide home-section why-section">
-    <div class="why-copy">
-      <span class="section-label">POURQUOI CE GUIDE</span>
-      <h2>Des choix éclairés, à votre rythme</h2>
-      <p>Débutant ou simplement curieux, ce guide explique les caractéristiques, compare les modèles et renvoie vers les bonnes sources, sans jargon inutile.</p>
-      <ul class="trust-grid">
-        <li><span class="trust-icon" aria-hidden="true">◎</span>Explications claires et honnêtes</li>
-        <li><span class="trust-icon" aria-hidden="true">⌕</span>Comparatifs simples et utiles</li>
-        <li><span class="trust-icon" aria-hidden="true">↗</span>Liens directs vers les bonnes sources</li>
-        <li><span class="trust-icon" aria-hidden="true">◆</span>Pour tous les budgets et tous les profils</li>
-      </ul>
-    </div>
-    <div class="why-card">
-      <p class="why-script">Mieux informé,<br>mieux acheté.</p>
-      <span class="why-card-mark" aria-hidden="true">
-        <svg viewBox="0 0 56 56" focusable="false">
-          <path class="bag" d="M13 20h30l-2.4 27H15.4L13 20Z"/>
-          <path class="handle" d="M20 20v-5.2a8 8 0 0 1 16 0V20"/>
-          <path class="cursor" d="m31 27 15 12-7.2.8 3.1 7-3.7 1.7-3.2-7-4.7 4.8-.3-19.3Z"/>
-        </svg>
-      </span>
-    </div>
-  </section>
-
-  <section class="method-strip">
-    <div class="container-wide">
-      <div class="method-grid">
-        <div><span class="method-no">01</span><strong>Le chiffre</strong><p>Ce que signifie réellement la caractéristique.</p></div>
-        <div><span class="method-no">02</span><strong>L'usage</strong><p>Ce que cette caractéristique change au quotidien.</p></div>
-        <div><span class="method-no">03</span><strong>La décision</strong><p>Quand elle doit peser dans votre choix.</p></div>
-      </div>
-    </div>
-  </section>
+<section class="home-hero">
+<div class="container-wide home-hero-layout">
+<div class="hero-copy">
+<div class="hero-kicker">GUIDE D'ACHAT INDÉPENDANT</div>
+<h1>Comprendre, comparer, choisir en toute simplicité</h1>
+<p class="hero-lead">Pas besoin de s'y connaître : on vous aide à comprendre l'essentiel, trouver ce qui vous correspond et faire votre choix.</p>
+</div>
+<div aria-hidden="true" class="hero-media-stage">
+<div class="media-grid-line"></div>
+<div class="media-device media-device-back"></div>
+<div class="media-device media-device-front">
+<span class="media-device-screen"></span>
+<span class="media-device-camera"></span>
+</div>
+<span class="media-float-tag media-float-a">COMPRENDRE</span>
+<span class="media-float-tag media-float-b">COMPARER</span>
+<span class="media-float-dot"></span>
+<span class="media-slot-note">OBJET · USAGE · CHOIX</span>
+</div>
+<nav aria-label="Accès rapide" class="hero-route">
+<a class="hero-step" href="lexique.html"><b>01</b><span>Comprendre</span></a>
+<i aria-hidden="true"></i>
+<a class="hero-step" href="smartphones.html#ou-comparer"><b>02</b><span>Comparer</span></a>
+<i aria-hidden="true"></i>
+<a class="hero-step" href="smartphones.html#choisir-usage"><b>03</b><span>Choisir</span></a>
+</nav>
+</div>
+</section>
+<section class="container-wide home-section">
+<div class="section-intro section-intro-editorial">
+<div>
+<span class="section-label">CATÉGORIES</span>
+<h2>Choisir un guide</h2>
+</div>
+<p>Chaque catégorie suit la même logique : caractéristiques → usages → budget → sélection → comparaison.</p>
+</div>
+<div class="cat-grid">
+<a class="cat-card cat-card-featured cat-card-visual" href="smartphones.html">
+<div class="cat-card-top"><span class="cat-index">01</span></div>
+<h3>Smartphones</h3>
+<p>Processeur, écran, photo, batterie : comprendre avant de choisir.</p>
+<span class="cat-link">Lire le guide <span aria-hidden="true">→</span></span>
+</a>
+<div class="cat-card cat-card-disabled cat-card-secondary">
+<div class="cat-card-top"><span class="cat-index">02</span></div>
+<h3>PC portables</h3>
+<p>Bureautique, création, gaming : le bon PC selon l'usage.</p>
+<span class="soon">Bientôt disponible</span>
+</div>
+<div class="cat-card cat-card-disabled cat-card-secondary">
+<div class="cat-card-top"><span class="cat-index">03</span></div>
+<h3>Batteries externes</h3>
+<p>mAh, watts, Power Delivery : s'y retrouver simplement.</p>
+<span class="soon">Bientôt disponible</span>
+</div>
+<div class="cat-card cat-card-disabled cat-card-secondary">
+<div class="cat-card-top"><span class="cat-index">04</span></div>
+<h3>Écouteurs Bluetooth</h3>
+<p>Autonomie, réduction de bruit, codecs : ce qui compte vraiment.</p>
+<span class="soon">Bientôt disponible</span>
+</div>
+<div class="cat-card cat-card-disabled cat-card-secondary">
+<div class="cat-card-top"><span class="cat-index">05</span></div>
+<h3>Montres</h3>
+<p>Une sélection resserrée de modèles fiables et abordables.</p>
+<span class="soon">Bientôt disponible</span>
+</div>
+<div class="cat-card cat-card-disabled cat-card-secondary">
+<div class="cat-card-top"><span class="cat-index">06</span></div>
+<h3>Projecteurs</h3>
+<p>Luminosité, contraste, distance de projection expliqués.</p>
+<span class="soon">Bientôt disponible</span>
+</div>
+</div>
+</section>
+<section class="container-wide home-section why-section">
+<div class="why-copy">
+<span class="section-label">POURQUOI CE GUIDE</span>
+<h2>Des choix éclairés, à votre rythme</h2>
+<p>Débutant ou simplement curieux, ce guide explique les caractéristiques, compare les modèles et renvoie vers les bonnes sources, sans jargon inutile.</p>
+<ul class="trust-grid">
+<li><span aria-hidden="true" class="trust-icon">◎</span>Explications claires et honnêtes</li>
+<li><span aria-hidden="true" class="trust-icon">⌕</span>Comparatifs simples et utiles</li>
+<li><span aria-hidden="true" class="trust-icon">↗</span>Liens directs vers les bonnes sources</li>
+<li><span aria-hidden="true" class="trust-icon">◆</span>Pour tous les budgets et tous les profils</li>
+</ul>
+</div>
+<div class="why-card">
+<p class="why-script">Mieux informé,<br/>mieux acheté.</p>
+<span aria-hidden="true" class="why-card-mark">
+</span>
+</div>
+</section>
+<section class="method-strip">
+<div class="container-wide">
+<div class="method-grid">
+<div><span class="method-no">01</span><strong>Le chiffre</strong><p>Ce que signifie réellement la caractéristique.</p></div>
+<div><span class="method-no">02</span><strong>L'usage</strong><p>Ce que cette caractéristique change au quotidien.</p></div>
+<div><span class="method-no">03</span><strong>La décision</strong><p>Quand elle doit peser dans votre choix.</p></div>
+</div>
+</div>
+</section>
 </div>
 </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span class="footer-logo-mark" aria-hidden="true">
-          <svg viewBox="0 0 56 56"><path class="bag" d="M13 20h30l-2.4 27H15.4L13 20Z"/><path class="handle" d="M20 20v-5.2a8 8 0 0 1 16 0V20"/><path class="cursor" d="m31 27 15 12-7.2.8 3.1 7-3.7 1.7-3.2-7-4.7 4.8-.3-19.3Z"/></svg>
-        </span>
-        <span><b>Guide</b> <strong>d’achat</strong></span>
-      </div>
-      <div class="footer-copy">
-        <p>Guide indépendant : nous expliquons, comparons et renvoyons vers les sources et comparateurs utiles pour l'achat.</p>
-        <p>Les fiches indiquent leur date de dernière vérification.</p>
-      </div>
-    </div>
-  </footer>
-  <script src="site-tools.js"></script>
+<footer class="site-footer">
+<div class="footer-inner">
+<div class="footer-brand">
+<span aria-hidden="true" class="footer-logo-mark">
+</span>
+<span><b>Guide</b> <strong>d’achat</strong></span>
+</div>
+<div class="footer-copy">
+<p>Guide indépendant : nous expliquons, comparons et renvoyons vers les sources et comparateurs utiles pour l'achat.</p>
+<p>Les fiches indiquent leur date de dernière vérification.</p>
+</div>
+</div>
+</footer>
+<script src="site-tools.js"></script>
 <script src="site-motion.js"></script>
 </body>
 </html>
