@@ -1,40 +1,26 @@
-# Guide·Achat — v11 harmonisée
+# Guide·Achat — v21
 
-Base complète issue de la version visuelle v9 + audit Claude + story sections batterie/écran.
+Base : Guide·Achat v20, avec application de la refonte éditoriale décisionnelle du guide smartphones.
 
-Principes :
-- ne pas empiler de nouvelles couches graphiques sans audit ;
-- conserver les textes éditoriaux de l'auteur ;
-- mobile/iPhone prioritaire ;
-- illustrations et animations comme supports pédagogiques ;
-- GSAP comme référence d'animation du projet ;
-- smartphones.json comme source centrale des données.
+## Refonte éditoriale smartphones
+- Lecture orientée décision d’achat : partir de l’usage avant la fiche technique.
+- Introduction centrée sur les différences réellement perceptibles.
+- Critères prioritaires et remise en contexte des gros chiffres marketing.
+- Chapitres : écran, processeur, RAM, stockage, photo, batterie, charge rapide et mises à jour.
+- Chaque chapitre distingue ce qui est important, ce qui est secondaire et les cas où il ne faut pas compromettre.
+- Mode simple par défaut + mode détaillé global « Détails : OFF / ON ».
+- Mode détaillé conservé pendant la navigation de la page via sessionStorage, sans persistance entre visites.
+- Comparaisons interactives 60/90/120 Hz et HD/FHD+/QHD.
+- Comparaison de modèles alimentée par smartphones.json, sans classement général.
+- Questionnaire, catalogue, comparateur et FAQ conservés.
+- Catalogue filtrable par prix, priorité, stockage, écran, téléobjectif et charge rapide.
+- Recherche globale renforcée par normalisation, synonymes, pertinence et tolérance légère aux fautes.
 
-
-## Réédition v17
-- Base graphique conservée depuis v15 : vert + bleu en mode clair, orange en mode sombre.
-- Recherche indépendante dans la barre supérieure.
-- Thème indépendant lune/soleil dans la barre supérieure.
+## Direction graphique
+- Palette v15 conservée : vert + bleu en clair, orange en sombre.
 - Illustrations supprimées à l’exception du logo Guide·Achat.
-- Contrastes clair/sombre renforcés.
+- GSAP conservé pour les interactions existantes.
+- Aucune nouvelle illustration ajoutée au guide smartphones.
 
-## v19 — catalogue, contrast et recherche
-
-- Les critères du questionnaire smartphones sont explicitement lisibles en mode clair.
-- Le catalogue dispose maintenant de filtres visibles par budget, critère principal et marque.
-- Les groupes de prix ouvrent automatiquement le premier groupe correspondant.
-- Les fiches catalogue affichent clairement marque, critère principal, prix et profils adaptés en mode clair comme sombre.
-- La recherche globale a été renforcée : accents ignorés, recherche par mots partiels, tolérance aux petites fautes, synonymes d'usage, recherche dans les caractéristiques et les modèles du catalogue, classement par pertinence.
-- Les placeholders graphiques laissés par la suppression des illustrations ont été retirés.
-- Les anciennes animations ciblant des illustrations supprimées ont été nettoyées.
-
-## v20 — Refonte éditoriale du guide smartphones
-
-- `smartphones.html` réécrit pour privilégier une lecture naturelle et concrète.
-- Mode simple par défaut : chaque caractéristique est introduite par une situation d'usage avant le terme technique.
-- Mode « Explications détaillées » global, désactivé par défaut, avec informations techniques supplémentaires dans chaque section.
-- Nouvelle introduction, méthode de lecture, critères prioritaires et section sur les gros chiffres marketing.
-- Sections refondues : écran, processeur, RAM, stockage, photo, batterie, charge rapide et mises à jour.
-- Résumé final en 6 critères et recommandations orientées usage.
-- Questionnaire, catalogue, comparateur, recherche et données existantes conservés.
-- Les fonctions complémentaires (NFC, 5G, eSIM, certification IP, recharge sans fil) restent accessibles sans alourdir le parcours principal.
+## Base v20 conservée
+Les autres pages et données du projet proviennent de la v20 et ne sont pas réécrites inutilement.
