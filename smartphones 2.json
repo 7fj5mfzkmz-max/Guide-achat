@@ -1,0 +1,1414 @@
+{
+  "categorie": "smartphones",
+  "produits": [
+    {
+      "id": "galaxy-a56",
+      "nom": "Samsung Galaxy A56",
+      "marque": "Samsung",
+      "prix_indicatif": 300,
+      "prix_note": "Prix généralement constaté, hors promotions ponctuelles.",
+      "caracteristiques": {
+        "ecran": "6,7\" Super AMOLED, FHD+, 120 Hz",
+        "processeur": "Exynos 1580 (4 nm)",
+        "ram": "8 Go",
+        "stockage": "128 ou 256 Go",
+        "batterie": "5 000 mAh, charge 45 W",
+        "photo": "50 Mpx principal + 12 Mpx ultra grand-angle + 5 Mpx macro",
+        "etancheite": "IP67",
+        "os": "Android, One UI"
+      },
+      "points_forts": [
+        "Autonomie confortable",
+        "Écran AMOLED fluide (120 Hz)",
+        "Bonne résistance (IP67)"
+      ],
+      "points_faibles": [
+        "Pas de téléobjectif dédié",
+        "Photos en basse lumière perfectibles"
+      ],
+      "profil_adapte": [
+        "polyvalent",
+        "rapport qualité-prix",
+        "budget"
+      ],
+      "scores": {
+        "performance": 6,
+        "autonomie": 8,
+        "photo": 6,
+        "prix": 9,
+        "gaming": 5,
+        "taille": 6
+      },
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-samsung-galaxy-a56",
+      "fabricant_url": "https://www.samsung.com/fr/smartphones/galaxy-a/galaxy-a56-5g/",
+      "date_verification": "2026-09",
+      "ready_for_recommendation": true
+    },
+    {
+      "id": "xiaomi-15t",
+      "nom": "Xiaomi 15T",
+      "marque": "Xiaomi",
+      "prix_indicatif": 430,
+      "prix_note": "Prix généralement constaté, hors promotions ponctuelles.",
+      "caracteristiques": {
+        "ecran": "6,83\" AMOLED, 120 Hz, jusqu'à 3 200 nits",
+        "processeur": "MediaTek Dimensity 8400-Ultra (4 nm)",
+        "ram": "12 Go LPDDR5X",
+        "stockage": "256 ou 512 Go",
+        "batterie": "5 500 mAh, charge 67 W",
+        "photo": "Triple capteur Leica : 50 Mpx principal + 50 Mpx téléobjectif + 12 Mpx ultra grand-angle",
+        "etancheite": "IP68",
+        "os": "Android, HyperOS"
+      },
+      "points_forts": [
+        "Excellent rapport qualité-prix",
+        "Téléobjectif dédié (rare à ce prix)",
+        "Grosse batterie, charge rapide"
+      ],
+      "points_faibles": [
+        "Pas de charge sans fil",
+        "Surcouche HyperOS chargée en apps préinstallées"
+      ],
+      "profil_adapte": [
+        "rapport qualité-prix",
+        "photo",
+        "polyvalent"
+      ],
+      "scores": {
+        "performance": 8,
+        "autonomie": 8,
+        "photo": 8,
+        "prix": 8,
+        "gaming": 7,
+        "taille": 5
+      },
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-xiaomi-15t",
+      "fabricant_url": "https://www.mi.com/fr/product/xiaomi-15t/",
+      "date_verification": "2026-09",
+      "ready_for_recommendation": true
+    },
+    {
+      "id": "iphone-17-pro",
+      "nom": "Apple iPhone 17 Pro",
+      "marque": "Apple",
+      "prix_indicatif": 1329,
+      "prix_note": "Prix neuf constaté, modèle 256 Go.",
+      "caracteristiques": {
+        "ecran": "6,3\" Super Retina XDR OLED, ProMotion 120 Hz",
+        "processeur": "Puce A19 Pro",
+        "ram": "12 Go",
+        "stockage": "256 Go à 1 To",
+        "batterie": "≈ 4 250 mAh, charge 40 W filaire / 25 W MagSafe",
+        "photo": "Triple capteur 48 Mpx (principal, ultra grand-angle, téléobjectif), zoom optique jusqu'à 8x",
+        "etancheite": "IP68",
+        "os": "iOS 26"
+      },
+      "points_forts": [
+        "Suivi logiciel très long (6-7 ans)",
+        "Vidéo et photo de référence",
+        "Écosystème Apple intégré"
+      ],
+      "points_faibles": [
+        "Prix élevé",
+        "Chargeur non fourni",
+        "Recharge moins rapide que la concurrence Android"
+      ],
+      "profil_adapte": [
+        "photo",
+        "performance",
+        "durée de vie"
+      ],
+      "scores": {
+        "performance": 9,
+        "autonomie": 7,
+        "photo": 9,
+        "prix": 4,
+        "gaming": 8,
+        "taille": 6
+      },
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/ou-acheter-apple-iphone-17-pro",
+      "fabricant_url": "https://www.apple.com/fr/iphone-17-pro/",
+      "date_verification": "2026-09",
+      "ready_for_recommendation": true
+    },
+    {
+      "id": "oneplus-15",
+      "nom": "OnePlus 15",
+      "marque": "OnePlus",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "batterie / autonomie"
+      ],
+      "critere_principal": "Batterie / autonomie",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "rog-phone-9",
+      "nom": "ROG Phone 9",
+      "marque": "ASUS",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "batterie / autonomie"
+      ],
+      "critere_principal": "Batterie / autonomie",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "galaxy-z-fold8",
+      "nom": "Galaxy Z Fold8",
+      "marque": "Samsung",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "écran / immersion"
+      ],
+      "critere_principal": "Écran / immersion",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "pixel-10-pro-xl",
+      "nom": "Pixel 10 Pro XL",
+      "marque": "Google",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "écran / immersion"
+      ],
+      "critere_principal": "Écran / immersion",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "pixel-10",
+      "nom": "Pixel 10",
+      "marque": "Google",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "photo"
+      ],
+      "critere_principal": "Photo",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "galaxy-s26-ultra",
+      "nom": "Galaxy S26 Ultra",
+      "marque": "Samsung",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "photo"
+      ],
+      "critere_principal": "Photo",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "iphone-18-pro-max",
+      "nom": "iPhone 18 Pro Max",
+      "marque": "Apple",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "vidéo / réalisation"
+      ],
+      "critere_principal": "Vidéo / réalisation",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "xperia-1-vii",
+      "nom": "Xperia 1 VII",
+      "marque": "Sony",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "vidéo / réalisation"
+      ],
+      "critere_principal": "Vidéo / réalisation",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "iphone-18-pro",
+      "nom": "iPhone 18 Pro",
+      "marque": "Apple",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "stockage / performances"
+      ],
+      "critere_principal": "Stockage / performances",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "galaxy-s26-plus",
+      "nom": "Galaxy S26+",
+      "marque": "Samsung",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "stockage / performances"
+      ],
+      "critere_principal": "Stockage / performances",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "pixel-10a",
+      "nom": "Pixel 10a",
+      "marque": "Google",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "rapport qualité-prix"
+      ],
+      "critere_principal": "Rapport qualité-prix",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "oneplus-nord-5",
+      "nom": "OnePlus Nord 5",
+      "marque": "OnePlus",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "rapport qualité-prix"
+      ],
+      "critere_principal": "Rapport qualité-prix",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "iphone-duo",
+      "nom": "iPhone Duo",
+      "marque": "Apple",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "originalité / design unique"
+      ],
+      "critere_principal": "Originalité / design unique",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "nothing-phone-4",
+      "nom": "Nothing Phone (4)",
+      "marque": "Nothing",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "originalité / design unique"
+      ],
+      "critere_principal": "Originalité / design unique",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "xiaomi-16-pro",
+      "nom": "Xiaomi 16 Pro",
+      "marque": "Xiaomi",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "polyvalence / multimédia"
+      ],
+      "critere_principal": "Polyvalence / multimédia",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "honor-magic-8-pro",
+      "nom": "Honor Magic 8 Pro",
+      "marque": "Honor",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "polyvalence / multimédia"
+      ],
+      "critere_principal": "Polyvalence / multimédia",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "galaxy-s26",
+      "nom": "Galaxy S26",
+      "marque": "Samsung",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "compact / ergonomie"
+      ],
+      "critere_principal": "Compact / ergonomie",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "pixel-10-pro",
+      "nom": "Pixel 10 Pro",
+      "marque": "Google",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "compact / ergonomie"
+      ],
+      "critere_principal": "Compact / ergonomie",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "motorola-edge-70-pro",
+      "nom": "Motorola Edge 70 Pro",
+      "marque": "Motorola",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "robustesse / durabilité"
+      ],
+      "critere_principal": "Robustesse / durabilité",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "xiaomi-16-ultra",
+      "nom": "Xiaomi 16 Ultra",
+      "marque": "Xiaomi",
+      "prix_indicatif": null,
+      "prix_note": "À vérifier avant publication.",
+      "caracteristiques": {},
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "robustesse / durabilité"
+      ],
+      "critere_principal": "Robustesse / durabilité",
+      "scores": {},
+      "ready_for_recommendation": false,
+      "idealo_url": "https://www.idealo.fr/cat/19116/smartphones.html",
+      "kimovil_url": "https://www.kimovil.com/fr/",
+      "fabricant_url": "",
+      "pour_qui": "Fiche à documenter : prix, caractéristiques et analyse à vérifier avant publication.",
+      "date_verification": null
+    },
+    {
+      "id": "galaxy-a17-5g",
+      "nom": "Samsung Galaxy A17 5G",
+      "marque": "Samsung",
+      "prix_indicatif": 199,
+      "prix_note": "Prix généralement constaté (4 Go/128 Go), hors promotions.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,7\" Super AMOLED, FHD+, 90 Hz, jusqu'à 1100 nits",
+        "processeur": "Exynos 1330 (5 nm)",
+        "ram": "4 ou 8 Go",
+        "stockage": "128 ou 256 Go, extensible microSD",
+        "batterie": "5 000 mAh",
+        "photo": "50 Mpx principal (f/1.8) + capteurs secondaires",
+        "etancheite": "IP54",
+        "os": "Android 16, One UI"
+      },
+      "points_forts": [
+        "Écran Super AMOLED lumineux (1100 nits)",
+        "Grosse batterie 5000 mAh",
+        "Stockage extensible par microSD"
+      ],
+      "points_faibles": [
+        "Fréquence limitée à 90 Hz",
+        "IP54 : résiste aux éclaboussures, pas à l'immersion"
+      ],
+      "profil_adapte": [
+        "budget",
+        "rapport qualité-prix",
+        "polyvalent"
+      ],
+      "scores": {
+        "performance": 5,
+        "autonomie": 7,
+        "photo": 5,
+        "prix": 8,
+        "gaming": 4,
+        "taille": 6
+      },
+      "image_url": "",
+      "image_alt": "Illustration du Samsung Galaxy A17 5G",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "redmi-note-15-4g",
+      "nom": "Xiaomi Redmi Note 15 4G",
+      "marque": "Xiaomi",
+      "prix_indicatif": 199,
+      "prix_note": "Prix généralement constaté (6 Go/128 Go), hors promotions.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,77\" AMOLED, FHD+, 120 Hz, jusqu'à 3200 nits",
+        "processeur": "MediaTek Helio G100 (6 nm)",
+        "ram": "6 ou 8 Go",
+        "stockage": "128 ou 256 Go",
+        "batterie": "6 000 mAh",
+        "photo": "108 Mpx principal (f/1.7) + capteur secondaire",
+        "etancheite": "Non précisée",
+        "os": "Android 15, HyperOS"
+      },
+      "points_forts": [
+        "Écran AMOLED 120 Hz très lumineux",
+        "Très grosse batterie (6000 mAh)",
+        "Capteur principal 108 Mpx"
+      ],
+      "points_faibles": [
+        "Pas de 5G (version 4G)",
+        "Pas de certification IP annoncée"
+      ],
+      "profil_adapte": [
+        "autonomie",
+        "rapport qualité-prix",
+        "budget"
+      ],
+      "scores": {
+        "performance": 5,
+        "autonomie": 9,
+        "photo": 6,
+        "prix": 8,
+        "gaming": 4,
+        "taille": 5
+      },
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi Note 15 4G",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "redmi-note-15-5g",
+      "nom": "Xiaomi Redmi Note 15 5G",
+      "marque": "Xiaomi",
+      "prix_indicatif": 143,
+      "prix_note": "Prix généralement constaté (6-8 Go/128 Go), hors promotions.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,77\" AMOLED, FHD+, 120 Hz, jusqu'à 3200 nits",
+        "processeur": "Snapdragon 6 Gen 3 (4 nm)",
+        "ram": "6 ou 8 Go",
+        "stockage": "128 ou 256 Go",
+        "batterie": "5 520 mAh, charge 45 W",
+        "photo": "108 Mpx principal (f/1.8) + capteur secondaire",
+        "etancheite": "Non précisée",
+        "os": "Android 15, HyperOS"
+      },
+      "points_forts": [
+        "Écran AMOLED 120 Hz très lumineux (3200 nits)",
+        "Capteur principal 108 Mpx",
+        "Bonne autonomie"
+      ],
+      "points_faibles": [
+        "Pas de certification IP annoncée",
+        "HyperOS chargé en applications préinstallées"
+      ],
+      "profil_adapte": [
+        "rapport qualité-prix",
+        "polyvalent",
+        "budget"
+      ],
+      "scores": {
+        "performance": 6,
+        "autonomie": 7,
+        "photo": 6,
+        "prix": 8,
+        "gaming": 5,
+        "taille": 5
+      },
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi Note 15 5G",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "realme-p3-5g",
+      "nom": "realme P3 5G",
+      "marque": "realme",
+      "prix_indicatif": null,
+      "prix_note": "Prix généralement constaté (8 Go/256 Go), hors promotions.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,67\" AMOLED, FHD+, 120 Hz, jusqu'à 1200 nits (HBM)",
+        "processeur": "Snapdragon 6 Gen 4 (4 nm)",
+        "ram": "6, 8 ou 12 Go",
+        "stockage": "128, 256 ou 512 Go (UFS 3.1), extensible microSD",
+        "batterie": "Non précisée par nos sources actuelles",
+        "photo": "50 Mpx principal (f/1.8) + 2 Mpx secondaire",
+        "etancheite": "Non précisée",
+        "os": "Android, realme UI"
+      },
+      "points_forts": [
+        "Snapdragon 6 Gen 4 récent (4 nm)",
+        "Écran AMOLED très lumineux (1200 nits HBM)",
+        "Jusqu'à 512 Go de stockage UFS 3.1"
+      ],
+      "points_faibles": [
+        "Capacité de la batterie non confirmée dans nos sources",
+        "Peu de retours utilisateurs, modèle récent"
+      ],
+      "profil_adapte": [
+        "rapport qualité-prix",
+        "performance"
+      ],
+      "scores": {
+        "performance": 7,
+        "autonomie": 6,
+        "photo": 6,
+        "prix": 8,
+        "gaming": 6,
+        "taille": 6
+      },
+      "image_url": "",
+      "image_alt": "Illustration du realme P3 5G",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "realme-c67",
+      "nom": "realme C67",
+      "marque": "realme",
+      "prix_indicatif": 151,
+      "prix_note": "Prix généralement constaté (6-8 Go/128 Go), hors promotions.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,72\" LCD IPS, FHD+, 90 Hz, jusqu'à 950 nits",
+        "processeur": "Snapdragon 685 (6 nm)",
+        "ram": "6 ou 8 Go",
+        "stockage": "128 Go, extensible microSD jusqu'à 2 To",
+        "batterie": "5 000 mAh, charge 33 W",
+        "photo": "108 Mpx principal (f/1.75) + capteur de profondeur",
+        "etancheite": "IP54",
+        "os": "Android 14, 3 ans de mises à jour annoncés"
+      },
+      "points_forts": [
+        "Capteur principal 108 Mpx",
+        "3 ans de mises à jour annoncés",
+        "Charge rapide 33 W"
+      ],
+      "points_faibles": [
+        "Photo en retrait la nuit",
+        "Pas idéal pour le jeu"
+      ],
+      "profil_adapte": [
+        "budget",
+        "rapport qualité-prix"
+      ],
+      "scores": {
+        "performance": 4,
+        "autonomie": 6,
+        "photo": 5,
+        "prix": 8,
+        "gaming": 3,
+        "taille": 5
+      },
+      "image_url": "",
+      "image_alt": "Illustration du realme C67",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "redmi-15c",
+      "nom": "Xiaomi Redmi 15C",
+      "marque": "Xiaomi",
+      "prix_indicatif": 153,
+      "prix_note": "Prix généralement constaté (4-8 Go/128-256 Go), hors promotions.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,9\" LCD IPS, HD+, 120 Hz, jusqu'à 600 nits",
+        "processeur": "MediaTek Helio G81 Ultra (12 nm)",
+        "ram": "4, 6 ou 8 Go",
+        "stockage": "128 ou 256 Go, extensible microSD",
+        "batterie": "Grande capacité (gamme d'entrée), charge rapide",
+        "photo": "Caractéristiques précises non confirmées par nos sources actuelles",
+        "etancheite": "IP64",
+        "os": "Android, HyperOS"
+      },
+      "points_forts": [
+        "Grand écran 120 Hz pour ce prix",
+        "IP64, rare en entrée de gamme",
+        "Stockage extensible par microSD"
+      ],
+      "points_faibles": [
+        "Pas de charge sans fil",
+        "Photo en retrait la nuit"
+      ],
+      "profil_adapte": [
+        "budget",
+        "rapport qualité-prix"
+      ],
+      "scores": {
+        "performance": 3,
+        "autonomie": 7,
+        "photo": 4,
+        "prix": 9,
+        "gaming": 2,
+        "taille": 5
+      },
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi 15C",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "realme-c75",
+      "nom": "realme C75",
+      "marque": "realme",
+      "prix_indicatif": 169,
+      "prix_note": "Prix généralement constaté (8 Go/128-256 Go), hors promotions.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,72\" LCD IPS, FHD+, 90 Hz, jusqu'à 580 nits",
+        "processeur": "MediaTek Helio G92 MAX (12 nm)",
+        "ram": "8 Go (+ RAM dynamique)",
+        "stockage": "128 ou 256 Go, extensible microSD",
+        "batterie": "6 000 mAh, charge 45 W",
+        "photo": "50 Mpx principal (f/1.8)",
+        "etancheite": "IP69 (résistance remarquable à ce prix)",
+        "os": "Android 14, realme UI 5.0"
+      },
+      "points_forts": [
+        "Très bonne résistance à l'eau et à la poussière (IP69), rare à ce prix",
+        "Grosse batterie 6000 mAh",
+        "Prix d'entrée accessible"
+      ],
+      "points_faibles": [
+        "Écran LCD (pas d'AMOLED)",
+        "Processeur d'entrée de gamme, peu adapté au jeu"
+      ],
+      "profil_adapte": [
+        "budget",
+        "rapport qualité-prix",
+        "autonomie"
+      ],
+      "scores": {
+        "performance": 4,
+        "autonomie": 8,
+        "photo": 5,
+        "prix": 9,
+        "gaming": 3,
+        "taille": 5
+      },
+      "image_url": "",
+      "image_alt": "Illustration du realme C75",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "redmi-note-14-5g",
+      "nom": "Xiaomi Redmi Note 14 5G",
+      "marque": "Xiaomi",
+      "prix_indicatif": null,
+      "prix_note": "Prix généralement constaté (6-8 Go/128-256 Go), hors promotions.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,67\" AMOLED, FHD+, 120 Hz, jusqu'à 2100 nits",
+        "processeur": "MediaTek Dimensity 7025-Ultra (6 nm)",
+        "ram": "6 ou 8 Go",
+        "stockage": "128 ou 256 Go",
+        "batterie": "5 110 mAh, charge 45 W",
+        "photo": "108 Mpx principal (f/1.7, OIS)",
+        "etancheite": "IP64",
+        "os": "Android 14/16, HyperOS"
+      },
+      "points_forts": [
+        "Écran AMOLED très lumineux (2100 nits)",
+        "Capteur principal 108 Mpx avec stabilisation optique",
+        "IP64 et NFC"
+      ],
+      "points_faibles": [
+        "Stockage non extensible",
+        "HyperOS chargé en applications préinstallées"
+      ],
+      "profil_adapte": [
+        "rapport qualité-prix",
+        "photo",
+        "polyvalent"
+      ],
+      "scores": {
+        "performance": 6,
+        "autonomie": 7,
+        "photo": 7,
+        "prix": 8,
+        "gaming": 5,
+        "taille": 5
+      },
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi Note 14 5G",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "moto-g55-5g",
+      "nom": "Motorola Moto G55 5G",
+      "marque": "Motorola",
+      "prix_indicatif": null,
+      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Motorola Moto G55 5G",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "honor-400-lite",
+      "nom": "HONOR 400 Lite",
+      "marque": "HONOR",
+      "prix_indicatif": null,
+      "prix_note": "Prix généralement constaté (8 Go/256 Go), hors promotions.",
+      "tranche_prix": "100-200",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,7\" AMOLED, FHD+, 120 Hz",
+        "processeur": "MediaTek Dimensity 7025 Ultra (6 nm)",
+        "ram": "8 ou 12 Go",
+        "stockage": "256 Go, non extensible",
+        "batterie": "5 230 mAh, charge 35 W",
+        "photo": "108 Mpx principal + 5 Mpx secondaire",
+        "etancheite": "IP65",
+        "os": "Android 15, MagicOS 9.0"
+      },
+      "points_forts": [
+        "Design soigné, écran AMOLED agréable",
+        "IP65, rare à ce prix",
+        "Assistant Gemini intégré"
+      ],
+      "points_faibles": [
+        "Performances limitées pour le jeu",
+        "Photo/vidéo en retrait selon les tests",
+        "Stockage non extensible"
+      ],
+      "profil_adapte": [
+        "taille",
+        "rapport qualité-prix"
+      ],
+      "scores": {
+        "performance": 4,
+        "autonomie": 7,
+        "photo": 4,
+        "prix": 7,
+        "gaming": 3,
+        "taille": 6
+      },
+      "image_url": "",
+      "image_alt": "Illustration du HONOR 400 Lite",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "poco-c85",
+      "nom": "POCO C85",
+      "marque": "POCO",
+      "prix_indicatif": null,
+      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du POCO C85",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "redmi-note-11s",
+      "nom": "Xiaomi Redmi Note 11S",
+      "marque": "Xiaomi",
+      "prix_indicatif": null,
+      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi Note 11S",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "galaxy-a23-5g",
+      "nom": "Samsung Galaxy A23 5G",
+      "marque": "Samsung",
+      "prix_indicatif": null,
+      "prix_note": "Prix à vérifier au moment de l'achat ; disponibilité et prix variables selon version, vendeur et marché.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": false,
+      "caracteristiques": {
+        "ecran": "À documenter",
+        "processeur": "À documenter",
+        "ram": "À documenter",
+        "stockage": "À documenter",
+        "batterie": "À documenter",
+        "photo": "À documenter",
+        "etancheite": "À documenter",
+        "os": "À documenter"
+      },
+      "points_forts": [],
+      "points_faibles": [],
+      "profil_adapte": [
+        "budget"
+      ],
+      "scores": {},
+      "image_url": "",
+      "image_alt": "Illustration du Samsung Galaxy A23 5G",
+      "idealo_url": "",
+      "kimovil_url": ""
+    },
+    {
+      "id": "moto-g06-power",
+      "nom": "Motorola Moto G06 Power",
+      "marque": "Motorola",
+      "prix_indicatif": null,
+      "prix_note": "Prix généralement constaté (4 Go/64 Go), hors promotions.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,88\" LCD, HD+, 120 Hz",
+        "processeur": "MediaTek Helio G81 Ultra (12 nm)",
+        "ram": "4 Go",
+        "stockage": "64 ou 128 Go, extensible microSD",
+        "batterie": "Grande capacité (variante « Power » de la gamme G06)",
+        "photo": "50 Mpx principal (f/1.8) + 5 Mpx secondaire",
+        "etancheite": "IP64",
+        "os": "Android, quasi stock"
+      },
+      "points_forts": [
+        "Batterie renforcée par rapport au G06 standard",
+        "Android proche de la version stock",
+        "IP64 et NFC"
+      ],
+      "points_faibles": [
+        "Poids plus élevé (220 g)",
+        "Seulement 4 Go de RAM"
+      ],
+      "profil_adapte": [
+        "autonomie",
+        "budget"
+      ],
+      "scores": {
+        "performance": 3,
+        "autonomie": 8,
+        "photo": 4,
+        "prix": 9,
+        "gaming": 2,
+        "taille": 4
+      },
+      "image_url": "",
+      "image_alt": "Illustration du Motorola Moto G06 Power",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "moto-g06",
+      "nom": "Motorola Moto G06",
+      "marque": "Motorola",
+      "prix_indicatif": 90,
+      "prix_note": "Prix généralement constaté (4 Go/64 Go), hors promotions.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,88\" LCD, HD+, 120 Hz, jusqu'à 450 nits",
+        "processeur": "MediaTek Helio G81 Ultra (12 nm)",
+        "ram": "4 Go",
+        "stockage": "64, 128 ou 256 Go, extensible microSD",
+        "batterie": "5 000 mAh (selon version)",
+        "photo": "50 Mpx principal (f/1.8) + capteur secondaire",
+        "etancheite": "IP64",
+        "os": "Android, quasi stock"
+      },
+      "points_forts": [
+        "Android proche de la version stock",
+        "IP64 et NFC à ce prix",
+        "Dos en similicuir soigné"
+      ],
+      "points_faibles": [
+        "Seulement 4 Go de RAM",
+        "Écran basse résolution (HD+)"
+      ],
+      "profil_adapte": [
+        "budget",
+        "rapport qualité-prix"
+      ],
+      "scores": {
+        "performance": 3,
+        "autonomie": 6,
+        "photo": 4,
+        "prix": 9,
+        "gaming": 2,
+        "taille": 5
+      },
+      "image_url": "",
+      "image_alt": "Illustration du Motorola Moto G06",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "blackview-shark-8",
+      "nom": "Blackview Shark 8",
+      "marque": "Blackview",
+      "prix_indicatif": 86,
+      "prix_note": "Prix généralement constaté (8 Go/128-256 Go), hors promotions.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,78\" LCD IPS, FHD+, 120 Hz, jusqu'à 580 nits",
+        "processeur": "MediaTek Helio G99 (6 nm)",
+        "ram": "8 Go",
+        "stockage": "128 ou 256 Go, extensible microSD",
+        "batterie": "5 000 mAh, charge 33 W",
+        "photo": "64 Mpx principal",
+        "etancheite": "IP53",
+        "os": "Android 13"
+      },
+      "points_forts": [
+        "8 Go de RAM à ce prix, rare",
+        "Capteur 64 Mpx",
+        "NFC inclus"
+      ],
+      "points_faibles": [
+        "Android 13, suivi logiciel incertain sur une petite marque",
+        "IP53 : protection limitée"
+      ],
+      "profil_adapte": [
+        "budget",
+        "rapport qualité-prix"
+      ],
+      "scores": {
+        "performance": 4,
+        "autonomie": 6,
+        "photo": 4,
+        "prix": 9,
+        "gaming": 3,
+        "taille": 5
+      },
+      "image_url": "",
+      "image_alt": "Illustration du Blackview Shark 8",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "zte-blade-v70-vita",
+      "nom": "ZTE Blade V70 Vita",
+      "marque": "ZTE",
+      "prix_indicatif": 92,
+      "prix_note": "Prix généralement constaté (8 Go/256 Go), hors promotions.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,7\" LCD IPS, HD+, jusqu'à 500-550 nits",
+        "processeur": "Unisoc Tiger T606 (12 nm)",
+        "ram": "8 Go",
+        "stockage": "128 ou 256 Go",
+        "batterie": "5 000 mAh, charge 22,5 W",
+        "photo": "50 Mpx principal (f/1.8) + capteur secondaire",
+        "etancheite": "IP54",
+        "os": "Android 14, 3 ans de mises à jour annoncés"
+      },
+      "points_forts": [
+        "8 Go de RAM à ce prix",
+        "3 ans de mises à jour annoncés",
+        "NFC inclus"
+      ],
+      "points_faibles": [
+        "Processeur d'entrée de gamme (Unisoc T606)",
+        "Résistance aux chutes limitée selon les tests"
+      ],
+      "profil_adapte": [
+        "budget",
+        "rapport qualité-prix"
+      ],
+      "scores": {
+        "performance": 3,
+        "autonomie": 6,
+        "photo": 4,
+        "prix": 8,
+        "gaming": 2,
+        "taille": 6
+      },
+      "image_url": "",
+      "image_alt": "Illustration du ZTE Blade V70 Vita",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "redmi-a5",
+      "nom": "Xiaomi Redmi A5",
+      "marque": "Xiaomi",
+      "prix_indicatif": 98,
+      "prix_note": "Prix généralement constaté (4 Go/128 Go), hors promotions.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,88\" LCD, HD+, 120 Hz, jusqu'à 450 nits",
+        "processeur": "Unisoc T7250 (Tiger T615)",
+        "ram": "3 ou 4 Go",
+        "stockage": "64 ou 128 Go, extensible microSD jusqu'à 1 To",
+        "batterie": "5 200 mAh, charge 15 W",
+        "photo": "32 Mpx principal (f/2.0)",
+        "etancheite": "Non précisée",
+        "os": "Android 15 (édition Go)"
+      },
+      "points_forts": [
+        "Prix d'entrée très accessible",
+        "Bonne autonomie (5200 mAh)",
+        "Grand écran 120 Hz pour ce budget"
+      ],
+      "points_faibles": [
+        "RAM limitée (3-4 Go, édition Go)",
+        "Charge lente (15 W)"
+      ],
+      "profil_adapte": [
+        "budget",
+        "prix"
+      ],
+      "scores": {
+        "performance": 2,
+        "autonomie": 7,
+        "photo": 3,
+        "prix": 10,
+        "gaming": 1,
+        "taille": 5
+      },
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi A5",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "poco-c71",
+      "nom": "POCO C71",
+      "marque": "POCO",
+      "prix_indicatif": 81,
+      "prix_note": "Prix généralement constaté (3 Go/64 Go), hors promotions.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,88\" LCD IPS, HD+, 120 Hz, jusqu'à 450 nits",
+        "processeur": "Unisoc Tiger T615 (12 nm)",
+        "ram": "3 ou 4 Go",
+        "stockage": "64 ou 128 Go, extensible microSD",
+        "batterie": "5 200 mAh, charge 15 W",
+        "photo": "32 Mpx principal (f/2.0)",
+        "etancheite": "Résistant aux éclaboussures (pas de certification IP)",
+        "os": "Android 15, 2 ans de mises à jour annoncés"
+      },
+      "points_forts": [
+        "Prix d'entrée très accessible",
+        "Bonne autonomie (5200 mAh)",
+        "Grand écran 120 Hz"
+      ],
+      "points_faibles": [
+        "RAM limitée (3-4 Go)",
+        "Pas de certification IP officielle"
+      ],
+      "profil_adapte": [
+        "budget",
+        "prix"
+      ],
+      "scores": {
+        "performance": 2,
+        "autonomie": 7,
+        "photo": 3,
+        "prix": 10,
+        "gaming": 1,
+        "taille": 5
+      },
+      "image_url": "",
+      "image_alt": "Illustration du POCO C71",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    },
+    {
+      "id": "redmi-a3",
+      "nom": "Xiaomi Redmi A3",
+      "marque": "Xiaomi",
+      "prix_indicatif": 99,
+      "prix_note": "Prix généralement constaté (3-4 Go/64-128 Go), hors promotions.",
+      "tranche_prix": "moins-100",
+      "ready_for_recommendation": true,
+      "caracteristiques": {
+        "ecran": "6,71\" LCD IPS, HD+, 90 Hz, jusqu'à 500 nits",
+        "processeur": "MediaTek Helio G36",
+        "ram": "3 ou 4 Go",
+        "stockage": "64 ou 128 Go, extensible microSD jusqu'à 1 To",
+        "batterie": "5 000 mAh, charge 10-18 W",
+        "photo": "8 Mpx principal (f/2.0)",
+        "etancheite": "Non précisée",
+        "os": "Android 14"
+      },
+      "points_forts": [
+        "Prix d'entrée accessible",
+        "Bonne autonomie (5000 mAh)",
+        "Stockage extensible jusqu'à 1 To"
+      ],
+      "points_faibles": [
+        "Photo modeste (8 Mpx)",
+        "RAM limitée en multitâche"
+      ],
+      "profil_adapte": [
+        "budget",
+        "prix"
+      ],
+      "scores": {
+        "performance": 2,
+        "autonomie": 7,
+        "photo": 2,
+        "prix": 9,
+        "gaming": 1,
+        "taille": 5
+      },
+      "image_url": "",
+      "image_alt": "Illustration du Xiaomi Redmi A3",
+      "idealo_url": "",
+      "kimovil_url": "",
+      "date_verification": "2026-09"
+    }
+  ],
+  "catalogue_meta": {
+    "derniere_verification": "2026-09-17",
+    "note": "Les prix indicatifs sont des repères de catalogue, pas des prix garantis. Vérifier l'offre, la version, le vendeur et le marché avant publication.",
+    "sources": [
+      "Frandroid",
+      "Les Numériques",
+      "JVTECH",
+      "Kimovil"
+    ]
+  },
+  "meta": {
+    "catalogue_price_reference_date": "2026-09-17",
+    "price_reference_note": "Prix indicatifs ; vérifier le vendeur, la version et le marché avant publication."
+  }
+}
