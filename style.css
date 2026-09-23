@@ -684,3 +684,123 @@ body.site-redesign .visual-intro-stage{display:none!important}
   .catalogue-grid{grid-template-columns:1fr}
   .catalogue-card{min-height:0}
 }
+
+/* =========================================================
+   SMARTPHONE GUIDE — EDITORIAL REWRITE
+   Simple mode first; technical detail is opt-in.
+   ========================================================= */
+body.site-redesign .detail-mode{
+  margin:2rem 0 4rem;
+  padding:1rem 1.1rem;
+  border:1px solid var(--line);
+  border-left:3px solid var(--accent);
+  background:var(--surface);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1.2rem;
+}
+body.site-redesign .detail-mode strong{
+  display:block;
+  font-size:.78rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--ink);
+}
+body.site-redesign .detail-mode p{
+  margin:.3rem 0 0;
+  color:var(--muted);
+  font-size:.78rem;
+  line-height:1.45;
+  max-width:42rem;
+}
+body.site-redesign .detail-mode .btn{
+  flex:0 0 auto;
+  min-height:44px;
+  white-space:nowrap;
+}
+body.site-redesign .guide-intro .guide-subsection{
+  margin-top:2.5rem;
+  padding-top:2rem;
+  border-top:1px solid var(--line);
+}
+body.site-redesign .guide-subsection h3,
+body.site-redesign .guide-criterion h3{
+  font-size:clamp(1.25rem,2.5vw,1.8rem);
+  letter-spacing:-.035em;
+  margin-top:1.8rem;
+}
+body.site-redesign .section-lead{
+  font-size:clamp(1.35rem,2.5vw,2rem)!important;
+  line-height:1.2!important;
+  color:var(--ink)!important;
+  max-width:42rem;
+}
+body.site-redesign .question-lead{
+  font-size:clamp(1.5rem,3.5vw,2.5rem)!important;
+  font-weight:700;
+  line-height:1.08!important;
+  letter-spacing:-.04em;
+  color:var(--ink)!important;
+  margin:1.5rem 0;
+}
+body.site-redesign .takeaway{
+  margin:1.7rem 0 0;
+  padding:1rem 1.1rem;
+  border-left:3px solid var(--accent);
+  background:var(--surface-2);
+  color:var(--ink);
+}
+body.site-redesign .takeaway strong{color:var(--accent)}
+body.site-redesign .priority-list,
+body.site-redesign .six-things{padding-left:1.4rem}
+body.site-redesign .priority-list li,
+body.site-redesign .six-things li{padding:.65rem 0 .65rem .35rem;border-bottom:1px solid var(--line)}
+body.site-redesign .priority-list li:last-child,
+body.site-redesign .six-things li:last-child{border-bottom:0}
+body.site-redesign .quick-scale{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1px;
+  background:var(--line);
+  margin:1.2rem 0 1.5rem;
+}
+body.site-redesign .quick-scale span{
+  background:var(--surface-2);
+  padding:1rem;
+  display:flex;
+  flex-direction:column;
+  gap:.3rem;
+  color:var(--muted);
+  font-size:.78rem;
+  line-height:1.4;
+}
+body.site-redesign .quick-scale b{color:var(--ink);font-size:1.15rem}
+body.site-redesign .detail-content{
+  margin-top:2.2rem;
+  padding:1.5rem;
+  border:1px solid var(--line);
+  background:var(--surface-2);
+}
+body.site-redesign .detail-content[hidden]{display:none}
+body.site-redesign .detail-content > h3:first-child{margin-top:0}
+html:not(.dark-theme) body.site-redesign .detail-mode{
+  background:#fff;
+  border-color:#cbd0c8;
+}
+html:not(.dark-theme) body.site-redesign .detail-content{
+  background:#ebeef0;
+  border-color:#cbd0c8;
+}
+html:not(.dark-theme) body.site-redesign .takeaway{background:#edf0e9}
+html.dark-theme body.site-redesign .detail-mode{background:#171914}
+html.dark-theme body.site-redesign .detail-content{background:#171914}
+html.dark-theme body.site-redesign .takeaway{background:#1c1e1a}
+
+@media(max-width:700px){
+  body.site-redesign .detail-mode{align-items:stretch;flex-direction:column;margin-bottom:3rem}
+  body.site-redesign .detail-mode .btn{width:100%}
+  body.site-redesign .quick-scale{grid-template-columns:1fr}
+  body.site-redesign .quick-scale span{padding:.8rem 1rem}
+  body.site-redesign .detail-content{padding:1.1rem}
+}
