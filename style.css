@@ -805,3 +805,51 @@ html.dark-theme body.site-redesign .takeaway{background:#1c1e1a}
   body.site-redesign .detail-content{padding:1.1rem}
 }
 \n\n/* =========================================================\n   SMARTPHONE GUIDE V21 — decision-first interactions\n   ========================================================= */\nbody.site-redesign .detail-mode-floating{\n  position:fixed;right:1.1rem;bottom:1.1rem;z-index:80;\n  width:min(25rem,calc(100vw - 2.2rem));margin:0;\n  box-shadow:0 14px 38px rgba(0,0,0,.14);\n}\nbody.site-redesign .detail-mode-floating .btn{background:var(--accent);border-color:var(--accent);color:#050605}\nbody.site-redesign .detail-mode-floating .btn:hover{transform:none;filter:brightness(1.03)}\nbody.site-redesign .interactive-demo{margin:2rem 0;padding:1.15rem;border:1px solid var(--line);background:var(--surface);}\nbody.site-redesign .interactive-demo-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem}\nbody.site-redesign .interactive-demo-head strong{color:var(--ink)}\nbody.site-redesign .interactive-demo-head span{color:var(--accent);font-weight:900}\nbody.site-redesign .interactive-demo input[type=range]{width:100%;accent-color:var(--accent)}\nbody.site-redesign .hz-stage{height:5rem;margin:1rem 0;display:flex;align-items:center}\nbody.site-redesign .hz-track{position:relative;width:100%;height:2px;background:var(--line-strong)}\nbody.site-redesign .hz-dot{position:absolute;left:0;top:50%;width:18px;height:18px;border-radius:50%;background:var(--accent);transform:translateY(-50%);animation:hz-slide 1s linear infinite alternate}\n@keyframes hz-slide{from{left:0}to{left:calc(100% - 18px)}}\nbody.site-redesign .demo-buttons{display:flex;gap:.45rem;flex-wrap:wrap;margin-bottom:1rem}\nbody.site-redesign .resolution-btn.is-active{background:var(--accent);border-color:var(--accent);color:#050605}\nbody.site-redesign .resolution-preview{min-height:8rem;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid var(--line);background:#111;color:#fff;overflow:hidden}\nbody.site-redesign .resolution-preview span{font-size:clamp(1.5rem,5vw,3rem);font-weight:800;letter-spacing:-.05em}\nbody.site-redesign .resolution-preview small{opacity:.75}\nbody.site-redesign .resolution-preview[data-resolution="HD"] span{transform:scale(1.01);filter:blur(.35px)}\nbody.site-redesign .resolution-preview[data-resolution="FHD+"] span{transform:scale(1)}\nbody.site-redesign .resolution-preview[data-resolution="QHD"] span{transform:scale(.98);letter-spacing:-.055em}\nbody.site-redesign .comparison-table-wrap{overflow:auto;margin:1.5rem 0}\nbody.site-redesign .comparison-table{width:100%;min-width:760px;border-collapse:collapse;border:1px solid var(--line)}\nbody.site-redesign .comparison-table th,body.site-redesign .comparison-table td{padding:.85rem;border:1px solid var(--line);text-align:left;vertical-align:top;color:var(--ink-2)}\nbody.site-redesign .comparison-table thead th{background:var(--surface-2);color:var(--ink);font-size:.75rem;text-transform:uppercase;letter-spacing:.05em}\nbody.site-redesign .comparison-table tbody th{color:var(--ink);font-weight:800;background:var(--surface)}\nhtml:not(.dark-theme) body.site-redesign .interactive-demo{background:#fff;border-color:#cbd0c8}\nhtml:not(.dark-theme) body.site-redesign .comparison-table thead th{background:#edf0e9}\nhtml:not(.dark-theme) body.site-redesign .comparison-table tbody th{background:#fff}\nhtml.dark-theme body.site-redesign .interactive-demo{background:#171914}\nhtml.dark-theme body.site-redesign .resolution-preview{background:#050605}\n@media(max-width:700px){\n  body.site-redesign .detail-mode-floating{right:.65rem;bottom:calc(.65rem + env(safe-area-inset-bottom));width:calc(100vw - 1.3rem);}\n  body.site-redesign .detail-mode-floating p{font-size:.72rem}\n  body.site-redesign .detail-mode-floating .btn{width:100%}\n  body.site-redesign .interactive-demo{padding:1rem}\n}\n
+/* V22 — visual screen demonstrations */
+body.site-redesign .demo-caption{margin:.35rem 0 0;color:var(--muted);font-size:.78rem;line-height:1.45;max-width:48rem}
+body.site-redesign .hz-panels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);margin:1.2rem 0}
+body.site-redesign .hz-panel{background:var(--surface);padding:1rem;outline:2px solid transparent;outline-offset:-2px;transition:outline-color .2s ease,background .2s ease}
+body.site-redesign .hz-panel.is-selected{outline-color:var(--accent);background:var(--surface-2)}
+body.site-redesign .hz-panel-head{display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;margin-bottom:.7rem}
+body.site-redesign .hz-panel-head strong{font-size:1.25rem;color:var(--ink)}
+body.site-redesign .hz-panel-head span{font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+body.site-redesign .hz-viewport{position:relative;height:4.4rem;overflow:hidden;border:1px solid var(--line);background:var(--surface-2)}
+body.site-redesign .hz-ruler{position:absolute;inset:50% 8% auto;height:1px;background:var(--line-strong)}
+body.site-redesign .hz-ruler:before,body.site-redesign .hz-ruler:after{content:"";position:absolute;top:-5px;width:1px;height:11px;background:var(--line-strong)}
+body.site-redesign .hz-ruler:before{left:0}.hz-ruler:after{right:0}
+body.site-redesign .hz-ball{position:absolute;left:4%;top:50%;width:1.05rem;height:1.05rem;border-radius:50%;background:var(--accent);will-change:transform}
+body.site-redesign .hz-panel p{margin:.7rem 0 0;color:var(--muted);font-size:.74rem;line-height:1.4}
+body.site-redesign .hz-controls{display:grid;grid-template-columns:auto minmax(10rem,1fr) minmax(0,2fr);align-items:center;gap:.8rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line)}
+body.site-redesign .hz-controls label{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+body.site-redesign .hz-controls input{width:100%;accent-color:var(--accent)}
+body.site-redesign .hz-controls strong{color:var(--ink);font-size:.82rem}
+body.site-redesign .pixel-density-stage{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(12rem,1fr);gap:1px;background:var(--line);margin:1.2rem 0}
+body.site-redesign .pixel-density-grid{min-height:15rem;display:grid;background:#111;overflow:hidden}
+body.site-redesign .pixel-density-grid span{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.025)}
+body.site-redesign .pixel-density-grid[data-resolution="HD"] span:nth-child(3n){background:rgba(255,255,255,.08)}
+body.site-redesign .pixel-density-grid[data-resolution="FHD+"] span:nth-child(4n){background:rgba(255,255,255,.08)}
+body.site-redesign .pixel-density-grid[data-resolution="QHD+"] span:nth-child(5n){background:rgba(255,255,255,.08)}
+body.site-redesign .pixel-density-grid[data-resolution="UHD"] span:nth-child(7n){background:rgba(255,255,255,.08)}
+body.site-redesign .pixel-density-info{background:var(--surface-2);padding:1.25rem;display:flex;flex-direction:column;justify-content:center;gap:.4rem}
+body.site-redesign .pixel-density-info strong{font-size:1.8rem;color:var(--ink);letter-spacing:-.04em}
+body.site-redesign .pixel-density-info span{font-size:1.2rem;font-weight:800;color:var(--accent)}
+body.site-redesign .pixel-density-info small{font-size:.72rem;line-height:1.5;color:var(--muted)}
+body.site-redesign .resolution-scale{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line)}
+body.site-redesign .resolution-scale div{padding:.75rem;background:var(--surface-2);display:flex;flex-direction:column;gap:.2rem}
+body.site-redesign .resolution-scale strong{color:var(--ink)}
+body.site-redesign .resolution-scale span{font-size:.7rem;color:var(--muted)}
+html:not(.dark-theme) body.site-redesign .hz-panel{background:#fff}
+html:not(.dark-theme) body.site-redesign .hz-panel.is-selected{background:#edf0e9}
+html:not(.dark-theme) body.site-redesign .pixel-density-grid{background:#111}
+html.dark-theme body.site-redesign .hz-panel.is-selected{background:#1f211c}
+@media(max-width:800px){
+  body.site-redesign .hz-panels{grid-template-columns:1fr}
+  body.site-redesign .hz-controls{grid-template-columns:1fr}
+  body.site-redesign .pixel-density-stage{grid-template-columns:1fr}
+  body.site-redesign .pixel-density-grid{min-height:11rem}
+  body.site-redesign .resolution-scale{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){
+  body.site-redesign .hz-ball{transform:translate3d(0,-50%,0)!important}
+  body.site-redesign .hz-panel,body.site-redesign .resolution-btn{transition:none}
+}

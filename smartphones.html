@@ -68,7 +68,6 @@
 <li><a href="#batterie">La batterie</a></li>
 <li><a href="#recharge">La charge rapide</a></li>
 <li><a href="#mises-a-jour">Les mises à jour</a></li>
-<li><a href="#alternative">Comparer une alternative</a></li>
 <li><a href="#catalogue-section">Explorer le catalogue</a></li>
 <li><a href="#ou-comparer">Comparer les modèles</a></li>
 <li><a href="#resume">Les 6 choses à retenir</a></li>
@@ -142,8 +141,8 @@
 <p>L'écran est l'un des rares éléments que vous utilisez à chaque fois que vous prenez votre téléphone. Ne choisissez donc pas uniquement sur la définition ou la fréquence de rafraîchissement.</p>
 <p>Regardez surtout la luminosité, le contraste, la fluidité, la lisibilité au soleil, la taille et la qualité des couleurs.</p>
 <div class="guide-subsection"><h3>OLED, AMOLED ou LCD : quelles différences visibles ?</h3><p><strong>LCD.</strong> Le LCD utilise une source de lumière placée derrière les pixels. Il peut offrir une bonne luminosité et reste souvent moins cher, mais les noirs paraissent généralement plus gris.</p><p><strong>OLED.</strong> Chaque pixel peut produire sa propre lumière. Lorsqu'un pixel affiche du noir, il peut s'éteindre : les scènes sombres paraissent donc plus profondes, surtout le soir.</p><p><strong>AMOLED.</strong> C'est une famille d'écrans OLED utilisée dans de nombreux smartphones. Le mot AMOLED ne suffit pas à juger la qualité : regardez surtout la luminosité, les couleurs, la calibration et la consommation.</p><p><strong>LTPO.</strong> Cette technologie permet d'adapter plus largement la fréquence de rafraîchissement. L'écran peut utiliser une fréquence élevée pendant le défilement puis descendre très bas lorsque l'image reste presque immobile.</p></div>
-<div aria-label="Comparaison de fréquence de rafraîchissement" class="interactive-demo"><div class="interactive-demo-head"><strong>Voyez ce que change 60, 90 ou 120 Hz</strong><span id="hz-demo-value">120 Hz</span></div><input aria-label="Fréquence de rafraîchissement" id="hz-demo" max="120" min="60" step="30" type="range" value="120"/><div class="hz-stage"><div class="hz-track"><span class="hz-dot" id="hz-dot"></span></div></div><p class="hint" id="hz-demo-text">120 Hz rend le mouvement plus continu. La différence concerne surtout le défilement et les animations, pas les couleurs ou la luminosité.</p></div>
-<div aria-label="Comparaison de résolution" class="interactive-demo"><div class="interactive-demo-head"><strong>FHD+ ou QHD : la résolution ne fait pas tout</strong><span id="resolution-demo-value">FHD+</span></div><div class="demo-buttons"><button class="btn resolution-btn is-active" data-resolution="HD" type="button">HD</button><button class="btn resolution-btn" data-resolution="FHD+" type="button">FHD+</button><button class="btn resolution-btn" data-resolution="QHD" type="button">QHD</button></div><div class="resolution-preview" id="resolution-preview"><span>Guide·Achat</span><small>Texte et détails</small></div><p class="hint" id="resolution-demo-text">FHD+ offre déjà une bonne finesse sur la plupart des smartphones. La résolution n'indique ni la luminosité, ni le contraste, ni la fluidité.</p></div>
+<div aria-label="Démonstration visuelle de la fréquence de rafraîchissement" class="interactive-demo hz-comparison"><div class="interactive-demo-head"><div><strong>Voyez réellement la différence de fluidité</strong><p class="demo-caption">Même mouvement, même durée : la simulation montre combien de positions intermédiaires peuvent être affichées.</p></div><span id="hz-demo-value">120 Hz</span></div><div class="hz-panels"><div class="hz-panel" data-hz="60"><div class="hz-panel-head"><strong>60 Hz</strong><span>6 positions / boucle</span></div><div class="hz-viewport"><div class="hz-ruler"></div><div class="hz-ball" aria-hidden="true"></div></div><p>Le mouvement avance par moins d'étapes visibles.</p></div><div class="hz-panel" data-hz="90"><div class="hz-panel-head"><strong>90 Hz</strong><span>9 positions / boucle</span></div><div class="hz-viewport"><div class="hz-ruler"></div><div class="hz-ball" aria-hidden="true"></div></div><p>Davantage d'étapes rendent le déplacement plus continu.</p></div><div class="hz-panel" data-hz="120"><div class="hz-panel-head"><strong>120 Hz</strong><span>12 positions / boucle</span></div><div class="hz-viewport"><div class="hz-ruler"></div><div class="hz-ball" aria-hidden="true"></div></div><p>Le déplacement paraît encore plus régulier, surtout au défilement.</p></div></div><div class="hz-controls"><label for="hz-demo">Comparer :</label><input aria-label="Fréquence mise en évidence" id="hz-demo" max="120" min="60" step="30" type="range" value="120"/><strong id="hz-demo-text">120 Hz : mouvement plus continu</strong></div><p class="hint">Simulation pédagogique : un écran 120 Hz ne rend pas tout « plus rapide ». Il peut afficher davantage d'images intermédiaires pendant un même mouvement.</p></div>
+<div aria-label="Démonstration visuelle de la définition et de la densité de pixels" class="interactive-demo resolution-comparison"><div class="interactive-demo-head"><div><strong>Plus de définition = plus de pixels dans la même surface</strong><p class="demo-caption">Les carrés représentent des pixels sur une même zone de l'écran. Plus ils sont nombreux, plus les détails fins peuvent être dessinés précisément.</p></div><span id="resolution-demo-value">FHD+</span></div><div class="demo-buttons"><button class="btn resolution-btn is-active" data-resolution="HD" type="button">HD</button><button class="btn resolution-btn" data-resolution="FHD+" type="button">FHD+</button><button class="btn resolution-btn" data-resolution="QHD+" type="button">QHD+</button><button class="btn resolution-btn" data-resolution="UHD" type="button">UHD</button></div><div class="pixel-density-stage"><div class="pixel-density-grid" id="pixel-density-grid" data-resolution="FHD+" aria-label="Visualisation de la densité de pixels"></div><div class="pixel-density-info"><strong id="pixel-density-label">FHD+</strong><span id="pixel-density-value">≈ 419 ppp</span><small>Exemple indicatif sur une dalle de 6,3 pouces au format 20:9. La valeur réelle dépend de la définition et de la diagonale.</small></div></div><div class="resolution-scale"><div><strong>HD</strong><span>moins de pixels</span></div><div><strong>FHD+</strong><span>niveau courant</span></div><div><strong>QHD+</strong><span>plus fin</span></div><div><strong>UHD</strong><span>très haute définition</span></div></div><p class="hint" id="resolution-demo-text">FHD+ offre déjà une très bonne finesse sur un smartphone. La densité de pixels est importante pour le texte et les petits détails, mais elle ne détermine ni la luminosité, ni le contraste, ni la fluidité.</p></div>
 <p>À 60 Hz, l'affichage reste correct. À 90 Hz, le défilement paraît plus fluide. À 120 Hz, les mouvements sont encore plus réguliers. Si vous venez d'un téléphone 60 Hz, 90 Hz peut déjà être une amélioration visible.</p>
 <p>La résolution agit surtout sur la finesse des textes, des icônes et des détails. HD est plus limité ; FHD+ constitue un niveau courant ; QHD offre davantage de finesse, avec un gain parfois difficile à voir au quotidien.</p>
 <p>Pour la plupart des utilisateurs, une bonne dalle FHD+ suffit largement. Une dalle FHD+ lumineuse et bien réglée peut être plus agréable qu'une dalle QHD moins lisible.</p>
@@ -213,25 +212,8 @@
 <div class="takeaway"><strong>Le compromis raisonnable :</strong> choisissez un suivi logiciel cohérent avec la durée pendant laquelle vous comptez utiliser l'appareil.</div>
 <div class="detail-content" hidden=""><h3>Explications techniques</h3><p>Il faut distinguer les mises à jour majeures du système et les correctifs de sécurité. Les premières peuvent modifier ou ajouter des fonctions ; les secondes corrigent notamment des failles de sécurité.</p><p>Les fabricants n'offrent pas tous la même durée de support. Vérifiez donc la politique officielle et, si possible, la date de début réelle du support du modèle.</p></div>
 </section>
-<section class="section" id="alternative">
-<h2><span class="num">13</span> L'alternative offre-t-elle vraiment moins ?</h2>
-<p>Ne comparez pas uniquement les fiches techniques. Comparez les éléments qui peuvent modifier votre quotidien.</p>
-<div class="comparison-table-wrap"><table class="comparison-table"><thead><tr><th>Critère</th><th>Modèle plus avancé</th><th>Alternative plus simple</th><th>Différence à accepter</th></tr></thead><tbody>
-<tr><th>Écran</th><td>Plus lumineux ou mieux calibré</td><td>Souvent très proche</td><td>Visible surtout en extérieur</td></tr>
-<tr><th>Photo</th><td>Plus régulier le soir et en vidéo</td><td>Bon en journée, plus variable la nuit</td><td>Important si vous photographiez beaucoup</td></tr>
-<tr><th>Performances</th><td>Plus de marge dans les jeux et la durée</td><td>Suffisant pour les usages courants</td><td>Important pour les gros utilisateurs</td></tr>
-<tr><th>Mises à jour</th><td>Souvent plus longues</td><td>Variable selon le fabricant</td><td>Important si vous gardez longtemps</td></tr>
-<tr><th>Finition</th><td>Matériaux plus premium</td><td>Conception plus simple</td><td>Surtout une question de sensation</td></tr>
-<tr><th>Charge</th><td>Plus rapide ou sans fil selon le modèle</td><td>Plus simple</td><td>Important selon vos habitudes</td></tr>
-<tr><th>Stockage</th><td>Capacité plus élevée</td><td>Capacité parfois limitée</td><td>Important si vous filmez ou jouez</td></tr>
-</tbody></table></div>
-<p>La bonne question n'est pas « Le modèle plus simple est-il aussi bon ? » mais « Qu'est-ce que je vais réellement remarquer dans mon usage ? »</p>
-<div class="guide-subsection"><h3>Si vous venez d'un iPhone</h3><p>Vous risquez surtout de remarquer une interface différente, une qualité vidéo parfois moins régulière, une revente moins facile, une durée de suivi variable et des applications qui ne se comportent pas exactement de la même manière.</p><p>Vous pourriez en revanche retrouver une bonne fluidité, un écran de qualité, une autonomie solide et une expérience quotidienne proche pour les usages courants.</p></div>
-<div class="guide-subsection"><h3>Si vous venez d'un modèle premium Android</h3><p>Vous risquez surtout de remarquer une finition moins luxueuse, un appareil photo moins constant, moins de fonctions secondaires, une puissance moindre dans les jeux ou une politique de mise à jour différente.</p><p>Vous pourriez en revanche conserver une bonne fluidité, un écran OLED, une autonomie solide, un stockage confortable et une expérience quotidienne proche pour les usages courants.</p></div>
-<div class="takeaway"><strong>À retenir :</strong> une alternative est intéressante lorsqu'elle conserve les fonctions que vous utilisez et simplifie surtout celles qui vous servent peu.</div>
-</section>
 <section class="section catalogue-section" id="catalogue-section">
-<h2><span class="num">14</span> Explorer le catalogue</h2>
+<h2><span class="num">13</span> Explorer le catalogue</h2>
 <p>Une fois vos priorités définies, passez aux modèles. Utilisez plusieurs critères ensemble au lieu de chercher le téléphone qui gagne sur un seul chiffre.</p>
 <div class="catalogue-tools">
 <label class="catalogue-search-label" for="catalogue-search">Vous cherchez un modèle, une marque ou un usage ?</label>
@@ -247,7 +229,7 @@
 <div data-category="smartphones" id="catalogue"><div id="catalogue-groups"></div></div>
 </section>
 <section class="section" id="ou-comparer">
-<h2><span class="num">15</span> Comparer les modèles</h2>
+<h2><span class="num">14</span> Comparer les modèles</h2>
 <p>Une fois un modèle identifié, vérifiez encore les caractéristiques qui comptent pour votre usage. Sélectionnez 2 à 5 produits de la sélection pour les comparer côte à côte.</p>
 <div class="tool-box" data-category="smartphones" id="comparateur">
 <h3>Comparateur local</h3><p class="hint">Le tableau est surtout utile pour repérer les compromis. Un chiffre isolé ne suffit pas à juger l'expérience.</p>
@@ -255,7 +237,7 @@
 </div>
 </section>
 <section class="section" id="resume">
-<h2><span class="num">16</span> Ce qu'il faut retenir avant d'acheter</h2>
+<h2><span class="num">15</span> Ce qu'il faut retenir avant d'acheter</h2>
 <p>Vous n'avez pas besoin de connaître toute la fiche technique.</p>
 <ol class="six-things">
 <li><strong>Écran.</strong> OLED ou AMOLED offre généralement de meilleurs noirs et un contraste plus marqué. 90 Hz est déjà agréable, 120 Hz est un confort, et FHD+ suffit souvent. Privilégiez surtout la luminosité et la qualité générale de la dalle.</li>
@@ -269,7 +251,7 @@
 <div class="takeaway"><strong>La règle finale :</strong> ne cherchez pas le téléphone qui possède les plus gros chiffres. Cherchez celui qui correspond le mieux à ce que vous faites réellement.</div>
 </section>
 <section class="section" id="faq">
-<h2><span class="num">17</span> Questions fréquentes</h2>
+<h2><span class="num">16</span> Questions fréquentes</h2>
 <details class="faq-item"><summary>Faut-il toujours privilégier le plus de RAM et de mégapixels possible ?</summary><p>Non. Au-delà d'un certain niveau, davantage de RAM ou de mégapixels ne garantit pas une meilleure expérience. Regardez l'ensemble du téléphone et votre usage.</p></details>
 <details class="faq-item"><summary>90 Hz suffit-il vraiment ?</summary><p>Pour beaucoup de personnes, oui. 120 Hz apporte davantage de fluidité, mais la luminosité, le contraste et la qualité générale de l'écran peuvent avoir plus d'importance.</p></details>
 <details class="faq-item"><summary>128 Go ou 256 Go ?</summary><p>128 Go peuvent suffire avec peu de vidéo et un tri régulier. 256 Go donnent davantage de marge si vous filmez, jouez ou gardez le téléphone plusieurs années.</p></details>
@@ -277,7 +259,7 @@
 <details class="faq-item"><summary>À quelle fréquence ce guide est-il mis à jour ?</summary><p>Chaque fiche produit indique sa date de dernière vérification. La sélection est revue à mesure que de nouveaux modèles sortent et que les données évoluent.</p></details>
 </section>
 <section class="section sources-list" id="sources">
-<h2><span class="num">18</span> Sources</h2>
+<h2><span class="num">17</span> Sources</h2>
 <p>Les caractéristiques des modèles du catalogue sont vérifiées auprès des fabricants et de comparateurs spécialisés.</p>
 <ul>
 <li><a href="https://www.samsung.com/fr/smartphones/galaxy-a/galaxy-a56-5g/" rel="noopener" target="_blank">Samsung — fiche officielle Galaxy A56</a></li>
