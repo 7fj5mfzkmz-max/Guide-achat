@@ -826,3 +826,86 @@ html.dark-theme .phone-swipe-thumb{background:var(--lime);box-shadow:0 0 0 6px r
   .smartphone-hero-stage{justify-content:center;text-align:center}
   .phone-swipe-frame{width:120px;height:240px}
 }
+
+/* ===== PROFILS : Section avec icône et cartes ===== */
+.profile-section{margin:2.4rem 0;padding:2rem;border-radius:var(--radius-lg);background:var(--surface-2)}
+.profile-header{text-align:center;margin-bottom:2rem}
+.profile-icon{font-size:3.6rem;margin-bottom:.6rem}
+.profile-header h2{font-size:1.6rem;margin:0 0 .4rem;font-weight:700}
+.profile-situation{color:var(--ink-soft);font-size:.98rem;margin:0;max-width:48ch;margin-left:auto;margin-right:auto}
+
+.profile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.2rem;margin-top:1.6rem}
+.profile-card{padding:1.3rem;border-radius:var(--radius);background:var(--surface);box-shadow:0 2px 8px rgba(36,23,38,.06)}
+.profile-card h3{font-size:1.1rem;margin:0 0 .8rem;font-weight:700}
+.profile-card p{margin:.6rem 0 0;font-size:.95rem;line-height:1.6}
+
+/* Checklist */
+.checklist{display:flex;flex-direction:column;gap:.7rem}
+.check-item{padding:.7rem .9rem;border-radius:8px;background:rgba(232,246,92,.08);border-left:3px solid var(--lime);font-size:.95rem;line-height:1.5}
+.check-item strong{display:block;font-weight:700;margin-bottom:.2rem;color:var(--ink-deep)}
+
+/* Démo card */
+.profile-card-demo{grid-column:1/-1;border:2px solid var(--lime)}
+.profile-card-demo h3{color:var(--lime)}
+.demo-caption{font-size:.84rem;color:var(--ink-soft);font-style:italic}
+
+html.dark-theme .check-item{background:rgba(232,246,92,.06)}
+html.dark-theme .profile-card-demo{border-color:var(--accent-2)}
+html.dark-theme .profile-card-demo h3{color:var(--accent-2)}
+
+/* ===== Démonstrations interactives : autonomie, luminosité, Hz, photo ===== */
+.battery-compare-demo{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin:1.2rem 0}
+.battery-phone{flex:0 1 180px;text-align:center}
+.battery-phone .battery-level{height:140px;margin:0 auto 1rem;width:64px;border-radius:12px;border:2px solid var(--ink-soft);overflow:hidden;background:var(--surface)}
+.battery-phone[data-scenario="faible"] .battery-level{background:linear-gradient(to top,#d87a6e 0%,#d87a6e 35%,transparent 35%)}
+.battery-phone[data-scenario="bonne"] .battery-level{background:linear-gradient(to top,#5eb564 0%,#5eb564 85%,transparent 85%)}
+.battery-label{display:block;font-weight:700;font-size:.98rem;margin-bottom:.3rem}
+.battery-time{display:block;font-size:.84rem;color:var(--ink-soft)}
+
+.brightness-compare-demo{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin:1.2rem 0}
+.brightness-phone{flex:0 1 160px;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(36,23,38,.14)}
+.brightness-phone .brightness-content{height:120px;padding:1rem;position:relative}
+.brightness-phone[data-brightness="faible"] .brightness-content{background:#1a1a24}
+.brightness-phone[data-brightness="bonne"] .brightness-content{background:#334466}
+.brightness-bar{height:8px;border-radius:4px;background:rgba(255,255,255,.3);margin-bottom:.6rem}
+.brightness-phone[data-brightness="bonne"] .brightness-bar{background:rgba(255,255,255,.9);box-shadow:0 0 8px rgba(200,240,255,.5)}
+
+/* Hz demo */
+.hz-compare-demo{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;margin:1.2rem 0}
+.hz-panel{flex:0 1 160px}
+.hz-head{font-weight:700;margin-bottom:.6rem;text-align:center;font-size:1.1rem}
+.hz-viewport{height:100px;border:2px solid var(--ink-soft);border-radius:8px;position:relative;overflow:hidden;background:var(--surface-2);margin-bottom:.6rem}
+.hz-ball{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--lime);left:10%;top:43%;will-change:left}
+.hz-note{text-align:center;font-size:.84rem;color:var(--ink-soft)}
+
+/* Photo slider demo */
+.photo-slider-demo{margin:1.2rem 0;display:flex;justify-content:center}
+.photo-slider-container{position:relative;width:100%;max-width:380px;height:200px;border-radius:12px;overflow:hidden;box-shadow:0 8px 20px rgba(36,23,38,.14)}
+.photo-slider-before,.photo-slider-after{position:absolute;top:0;left:0;width:100%;height:100%}
+.photo-slider-after{right:0;left:auto}
+.photo-slider-before img,.photo-slider-after img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-slider-label{position:absolute;bottom:0.8rem;left:0.8rem;background:rgba(36,23,38,.8);color:#fff;padding:.4rem .7rem;border-radius:6px;font-size:.84rem;font-weight:700}
+.photo-slider-after .photo-slider-label{left:auto;right:0.8rem}
+.photo-slider-handle{position:absolute;left:50%;top:0;height:100%;width:3px;background:var(--lime);cursor:ew-resize;transform:translateX(-50%);z-index:2;box-shadow:0 0 8px rgba(232,246,92,.5)}
+
+/* ===== Récapitulatif ===== */
+.recap-section{margin:2.4rem 0;padding:2rem;background:var(--lime);color:var(--ink-deep);border-radius:var(--radius-lg)}
+.recap-section h2{color:var(--ink-deep)}
+.recap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;margin-top:1.6rem}
+.recap-card{padding:1.3rem;background:rgba(255,255,255,.6);border-radius:var(--radius);text-align:center}
+.recap-num{display:inline-flex;align-items:center;justify-content:center;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--ink-deep);color:#fff;font-weight:800;font-size:1.2rem;margin-bottom:.6rem}
+.recap-card strong{display:block;font-size:1.05rem;margin-bottom:.4rem}
+.recap-card p{margin:0;font-size:.92rem;line-height:1.5}
+
+html.dark-theme .recap-section{background:var(--accent-2);color:var(--ink-deep)}
+html.dark-theme .recap-card{background:rgba(255,255,255,.12)}
+
+/* ===== Responsive ===== */
+@media(max-width:760px){
+  .profile-grid{grid-template-columns:1fr}
+  .profile-card-demo{grid-column:auto}
+  .battery-compare-demo,.brightness-compare-demo{flex-direction:column}
+  .hz-compare-demo{flex-direction:column}
+  .profile-section{padding:1.2rem}
+  .recap-section{padding:1.2rem}
+}
