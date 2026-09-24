@@ -408,3 +408,211 @@ html.lexique-deep .lex-quick{opacity:.45}
   .demo-buttons{gap:.4rem}
   .catalogue-filters{flex-direction:column}
 }
+
+
+/* =========================================================
+   ACCESSIBILITÉ + POLISH VISUEL — refonte 2026
+   Priorité : contraste, hiérarchie, respiration et header.
+   ========================================================= */
+
+/* Header : structure plus nette, outils réellement séparés. */
+:root{ --header-h:82px; }
+
+.site-header{
+  padding:.7rem 1rem 0;
+}
+.header-inner{
+  min-height:64px;
+  gap:clamp(1rem,2.2vw,2rem);
+  padding:.38rem .55rem .38rem 1.15rem;
+  border:1px solid var(--line);
+  box-shadow:0 6px 24px rgba(36,23,38,.06);
+}
+.site-header.is-scrolled .header-inner{
+  transform:translateY(-1px);
+  box-shadow:0 16px 40px rgba(36,23,38,.14);
+}
+.site-nav{
+  gap:clamp(.75rem,1.35vw,1.25rem);
+  margin-left:.35rem;
+  min-width:0;
+}
+.site-nav a{
+  font-size:.82rem;
+  white-space:nowrap;
+}
+.header-tools{
+  margin-left:auto;
+  gap:.6rem;
+  padding-left:.75rem;
+  border-left:1px solid var(--line-strong);
+}
+.header-tool{
+  width:42px;
+  height:42px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  box-shadow:0 2px 8px rgba(36,23,38,.06);
+}
+.header-tool + .header-tool{
+  margin-left:.1rem;
+}
+.header-tool:hover{
+  background:var(--lime);
+  border-color:var(--lime);
+  color:var(--ink-deep);
+  transform:translateY(-2px);
+}
+.header-tool-search{font-size:1.22rem}
+.header-tool-theme{font-size:1.05rem}
+
+/* La recherche doit commencer sous le vrai header, pas sous une hauteur théorique. */
+.search-panel-sheet{
+  top:calc(var(--header-h) + .65rem);
+}
+
+/* Cartes catégories : plus de place verticale pour éviter tout chevauchement. */
+.cat-card{
+  min-height:230px;
+}
+.cat-card h3{
+  margin:1.8rem 0 .5rem;
+  line-height:1.04;
+}
+.cat-card p{
+  line-height:1.5;
+}
+.cat-card-disabled{
+  padding-bottom:4.4rem;
+}
+.soon{
+  left:1.5rem;
+  bottom:1.25rem;
+  z-index:2;
+  white-space:nowrap;
+  box-shadow:0 5px 14px rgba(36,23,38,.12);
+}
+
+/* Premier guide : contraste volontairement élevé en mode clair. */
+.cat-card-featured{
+  background:#241726;
+  color:#fff;
+  border:1px solid #241726;
+  box-shadow:0 12px 34px rgba(36,23,38,.10);
+}
+.cat-card-featured h3{
+  color:#fff;
+}
+.cat-card-featured p{
+  color:#eadff0;
+}
+.cat-card-featured .cat-index{
+  color:#fff;
+}
+.cat-card-featured .cat-link{
+  color:#241726;
+}
+
+/* Mode sombre : ne jamais conserver les pastels du mode clair.
+   Chaque carte reçoit une surface sombre avec un accent identifiable. */
+html.dark-theme .cat-card{
+  color:#f8f2fa;
+  border:1px solid var(--line);
+  box-shadow:none;
+}
+html.dark-theme .cat-card h3{
+  color:#fff;
+}
+html.dark-theme .cat-card p{
+  color:#d9c9df;
+}
+html.dark-theme .cat-card-secondary:nth-of-type(1){
+  background:#28351f;
+}
+html.dark-theme .cat-card-secondary:nth-of-type(2){
+  background:#17383a;
+}
+html.dark-theme .cat-card-secondary:nth-of-type(3){
+  background:#3b2439;
+}
+html.dark-theme .cat-card-secondary:nth-of-type(4){
+  background:#28351f;
+}
+html.dark-theme .cat-card-secondary:nth-of-type(5){
+  background:#17383a;
+}
+html.dark-theme .cat-card-secondary .cat-index{
+  color:#fff;
+  opacity:.55;
+}
+html.dark-theme .cat-card-featured{
+  background:#241726;
+  color:#fff;
+  border-color:#3c2c46;
+}
+html.dark-theme .cat-card-featured h3{
+  color:#fff;
+}
+html.dark-theme .cat-card-featured p{
+  color:#eadff0;
+}
+html.dark-theme .cat-card-featured .cat-index{
+  color:#fff;
+}
+html.dark-theme .cat-card-featured .cat-link{
+  background:#e8f65c;
+  color:#241726;
+}
+html.dark-theme .soon{
+  background:#f1e9f4;
+  color:#241726;
+}
+
+/* Lisibilité générale des éléments qui utilisent des surfaces claires. */
+html.dark-theme .hero-step,
+html.dark-theme .hero-kicker,
+html.dark-theme .trust-grid li{
+  color:var(--ink);
+}
+html.dark-theme .hero-step b{
+  color:#241726;
+}
+html.dark-theme .section-intro p,
+html.dark-theme .hero-lead{
+  color:#d9c9df;
+}
+
+/* Respiration supplémentaire sur les écrans étroits. */
+@media(max-width:1050px){
+  .site-nav{gap:.65rem}
+  .site-nav a{font-size:.76rem}
+}
+@media(max-width:900px){
+  .site-nav{display:none}
+  .header-tools{
+    margin-left:auto;
+  }
+}
+@media(max-width:620px){
+  .site-header{padding:.55rem .55rem 0}
+  .header-inner{
+    width:100%;
+    padding:.3rem .45rem .3rem .8rem;
+    gap:.65rem;
+  }
+  .brand-name b,.brand-name strong{font-size:.95rem}
+  .header-tools{
+    gap:.5rem;
+    padding-left:.55rem;
+  }
+  .header-tool{
+    width:40px;
+    height:40px;
+  }
+  .cat-card{
+    min-height:225px;
+  }
+  .cat-card-featured{
+    min-height:340px;
+  }
+}
