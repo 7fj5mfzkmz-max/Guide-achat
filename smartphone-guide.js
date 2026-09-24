@@ -134,6 +134,33 @@
   });
   setResolution("FHD+");
 
+  /* RAM : remplissage automatique de blocs mémoire, sans interaction. */
+  var ramCards = Array.prototype.slice.call(document.querySelectorAll(".ram-card"));
+  ramCards.forEach(function (card) {
+    var slots = card.querySelector(".ram-slots");
+    var ram = Number(card.getAttribute("data-ram"));
+    if (!slots) return;
+    for (var i = 0; i < 12; i++) {
+      var slot = document.createElement("span");
+      slot.className = i < ram ? "is-used" : "";
+      slot.setAttribute("aria-hidden", "true");
+      slots.appendChild(slot);
+    }
+  });
+
+  /* Recharge : l'animation de remplissage est proportionnelle à la puissance affichée. */
+  var chargingCards = Array.prototype.slice.call(document.querySelectorAll(".charging-card"));
+  chargingCards.forEach(function (card) {
+    var speed = Number(card.getAttribute("data-charge-speed")) || 25;
+    var fill = card.querySelector(".battery-fill");
+    if (fill) {
+      /* Une valeur moyenne de la plage est utilisée pour 45–67 W et 80–120 W.
+         C'est une illustration relative, pas une simulation de temps de charge réel. */
+      var duration = Math.max(1.25, 5.8 * (25 / speed));
+      fill.style.setProperty("--charge-duration", duration.toFixed(2) + "s");
+    }
+  });
+
   /* Illustrative information cards: reveal them as they enter the viewport. */
   var motionCards = Array.prototype.slice.call(document.querySelectorAll(".interactive-demo, .quick-scale, .guide-subsection, .takeaway"));
   motionCards.forEach(function (card) { card.classList.add("motion-card"); });
