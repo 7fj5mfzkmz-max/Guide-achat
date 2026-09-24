@@ -909,3 +909,22 @@ html.dark-theme .recap-card{background:rgba(255,255,255,.12)}
   .profile-section{padding:1.2rem}
   .recap-section{padding:1.2rem}
 }
+
+/* ===== TOOLTIPS au survol pour jargon technique ===== */
+.tech-term{position:relative;border-bottom:1px dotted var(--lime);cursor:help;font-weight:500}
+.tech-term:hover::after{content:attr(title);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--ink-deep);color:#fff;padding:0.6rem 0.9rem;border-radius:8px;font-size:0.85rem;font-weight:400;white-space:nowrap;z-index:10;box-shadow:0 4px 12px rgba(36,23,38,.25);pointer-events:none;animation:fadeInTooltip .2s ease}
+@keyframes fadeInTooltip{from{opacity:0;transform:translateX(-50%) translateY(4px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+html.dark-theme .tech-term{border-bottom-color:var(--accent-2)}
+html.dark-theme .tech-term:hover::after{background:var(--surface-2);color:var(--ink)}
+
+/* ===== Checklist avec icônes ===== */
+.check-item::before{content:"✓";display:inline-block;width:1.4rem;height:1.4rem;border-radius:50%;background:var(--lime);color:var(--ink-deep);font-size:0.8rem;font-weight:800;text-align:center;line-height:1.4;margin-right:0.6rem;flex-shrink:0}
+html.dark-theme .check-item::before{background:var(--accent-2)}
+
+/* ===== Réduction des démos ===== */
+.profile-card-demo{grid-column:1/-1}
+.profile-card-demo h3{font-size:1rem}
+.battery-phone .battery-level,
+.brightness-phone .brightness-content,
+.hz-viewport{height:100px}
+.battery-phone{flex:0 1 150px}
