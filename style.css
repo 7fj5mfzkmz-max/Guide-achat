@@ -684,12 +684,11 @@ html.dark-theme .stack-card:nth-child(6) .stack-num{background:#94c85a}
 .ram-card-top span,.charging-card-top span{font-size:.72rem;color:var(--muted);text-align:right}
 .ram-slots{display:grid;grid-template-columns:repeat(12,1fr);gap:3px;height:42px;margin-bottom:.65rem;padding:.35rem;background:var(--paper);border-radius:9px;border:1px solid var(--line)}
 .ram-slots span{border-radius:3px;background:var(--line);transform-origin:bottom;opacity:.35}
-.ram-slots span.is-used{background:var(--teal);opacity:1;animation:ramPulse 1.7s var(--ease) infinite alternate}
-.ram-slots span:nth-child(2n).is-used{animation-delay:.08s}.ram-slots span:nth-child(3n).is-used{animation-delay:.16s}.ram-slots span:nth-child(4n).is-used{animation-delay:.24s}
+.ram-slots span.is-used{background:var(--teal);opacity:1;animation:ramFill 2.6s var(--ease) infinite;animation-delay:calc(var(--ram-index) * .09s)}
 .ram-card:nth-child(1) .ram-slots span.is-used{background:var(--orchid)}
 .ram-card:nth-child(3) .ram-slots span.is-used{background:var(--lime)}
 .ram-card small,.charging-card small{display:block;color:var(--muted);font-size:.72rem;line-height:1.35}
-@keyframes ramPulse{0%{transform:scaleY(.72);filter:brightness(.9)}100%{transform:scaleY(1);filter:brightness(1.12)}}
+@keyframes ramFill{0%,8%{transform:scaleY(.18);filter:brightness(.8)}24%,72%{transform:scaleY(1);filter:brightness(1.12)}86%,100%{transform:scaleY(.18);filter:brightness(.8)}}
 
 .charging-cards{align-items:stretch}
 .charging-card{display:flex;flex-direction:column}
@@ -708,25 +707,47 @@ html.dark-theme .stack-card:nth-child(6) .stack-num{background:#94c85a}
 .display-tech-card>strong{display:block;font:800 .95rem/1 var(--font-display);margin-top:.7rem}
 .display-tech-card>span{display:block;color:var(--muted);font-size:.7rem;line-height:1.35;margin-top:.3rem}
 .display-tech-screen{height:118px;border-radius:9px;background:#09090c;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center}
-.display-tech-backlight{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.23),rgba(255,255,255,.06) 48%,rgba(255,255,255,.03));animation:backlightBreath 2.4s ease-in-out infinite}
-.display-tech-pixels{display:grid;grid-template-columns:repeat(3,22px);grid-template-rows:repeat(3,22px);gap:5px;position:relative;z-index:2}
-.display-tech-pixels i{display:block;border-radius:4px;background:#efcfff;box-shadow:0 0 8px rgba(239,207,255,.35);animation:pixelBlink 2.8s ease-in-out infinite}
-.display-tech-pixels i:nth-child(2n){background:#80e5df;animation-delay:.16s}.display-tech-pixels i:nth-child(3n){background:#e7ff91;animation-delay:.3s}
-.display-tech-lcd .display-tech-pixels i:nth-child(5){background:#050507;box-shadow:none}
-.display-tech-oled .display-tech-backlight{display:none}
-.display-tech-oled .display-tech-pixels i:nth-child(5),.display-tech-amoled .display-tech-pixels i:nth-child(5){background:#000;box-shadow:none}
-.display-tech-amoled .display-tech-pixels i{box-shadow:0 0 12px currentColor}
-.display-tech-amoled .display-tech-screen{animation:amoledGlow 2.4s ease-in-out infinite}
-.display-tech-ltpo .display-tech-screen{background:linear-gradient(180deg,#101823,#050608)}
-.ltpo-refresh{position:absolute;top:9px;right:9px;z-index:3;text-align:center;color:#e7ff91;font-family:var(--font-display);line-height:.85}
-.ltpo-refresh b{display:block;font-size:1.25rem;animation:ltpoNumber 3.2s ease-in-out infinite}
+/* LCD : lumière arrière permanente + filtre qui module les pixels. */
+.lcd-backlight{position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,#ffffff 0%,#bfc7d2 42%,#717a88 100%);animation:lcdBacklight 2.8s ease-in-out infinite}
+.lcd-shutter{position:absolute;inset:9px;background:repeating-linear-gradient(90deg,rgba(80,120,170,.2) 0 5px,rgba(255,255,255,.05) 5px 10px);mix-blend-mode:multiply;animation:lcdShutter 2.1s ease-in-out infinite}
+.lcd-pixels{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,22px);grid-template-rows:repeat(3,22px);gap:5px}
+.lcd-pixels i{display:block;border-radius:4px;background:#d8fbf6;box-shadow:0 0 5px rgba(220,255,250,.28);animation:lcdPixel 2.8s ease-in-out infinite}
+.lcd-pixels i:nth-child(2n){background:#d9c8ff;animation-delay:.18s}.lcd-pixels i:nth-child(3n){background:#efff9d;animation-delay:.34s}
+.lcd-pixels .lcd-black{background:#68707b!important;box-shadow:none;animation:lcdBlack 2.8s ease-in-out infinite}
+/* OLED : pas de rétroéclairage ; le pixel central disparaît réellement. */
+.oled-pixels{display:grid;grid-template-columns:repeat(3,22px);grid-template-rows:repeat(3,22px);gap:5px;position:relative;z-index:2}
+.oled-pixels i{display:block;border-radius:4px;background:#b8fff3;box-shadow:0 0 9px currentColor;animation:oledPixel 2.5s ease-in-out infinite}
+.oled-pixels i:nth-child(2n){background:#d9aaff;animation-delay:.12s}.oled-pixels i:nth-child(3n){background:#eaff8a;animation-delay:.24s}
+.oled-pixels .oled-black{background:#000!important;box-shadow:none;animation:oledBlack 2.5s ease-in-out infinite}
+.oled-label{position:absolute;bottom:8px;right:8px;color:#fff;font:800 .52rem/1 var(--font-display);letter-spacing:.08em;opacity:.65;animation:labelBlink 2.5s infinite}
+/* AMOLED : même principe OLED, mais avec une matrice active et un balayage de commande. */
+.amoled-matrix{display:grid;grid-template-columns:repeat(3,22px);grid-template-rows:repeat(3,22px);gap:5px;position:relative;z-index:2}
+.amoled-matrix i{display:block;border-radius:3px;background:linear-gradient(135deg,#ff74cf,#63eee1);box-shadow:0 0 13px rgba(112,212,207,.7);animation:amoledPixel .9s steps(2,end) infinite}
+.amoled-matrix i:nth-child(2n){animation-delay:.12s}.amoled-matrix i:nth-child(3n){animation-delay:.24s}
+.amoled-scan{position:absolute;left:0;top:-20%;width:100%;height:16%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.65),transparent);box-shadow:0 0 18px rgba(112,212,207,.5);animation:amoledScan 1.8s linear infinite;z-index:3}
+.amoled-driver{position:absolute;bottom:8px;left:8px;color:#e7ff91;font:800 .5rem/1 var(--font-display);letter-spacing:.06em;opacity:.75}
+/* LTPO : la même dalle change volontairement de fréquence entre mouvement et veille. */
+.ltpo-motion{position:absolute;inset:15px;display:flex;align-items:center;gap:7px}
+.ltpo-motion span{width:9px;height:9px;border-radius:50%;background:var(--teal);box-shadow:0 0 10px var(--teal);animation:ltpoDots 1s linear infinite}
+.ltpo-motion span:nth-child(2){animation-delay:.18s}.ltpo-motion span:nth-child(3){animation-delay:.36s}
+.ltpo-refresh{position:absolute;top:9px;right:9px;z-index:4;text-align:center;color:#e7ff91;font-family:var(--font-display);line-height:.85}
+.ltpo-refresh b{display:block;font-size:1.25rem;transition:transform .3s ease,opacity .3s ease}
 .ltpo-refresh small{font-size:.58rem}
-.ltpo-sweep{position:absolute;left:0;top:0;width:3px;height:100%;background:var(--teal);box-shadow:0 0 12px var(--teal);animation:ltpoSweep 3.2s linear infinite}
-@keyframes backlightBreath{0%,100%{opacity:.45}50%{opacity:1}}
-@keyframes pixelBlink{0%,100%{opacity:.62;transform:scale(.92)}50%{opacity:1;transform:scale(1)}}
-@keyframes amoledGlow{0%,100%{box-shadow:inset 0 0 0 rgba(112,212,207,0)}50%{box-shadow:inset 0 0 30px rgba(112,212,207,.1)}}
-@keyframes ltpoSweep{0%{left:0;opacity:.2}15%{opacity:1}42%{left:97%;opacity:1}48%{left:97%;opacity:.2}100%{left:0;opacity:.2}}
-@keyframes ltpoNumber{0%,35%{content:"120"}36%,70%{transform:scale(.86);opacity:.72}71%,100%{transform:scale(1)}}
+.ltpo-sweep{position:absolute;left:0;top:0;width:3px;height:100%;background:var(--teal);box-shadow:0 0 12px var(--teal);animation:ltpoSweep 1s linear infinite}
+.ltpo-state{position:absolute;bottom:8px;left:8px;color:#fff;font:800 .5rem/1 var(--font-display);letter-spacing:.05em;opacity:.72}
+.display-tech-ltpo .display-tech-screen.is-idle .ltpo-sweep{animation-duration:3.8s;opacity:.35}
+.display-tech-ltpo .display-tech-screen.is-idle .ltpo-motion span{animation-duration:3.2s;opacity:.35}
+@keyframes lcdBacklight{0%,100%{opacity:.58}50%{opacity:.95}}
+@keyframes lcdShutter{0%,100%{transform:translateX(-5%);opacity:.35}50%{transform:translateX(5%);opacity:.65}}
+@keyframes lcdPixel{0%,100%{opacity:.62;transform:scale(.9)}50%{opacity:1;transform:scale(1)}}
+@keyframes lcdBlack{0%,58%{background:#6a727c!important}72%,100%{background:#3f4650!important}}
+@keyframes oledPixel{0%,100%{opacity:.45;transform:scale(.9)}50%{opacity:1;transform:scale(1.05)}}
+@keyframes oledBlack{0%,45%{opacity:1;background:#08080a!important}55%,100%{opacity:0;background:#000!important}}
+@keyframes labelBlink{0%,45%{opacity:.35}55%,100%{opacity:.85}}
+@keyframes amoledPixel{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.06)}}
+@keyframes amoledScan{0%{top:-20%;opacity:0}15%{opacity:1}75%{top:105%;opacity:.9}100%{top:105%;opacity:0}}
+@keyframes ltpoDots{0%,100%{transform:translateX(0);opacity:.25}50%{transform:translateX(27px);opacity:1}}
+@keyframes ltpoSweep{0%{left:0;opacity:.25}45%{left:97%;opacity:1}50%{left:97%;opacity:.2}100%{left:0;opacity:.25}}
 
 @media(max-width:760px){
   .ram-cards,.charging-cards{grid-template-columns:1fr}
@@ -734,8 +755,10 @@ html.dark-theme .stack-card:nth-child(6) .stack-num{background:#94c85a}
 }
 @media(max-width:480px){.display-tech-grid{grid-template-columns:1fr 1fr}.display-tech-screen{height:100px}.display-tech-pixels{grid-template-columns:repeat(3,18px);grid-template-rows:repeat(3,18px);gap:4px}.battery-visual{width:120px;height:68px}}
 @media(prefers-reduced-motion:reduce){
-  .ram-slots span.is-used,.battery-fill,.battery-bolt,.display-tech-backlight,.display-tech-pixels i,.display-tech-amoled .display-tech-screen,.ltpo-sweep,.ltpo-refresh b{animation:none!important}
+  .ram-slots span.is-used,.battery-fill,.battery-bolt,.lcd-backlight,.lcd-shutter,.lcd-pixels i,.oled-pixels i,.oled-label,.amoled-matrix i,.amoled-scan,.ltpo-motion span,.ltpo-sweep{animation:none!important}
   .battery-fill{transform:scaleX(.72)}
+  .ram-slots span.is-used{transform:scaleY(1)}
+  .oled-pixels .oled-black{opacity:0}
 }
 
 /* La bulle de détails reste lisible et flottante, en bas à droite. */

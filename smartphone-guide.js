@@ -134,7 +134,7 @@
   });
   setResolution("FHD+");
 
-  /* RAM : remplissage automatique de blocs mémoire, sans interaction. */
+  /* RAM : remplissage cyclique des blocs pour montrer visuellement la capacité. */
   var ramCards = Array.prototype.slice.call(document.querySelectorAll(".ram-card"));
   ramCards.forEach(function (card) {
     var slots = card.querySelector(".ram-slots");
@@ -143,10 +143,22 @@
     for (var i = 0; i < 12; i++) {
       var slot = document.createElement("span");
       slot.className = i < ram ? "is-used" : "";
+      slot.style.setProperty("--ram-index", i);
       slot.setAttribute("aria-hidden", "true");
       slots.appendChild(slot);
     }
   });
+
+  /* LTPO : la fréquence illustrée alterne entre action et veille. */
+  var ltpoHz = document.getElementById("ltpo-hz-value");
+  if (ltpoHz) {
+    var ltpoActive = true;
+    setInterval(function () {
+      ltpoActive = !ltpoActive;
+      ltpoHz.textContent = ltpoActive ? "120" : "10";
+      ltpoHz.parentElement.parentElement.classList.toggle("is-idle", !ltpoActive);
+    }, 2600);
+  }
 
   /* Recharge : l'animation de remplissage est proportionnelle à la puissance affichée. */
   var chargingCards = Array.prototype.slice.call(document.querySelectorAll(".charging-card"));
