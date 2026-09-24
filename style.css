@@ -765,3 +765,64 @@ html.dark-theme .stack-card:nth-child(6) .stack-num{background:#94c85a}
 .detail-mode-floating{left:auto;right:clamp(1rem,3vw,2rem)}
 .detail-bubble{min-width:108px;min-height:48px;padding:.78rem 1.18rem;font-size:.9rem;opacity:.92;box-shadow:0 10px 28px rgba(36,23,38,.15)}
 @media(max-width:600px){.detail-mode-floating{right:.8rem;left:auto;bottom:.8rem}.detail-bubble{min-width:102px;min-height:46px;padding:.7rem 1rem;font-size:.82rem}}
+
+/* ===== Carte smartphone illustrée (accueil) ===== */
+.cat-card-smartphone{position:relative}
+.cat-card-phone-mini{position:absolute;right:1.1rem;bottom:1.1rem;width:58px;height:104px;border-radius:14px;background:var(--ink-deep);padding:4px;box-shadow:0 8px 18px rgba(36,23,38,.25)}
+.cat-card-featured .cat-card-phone-mini{width:74px;height:132px;right:1.6rem;bottom:1.6rem}
+.cat-card-phone-mini-screen{position:relative;width:100%;height:100%;border-radius:10px;overflow:hidden;background:linear-gradient(160deg,var(--teal-tint),var(--lime-tint))}
+.cat-card-phone-mini-row{position:absolute;left:8%;right:8%;height:16%;border-radius:5px;background:rgba(36,23,38,.16)}
+.cat-card-phone-mini-row.r1{top:12%}
+.cat-card-phone-mini-row.r2{top:38%}
+.cat-card-phone-mini-row.r3{top:64%}
+.cat-card-phone-mini-thumb{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--lime);left:50%;bottom:8%;box-shadow:0 0 0 4px rgba(232,246,92,.28)}
+.cat-card-featured .cat-card-phone-mini-thumb{background:#fff}
+@media(prefers-reduced-motion:no-preference){
+  .cat-card-phone-mini-thumb{animation:phoneMiniSwipe 3.6s ease-in-out infinite}
+  .cat-card-phone-mini-row{animation:phoneMiniRow 3.6s ease-in-out infinite}
+}
+@keyframes phoneMiniSwipe{0%,8%{bottom:8%;opacity:1}45%{bottom:78%;opacity:.4}46%,54%{bottom:8%;opacity:0}55%{opacity:1}100%{bottom:8%}}
+@keyframes phoneMiniRow{0%,45%{transform:translateY(0)}55%,100%{transform:translateY(-120%)}}
+
+/* ===== Illustration hero : pouce qui swipe (page smartphones) ===== */
+.smartphone-hero-stage{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.phone-swipe-demo{flex:0 0 auto}
+.phone-swipe-frame{width:150px;height:300px;border-radius:34px;background:var(--ink-deep);padding:9px;box-shadow:0 22px 50px rgba(36,23,38,.3)}
+.phone-swipe-notch{width:44px;height:7px;border-radius:6px;background:rgba(255,255,255,.25);margin:6px auto 4px}
+.phone-swipe-screen{position:relative;width:100%;height:calc(100% - 20px);border-radius:26px;overflow:hidden;background:linear-gradient(165deg,var(--teal-tint),var(--orchid-tint))}
+.phone-swipe-card{position:absolute;left:8%;right:8%;height:26%;border-radius:14px;background:rgba(255,255,255,.75)}
+.phone-swipe-card-a{top:10%}
+.phone-swipe-card-b{top:40%}
+.phone-swipe-card-c{top:70%}
+.phone-swipe-thumb{position:absolute;width:22px;height:22px;border-radius:50%;background:var(--ink-deep);left:50%;bottom:14%;box-shadow:0 0 0 6px rgba(36,23,38,.14)}
+@media(prefers-reduced-motion:no-preference){
+  .phone-swipe-thumb{animation:phoneSwipeThumb 3.2s ease-in-out infinite}
+  .phone-swipe-card{animation:phoneSwipeCard 3.2s ease-in-out infinite}
+}
+@keyframes phoneSwipeThumb{0%,10%{bottom:14%;opacity:1}48%{bottom:82%;opacity:.5}50%,58%{bottom:14%;opacity:0}62%{opacity:1}100%{bottom:14%}}
+@keyframes phoneSwipeCard{0%,48%{transform:translateY(0)}58%,100%{transform:translateY(-130%)}}
+html.dark-theme .phone-swipe-card{background:rgba(255,255,255,.14)}
+html.dark-theme .phone-swipe-thumb{background:var(--lime);box-shadow:0 0 0 6px rgba(232,246,92,.2)}
+
+/* ===== Barre de progression FALC ===== */
+.falc-progress{position:sticky;top:calc(var(--header-h) + .5rem);z-index:5;display:flex;align-items:center;gap:.7rem;margin:0 0 1.4rem;font-size:.78rem;color:var(--ink-soft)}
+.falc-progress-track{flex:1;height:5px;border-radius:99px;background:var(--surface-2);overflow:hidden}
+.falc-progress-bar{height:100%;width:0;background:var(--lime);border-radius:99px;transition:width .1s linear}
+
+/* ===== Points FALC (lecture courte) ===== */
+.falc-point{padding:1.5rem 0;border-bottom:1px solid var(--surface-2)}
+.falc-point h2{font-size:1.15rem;margin:0 0 .5rem;display:flex;align-items:center;gap:.6rem}
+.falc-point .num{display:inline-flex;align-items:center;justify-content:center;width:1.9rem;height:1.9rem;border-radius:50%;background:var(--lime);color:var(--ink-deep);font-size:.9rem;font-weight:800;flex:0 0 auto}
+.falc-point p{margin:0;max-width:62ch}
+
+/* ===== Lien "approfondir" ===== */
+.falc-more{margin:1.6rem 0 2.4rem;padding:1.3rem 1.4rem;border-radius:var(--radius);background:var(--surface-2);text-align:center}
+.falc-more-link{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;color:var(--ink-deep);text-decoration:none;font-size:1.02rem}
+.falc-more-link:hover span{transform:translateX(3px)}
+.falc-more-link span{display:inline-block;transition:transform .2s var(--ease)}
+.falc-more .hint{margin:.4rem 0 0}
+
+@media(max-width:760px){
+  .smartphone-hero-stage{justify-content:center;text-align:center}
+  .phone-swipe-frame{width:120px;height:240px}
+}
