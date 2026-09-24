@@ -10,12 +10,17 @@
     details.forEach(function (block) { block.hidden = !enabled; });
     if (toggle) {
       toggle.setAttribute("aria-pressed", enabled ? "true" : "false");
-      toggle.textContent = enabled ? "Détails : ON" : "Détails : OFF";
+      toggle.classList.toggle("is-on", enabled);
+      toggle.classList.toggle("is-off", !enabled);
     }
-    if (label) label.textContent = enabled ? "Détails : ON" : "Détails : OFF";
-    if (help) help.textContent = enabled
-      ? "Mode complet : fonctionnement technique, chiffres, exceptions et explications supplémentaires."
-      : "Mode simple : les explications utiles pour choisir rapidement.";
+    if (label) label.textContent = "Détails";
+    var state = document.getElementById("detail-mode-state");
+    if (state) state.textContent = enabled ? "ON" : "OFF";
+    if (help) {
+      help.textContent = enabled
+        ? "Mode complet : fonctionnement technique, chiffres, exceptions et explications supplémentaires."
+        : "Mode simple : les explications utiles pour choisir rapidement.";
+    }
     document.documentElement.classList.toggle("detail-mode-on", enabled);
   }
 
