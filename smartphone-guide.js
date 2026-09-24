@@ -134,6 +134,24 @@
   });
   setResolution("FHD+");
 
+  /* Illustrative information cards: reveal them as they enter the viewport. */
+  var motionCards = Array.prototype.slice.call(document.querySelectorAll(".interactive-demo, .quick-scale, .guide-subsection, .takeaway"));
+  motionCards.forEach(function (card) { card.classList.add("motion-card"); });
+
+  if ("IntersectionObserver" in window) {
+    var motionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          motionObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16, rootMargin: "0px 0px -8% 0px" });
+    motionCards.forEach(function (card) { motionObserver.observe(card); });
+  } else {
+    motionCards.forEach(function (card) { card.classList.add("is-visible"); });
+  }
+
   /* Pause motion when the tab is hidden to avoid unnecessary work. */
   document.addEventListener("visibilitychange", function () {
     hzRunning = !document.hidden;

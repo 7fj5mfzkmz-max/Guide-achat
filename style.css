@@ -619,7 +619,7 @@ html.dark-theme .hero-lead{
 /* ===== MODE DÉTAILS : bulle flottante, révélée après l'introduction ===== */
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .detail-mode-floating{position:fixed;left:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);top:auto;z-index:90;margin:0;padding:0;background:transparent;pointer-events:none}
-.detail-bubble{pointer-events:auto;appearance:none;border:1px solid color-mix(in srgb,var(--ink) 22%,transparent);background:color-mix(in srgb,var(--surface) 68%,transparent);color:var(--ink);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(36,23,38,.10);border-radius:999px;padding:.55rem .82rem;cursor:pointer;font:650 .76rem/1 var(--font-body);letter-spacing:.01em;opacity:.78;transition:color .2s ease,border-color .2s ease,background .2s ease,opacity .2s ease,transform .2s ease}
+.detail-bubble{pointer-events:auto;appearance:none;border:1px solid color-mix(in srgb,var(--ink) 22%,transparent);background:color-mix(in srgb,var(--surface) 68%,transparent);color:var(--ink);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(36,23,38,.10);border-radius:999px;padding:.72rem 1.08rem;cursor:pointer;font:700 .86rem/1 var(--font-body);letter-spacing:.01em;opacity:.9;transition:color .2s ease,border-color .2s ease,background .2s ease,opacity .2s ease,transform .2s ease}
 .detail-bubble:hover{opacity:.95;transform:translateY(-1px)}
 .detail-bubble.is-off{color:var(--orchid);border-color:color-mix(in srgb,var(--orchid) 38%,transparent);background:color-mix(in srgb,var(--surface) 68%,transparent)}
 .detail-bubble.is-on{color:var(--teal);border-color:color-mix(in srgb,var(--teal) 48%,transparent);background:color-mix(in srgb,var(--surface) 64%,transparent)}
@@ -666,6 +666,6 @@ html.dark-theme .stack-card:nth-child(5) .stack-num{background:#7e91e4}
 html.dark-theme .stack-card:nth-child(6) .stack-num{background:#94c85a}
 
 @media (max-width:600px){
-  .detail-mode-floating{left:.8rem;bottom:.8rem}
-  .detail-bubble{padding:.52rem .74rem;font-size:.72rem}
+  .detail-mode-floating{right:.8rem;left:auto;bottom:.8rem}
+  .detail-bubble{padding:.62rem .9rem;font-size:.78rem}
 }
