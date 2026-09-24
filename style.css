@@ -616,21 +616,16 @@ html.dark-theme .hero-lead{
   }
 }
 
-/* ===== MODE DÉTAILS : bulle flottante discrète ===== */
+/* ===== MODE DÉTAILS : bulle flottante, révélée après l'introduction ===== */
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-.detail-mode-floating{position:fixed;right:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);top:auto;z-index:90;margin:0;padding:0;background:transparent;color:var(--ink);display:block;pointer-events:none}
-.detail-bubble{pointer-events:auto;display:inline-flex;align-items:center;gap:.55rem;border:1px solid var(--line-strong);background:color-mix(in srgb,var(--surface) 92%,transparent);color:var(--ink);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 12px 30px rgba(36,23,38,.16);border-radius:999px;padding:.62rem .75rem .62rem .72rem;cursor:pointer;font:700 .76rem/1 var(--font-body);transition:transform .22s var(--ease),box-shadow .22s var(--ease),background .22s ease,border-color .22s ease}
-.detail-bubble:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(36,23,38,.22)}
-.detail-bubble-dot{width:9px;height:9px;border-radius:50%;background:var(--muted);box-shadow:0 0 0 4px color-mix(in srgb,var(--muted) 12%,transparent);transition:background .2s ease,box-shadow .2s ease}
-.detail-bubble-state{padding:.25rem .42rem;border-radius:999px;background:var(--surface-2);color:var(--muted);font-size:.62rem;letter-spacing:.04em;transition:background .2s ease,color .2s ease}
-.detail-bubble.is-on{border-color:color-mix(in srgb,var(--teal) 65%,var(--line));background:color-mix(in srgb,var(--surface) 90%,var(--teal) 10%)}
-.detail-bubble.is-on .detail-bubble-dot{background:var(--teal);box-shadow:0 0 0 4px color-mix(in srgb,var(--teal) 18%,transparent),0 0 12px color-mix(in srgb,var(--teal) 45%,transparent)}
-.detail-bubble.is-on .detail-bubble-state{background:var(--teal);color:#12383a}
-.detail-bubble.is-off .detail-bubble-dot{background:var(--orchid);box-shadow:0 0 0 4px color-mix(in srgb,var(--orchid) 14%,transparent)}
-.detail-bubble.is-off .detail-bubble-state{background:var(--orchid-tint);color:#6d2868}
-html.dark-theme .detail-bubble{background:color-mix(in srgb,var(--surface) 88%,#000 12%);border-color:var(--line-strong);box-shadow:0 14px 34px rgba(0,0,0,.35)}
-html.dark-theme .detail-bubble.is-on{border-color:#4f9fa1;background:#20383a}
-html.dark-theme .detail-bubble.is-off .detail-bubble-state{background:#3d293e;color:#f0b8ea}
+.detail-mode-floating{position:fixed;left:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);top:auto;z-index:90;margin:0;padding:0;background:transparent;pointer-events:none}
+.detail-bubble{pointer-events:auto;appearance:none;border:1px solid color-mix(in srgb,var(--ink) 22%,transparent);background:color-mix(in srgb,var(--surface) 68%,transparent);color:var(--ink);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 8px 24px rgba(36,23,38,.10);border-radius:999px;padding:.55rem .82rem;cursor:pointer;font:650 .76rem/1 var(--font-body);letter-spacing:.01em;opacity:.78;transition:color .2s ease,border-color .2s ease,background .2s ease,opacity .2s ease,transform .2s ease}
+.detail-bubble:hover{opacity:.95;transform:translateY(-1px)}
+.detail-bubble.is-off{color:var(--orchid);border-color:color-mix(in srgb,var(--orchid) 38%,transparent);background:color-mix(in srgb,var(--surface) 68%,transparent)}
+.detail-bubble.is-on{color:var(--teal);border-color:color-mix(in srgb,var(--teal) 48%,transparent);background:color-mix(in srgb,var(--surface) 64%,transparent)}
+html.dark-theme .detail-bubble{color:#f2eaf4;border-color:rgba(255,255,255,.18);background:rgba(31,24,35,.58);box-shadow:0 10px 28px rgba(0,0,0,.24)}
+html.dark-theme .detail-bubble.is-off{color:#e7a9df;border-color:rgba(231,169,223,.34)}
+html.dark-theme .detail-bubble.is-on{color:#70d4cf;border-color:rgba(112,212,207,.38)}
 
 /* ===== DÉMO PIXELS : contraste clair + accent multicolore ===== */
 .pixel-density-grid{background:#d8d0dd;border:1px solid #c9bdcf}
@@ -671,6 +666,6 @@ html.dark-theme .stack-card:nth-child(5) .stack-num{background:#7e91e4}
 html.dark-theme .stack-card:nth-child(6) .stack-num{background:#94c85a}
 
 @media (max-width:600px){
-  .detail-mode-floating{right:.8rem;bottom:.8rem}
-  .detail-bubble{padding:.58rem .65rem;font-size:.72rem}
+  .detail-mode-floating{left:.8rem;bottom:.8rem}
+  .detail-bubble{padding:.52rem .74rem;font-size:.72rem}
 }

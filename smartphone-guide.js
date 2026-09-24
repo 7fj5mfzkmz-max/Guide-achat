@@ -2,7 +2,8 @@
   "use strict";
 
   var toggle = document.getElementById("detail-mode-toggle");
-  var label = document.getElementById("detail-mode-label");
+  var detailBubble = document.getElementById("detail-mode");
+  var intro = document.getElementById("introduction");
   var help = document.getElementById("detail-mode-help");
   var details = Array.prototype.slice.call(document.querySelectorAll(".detail-content"));
 
@@ -13,9 +14,6 @@
       toggle.classList.toggle("is-on", enabled);
       toggle.classList.toggle("is-off", !enabled);
     }
-    if (label) label.textContent = "Détails";
-    var state = document.getElementById("detail-mode-state");
-    if (state) state.textContent = enabled ? "ON" : "OFF";
     if (help) {
       help.textContent = enabled
         ? "Mode complet : fonctionnement technique, chiffres, exceptions et explications supplémentaires."
@@ -29,6 +27,17 @@
     toggle.addEventListener("click", function () {
       setDetailed(toggle.getAttribute("aria-pressed") !== "true");
     });
+  }
+
+  /* La bulle n'apparaît qu'après l'introduction, puis reste discrètement flottante. */
+  if (detailBubble && intro) {
+    var revealDetailBubble = function () {
+      var introBottom = intro.getBoundingClientRect().bottom;
+      detailBubble.hidden = introBottom > 24;
+    };
+    revealDetailBubble();
+    window.addEventListener("scroll", revealDetailBubble, { passive: true });
+    window.addEventListener("resize", revealDetailBubble);
   }
 
   /* 60 / 90 / 120 Hz : three simultaneous frame-rate simulations. */
