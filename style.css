@@ -15,7 +15,7 @@
   --danger:#ff6b6b;
   --content:46rem; --wide:82rem;
   --radius-sm:14px; --radius:22px; --radius-lg:32px;
-  --font-display:'Baloo 2','DM Sans',system-ui,sans-serif;
+  --font-display:'Space Grotesk','DM Sans',system-ui,sans-serif;
   --font-body:'DM Sans',system-ui,sans-serif;
   --ease:cubic-bezier(.16,1,.3,1);
   --header-h:86px;
@@ -1223,3 +1223,79 @@ html.dark-theme .display-compare-tab.is-active{background:var(--lime);color:var(
 .display-compare-panel-inner{display:flex;flex-direction:column;align-items:center;gap:.6rem}
 .display-compare-caption{font-size:.82rem;color:var(--ink-soft);max-width:320px;line-height:1.5}
 .display-compare-caption strong{color:var(--ink)}
+
+
+/* =========================================================
+   ACCUEIL — hiérarchie éditoriale, respiration et outils
+   ========================================================= */
+.home-hero h1,
+.section-intro h2,
+.why-copy h2,
+.cat-card h3{
+  font-family:var(--font-display);
+  letter-spacing:-.035em;
+}
+.home-hero h1{font-weight:700;}
+.section-intro h2,.why-copy h2{font-weight:600;}
+.hero-lead,.section-intro p,.why-copy>p{max-width:40rem;}
+
+/* Les cartes restent animées au scroll, mais ne se chevauchent plus. */
+.cat-stack-interactive{
+  padding:1.4rem 0 8rem;
+}
+.cat-stack-interactive .cat-stack-item{
+  margin:0 auto 1.25rem;
+}
+.cat-stack-interactive .cat-stack-item:nth-child(n+2){
+  margin-top:0;
+}
+.cat-stack-interactive .cat-stack-item:nth-child(1){top:calc(var(--header-h) + 22px)}
+.cat-stack-interactive .cat-stack-item:nth-child(2){top:calc(var(--header-h) + 50px)}
+.cat-stack-interactive .cat-stack-item:nth-child(3){top:calc(var(--header-h) + 78px)}
+.cat-stack-interactive .cat-stack-item:nth-child(4){top:calc(var(--header-h) + 106px)}
+.cat-stack-interactive .cat-stack-item:nth-child(5){top:calc(var(--header-h) + 134px)}
+.cat-stack-interactive .cat-stack-item:nth-child(6){top:calc(var(--header-h) + 162px)}
+.cat-stack-interactive .cat-stack-item.is-active{box-shadow:0 22px 48px rgba(36,23,38,.16)}
+
+/* La section "Pourquoi" respire davantage et sépare clairement le message du décor. */
+.why-section{gap:clamp(3rem,7vw,7rem);padding-top:clamp(4rem,8vw,6rem)}
+.why-copy{max-width:44rem}
+.why-copy h2{font-size:clamp(2rem,4.5vw,3.25rem);max-width:11ch;margin:.65rem 0 1rem}
+.why-copy>p{font-size:1.03rem;line-height:1.7;color:var(--ink-soft);}
+.trust-grid{grid-template-columns:1fr 1fr;gap:.7rem;margin-top:1.8rem}
+.trust-grid li{min-height:4.1rem;padding:.85rem 1rem;font-size:.88rem;line-height:1.35;background:var(--surface-2);border:1px solid var(--line)}
+.why-card{min-height:330px;box-shadow:0 18px 44px rgba(36,23,38,.12)}
+.why-script{font-family:'Newsreader',Georgia,serif;font-weight:600;letter-spacing:-.02em}
+
+/* Outils de navigation : état visuel explicite et contraste cohérent avec les deux thèmes. */
+.header-tool{position:relative;overflow:visible;}
+.header-tool[aria-pressed="true"],
+.header-tool[aria-expanded="true"]{background:var(--lime);border-color:var(--lime);color:var(--ink-deep)}
+.search-panel-backdrop{background:rgba(18,12,22,.58);}
+.search-panel-sheet{border:1px solid var(--line);box-shadow:0 28px 80px rgba(0,0,0,.28)}
+.drawer-search-field{border:1px solid var(--line);box-shadow:inset 0 0 0 1px transparent;transition:border-color .2s ease,box-shadow .2s ease,background .2s ease}
+.drawer-search-field:focus-within{border-color:var(--lime);box-shadow:0 0 0 3px var(--lime-tint)}
+.search-result{border:1px solid transparent;}
+.search-result:hover{border-color:var(--line-strong)}
+html.dark-theme .drawer-search-field:focus-within{box-shadow:0 0 0 3px rgba(232,246,92,.12)}
+
+/* En sombre, les surfaces et accents restent volontairement sourds : le texte prime. */
+html.dark-theme .cat-card-secondary:nth-of-type(1){background:#293321}
+html.dark-theme .cat-card-secondary:nth-of-type(2){background:#173537}
+html.dark-theme .cat-card-secondary:nth-of-type(3){background:#39263a}
+html.dark-theme .cat-card-secondary:nth-of-type(4){background:#293321}
+html.dark-theme .cat-card-secondary:nth-of-type(5){background:#173537}
+html.dark-theme .why-card{box-shadow:0 20px 50px rgba(0,0,0,.28)}
+html.dark-theme .trust-grid li{background:#2a1d31;border-color:#3c2c46}
+
+@media(max-width:620px){
+  .cat-stack-interactive{padding-bottom:5rem}
+  .cat-stack-interactive .cat-stack-item{margin-bottom:.95rem;top:78px!important}
+  .cat-stack-interactive .cat-stack-item:nth-child(2){top:104px!important}
+  .cat-stack-interactive .cat-stack-item:nth-child(3){top:130px!important}
+  .cat-stack-interactive .cat-stack-item:nth-child(4){top:156px!important}
+  .cat-stack-interactive .cat-stack-item:nth-child(5){top:182px!important}
+  .cat-stack-interactive .cat-stack-item:nth-child(6){top:208px!important}
+  .trust-grid{grid-template-columns:1fr}
+  .why-section{gap:2rem}
+}
