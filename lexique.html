@@ -17,353 +17,346 @@
 <body class="site-redesign">
 <header class="site-header"><div class="header-inner">
 <a aria-label="Guide d'achat, accueil" class="brand-logo" href="index.html"><span aria-hidden="true" class="brand-mark"><svg viewbox="0 0 56 56"><path class="bag" d="M13 20h30l-2.4 27H15.4L13 20Z"></path><path class="handle" d="M20 20v-5.2a8 8 0 0 1 16 0V20"></path><path class="cursor" d="m31 27 15 12-7.2.8 3.1 7-3.7 1.7-3.2-7-4.7 4.8-.3-19.3Z"></path></svg></span><span class="brand-name"><b>Guide</b><strong>d'achat</strong><small>Bien choisir, c'est mieux consommer</small></span></a>
-<nav aria-label="Catégories" class="site-nav"><a href="smartphones.html">Smartphones</a><a href="pc-portables.html">PC portables</a><a href="batteries.html">Batteries</a><a href="ecouteurs.html">Écouteurs</a><a href="montres.html">Montres</a><a href="projecteurs.html">Projecteurs</a></nav>
+<nav aria-label="Catégories" class="site-nav"><a href="smartphones.html">Smartphones</a><span aria-disabled="true" class="site-nav-disabled" title="Bientôt disponible">PC portables</span><span aria-disabled="true" class="site-nav-disabled" title="Bientôt disponible">Batteries</span><span aria-disabled="true" class="site-nav-disabled" title="Bientôt disponible">Écouteurs</span><span aria-disabled="true" class="site-nav-disabled" title="Bientôt disponible">Montres</span><span aria-disabled="true" class="site-nav-disabled" title="Bientôt disponible">Projecteurs</span></nav>
 <div aria-label="Outils du guide" class="header-tools"><button aria-controls="search-panel" aria-expanded="false" aria-label="Ouvrir la recherche" class="header-tool header-tool-search" id="search-toggle" type="button">⌕</button><button aria-label="Activer le thème sombre" aria-pressed="false" class="header-tool header-tool-theme" id="theme-toggle" type="button"><span aria-hidden="true" class="theme-icon">☾</span></button></div></div></header>
-
-
-<section aria-label="Recherche" class="search-panel" hidden="True" id="search-panel"><button aria-label="Fermer la recherche" class="search-panel-backdrop" type="button"></button><div aria-labelledby="search-panel-title" aria-modal="true" class="search-panel-sheet" role="dialog"><div class="search-panel-head"><div><span class="drawer-kicker">GUIDE·ACHAT</span><h2 id="search-panel-title">Rechercher</h2></div><button aria-label="Fermer la recherche" class="drawer-close" id="search-close" type="button">×</button></div><label class="drawer-search-field" for="site-search-input"><span aria-hidden="true">⌕</span><input autocomplete="off" id="site-search-input" placeholder="Rechercher dans le guide…" type="search"/></label><div class="site-search-results" id="site-search-results"><p class="search-empty">Recherchez une caractéristique, un usage ou un modèle.</p></div></div></section><main id="main"><div class="container">
+<section aria-label="Recherche" class="search-panel" hidden="True" id="search-panel"><button aria-label="Fermer la recherche" class="search-panel-backdrop" type="button"></button><div aria-labelledby="search-panel-title" aria-modal="true" class="search-panel-sheet" role="dialog"><div class="search-panel-head"><div><span class="drawer-kicker">GUIDE·ACHAT</span><h2 id="search-panel-title">Rechercher</h2></div><button aria-label="Fermer la recherche" class="drawer-close" id="search-close" type="button">×</button></div><label class="drawer-search-field" for="site-search-input"><span aria-hidden="true">⌕</span><input autocomplete="off" id="site-search-input" placeholder="Rechercher dans le guide…" type="search"/></label><div class="site-search-results" id="site-search-results"><p class="search-empty">Recherchez une caractéristique, un usage ou un modèle.</p></div></div></section><div class="detail-mode-floating lexique-detail-floating" id="lexique-detail-floating"><button aria-label="Activer le mode détails" aria-pressed="false" class="detail-bubble is-off" id="lexique-detail-floating-button" type="button"><span data-floating-label="">Mode simple</span></button></div><main id="main"><div class="container">
 <nav class="breadcrumb"><a href="index.html">Accueil</a> / Comprendre les mots techniques</nav>
 <span class="eyebrow">COMPRENDRE</span>
 <h1 style="margin-top:.4rem;">Le téléphone sans jargon</h1>
-<p class="hero-lead lexique-intro">RAM, OLED, 120 Hz, IP68… Chaque terme part d’une situation réelle. Vous découvrez d’abord ce que le chiffre ou le logo change dans votre usage, puis vous pouvez ouvrir le détail technique si vous voulez comprendre le mécanisme.</p>
+<p class="hero-lead lexique-intro">On vous dit « OLED », « 120 Hz » ou « 5 000 mAh » et le téléphone est censé devenir évident. En réalité, ces chiffres ne deviennent utiles qu’une fois reliés à une situation : lire dehors, jouer longtemps, filmer la nuit ou tenir une journée sans charge. Ici, chaque terme part du problème que vous cherchez à résoudre, puis descend vers le mécanisme technique.</p>
 <div aria-label="Niveau d'explication" class="lexique-mode" role="region">
 <div><strong>Deux niveaux de lecture</strong><span id="deep-status">Réponses courtes affichées par défaut.</span></div>
-<button aria-pressed="false" id="deep-toggle" type="button"><span data-toggle-label="">Explication approfondie</span><i aria-hidden="true"></i></button>
+<button aria-label="Basculer entre le mode simple et le mode détails" aria-pressed="false" id="deep-toggle" type="button"><span data-toggle-label="">Explication approfondie</span><i aria-hidden="true"></i></button>
 </div>
 <div class="lexique-visual-intro">
-<div class="visual-intro-copy"><span class="section-label">APPRENDRE PAR L'IMAGE</span><h2>Un mot technique doit devenir visible.</h2><p>Chaque notion est expliquée en langage courant, puis peut être approfondie. Les futurs visuels animés montreront le principe au lieu de simplement l'illustrer.</p></div>
-
+<div class="visual-intro-copy"><span class="section-label">APPRENDRE PAR L'IMAGE</span><h2>Un mot technique doit devenir visible.</h2><p>Le but n’est pas de transformer la page en dictionnaire. Chaque notion doit pouvoir se raconter avec une scène, un geste ou une comparaison visuelle. Le détail technique arrive seulement lorsque vous voulez aller plus loin.</p></div>
 </div>
-<div class="lexique-principle"><strong>Notre règle :</strong> une caractéristique n’a d’intérêt que si vous savez quel problème elle résout et dans quel usage vous allez réellement la sentir.</div>
+<div class="lexique-principle">Notre règle : ne jamais vous laisser avec un chiffre isolé. D’abord ce que vous allez voir ou ressentir. Ensuite pourquoi cela arrive. Puis seulement le niveau technique nécessaire pour comparer.</div>
 <nav aria-label="Rubriques du lexique" class="lexique-nav"><a href="#ecran">Écran</a><a href="#performance">Performances</a><a href="#batterie">Batterie</a><a href="#photo-video">Photo &amp; vidéo</a><a href="#connexion">Connexions</a><a href="#protection">Protection</a></nav>
 <section class="lexique-section" id="ecran"><div class="section-heading"><span class="eyebrow">ÉCRAN</span><h2>Écran</h2></div><article class="lex-entry" id="oled">
 <h3>OLED / AMOLED</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Un type d’écran dont chaque pixel produit sa propre lumière. AMOLED est une famille d’écrans OLED à matrice active.</p></div>
-<div><b>Ce que vous verrez</b><p>Les pixels noirs peuvent être éteints. Vous obtenez donc des noirs très profonds et un contraste élevé, surtout dans une pièce sombre.</p></div>
-<div><b>Pour qui c’est utile</b><p>Important si vous regardez beaucoup de vidéos, utilisez le mode sombre ou voulez une image très contrastée.</p></div>
-<div><b>À regarder en magasin</b><p>Comparez surtout la luminosité, la calibration, la fréquence et la lisibilité en extérieur. Le mot OLED seul ne garantit pas une bonne dalle.</p></div>
+<div><b>L’idée</b><p>Imaginez que l’écran est une mosaïque de petites lampes. Avec un écran OLED, chaque pixel peut allumer sa propre lumière. Un pixel noir peut donc réellement s’éteindre.</p></div>
+<div><b>Dans la vraie vie</b><p>Dans une scène sombre, les noirs restent vraiment noirs et les objets lumineux ressortent davantage. Au contraire, la technologie LCD utilise une source de lumière placée derrière les pixels.</p></div>
+<div><b>Pour qui</b><p>Utile si vous regardez beaucoup de vidéos, utilisez le mode sombre ou appréciez un contraste marqué. Mais OLED ne dit rien, à lui seul, sur la luminosité ou la fidélité des couleurs.</p></div>
+<div><b>En magasin</b><p>Affichez une image noire puis une image claire. Regardez ensuite le téléphone sous une forte lumière. Le type de dalle n’est qu’un morceau du puzzle : luminosité, calibration et fréquence comptent aussi.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>OLED émet sa lumière pixel par pixel, alors qu’un LCD utilise un rétroéclairage. AMOLED désigne une architecture OLED à matrice active.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>La commande électrique de chaque pixel permet de régler ou couper sa lumière. Cela explique les noirs très profonds et permet aussi des écrans fins.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>Le gain est surtout visible sur les scènes sombres et le contraste. La consommation peut aussi être réduite avec une interface sombre, selon l’écran.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Ne choisissez pas uniquement sur le type de dalle. Regardez la luminosité maximale, la calibration, la résolution, la fréquence variable et les tests en extérieur.</p></div>
+<div class="deep-block"><span>Définition</span><p>OLED signifie Organic Light Emitting Diode. AMOLED désigne une architecture OLED à matrice active, utilisée pour piloter rapidement les pixels.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Chaque sous pixel émet sa propre lumière. Quand un pixel doit afficher du noir, son émission lumineuse peut être coupée. Un LCD, lui, conserve un rétroéclairage qui doit être modulé par les cristaux liquides.</p></div>
+<div class="deep-block"><span>Ce que cela implique</span><p>Le contraste peut devenir extrêmement élevé. En contrepartie, la luminosité maximale, la calibration, la gestion de l’énergie et le comportement des pixels à long terme dépendent de la dalle complète.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Ne comparez pas OLED à LCD comme si le nom suffisait. Regardez la luminosité mesurée, la couverture colorimétrique, la fréquence adaptative, le comportement HDR et les mesures réelles en extérieur.</p></div>
 </div>
-</article></section></div>
-<article class="lex-entry" id="hz">
+</article><article class="lex-entry" id="hz">
 <h3>Fréquence de rafraîchissement : Hz</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Le nombre maximal de fois où l’écran peut actualiser son image chaque seconde. 60 Hz signifie jusqu’à 60 actualisations, 120 Hz jusqu’à 120.</p></div>
-<div><b>Ce que vous verrez</b><p>Une fréquence élevée rend le défilement et les animations plus fluides. La différence se voit surtout en passant de 60 à 90 ou 120 Hz.</p></div>
-<div><b>Pour qui c’est utile</b><p>Important pour le jeu, le défilement fréquent et les interfaces très animées. Moins important pour la lecture ou une vidéo classique.</p></div>
-<div><b>À regarder en magasin</b><p>Vérifiez la fréquence réellement utilisée et si elle est adaptative. Un écran 120 Hz n’est pas forcément à 120 Hz en permanence.</p></div>
+<div><b>L’idée</b><p>Faites glisser une page sur deux téléphones. Celui qui montre davantage de positions intermédiaires donne une impression de mouvement plus continu. Les Hz mesurent justement la fréquence à laquelle l’écran peut renouveler son image.</p></div>
+<div><b>Dans la vraie vie</b><p>60 Hz suffit pour lire un article. À 90 ou 120 Hz, le déplacement d’une page et les animations paraissent plus continus. Ce n’est pas le téléphone qui devient magiquement plus puissant : c’est l’affichage qui se met à jour plus souvent.</p></div>
+<div><b>Pour qui</b><p>Le gain est surtout visible pour le jeu, le défilement fréquent et les interfaces très animées. Pour une personne qui lit surtout des messages, la différence est moins importante.</p></div>
+<div><b>En magasin</b><p>Faites défiler rapidement un texte. Regardez aussi si la fréquence est adaptative. Un écran annoncé à 120 Hz peut descendre beaucoup plus bas lorsqu’il n’est pas nécessaire de rafraîchir rapidement.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>La fréquence de rafraîchissement est exprimée en hertz. Elle indique combien de nouvelles images l’écran peut afficher par seconde.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>À 120 Hz, l’écran peut renouveler son affichage deux fois plus souvent qu’à 60 Hz. Le téléphone doit toutefois produire et gérer les images nécessaires.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>Une fréquence élevée améliore la sensation de fluidité, mais elle peut augmenter la consommation lorsqu’elle est maintenue inutilement.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Cherchez une fréquence variable, la fréquence minimale et la manière dont le téléphone la gère. Pour le jeu, vérifiez aussi les fréquences réellement prises en charge par les jeux.</p></div>
+<div class="deep-block"><span>Définition</span><p>La fréquence de rafraîchissement, en hertz, indique combien de renouvellements d’image l’écran peut effectuer par seconde. 120 Hz signifie jusqu’à 120 renouvellements par seconde.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Une fréquence élevée réduit le temps entre deux positions affichées. Pour exploiter ce gain, le système doit également produire ou mettre à jour le contenu à un rythme suffisant.</p></div>
+<div class="deep-block"><span>Limite</span><p>Plus de Hz peut augmenter la consommation lorsque cette fréquence est maintenue inutilement. La fréquence variable permet d’adapter le rythme à la scène.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Regardez la fréquence maximale, la fréquence minimale, le comportement automatique et les performances réellement disponibles dans les jeux. 120 Hz sur la fiche ne signifie pas 120 images par seconde partout.</p></div>
 </div>
 </article><article class="lex-entry" id="ltpo">
 <h3>LTPO</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Une technologie d’écran qui permet de faire varier largement la fréquence de rafraîchissement selon l’usage.</p></div>
-<div><b>Ce que vous verrez</b><p>Le téléphone peut monter à 120 Hz pendant le défilement puis descendre à une fréquence très basse lorsque l’image reste immobile.</p></div>
-<div><b>Pour qui c’est utile</b><p>Cela peut améliorer la fluidité quand vous en avez besoin tout en limitant la consommation lorsque l’écran ne bouge presque pas.</p></div>
-<div><b>À regarder en magasin</b><p>LTPO est surtout intéressant si vous cherchez une bonne autonomie avec un écran très fluide. Vérifiez la plage de fréquences réellement utilisée.</p></div>
+<div><b>L’idée</b><p>Imaginez un écran avec une boîte de vitesses. Quand vous faites défiler une page, il passe sur un rapport rapide. Quand l’image ne bouge plus, il ralentit.</p></div>
+<div><b>Dans la vraie vie</b><p>Le téléphone peut monter à une fréquence élevée pendant une animation puis descendre très bas sur une image fixe. Vous gardez de la fluidité quand vous en avez besoin sans faire travailler l’écran au maximum en permanence.</p></div>
+<div><b>Pour qui</b><p>Intéressant pour les personnes qui veulent à la fois un écran très fluide et une bonne autonomie, surtout si elles gardent souvent des contenus fixes à l’écran.</p></div>
+<div><b>En magasin</b><p>Ne vous arrêtez pas au mot LTPO. Cherchez la plage réellement prise en charge et la façon dont le téléphone la gère.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>LTPO désigne une technologie de fond de panier utilisée dans certains écrans OLED pour piloter les pixels avec une fréquence variable sur une plage étendue.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>Le contrôleur peut adapter la fréquence au contenu. Une fréquence élevée accompagne les mouvements rapides, tandis qu’une fréquence basse suffit pour une image statique.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>Le bénéfice dépend de l’écran, du logiciel et de la gestion énergétique du téléphone. Le simple fait de lire LTPO ne garantit donc pas une autonomie supérieure.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Comparez la plage de fréquences, la luminosité, la résolution et les mesures d’autonomie.</p></div>
+<div class="deep-block"><span>Définition</span><p>LTPO est une technologie de fond de plan utilisée avec certaines dalles OLED pour permettre une variation importante de la fréquence de rafraîchissement.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>La fréquence peut être ajustée selon l’activité affichée. Des modes très bas conviennent aux contenus statiques, tandis que des fréquences élevées sont utilisées pendant les interactions rapides.</p></div>
+<div class="deep-block"><span>Limite</span><p>Le bénéfice énergétique dépend du logiciel, de la dalle et de la fréquence minimale réellement atteinte. Le simple label LTPO ne garantit pas la même gestion sur tous les modèles.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Notez la plage annoncée et regardez des mesures d’autonomie. Comparez deux téléphones dans les mêmes usages plutôt que de conclure à partir du seul nom de la technologie.</p></div>
 </div>
 </article><article class="lex-entry" id="nits">
 <h3>Luminosité : nits</h3>
 <div class="lex-content"></div>
 <div class="lex-quick">
 <div class="lex-grid">
-<div><b>À quoi ça sert ?</b><p>Les nits indiquent la luminance de l’écran. Plus le chiffre est élevé, plus l’écran peut produire une forte luminosité dans les conditions prévues par le fabricant.</p></div>
-<div><b>Concrètement</b><p>Une forte luminosité facilite surtout la lecture lorsque l’environnement est très éclairé, notamment dehors. Un chiffre annoncé comme « 2000 nits » peut cependant correspondre à un mode ou à une petite partie de l’écran, pas nécessairement à toute la dalle en permanence.</p></div>
-<div><b>Est-ce important ?</b><p>C’est important si vous utilisez souvent votre téléphone en extérieur, au soleil ou dans des environnements très lumineux.</p></div>
-<div><b>À l'achat</b><p>Comparez les mesures de tests indépendants quand elles sont disponibles et vérifiez s’il s’agit d’une luminosité typique, maximale ou HDR.</p></div>
+<div><b>L’idée</b><p>Vous sortez en plein soleil. Le téléphone est allumé, mais vous devez chercher un coin d’ombre pour lire. C’est là que la luminosité devient concrètement importante.</p></div>
+<div><b>Dans la vraie vie</b><p>Les nits mesurent la luminance. Plus la luminance disponible est élevée, plus l’écran a de marge pour rester lisible dans un environnement très lumineux.</p></div>
+<div><b>Pour qui</b><p>Priorité si vous utilisez souvent le téléphone dehors, en voiture, sur un chantier, à la plage ou près d’une fenêtre très éclairée.</p></div>
+<div><b>En magasin</b><p>Ne regardez pas seulement le nombre écrit sur la fiche. Cherchez à savoir s’il s’agit d’un pic, d’une mesure HDR ou d’une luminosité soutenue sur une grande partie de l’écran.</p></div>
 </div>
 </div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>01 : C'est quoi ?</span><p>Les nits indiquent la luminance de l’écran. Plus le chiffre est élevé, plus l’écran peut produire une forte luminosité dans les conditions prévues par le fabricant.</p></div>
-<div class="deep-block"><span>02 : Comment ça fonctionne ?</span><p>Une forte luminosité facilite surtout la lecture lorsque l’environnement est très éclairé, notamment dehors. Un chiffre annoncé comme « 2000 nits » peut cependant correspondre à un mode ou à une petite partie de l’écran, pas nécessairement à toute la dalle en permanence.</p></div>
-<div class="deep-block"><span>03 : Qu'est-ce que ça change ?</span><p>C’est important si vous utilisez souvent votre téléphone en extérieur, au soleil ou dans des environnements très lumineux.</p></div>
-<div class="deep-block"><span>04 : Que regarder à l'achat ?</span><p>Comparez les mesures de tests indépendants quand elles sont disponibles et vérifiez s’il s’agit d’une luminosité typique, maximale ou HDR.</p></div>
+<div class="deep-block"><span>Définition</span><p>Le nit est une unité de luminance, équivalente à une candela par mètre carré. Il décrit la quantité de lumière apparente émise ou réfléchie par une surface dans une direction donnée.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>La luminosité maximale dépend de la dalle, de l’électronique d’alimentation, de la température et du mode d’affichage. Certains appareils n’atteignent leur valeur maximale que sur une petite zone de l’écran.</p></div>
+<div class="deep-block"><span>Limite</span><p>Deux téléphones annonçant le même pic peuvent être très différents en usage extérieur si la valeur maximale n’est pas durable ou si le contraste et le traitement de surface diffèrent.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Privilégiez des mesures indépendantes de luminosité soutenue et de lisibilité au soleil. Vérifiez aussi le traitement antireflet.</p></div>
 </div>
-
 </article><article class="lex-entry" id="hdr">
 <h3>HDR</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Un format d’image qui permet de gérer une plage plus large entre les zones très sombres et très lumineuses.</p></div>
-<div><b>Ce que vous verrez</b><p>Une vidéo HDR peut montrer davantage de détails dans les hautes lumières et les ombres, à condition que l’écran et le contenu soient compatibles.</p></div>
-<div><b>Pour qui c’est utile</b><p>Intéressant pour les films, séries et photos compatibles. Ce n’est pas une priorité si vous regardez surtout des contenus classiques.</p></div>
-<div><b>À regarder en magasin</b><p>Vérifiez la compatibilité HDR réelle et la luminosité de l’écran. Un logo HDR ne garantit pas une expérience spectaculaire.</p></div>
+<div><b>L’idée</b><p>Dans une scène de coucher de soleil, vous voulez garder le détail dans le ciel très lumineux sans transformer les zones sombres en tache noire. Le HDR cherche précisément à donner plus de place entre ces deux extrêmes.</p></div>
+<div><b>Dans la vraie vie</b><p>Avec un contenu HDR compatible, vous pouvez obtenir des hautes lumières plus détaillées et des ombres plus nuancées. Mais l’écran doit être capable de suivre et la vidéo doit réellement être en HDR.</p></div>
+<div><b>Pour qui</b><p>Utile surtout pour les films, séries, jeux et photos qui exploitent ce format.</p></div>
+<div><b>En magasin</b><p>Le logo HDR ne suffit pas. Regardez la luminosité réelle, la gestion HDR et la capacité de l’écran à conserver des détails dans les zones très claires et très sombres.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>HDR signifie High Dynamic Range. L’écran doit pouvoir représenter une plage de luminance et de couleurs suffisante pour exploiter le contenu HDR.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>Le rendu dépend du format HDR, du traitement du téléphone, de la dalle et de la luminosité disponible.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>Un écran trop peu lumineux peut accepter un signal HDR sans offrir un contraste ou des hautes lumières réellement convaincants.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Comparez la prise en charge des formats, la luminosité et les tests visuels.</p></div>
+<div class="deep-block"><span>Définition</span><p>Le HDR, High Dynamic Range, désigne des formats et une chaîne d’affichage capables de représenter une plage de luminance plus large que le SDR classique.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>La chaîne HDR comprend le contenu, le codage, la dalle et le traitement du téléphone. Le résultat final dépend donc de plusieurs éléments, pas d’un simple logo.</p></div>
+<div class="deep-block"><span>Limite</span><p>Un écran compatible HDR mais peu lumineux peut afficher le signal sans reproduire tout le potentiel visuel du contenu.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Vérifiez les formats compatibles, la luminance en HDR et les tests d’images réelles. Regardez une scène contenant à la fois des zones sombres et des sources très lumineuses.</p></div>
 </div>
-</article>
+</article></section></div>
 <section class="lexique-section" id="performance"><div class="section-heading"><span class="eyebrow">PERFORMANCES</span><h2>Performances</h2></div><article class="lex-entry" id="ram">
 <h3>RAM : mémoire vive</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>La mémoire temporaire utilisée par le système et les applications pendant qu’elles fonctionnent.</p></div>
-<div><b>Ce que vous verrez</b><p>Plus il y a de RAM disponible, plus le téléphone peut conserver d’applications prêtes à reprendre leur activité sans les recharger.</p></div>
-<div><b>Pour qui c’est utile</b><p>8 Go suffisent généralement pour un usage courant. Les besoins augmentent avec le multitâche lourd, certains jeux et des usages créatifs.</p></div>
-<div><b>À regarder en magasin</b><p>Ne payez pas uniquement pour un gros chiffre. Regardez aussi le processeur, le logiciel et la quantité de stockage.</p></div>
+<div><b>L’idée</b><p>La RAM est le plan de travail du téléphone. Le stockage garde vos fichiers dans une armoire. La RAM sert à garder sous la main ce que le téléphone est en train d’utiliser.</p></div>
+<div><b>Dans la vraie vie</b><p>Vous passez d’une messagerie à un navigateur puis à une application. Avec suffisamment de RAM, le téléphone peut conserver davantage de tâches prêtes à reprendre sans les recharger.</p></div>
+<div><b>Pour qui</b><p>8 Go peuvent convenir à beaucoup d’usages. Les besoins montent avec le multitâche lourd, certains jeux et les usages créatifs.</p></div>
+<div><b>En magasin</b><p>Ne choisissez pas le téléphone avec le plus gros chiffre. Regardez le processeur, le logiciel et le comportement réel du multitâche.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>La RAM stocke temporairement les données dont le processeur a besoin. Elle est beaucoup plus rapide que le stockage mais perd son contenu lorsque l’appareil est éteint.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>Le système répartit la RAM entre ses services et les applications. Lorsqu’elle manque, certaines applications sont davantage rechargées.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>La quantité utile dépend du logiciel et de l’usage. Ajouter de la RAM ne rend pas automatiquement un téléphone plus rapide.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Comparez la capacité, la gestion logicielle et les performances réelles. La mémoire virtuelle utilisant le stockage ne remplace pas la RAM physique.</p></div>
+<div class="deep-block"><span>Définition</span><p>La RAM, mémoire vive, stocke temporairement les données dont le système et les applications ont besoin pendant leur exécution.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Quand la mémoire disponible devient insuffisante, le système peut fermer ou déplacer certaines données. Sur certains appareils, une partie du stockage peut être utilisée comme mémoire virtuelle, mais elle reste plus lente.</p></div>
+<div class="deep-block"><span>Limite</span><p>Ajouter de la RAM ne compense pas un processeur lent, un stockage peu performant ou un logiciel mal optimisé.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Comparez la quantité de RAM à la classe du processeur et à la durée de support prévue. Observez surtout le comportement après plusieurs changements d’application.</p></div>
 </div>
 </article><article class="lex-entry" id="processeur">
 <h3>Processeur</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>La puce principale qui exécute les calculs du téléphone. Elle influence la rapidité, la consommation et les capacités graphiques.</p></div>
-<div><b>Ce que vous verrez</b><p>Un processeur récent ouvre les applications rapidement, gère mieux les tâches lourdes et peut maintenir de bonnes performances avec moins d’énergie.</p></div>
-<div><b>Pour qui c’est utile</b><p>Important pour les jeux, le montage, la photo avancée et si vous voulez garder le téléphone plusieurs années.</p></div>
-<div><b>À regarder en magasin</b><p>Comparez les performances réelles, la consommation et la chauffe. Le nom de la puce seul ne suffit pas.</p></div>
+<div><b>L’idée</b><p>Vous appuyez sur une application. Le téléphone doit charger des données, exécuter des calculs, traiter une photo et parfois afficher un jeu en même temps. Le processeur coordonne une grande partie de ce travail.</p></div>
+<div><b>Dans la vraie vie</b><p>Un processeur plus performant peut réduire les attentes et maintenir les tâches lourdes plus longtemps. Mais un téléphone rapide au départ peut devenir chaud ou ralentir s’il dissipe mal la chaleur.</p></div>
+<div><b>Pour qui</b><p>Prioritaire pour le jeu, la vidéo, la photo avancée et pour les personnes qui veulent garder leur téléphone plusieurs années.</p></div>
+<div><b>En magasin</b><p>Comparez des tests du modèle complet. Le nom de la puce seul ne dit ni la chauffe, ni l’autonomie, ni la stabilité des performances.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>La plateforme matérielle combine notamment des cœurs CPU, un GPU, des accélérateurs spécialisés et des contrôleurs mémoire.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>Les performances dépendent de l’architecture, des fréquences, du procédé de fabrication, du refroidissement et du logiciel.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>Une puce très puissante peut être moins intéressante si elle chauffe beaucoup ou consomme trop dans votre usage.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Utilisez des tests comparables et regardez les performances soutenues, pas seulement un score maximal.</p></div>
+<div class="deep-block"><span>Définition</span><p>Le processeur central, CPU, exécute les instructions générales du système et des applications. Un smartphone moderne regroupe souvent CPU, GPU, moteur d’IA et autres accélérateurs dans une même puce ou un même ensemble.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Les cœurs n’ont pas tous le même rôle. Des cœurs rapides traitent les pointes de charge tandis que des cœurs plus économes prennent une partie des tâches légères.</p></div>
+<div class="deep-block"><span>Limite</span><p>La fréquence annoncée n’est pas une mesure suffisante. La température, la consommation et la gestion de la puissance déterminent la performance maintenue.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Utilisez des tests de charge longue durée et d’autonomie. Pour le jeu, regardez la stabilité des images par seconde et la température, pas seulement un score de benchmark.</p></div>
 </div>
 </article><article class="lex-entry" id="stockage">
 <h3>Stockage</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>L’espace où sont conservés vos photos, vidéos, applications et fichiers, même lorsque le téléphone est éteint.</p></div>
-<div><b>Ce que vous verrez</b><p>128 Go peuvent suffire à un usage courant. Les jeux lourds, vidéos et photos haute définition remplissent rapidement l’espace.</p></div>
-<div><b>Pour qui c’est utile</b><p>Important si vous gardez longtemps vos fichiers sur le téléphone ou si vous filmez beaucoup.</p></div>
-<div><b>À regarder en magasin</b><p>Choisissez une capacité adaptée dès l’achat. Vérifiez aussi si une carte microSD est possible, car cette option devient rare.</p></div>
+<div><b>L’idée</b><p>Vos photos, vidéos, jeux et applications doivent avoir une place. Le stockage est cette armoire : il conserve les données même lorsque le téléphone est éteint.</p></div>
+<div><b>Dans la vraie vie</b><p>128 Go peuvent suffire pour un usage courant. Les gros jeux, la vidéo et les photos haute définition remplissent beaucoup plus vite l’espace.</p></div>
+<div><b>Pour qui</b><p>Plus la durée d’utilisation et le volume de médias augmentent, plus une capacité élevée devient confortable.</p></div>
+<div><b>En magasin</b><p>Choisissez la capacité avant l’achat. Vérifiez aussi si une carte microSD est acceptée et quelle quantité d’espace reste réellement disponible.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>Le stockage est une mémoire non volatile. Ses performances dépendent notamment de la technologie utilisée et de son contrôleur.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>Les vitesses de lecture et d’écriture influencent les installations, transferts et certaines opérations lourdes. Un stockage presque plein peut aussi devenir contraignant.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>La capacité compte généralement plus que la vitesse pour un utilisateur classique.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Comparez capacité, technologie de stockage et possibilité d’extension.</p></div>
+<div class="deep-block"><span>Définition</span><p>Le stockage interne est une mémoire non volatile. Les données restent conservées sans alimentation.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Les smartphones utilisent généralement de la mémoire flash. Sa vitesse influence certaines opérations comme les installations, les copies et le chargement de données lourdes.</p></div>
+<div class="deep-block"><span>Limite</span><p>La vitesse ne compense pas une capacité trop faible. Un stockage presque plein peut aussi compliquer les mises à jour et la gestion des fichiers.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Comparez capacité et technologie de stockage ensemble. La présence ou non de microSD peut changer fortement le coût réel sur plusieurs années.</p></div>
 </div>
 </article><article class="lex-entry" id="ufs">
 <h3>UFS : technologie de stockage</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>UFS est une technologie utilisée pour le stockage interne de nombreux smartphones. Les générations récentes sont plus rapides.</p></div>
-<div><b>Ce que vous verrez</b><p>Un stockage plus rapide peut accélérer certaines installations, copies et opérations lourdes. Vous ne verrez pas forcément une différence à chaque ouverture d’application.</p></div>
-<div><b>Pour qui c’est utile</b><p>Important surtout pour les usages lourds et pour garder un téléphone réactif plusieurs années.</p></div>
-<div><b>À regarder en magasin</b><p>Ne choisissez pas un téléphone uniquement pour son numéro UFS. La capacité et les performances globales restent plus importantes.</p></div>
+<div><b>L’idée</b><p>Deux téléphones peuvent annoncer 256 Go, mais ne pas lire et écrire leurs données à la même vitesse. UFS décrit une partie de cette architecture de stockage.</p></div>
+<div><b>Dans la vraie vie</b><p>La différence apparaît surtout lors des gros transferts, installations et manipulations de fichiers. Pour ouvrir une messagerie légère, elle peut être presque invisible.</p></div>
+<div><b>Pour qui</b><p>Plus intéressant pour les gros jeux, les fichiers lourds et la longévité générale du téléphone.</p></div>
+<div><b>En magasin</b><p>Demandez la génération UFS si elle est disponible, mais ne sacrifiez pas une capacité adaptée pour un numéro plus élevé.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>UFS désigne une famille de standards de stockage flash utilisés dans les appareils mobiles.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>Les générations successives améliorent notamment les débits et certaines opérations d’accès aux données. Les performances réelles dépendent aussi du contrôleur et de la mémoire utilisée.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>Le gain est surtout visible dans les transferts et certaines charges lourdes.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Vérifiez la génération UFS lorsque vous comparez des modèles proches.</p></div>
+<div class="deep-block"><span>Définition</span><p>UFS, Universal Flash Storage, est une norme de stockage flash utilisée dans de nombreux smartphones modernes.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>La norme définit notamment des interfaces et commandes permettant des transferts plus rapides et un accès plus parallèle aux données que des solutions plus anciennes.</p></div>
+<div class="deep-block"><span>Limite</span><p>La génération UFS n’explique pas à elle seule les performances : le contrôleur, la capacité utilisée, la température et le logiciel interviennent aussi.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Utilisez des mesures de lecture, écriture et latence sur le modèle complet lorsque ces données existent. Considérez UFS comme un indice, pas comme un verdict.</p></div>
 </div>
 </article></section>
 <section class="lexique-section" id="batterie"><div class="section-heading"><span class="eyebrow">BATTERIE</span><h2>Batterie</h2></div><article class="lex-entry" id="mah">
 <h3>mAh : capacité de batterie</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Le nombre de milliampères heures indique une capacité électrique. Ce n’est pas une durée d’autonomie.</p></div>
-<div><b>Ce que vous verrez</b><p>Une batterie de 5 000 mAh contient plus de charge électrique qu’une batterie de 4 000 mAh, mais l’autonomie dépend aussi de la consommation du téléphone.</p></div>
-<div><b>Pour qui c’est utile</b><p>Un repère utile, mais moins important que l’autonomie mesurée dans des usages réels.</p></div>
-<div><b>À regarder en magasin</b><p>Comparez la capacité avec l’écran, le processeur et surtout les tests d’autonomie.</p></div>
+<div><b>L’idée</b><p>5 000 mAh n’est pas écrit sur une horloge. C’est la taille du réservoir électrique, pas le nombre d’heures que le téléphone va tenir.</p></div>
+<div><b>Dans la vraie vie</b><p>Un grand réservoir ne garantit pas une grande autonomie si le téléphone consomme beaucoup. L’écran, la puce, le réseau et vos usages déterminent ce qui reste le soir.</p></div>
+<div><b>Pour qui</b><p>La capacité est utile pour repérer les très petites batteries, mais elle devient vraiment intéressante quand on la met en regard de tests d’autonomie.</p></div>
+<div><b>En magasin</b><p>Comparez des tests réalisés dans les mêmes conditions. Ne classez pas deux téléphones uniquement avec leurs mAh.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>Les mAh indiquent une quantité de charge électrique. Pour comparer une énergie totale, la tension doit également être prise en compte.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>La consommation varie selon la luminosité, le réseau, le processeur, les applications et le logiciel.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>Une grande capacité peut compenser une consommation élevée, mais elle ne garantit pas une meilleure autonomie.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Utilisez les mAh comme un indice, puis vérifiez des tests d’autonomie comparables.</p></div>
+<div class="deep-block"><span>Définition</span><p>Le milliampère heure, mAh, exprime une capacité électrique. L’énergie réellement stockée dépend aussi de la tension de la batterie.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>L’autonomie dépend de l’énergie disponible et de la puissance consommée par le système. Une même capacité peut donc produire des durées très différentes.</p></div>
+<div class="deep-block"><span>Limite</span><p>La luminosité, la 5G, le GPS, les jeux, la température et les applications en arrière plan peuvent faire varier fortement la consommation.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Privilégiez l’autonomie mesurée dans des scénarios comparables. Utilisez les mAh pour comprendre le matériel, pas pour prédire seuls le nombre d’heures.</p></div>
 </div>
 </article><article class="lex-entry" id="watts">
 <h3>Recharge rapide : watts (W)</h3>
 <div class="lex-content"></div>
 <div class="lex-quick">
 <div class="lex-grid">
-<div><b>À quoi ça sert ?</b><p>Les watts indiquent la puissance électrique fournie au téléphone pendant la recharge. Plus la puissance compatible est élevée, plus la recharge peut être rapide dans certaines conditions.</p></div>
-<div><b>Concrètement</b><p>Un téléphone annoncé à 100 W ne reçoit pas nécessairement 100 W pendant toute la recharge. La puissance varie notamment selon le niveau de batterie, la température, le chargeur et le protocole utilisé.</p></div>
-<div><b>Est-ce important ?</b><p>C’est utile si vous avez besoin de récupérer rapidement de l’autonomie, par exemple avant de sortir.</p></div>
-<div><b>À l'achat</b><p>Vérifiez la puissance réellement compatible, le chargeur fourni ou recommandé et la compatibilité du câble. Un nombre de watts élevé n’est utile que si l’ensemble de la chaîne le supporte.</p></div>
+<div><b>L’idée</b><p>Vous avez 10 minutes avant de sortir et 15 % de batterie. La vraie question n’est pas « combien de watts ? », mais « combien d’énergie vais je récupérer pendant ces 10 minutes ? ».</p></div>
+<div><b>Dans la vraie vie</b><p>Une puissance élevée peut raccourcir la recharge, surtout quand la batterie est basse. Le téléphone réduit généralement la puissance ensuite pour limiter la chaleur et protéger la cellule.</p></div>
+<div><b>Pour qui</b><p>Très utile si vous rechargez souvent au dernier moment ou si vous voyagez beaucoup.</p></div>
+<div><b>En magasin</b><p>Vérifiez la puissance réellement compatible, le chargeur, le câble et le protocole utilisés. Le chiffre maximal n’est presque jamais maintenu pendant toute la charge.</p></div>
 </div>
 </div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>01 : C'est quoi ?</span><p>Les watts indiquent la puissance électrique fournie au téléphone pendant la recharge. Plus la puissance compatible est élevée, plus la recharge peut être rapide dans certaines conditions.</p></div>
-<div class="deep-block"><span>02 : Comment ça fonctionne ?</span><p>Un téléphone annoncé à 100 W ne reçoit pas nécessairement 100 W pendant toute la recharge. La puissance varie notamment selon le niveau de batterie, la température, le chargeur et le protocole utilisé.</p></div>
-<div class="deep-block"><span>03 : Qu'est-ce que ça change ?</span><p>C’est utile si vous avez besoin de récupérer rapidement de l’autonomie, par exemple avant de sortir.</p></div>
-<div class="deep-block"><span>04 : Que regarder à l'achat ?</span><p>Vérifiez la puissance réellement compatible, le chargeur fourni ou recommandé et la compatibilité du câble. Un nombre de watts élevé n’est utile que si l’ensemble de la chaîne le supporte.</p></div>
+<div class="deep-block"><span>Définition</span><p>La puissance électrique se mesure en watts et correspond au produit de la tension par le courant. Elle indique un débit de puissance, pas une quantité totale d’énergie.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Le téléphone négocie la tension et le courant avec le chargeur. La puissance évolue selon le niveau de charge, la température, la batterie et le protocole.</p></div>
+<div class="deep-block"><span>Limite</span><p>Deux téléphones annoncés à 100 W peuvent remplir leur batterie à des vitesses différentes si leurs courbes de charge sont différentes.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Regardez le temps mesuré de 0 à 50 % et de 0 à 100 %, pas seulement le pic de puissance. Vérifiez aussi si le chargeur correspondant est fourni.</p></div>
 </div>
-
 </article><article class="lex-entry" id="sans-fil">
 <h3>Recharge sans fil</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Une méthode de recharge qui transmet l’énergie sans brancher directement un câble au téléphone.</p></div>
-<div><b>Ce que vous verrez</b><p>Vous posez simplement le téléphone sur un support compatible. C’est pratique sur un bureau ou une table de nuit.</p></div>
-<div><b>Pour qui c’est utile</b><p>Intéressant si la simplicité compte plus que la vitesse maximale de recharge.</p></div>
-<div><b>À regarder en magasin</b><p>Comparez la puissance, la compatibilité du standard et la chauffe. La recharge filaire reste souvent plus rapide.</p></div>
+<div><b>L’idée</b><p>Vous posez le téléphone sur un socle et il commence à charger sans prise dans le téléphone. Le confort est le principal bénéfice.</p></div>
+<div><b>Dans la vraie vie</b><p>C’est pratique sur un bureau ou une table de nuit. En contrepartie, la conversion d’énergie crée davantage de pertes et de chaleur qu’une connexion filaire dans certaines situations.</p></div>
+<div><b>Pour qui</b><p>Intéressant si vous posez souvent le téléphone au même endroit et voulez éviter de brancher un câble.</p></div>
+<div><b>En magasin</b><p>Vérifiez le standard, la puissance, l’alignement requis et la chaleur. La vitesse maximale est souvent inférieure à celle de la recharge filaire.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>La recharge sans fil utilise l’induction électromagnétique entre une bobine dans le chargeur et une bobine dans le téléphone.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>Une partie de l’énergie est perdue sous forme de chaleur. L’alignement entre les bobines influence aussi le rendement.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>La commodité est le principal avantage. La vitesse et l’efficacité sont souvent inférieures à une bonne recharge filaire.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Vérifiez le standard utilisé, la puissance réellement supportée et la compatibilité avec vos accessoires.</p></div>
+<div class="deep-block"><span>Définition</span><p>La recharge sans fil transmet de l’énergie par induction électromagnétique entre une bobine émettrice et une bobine réceptrice.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Le chargeur crée un champ magnétique variable. Le téléphone récupère une partie de cette énergie et la transforme pour alimenter la batterie.</p></div>
+<div class="deep-block"><span>Limite</span><p>Le rendement dépend de l’alignement, de la distance, de la puissance et de la gestion thermique. Une partie de l’énergie est perdue sous forme de chaleur.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Comparez le standard, la puissance réellement utilisée et la gestion thermique. Regardez surtout si le téléphone et le socle sont compatibles entre eux.</p></div>
 </div>
 </article></section>
 <section class="lexique-section" id="photo-video"><div class="section-heading"><span class="eyebrow">PHOTO &amp; VIDÉO</span><h2>Photo &amp; vidéo</h2></div><article class="lex-entry" id="mpx">
 <h3>Mégapixels : Mpx</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Le nombre de pixels capturés par le capteur photo. Plus de mégapixels signifie une image plus grande, pas automatiquement une meilleure photo.</p></div>
-<div><b>Ce que vous verrez</b><p>Un capteur de 50 Mpx peut produire une photo plus détaillée qu’un 12 Mpx dans certaines conditions, mais le traitement, la taille du capteur et l’optique comptent énormément.</p></div>
-<div><b>Pour qui c’est utile</b><p>Important surtout si vous recadrez beaucoup ou imprimez de grandes images. Pour les photos courantes, ce n’est pas le critère principal.</p></div>
-<div><b>À regarder en magasin</b><p>Ne comparez jamais les mégapixels seuls. Regardez le capteur, l’objectif, la stabilisation et les photos réelles.</p></div>
+<div><b>L’idée</b><p>50 Mpx contre 12 Mpx ressemble à une compétition de chiffres. En réalité, une photo n’est pas meilleure simplement parce qu’elle contient plus de points.</p></div>
+<div><b>Dans la vraie vie</b><p>Plus de pixels peuvent aider à recadrer une image, mais la lumière, la taille du capteur, l’objectif et le traitement déterminent la qualité que vous voyez réellement.</p></div>
+<div><b>Pour qui</b><p>Important surtout si vous recadrez souvent ou travaillez sur de grandes images. Pour des photos classiques, ce n’est pas le premier critère.</p></div>
+<div><b>En magasin</b><p>Prenez la même photo avec plusieurs téléphones. Agrandissez les zones sombres et les détails fins. Vous verrez vite que les mégapixels ne racontent qu’une petite partie de l’histoire.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>Un mégapixel représente un million de pixels. Le nombre total de pixels dépend de la définition produite par le capteur.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>Les capteurs haute résolution utilisent souvent le regroupement de pixels pour produire des fichiers plus petits et améliorer le signal en faible lumière.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>La qualité finale dépend de la quantité de lumière captée, du bruit, de l’optique, du traitement et de la dynamique.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Comparez la taille du capteur, les objectifs et les résultats réels avant le nombre de Mpx.</p></div>
+<div class="deep-block"><span>Définition</span><p>Un mégapixel représente un million de pixels. Le nombre de mégapixels décrit principalement la résolution spatiale produite par le capteur ou par le traitement final.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Des photosites plus petits doivent partager la lumière disponible. Le traitement logiciel peut regrouper plusieurs pixels ou reconstruire une image selon les conditions.</p></div>
+<div class="deep-block"><span>Limite</span><p>Davantage de résolution peut aussi augmenter les fichiers et les contraintes de traitement. Une résolution élevée ne compense pas une mauvaise optique ou un capteur limité en basse lumière.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Regardez les photos à taille réelle, les scènes nocturnes, les détails fins et la dynamique. Comparez capteur, optique, stabilisation et traitement ensemble.</p></div>
 </div>
 </article><article class="lex-entry" id="ouverture">
 <h3>Ouverture : nombre f/</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>L’ouverture décrit la quantité de lumière que l’objectif peut laisser entrer. Un nombre f plus petit correspond généralement à une ouverture plus grande.</p></div>
-<div><b>Ce que vous verrez</b><p>Une grande ouverture aide à photographier dans une scène sombre et peut contribuer à séparer le sujet du fond.</p></div>
-<div><b>Pour qui c’est utile</b><p>Intéressant pour la photo de nuit, les portraits et les scènes en intérieur.</p></div>
-<div><b>À regarder en magasin</b><p>Comparez l’ouverture avec la taille du capteur et la stabilisation. Le nombre f seul ne prédit pas la qualité de nuit.</p></div>
+<div><b>L’idée</b><p>Dans une pièce sombre, votre appareil photo a besoin de faire entrer davantage de lumière. Une grande ouverture revient à ouvrir plus grand la porte d’entrée de l’objectif.</p></div>
+<div><b>Dans la vraie vie</b><p>Un nombre f plus petit correspond généralement à une ouverture plus grande. Cela peut aider en faible lumière et modifier le rendu du flou d’arrière plan.</p></div>
+<div><b>Pour qui</b><p>Pertinent pour les portraits, la photo en intérieur et les scènes de nuit.</p></div>
+<div><b>En magasin</b><p>Ne comparez pas le nombre f tout seul. La taille du capteur, la stabilisation et le traitement comptent souvent autant ou davantage.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>Le nombre f correspond au rapport entre la focale et le diamètre apparent de l’ouverture. Plus le nombre est petit, plus l’ouverture est grande.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>Une ouverture plus grande laisse entrer davantage de lumière, mais la profondeur de champ et le rendu dépendent aussi du capteur et de la focale.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>Sur smartphone, le traitement logiciel joue un rôle important dans le rendu final.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Comparez l’ouverture avec la taille du capteur, la focale et les résultats en faible lumière.</p></div>
+<div class="deep-block"><span>Définition</span><p>Le nombre f est un rapport entre la focale et le diamètre effectif de l’ouverture. Plus le nombre f est petit, plus l’ouverture relative est grande.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Une ouverture plus grande laisse entrer davantage de lumière sur le capteur. Elle influence également la profondeur de champ dans les systèmes où celle ci est suffisamment importante.</p></div>
+<div class="deep-block"><span>Limite</span><p>La quantité de lumière réellement reçue dépend aussi de la taille du capteur, du temps d’exposition et du traitement d’image.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Regardez l’ouverture avec la focale, la taille du capteur et la stabilisation. Pour la nuit, examinez surtout des photos réelles dans des scènes difficiles.</p></div>
 </div>
 </article><article class="lex-entry" id="ois">
 <h3>OIS : stabilisation optique</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Un système qui compense les petits mouvements de votre main pendant la prise de vue.</p></div>
-<div><b>Ce que vous verrez</b><p>L’optique ou le capteur se déplace légèrement pour réduire le bougé. Cela aide surtout quand la lumière est faible.</p></div>
-<div><b>Pour qui c’est utile</b><p>Important pour la photo de nuit, les scènes intérieures et la vidéo. Cela ne fige pas un sujet qui bouge rapidement.</p></div>
-<div><b>À regarder en magasin</b><p>Vérifiez quelles caméras disposent réellement de l’OIS.</p></div>
+<div><b>L’idée</b><p>Votre main bouge toujours un peu. Si l’appareil photo reste immobile assez longtemps, ce petit mouvement peut transformer les détails en flou. L’OIS essaie de compenser ce mouvement.</p></div>
+<div><b>Dans la vraie vie</b><p>La stabilisation optique aide surtout quand la lumière baisse et que l’appareil a besoin d’un temps d’exposition plus long. Elle ne peut pas empêcher une personne qui court de bouger.</p></div>
+<div><b>Pour qui</b><p>Utile pour les photos de nuit, les scènes intérieures et la vidéo à main levée.</p></div>
+<div><b>En magasin</b><p>Vérifiez quelles caméras possèdent réellement une stabilisation optique. Tous les objectifs d’un téléphone ne sont pas forcément stabilisés.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>OIS signifie Optical Image Stabilization. Le système déplace physiquement une partie du module photo pour compenser certains mouvements.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>Une pose plus longue peut ainsi être utilisée sans produire autant de flou lié au mouvement du téléphone.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>L’OIS ne corrige pas les déplacements rapides du sujet. La stabilisation électronique peut compléter le système.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Comparez la stabilisation du capteur principal, du téléobjectif et de l’ultra grand angle.</p></div>
+<div class="deep-block"><span>Définition</span><p>L’OIS, Optical Image Stabilization, compense mécaniquement certains mouvements de l’optique ou du capteur pendant l’exposition.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Des capteurs détectent les rotations et le système déplace l’élément stabilisé dans le sens opposé. Le cadrage reste ainsi plus stable sur une courte durée.</p></div>
+<div class="deep-block"><span>Limite</span><p>L’OIS réduit le flou lié au mouvement du téléphone. Il ne fige pas un sujet qui se déplace rapidement et ne remplace pas une vitesse d’obturation adaptée.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Regardez des scènes nocturnes, des vidéos en marchant et les performances de chaque caméra séparément. Le capteur principal peut être stabilisé alors que l’ultra grand angle ne l’est pas.</p></div>
 </div>
 </article><article class="lex-entry" id="zoom-optique">
 <h3>Zoom optique</h3>
 <div class="lex-content"></div>
 <div class="lex-quick">
 <div class="lex-grid">
-<div><b>À quoi ça sert ?</b><p>Le zoom optique rapproche le sujet grâce à l’optique de l’appareil photo, plutôt qu’en agrandissant simplement une partie de l’image.</p></div>
-<div><b>Concrètement</b><p>Avec un téléobjectif, les lentilles utilisent une autre configuration pour cadrer un sujet éloigné. Cela permet généralement de conserver davantage de détail qu’un simple recadrage numérique à grossissement comparable.</p></div>
-<div><b>Est-ce important ?</b><p>C’est utile pour les portraits, les sujets éloignés ou certains détails difficiles à atteindre avec le capteur principal.</p></div>
-<div><b>À l'achat</b><p>Regardez les focales réellement disponibles. Un « zoom 10× » peut combiner plusieurs niveaux de zoom optique, hybride et numérique.</p></div>
+<div><b>L’idée</b><p>Imaginez que vous voulez photographier un monument au loin. Un zoom optique change le cadrage avec l’optique. Un zoom numérique agrandit surtout l’image déjà capturée.</p></div>
+<div><b>Dans la vraie vie</b><p>Un vrai téléobjectif peut conserver davantage de détails sur un sujet éloigné qu’un simple recadrage numérique. C’est particulièrement visible quand vous agrandissez la photo.</p></div>
+<div><b>Pour qui</b><p>Intéressant pour les portraits, les spectacles, les animaux et les sujets éloignés.</p></div>
+<div><b>En magasin</b><p>Cherchez la focale réelle des téléobjectifs. Un « zoom 10× » peut mélanger zoom optique, recadrage et traitement logiciel.</p></div>
 </div>
 </div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>01 : C'est quoi ?</span><p>Le zoom optique rapproche le sujet grâce à l’optique de l’appareil photo, plutôt qu’en agrandissant simplement une partie de l’image.</p></div>
-<div class="deep-block"><span>02 : Comment ça fonctionne ?</span><p>Avec un téléobjectif, les lentilles utilisent une autre configuration pour cadrer un sujet éloigné. Cela permet généralement de conserver davantage de détail qu’un simple recadrage numérique à grossissement comparable.</p></div>
-<div class="deep-block"><span>03 : Qu'est-ce que ça change ?</span><p>C’est utile pour les portraits, les sujets éloignés ou certains détails difficiles à atteindre avec le capteur principal.</p></div>
-<div class="deep-block"><span>04 : Que regarder à l'achat ?</span><p>Regardez les focales réellement disponibles. Un « zoom 10× » peut combiner plusieurs niveaux de zoom optique, hybride et numérique.</p></div>
+<div class="deep-block"><span>Définition</span><p>Le zoom optique change la focale utilisée pour modifier le cadrage sans simplement agrandir les mêmes pixels.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Un téléobjectif utilise une combinaison optique conçue pour produire un angle de champ plus étroit. Certains smartphones utilisent plusieurs caméras plutôt qu’un véritable zoom continu.</p></div>
+<div class="deep-block"><span>Limite</span><p>À très fort grossissement, le système peut combiner plusieurs focales, du recadrage numérique et du traitement logiciel.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Regardez les focales natives, l’ouverture, la stabilisation et la qualité des photos à chaque niveau de zoom. Ne vous fiez pas au seul « 10× » de la fiche.</p></div>
 </div>
-
 </article></section>
 <section class="lexique-section" id="connexion"><div class="section-heading"><span class="eyebrow">CONNEXIONS</span><h2>Connexions</h2></div><article class="lex-entry" id="5g">
 <h3>5G</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Une génération de réseau mobile qui peut offrir davantage de débit et de capacité lorsque le réseau local est adapté.</p></div>
-<div><b>Ce que vous verrez</b><p>La 5G peut accélérer les téléchargements et réduire la latence dans de bonnes conditions. Elle ne garantit rien si la couverture est mauvaise.</p></div>
-<div><b>Pour qui c’est utile</b><p>Important si votre opérateur propose une bonne couverture 5G ou si vous gardez le téléphone plusieurs années.</p></div>
-<div><b>À regarder en magasin</b><p>Vérifiez les bandes compatibles avec votre opérateur et votre zone.</p></div>
+<div><b>L’idée</b><p>Vous téléchargez une vidéo à l’extérieur. Si le réseau local est bon, la 5G peut faire circuler davantage de données et répondre plus rapidement que certaines connexions 4G.</p></div>
+<div><b>Dans la vraie vie</b><p>Le gain dépend du réseau réel, de votre opérateur, de la bande utilisée et du nombre de personnes connectées au même endroit. Une icône 5G ne garantit pas un débit maximal.</p></div>
+<div><b>Pour qui</b><p>Utile si vous vivez dans une zone bien couverte ou si vous gardez le téléphone plusieurs années.</p></div>
+<div><b>En magasin</b><p>Vérifiez les bandes 5G compatibles avec votre opérateur et la couverture de votre zone. Le modem compte autant que le mot 5G.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>La 5G regroupe plusieurs bandes de fréquences et architectures réseau. Les performances varient fortement selon la bande, la couverture et la charge du réseau.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>La latence et le débit peuvent être meilleurs que sur certaines connexions 4G, mais les résultats dépendent du réseau disponible.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>Un téléphone 5G ne crée pas de couverture. Une mauvaise réception peut rester le facteur limitant.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Comparez les bandes 5G prises en charge et la compatibilité avec l’opérateur que vous utilisez.</p></div>
+<div class="deep-block"><span>Définition</span><p>La 5G regroupe plusieurs architectures et bandes de fréquences utilisées par les réseaux mobiles de cinquième génération.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Le débit et la latence dépendent de la bande, de la largeur de canal, de la configuration du réseau, de la distance à l’antenne et de la charge du réseau.</p></div>
+<div class="deep-block"><span>Limite</span><p>Une connexion 5G peut être lente dans une zone congestionnée ou mal couverte. Les performances varient donc fortement selon l’emplacement.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Vérifiez les bandes supportées, le modem utilisé et les mesures réalisées dans votre pays. Comparez la couverture de l’opérateur avant de payer un supplément pour la 5G.</p></div>
 </div>
 </article><article class="lex-entry" id="wifi">
 <h3>Wi Fi</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Une connexion sans fil qui relie le téléphone à un réseau local, généralement celui de votre box ou routeur.</p></div>
-<div><b>Ce que vous verrez</b><p>Les normes récentes peuvent améliorer le débit, la stabilité avec plusieurs appareils et parfois la latence.</p></div>
-<div><b>Pour qui c’est utile</b><p>Important si vous téléchargez beaucoup, jouez en ligne ou utilisez votre téléphone comme outil principal à la maison.</p></div>
-<div><b>À regarder en magasin</b><p>La qualité du routeur et du signal compte autant que la norme indiquée sur le téléphone.</p></div>
+<div><b>L’idée</b><p>À la maison, votre téléphone parle à votre box par Wi‑Fi. Le téléphone et le routeur doivent tous les deux savoir parler le même langage.</p></div>
+<div><b>Dans la vraie vie</b><p>Un modèle récent peut mieux gérer plusieurs appareils et certaines connexions rapides. Mais un excellent téléphone ne peut pas réparer un routeur mal placé ou un signal faible.</p></div>
+<div><b>Pour qui</b><p>Important si vous téléchargez beaucoup, jouez en ligne, utilisez du cloud ou avez beaucoup d’appareils connectés.</p></div>
+<div><b>En magasin</b><p>Regardez la norme Wi‑Fi supportée, mais pensez surtout à votre routeur, à la bande utilisée et à la qualité du signal chez vous.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>Les différentes générations Wi Fi utilisent des bandes et techniques radio différentes pour augmenter les débits et gérer les appareils.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>La vitesse réelle dépend de la largeur de canal, de la distance, des interférences, du routeur et du nombre d’appareils connectés.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>Une norme très récente n’améliore pas un mauvais signal ou un routeur ancien.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Comparez la norme, les bandes supportées et la compatibilité avec votre réseau.</p></div>
+<div class="deep-block"><span>Définition</span><p>Le Wi‑Fi est une famille de normes de réseau local sans fil. Les générations récentes améliorent notamment l’efficacité et la gestion de nombreux appareils.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Le débit dépend de la largeur de canal, de la bande de fréquence, de la modulation, du nombre de flux spatiaux et des conditions radio.</p></div>
+<div class="deep-block"><span>Limite</span><p>Un téléphone compatible avec une norme rapide peut rester limité par un routeur ancien, des murs épais, des interférences ou un abonnement Internet lent.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Comparez les fonctions réellement supportées par le téléphone et le routeur. Pour le jeu, regardez surtout la latence et la stabilité, pas seulement le débit théorique.</p></div>
 </div>
 </article><article class="lex-entry" id="bluetooth">
 <h3>Bluetooth</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Une connexion sans fil courte portée utilisée notamment pour les écouteurs, montres, voitures et claviers.</p></div>
-<div><b>Ce que vous verrez</b><p>Vous pouvez relier des accessoires sans câble. Les fonctions disponibles dépendent de la version, des profils et parfois des codecs.</p></div>
-<div><b>Pour qui c’est utile</b><p>Important si vous utilisez beaucoup d’accessoires sans fil.</p></div>
-<div><b>À regarder en magasin</b><p>Ne comparez pas seulement le numéro de version. Vérifiez les fonctions réellement prises en charge.</p></div>
+<div><b>L’idée</b><p>Vos écouteurs se connectent sans câble, puis restent reliés à votre téléphone dans une pièce. C’est le type de tâche pour lequel Bluetooth est conçu.</p></div>
+<div><b>Dans la vraie vie</b><p>La version annoncée ne suffit pas à prévoir la qualité audio, la portée ou la consommation. Les fonctions réellement utilisées dépendent des profils et des codecs pris en charge par les deux appareils.</p></div>
+<div><b>Pour qui</b><p>Important si vous utilisez des écouteurs, une voiture, une montre ou un clavier sans fil.</p></div>
+<div><b>En magasin</b><p>Vérifiez la compatibilité avec vos accessoires. Le numéro de version seul ne permet pas de connaître toute l’expérience.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>Bluetooth définit une famille de protocoles et de profils. La version seule ne décrit pas toutes les fonctions disponibles.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>Les codecs audio, profils et modes basse consommation peuvent modifier l’expérience avec certains accessoires.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>La compatibilité entre les deux appareils est déterminante.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Vérifiez les profils et codecs utiles à votre usage, notamment pour l’audio.</p></div>
+<div class="deep-block"><span>Définition</span><p>Bluetooth est une famille de protocoles radio de courte portée destinée à relier des appareils avec une consommation maîtrisée.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>La connexion utilise différents profils et codecs selon l’usage. Audio, commandes, données et accessoires n’utilisent pas nécessairement les mêmes mécanismes.</p></div>
+<div class="deep-block"><span>Limite</span><p>La qualité dépend des deux appareils. Un téléphone ne peut pas imposer à un casque une fonction que celui ci ne supporte pas.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Vérifiez les profils, codecs et fonctions réellement pris en charge par le couple téléphone plus accessoire. Pour l’audio, les tests d’écoute restent plus utiles qu’un simple numéro de version.</p></div>
 </div>
 </article><article class="lex-entry" id="nfc">
 <h3>NFC</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Une communication sans fil à très courte distance, souvent utilisée pour le paiement sans contact et certaines fonctions d’accessoires.</p></div>
-<div><b>Ce que vous verrez</b><p>Le téléphone doit être placé très près du lecteur ou de l’objet compatible.</p></div>
-<div><b>Pour qui c’est utile</b><p>Important si vous payez avec votre téléphone ou utilisez des services reposant sur le NFC.</p></div>
-<div><b>À regarder en magasin</b><p>Vérifiez sa présence et la compatibilité avec votre service de paiement ou de transport.</p></div>
+<div><b>L’idée</b><p>Vous approchez le téléphone d’un terminal et le paiement se déclenche. Il n’y a presque pas de distance entre les deux appareils. C’est le principe du NFC.</p></div>
+<div><b>Dans la vraie vie</b><p>La technologie sert aussi à lire des étiquettes ou à communiquer avec certains accessoires. Elle fonctionne à très courte portée.</p></div>
+<div><b>Pour qui</b><p>Prioritaire si vous payez régulièrement avec votre téléphone ou utilisez des services qui reposent sur le NFC.</p></div>
+<div><b>En magasin</b><p>Vérifiez sa présence et la compatibilité avec votre service de paiement, de transport ou d’accès.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>NFC utilise une communication radio à très courte portée. La faible distance limite volontairement les échanges.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>Le téléphone et le lecteur établissent la communication lorsque leurs antennes sont suffisamment proches.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>Le principal intérêt est la simplicité, pas le débit.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Vérifiez la présence du NFC et la compatibilité logicielle du service utilisé.</p></div>
+<div class="deep-block"><span>Définition</span><p>NFC, Near Field Communication, est une communication radio à très courte portée, généralement utilisée lorsque les appareils sont placés à quelques centimètres.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>La communication exploite des champs radio et des modes d’échange conçus pour des interactions rapides à courte distance.</p></div>
+<div class="deep-block"><span>Limite</span><p>Le support matériel ne garantit pas qu’une application ou un service particulier l’exploitera de la manière souhaitée.</p></div>
+<div class="deep-block"><span>Comparer</span><p>La question pratique est d’abord la compatibilité avec votre usage. Vérifiez le service de paiement ou d’identification que vous utilisez.</p></div>
 </div>
 </article><article class="lex-entry" id="esim">
 <h3>eSIM</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Une carte SIM intégrée au téléphone. Elle permet d’activer une ligne sans insérer de carte physique.</p></div>
-<div><b>Ce que vous verrez</b><p>L’opérateur fournit généralement un profil à installer. Vous pouvez ainsi changer de ligne plus facilement lorsque le service le permet.</p></div>
-<div><b>Pour qui c’est utile</b><p>Pratique pour une seconde ligne, un voyage ou un changement d’opérateur.</p></div>
-<div><b>À regarder en magasin</b><p>Vérifiez la compatibilité du téléphone et de votre opérateur.</p></div>
+<div><b>L’idée</b><p>Au lieu d’insérer une petite carte dans le téléphone, l’abonnement est chargé directement dans l’appareil. C’est le principe de l’eSIM.</p></div>
+<div><b>Dans la vraie vie</b><p>Vous pouvez activer une ligne à distance lorsque l’opérateur le permet et conserver plusieurs profils sur certains appareils.</p></div>
+<div><b>Pour qui</b><p>Très pratique pour voyager, utiliser deux lignes ou changer d’opérateur sans manipuler de carte physique.</p></div>
+<div><b>En magasin</b><p>Vérifiez trois choses : le téléphone, votre opérateur et le pays dans lequel vous comptez utiliser la ligne.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>Une carte SIM intégrée au téléphone. Elle permet d’activer une ligne sans insérer de carte physique.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>L’opérateur fournit généralement un profil à installer. Vous pouvez ainsi changer de ligne plus facilement lorsque le service le permet.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>Pratique pour une seconde ligne, un voyage ou un changement d’opérateur.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Vérifiez la compatibilité du téléphone et de votre opérateur.</p></div>
+<div class="deep-block"><span>Définition</span><p>Une eSIM est un élément sécurisé intégré au téléphone permettant de télécharger et gérer un profil opérateur sans carte SIM amovible.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>L’opérateur fournit un profil qui est téléchargé et activé dans l’élément eSIM. Les procédures varient selon l’opérateur et le modèle.</p></div>
+<div class="deep-block"><span>Limite</span><p>La présence d’une eSIM ne garantit pas la prise en charge de tous les opérateurs ou de toutes les fonctions de double ligne.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Vérifiez la combinaison modèle, opérateur et pays. Pour un voyage, regardez aussi le nombre de profils pouvant être conservés et la gestion des lignes simultanées.</p></div>
 </div>
 </article></section>
 <section class="lexique-section" id="protection"><div class="section-heading"><span class="eyebrow">PROTECTION</span><h2>Protection</h2></div><article class="lex-entry" id="ipxx">
@@ -371,34 +364,33 @@
 <div class="lex-content"></div>
 <div class="lex-quick">
 <div class="lex-grid">
-<div><b>À quoi ça sert ?</b><p>IP signifie Ingress Protection. Les deux chiffres indiquent séparément le niveau de protection contre les corps solides et contre l’eau. Le premier chiffre concerne les solides ; le second concerne l’eau.</p></div>
-<div><b>Concrètement</b><p>Le premier chiffre indique la protection contre l’intrusion de corps solides et la poussière. Le second décrit le niveau de protection contre différentes formes d’eau. Ainsi, dans IP68, le « 6 » et le « 8 » ne parlent pas de la même chose.</p></div>
-<div><b>Est-ce important ?</b><p>C’est utile si vous utilisez votre téléphone sous la pluie, à la plage, dans un environnement poussiéreux ou si vous voulez limiter les risques liés à une immersion accidentelle. Une certification ne signifie pas que toutes les utilisations sous l’eau sont garanties.</p></div>
-<div><b>À l'achat</b><p>Lisez toujours les deux chiffres séparément et vérifiez les conditions exactes du fabricant : profondeur, durée, eau douce ou autres conditions, entretien et exclusions de garantie peuvent varier.</p></div>
+<div><b>L’idée</b><p>Le téléphone tombe dans une flaque. Le code IP vous aide à comprendre le niveau de protection revendiqué contre les solides et l’eau. Les deux chiffres parlent de deux choses différentes.</p></div>
+<div><b>Dans la vraie vie</b><p>Dans IP68, le 6 concerne la protection contre les poussières et le 8 concerne la protection contre certaines immersions selon les conditions du fabricant.</p></div>
+<div><b>Pour qui</b><p>Utile si le téléphone vit sous la pluie, près de l’eau, dans la poussière ou dans un sac avec du sable.</p></div>
+<div><b>En magasin</b><p>Lisez les deux chiffres séparément et cherchez les conditions précises : profondeur, durée, type d’eau et exclusions. Résistance ne signifie pas invulnérabilité.</p></div>
 </div>
 </div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>01 : C'est quoi ?</span><p>IP signifie Ingress Protection. Les deux chiffres indiquent séparément le niveau de protection contre les corps solides et contre l’eau. Le premier chiffre concerne les solides ; le second concerne l’eau.</p></div>
-<div class="deep-block"><span>02 : Comment ça fonctionne ?</span><p>Le premier chiffre indique la protection contre l’intrusion de corps solides et la poussière. Le second décrit le niveau de protection contre différentes formes d’eau. Ainsi, dans IP68, le « 6 » et le « 8 » ne parlent pas de la même chose.</p></div>
-<div class="deep-block"><span>03 : Qu'est-ce que ça change ?</span><p>C’est utile si vous utilisez votre téléphone sous la pluie, à la plage, dans un environnement poussiéreux ou si vous voulez limiter les risques liés à une immersion accidentelle. Une certification ne signifie pas que toutes les utilisations sous l’eau sont garanties.</p></div>
-<div class="deep-block"><span>04 : Que regarder à l'achat ?</span><p>Lisez toujours les deux chiffres séparément et vérifiez les conditions exactes du fabricant : profondeur, durée, eau douce ou autres conditions, entretien et exclusions de garantie peuvent varier.</p></div>
+<div class="deep-block"><span>Définition</span><p>IP correspond à Ingress Protection. Le premier chiffre décrit la protection contre les corps solides, le second celle contre différentes formes d’eau.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Chaque niveau correspond à des essais normalisés. Le code informe donc sur une classe de protection, pas sur une promesse générale de survie dans toutes les situations.</p></div>
+<div class="deep-block"><span>Limite</span><p>Les joints vieillissent, les chocs peuvent endommager l’étanchéité et les conditions d’essai ne couvrent pas toutes les situations réelles. La garantie constructeur peut aussi exclure certains dégâts liquides.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Lisez la norme complète et les conditions du constructeur. Ne déduisez jamais d’un IP68 que le téléphone peut être utilisé librement sous l’eau.</p></div>
 <div class="ip-scale"><div><h4>Premier chiffre : solides / poussière</h4><ol><li><b>0</b> aucune protection particulière</li><li><b>1</b> gros objets solides</li><li><b>2</b> doigts et objets solides de taille comparable</li><li><b>3</b> outils et objets de quelques millimètres</li><li><b>4</b> petits objets solides</li><li><b>5</b> protégé contre la poussière, avec pénétration limitée</li><li><b>6</b> étanche à la poussière</li></ol></div><div><h4>Second chiffre : eau</h4><ol><li><b>0</b> aucune protection particulière</li><li><b>1</b> gouttes tombant verticalement</li><li><b>2</b> gouttes avec inclinaison spécifiée</li><li><b>3</b> eau pulvérisée</li><li><b>4</b> projections d’eau</li><li><b>5</b> jets d’eau</li><li><b>6</b> jets d’eau puissants</li><li><b>7</b> immersion temporaire dans les conditions prévues</li><li><b>8</b> immersion prolongée dans les conditions prévues</li><li><b>9</b> jets d’eau à haute pression et haute température</li></ol></div></div>
 </div>
-
 </article><article class="lex-entry" id="verre">
 <h3>Verre renforcé</h3>
 <div class="lex-content"></div>
 <div class="lex-quick"><div class="lex-grid">
-<div><b>En clair</b><p>Un verre traité pour mieux résister aux rayures et aux chocs qu’un verre classique.</p></div>
-<div><b>Ce que vous verrez</b><p>Il réduit certains risques, mais aucun verre de smartphone n’est incassable.</p></div>
-<div><b>Pour qui c’est utile</b><p>Important si vous utilisez le téléphone sans coque ou dans un environnement où il peut tomber.</p></div>
-<div><b>À regarder en magasin</b><p>Le verre de protection ne remplace pas une coque. Regardez aussi la réparation et la disponibilité des pièces.</p></div>
+<div><b>L’idée</b><p>Le verre renforcé est un verre qui a été traité pour mieux résister aux chocs ou aux rayures. Il réduit le risque, mais il ne rend pas l’écran incassable.</p></div>
+<div><b>Dans la vraie vie</b><p>Une chute sur un angle reste dangereuse. Le type de verre n’empêche ni les impacts directs ni toutes les rayures.</p></div>
+<div><b>Pour qui</b><p>Important si le téléphone est souvent transporté sans coque, utilisé dehors ou manipulé dans des environnements où il peut tomber.</p></div>
+<div><b>En magasin</b><p>Regardez aussi le prix de remplacement de l’écran et la disponibilité des pièces. Une bonne protection ne dispense pas de penser à la réparation.</p></div>
 </div></div>
 <div class="lex-deep" hidden="">
-<div class="deep-block"><span>Ce que c’est</span><p>Les verres renforcés utilisent des traitements chimiques ou thermiques qui modifient leurs propriétés mécaniques.</p></div>
-<div class="deep-block"><span>Comment ça fonctionne</span><p>La résistance dépend de l’épaisseur, du traitement, de la forme de l’écran et de la manière dont le téléphone absorbe les chocs.</p></div>
-<div class="deep-block"><span>Ce que cela change</span><p>La résistance aux rayures et la résistance aux chocs sont deux propriétés différentes.</p></div>
-<div class="deep-block"><span>Comment comparer</span><p>Ne vous fiez pas uniquement au nom commercial du verre. Regardez les tests et le coût de réparation.</p></div>
+<div class="deep-block"><span>Définition</span><p>Les verres renforcés subissent des traitements chimiques ou thermiques qui modifient leur résistance mécanique de surface et, selon le produit, leur comportement à la fracture.</p></div>
+<div class="deep-block"><span>Mécanisme</span><p>Le traitement peut créer des contraintes compressives en surface, ce qui augmente la résistance à certaines sollicitations.</p></div>
+<div class="deep-block"><span>Limite</span><p>La résistance dépend du verre, de son épaisseur, de la géométrie de l’appareil et de l’impact. Un choc sur une arête reste un cas défavorable.</p></div>
+<div class="deep-block"><span>Comparer</span><p>Cherchez la génération de verre annoncée, mais accordez aussi de l’importance à la conception du téléphone, à la protection d’écran et au coût de réparation.</p></div>
 </div>
 </article></section>
 <div class="lexique-note"><strong>Comment lire ce lexique :</strong> le mode normal donne l'essentiel sans vous noyer dans la technique. Le mode approfondi ajoute le fonctionnement, les limites et les points à vérifier avant l'achat. L'objectif est de comprendre suffisamment pour décider sans devoir chercher chaque terme ailleurs.</div>

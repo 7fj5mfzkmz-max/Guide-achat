@@ -166,7 +166,8 @@
       { url: "index.html", label: "Accueil" },
       { url: "smartphones.html", label: "Smartphones" },
       { url: "lexique.html", label: "Lexique" },
-      { url: "comparateur.html", label: "Comparateur" }
+      { url: "comparateur.html", label: "Comparateur" },
+      { url: "smartphones-approfondir.html", label: "Smartphones · détails techniques" }
     ];
 
     function addRecord(record) {

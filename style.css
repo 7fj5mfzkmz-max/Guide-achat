@@ -1412,3 +1412,115 @@ html.lexique-deep .lex-quick{opacity:.58}
 html.dark-theme .lex-entry{box-shadow:none}
 html.dark-theme .lex-grid>div{background:#20221f}
 @media(max-width:680px){.lex-grid{grid-template-columns:1fr}.lex-entry{padding:1rem}}
+
+
+/* =========================================================
+   CORRECTIFS STRUCTURELS : séquence verticale nette
+   Les cartes restent animées, mais ne se recouvrent plus.
+   ========================================================= */
+.cat-stack-interactive{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:1.4rem !important;
+  padding:1rem 0 6rem !important;
+}
+.cat-stack-interactive .cat-stack-item{
+  position:relative !important;
+  inset:auto !important;
+  top:auto !important;
+  z-index:auto !important;
+  width:100% !important;
+  margin:0 !important;
+  transform:none;
+}
+.cat-stack-interactive .cat-stack-item + .cat-stack-item{margin-top:0 !important}
+.cat-stack-interactive .cat-stack-item.is-active{transform:none}
+.cat-stack-interactive .cat-card{min-height:260px}
+.cat-stack-interactive .cat-card-featured{min-height:360px}
+@media(max-width:760px){
+  .cat-stack-interactive{gap:1rem !important;padding-bottom:4rem !important}
+  .cat-stack-interactive .cat-card,
+  .cat-stack-interactive .cat-card-featured{min-height:250px}
+}
+
+/* =========================================================
+   THÈME SOMBRE : surfaces lisibles, pas de texte perdu
+   ========================================================= */
+html.dark-theme .site-footer{color:var(--ink);background:var(--surface-2);border-top:1px solid var(--line)}
+html.dark-theme .article-hero-stage{background:#20251f;color:#f1f2eb}
+html.dark-theme .article-hero-copy h1{color:#f1f2eb}
+html.dark-theme .article-hero-copy .eyebrow{color:var(--lime);background:rgba(220,233,107,.12)}
+html.dark-theme .profile-card{background:var(--surface);border:1px solid var(--line);color:var(--ink);box-shadow:none}
+html.dark-theme .profile-card p,
+html.dark-theme .profile-situation,
+html.dark-theme .demo-caption,
+html.dark-theme .profile-card .check-item{color:var(--ink-soft)}
+html.dark-theme .recap-section{background:var(--surface-2);color:var(--ink);border-block:1px solid var(--line)}
+html.dark-theme .recap-card{background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+html.dark-theme .recap-num{background:var(--lime);color:#20231f}
+html.dark-theme .catalogue-section,
+html.dark-theme .sources-list{color:var(--ink)}
+html.dark-theme .catalogue-section > p,
+html.dark-theme .hint,
+html.dark-theme .sources-list li,
+html.dark-theme .falc-more .hint{color:var(--ink-soft)}
+html.dark-theme .falc-more-link{color:var(--ink);border-color:var(--line)}
+html.dark-theme .falc-chapter{background:var(--surface);border-color:var(--line)}
+html.dark-theme .falc-notion-summary{color:var(--ink)}
+html.dark-theme .falc-notion{background:var(--surface)}
+html.dark-theme .detail-content{background:var(--surface-2);color:var(--ink)}
+html.dark-theme .detail-content p{color:var(--ink-soft)}
+html.dark-theme .tech-term{color:var(--ink);border-bottom-color:var(--accent-2)}
+html.dark-theme .tech-term:hover::after{color:var(--ink);background:var(--surface-2)}
+html.dark-theme .store-scene-copy p,
+html.dark-theme .store-scene-copy h3{color:var(--ink)}
+html.dark-theme .search-panel-sheet{background:var(--surface);color:var(--ink)}
+html.dark-theme .drawer-search-field{background:var(--surface-2)}
+html.dark-theme .search-result-page{background:var(--teal-tint);color:var(--ink)}
+html.dark-theme .search-result p{color:var(--ink-soft)}
+
+/* =========================================================
+   LEXIQUE : le mode détails remplace réellement le texte court
+   ========================================================= */
+.lex-quick{transition:opacity .2s ease,transform .2s ease}
+.lex-deep{display:none}
+html.lexique-deep .lex-quick{display:none !important}
+html.lexique-deep .lex-deep{display:grid !important}
+html.lexique-deep .lex-entry{border-color:var(--line-strong)}
+html.dark-theme .lex-entry{background:var(--surface);border-color:var(--line)}
+html.dark-theme .lex-grid>div{background:var(--surface-2);border-color:var(--line)}
+html.dark-theme .lex-grid b{color:var(--lime)}
+html.dark-theme .lex-grid p{color:var(--ink-soft)}
+html.dark-theme .deep-block{background:var(--surface-2);color:var(--ink);border:1px solid var(--line)}
+html.dark-theme .deep-block span{color:var(--lime)}
+html.dark-theme .deep-block p{color:var(--ink-soft)}
+
+/* Le mode détails reste disponible sans déplacer brutalement la page. */
+.detail-mode-floating{z-index:100}
+
+/* Les animations d’accueil servent à l’attention, pas à la géométrie. */
+.cat-stack-interactive .cat-stack-item.is-active{box-shadow:0 18px 42px rgba(20,24,18,.12)}
+
+/* Couleurs de démonstrations plus robustes en sombre. */
+html.dark-theme .hz-panel,
+html.dark-theme .resolution-comparison,
+html.dark-theme .interactive-demo,
+html.dark-theme .quick-scale span{background:var(--surface);border-color:var(--line)}
+html.dark-theme .hz-viewport{background:var(--surface-2)}
+html.dark-theme .battery-phone,
+html.dark-theme .brightness-phone{border-color:var(--line)}
+
+/* Lexique : contrôle persistant et surfaces cohérentes dans les deux thèmes. */
+.lexique-detail-floating{left:auto;right:clamp(1rem,3vw,2rem)}
+html.dark-theme .lexique-mode,
+html.dark-theme .lexique-visual-intro,
+html.dark-theme .lexique-principle,
+html.dark-theme .lexique-nav a,
+html.dark-theme .section-heading{color:var(--ink)}
+html.dark-theme .lexique-mode{background:var(--surface);border-color:var(--line)}
+html.dark-theme .lexique-nav a{background:var(--surface-2);border-color:var(--line)}
+html.dark-theme .lexique-nav a:hover{background:var(--lime);color:#20231f}
+html.dark-theme .lexique-principle{background:var(--surface-2);border:1px solid var(--line)}
+html.dark-theme .lexique-detail-floating .detail-bubble{background:color-mix(in srgb,var(--surface) 88%,transparent);color:var(--ink)}
+.site-nav-disabled{font-weight:600;font-size:.86rem;color:var(--muted);padding:.3rem 0;opacity:.72;cursor:default;white-space:nowrap}
+@media(max-width:1050px){.site-nav-disabled{font-size:.76rem}}
