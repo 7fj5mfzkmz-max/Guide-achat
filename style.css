@@ -1,5 +1,5 @@
 /* =========================================================
-   GUIDE·ACHAT — direction "Firsty" : clair, coloré, arrondi,
+   GUIDE·ACHAT : direction "Firsty" : clair, coloré, arrondi,
    animé. Réécriture complète de la feuille de style.
    ========================================================= */
 
@@ -372,7 +372,7 @@ html.lexique-deep .lex-quick{opacity:.45}
 
 
 /* =========================================================
-   ACCESSIBILITÉ + POLISH VISUEL — refonte 2026
+   ACCESSIBILITÉ + POLISH VISUEL : refonte 2026
    Priorité : contraste, hiérarchie, respiration et header.
    ========================================================= */
 
@@ -1226,7 +1226,7 @@ html.dark-theme .display-compare-tab.is-active{background:var(--lime);color:var(
 
 
 /* =========================================================
-   ACCUEIL — hiérarchie éditoriale, respiration et outils
+   ACCUEIL : hiérarchie éditoriale, respiration et outils
    ========================================================= */
 .home-hero h1,
 .section-intro h2,
@@ -1299,3 +1299,116 @@ html.dark-theme .trust-grid li{background:#2a1d31;border-color:#3c2c46}
   .trust-grid{grid-template-columns:1fr}
   .why-section{gap:2rem}
 }
+
+/* ===== PASSE UX FINALE : ACCUEIL ===== */
+:root{
+  --paper:#fbfaf7;
+  --paper-2:#f4f1eb;
+  --ink:#20231f;
+  --ink-deep:#20231f;
+  --ink-soft:#555b54;
+  --muted:#7a8078;
+  --line:#dfddd6;
+  --line-strong:#c9c7bf;
+  --surface:#ffffff;
+  --surface-2:#f2f0ea;
+  --lime:#dce96b;
+  --teal:#9edbd5;
+  --orchid:#d8a6cf;
+  --lime-tint:#edf2c9;
+  --teal-tint:#dff0ed;
+  --orchid-tint:#eee0eb;
+  --font-display:'Space Grotesk','DM Sans',system-ui,sans-serif;
+  --font-body:'DM Sans',system-ui,sans-serif;
+}
+html.dark-theme{
+  --paper:#151714;
+  --paper-2:#1b1e1a;
+  --ink:#f1f2eb;
+  --ink-deep:#f1f2eb;
+  --ink-soft:#c5c9bf;
+  --muted:#969c91;
+  --line:#30342e;
+  --line-strong:#41463e;
+  --surface:#1b1e1a;
+  --surface-2:#222620;
+  --lime:#cbd85d;
+  --teal:#75bdb5;
+  --orchid:#b886ae;
+  --lime-tint:#30351f;
+  --teal-tint:#1d3330;
+  --orchid-tint:#332532;
+}
+
+body{font-size:16px;line-height:1.65}
+h1,h2,h3,h4{letter-spacing:-.025em}
+.site-header{padding-top:.7rem}
+.header-inner{background:color-mix(in srgb,var(--surface) 94%,transparent);border:1px solid var(--line);box-shadow:0 8px 30px rgba(20,24,18,.06)}
+.header-tool{border:1px solid transparent}
+.header-tool:hover{background:var(--surface-2);transform:translateY(-1px)}
+
+/* Les cartes gardent leur mouvement au scroll, mais leur position ne crée plus de tas serré. */
+.cat-stack-interactive{display:grid;gap:1.25rem;padding:1rem 0 7rem}
+.cat-stack-interactive .cat-stack-item{position:sticky;width:100%;margin:0!important;transform-origin:center top}
+.cat-stack-interactive .cat-stack-item:nth-child(1){top:calc(var(--header-h) + 18px)}
+.cat-stack-interactive .cat-stack-item:nth-child(2){top:calc(var(--header-h) + 42px)}
+.cat-stack-interactive .cat-stack-item:nth-child(3){top:calc(var(--header-h) + 66px)}
+.cat-stack-interactive .cat-stack-item:nth-child(4){top:calc(var(--header-h) + 90px)}
+.cat-stack-interactive .cat-stack-item:nth-child(5){top:calc(var(--header-h) + 114px)}
+.cat-stack-interactive .cat-stack-item:nth-child(6){top:calc(var(--header-h) + 138px)}
+.cat-stack-interactive .cat-stack-item.is-active{box-shadow:0 24px 55px rgba(20,24,18,.16)}
+.cat-card{border:1px solid rgba(32,35,31,.08)}
+.cat-card h3{letter-spacing:-.035em}
+.cat-card p{line-height:1.55}
+
+/* Pourquoi ce guide : séparation nette entre l'explication et le bloc visuel. */
+.why-section{gap:clamp(3rem,8vw,8rem);padding-top:clamp(5rem,9vw,8rem);padding-bottom:2rem}
+.why-copy h2{font-size:clamp(2.1rem,4.8vw,3.5rem);max-width:12ch;line-height:1.02;margin:.7rem 0 1.2rem}
+.why-copy>p{max-width:48rem;font-size:1.04rem;line-height:1.75;color:var(--ink-soft)}
+.trust-grid{grid-template-columns:1fr 1fr;gap:.8rem;margin-top:2rem}
+.trust-grid li{align-items:flex-start;min-height:4.5rem;padding:.9rem 1rem;background:var(--surface);border:1px solid var(--line);box-shadow:none}
+.trust-grid li:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(20,24,18,.07)}
+.trust-icon{width:32px;height:32px;background:var(--ink);color:var(--lime);font-size:.62rem;font-weight:800}
+.why-card{min-height:350px;background:var(--ink);border:1px solid var(--line);box-shadow:none}
+.why-script{font-family:'Newsreader',Georgia,serif;font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.05;color:var(--lime)}
+
+/* Outils : ils doivent ressembler à de vrais contrôles, pas à des icônes décoratives. */
+.header-tool-search,.header-tool-theme{cursor:pointer}
+.header-tool-search::after{content:'Recherche';position:absolute;right:0;top:calc(100% + 8px);font-size:.58rem;font-weight:700;letter-spacing:.04em;color:var(--muted);opacity:0;transform:translateY(-3px);pointer-events:none;transition:.2s ease}
+.header-tool-search:hover::after{opacity:1;transform:none}
+.search-panel-sheet{background:var(--surface);border-color:var(--line);color:var(--ink)}
+.drawer-search-field{background:var(--surface-2);border-color:var(--line)}
+.drawer-search-field input{font-size:1rem}
+.search-result{padding:1rem;border-color:var(--line)}
+.search-result+.search-result{margin-top:.5rem}
+.search-result strong{font-size:1rem}
+
+@media(max-width:720px){
+  .cat-stack-interactive{gap:.9rem;padding-bottom:5rem}
+  .cat-stack-interactive .cat-stack-item:nth-child(1){top:76px}
+  .cat-stack-interactive .cat-stack-item:nth-child(2){top:98px}
+  .cat-stack-interactive .cat-stack-item:nth-child(3){top:120px}
+  .cat-stack-interactive .cat-stack-item:nth-child(4){top:142px}
+  .cat-stack-interactive .cat-stack-item:nth-child(5){top:164px}
+  .cat-stack-interactive .cat-stack-item:nth-child(6){top:186px}
+  .trust-grid{grid-template-columns:1fr}
+  .why-section{gap:2rem}
+}
+
+
+/* Editorial system: usage first, technical detail second. */
+.lexique-section{max-width:920px;margin-inline:auto}
+.lex-entry{margin:0 0 1.35rem;padding:clamp(1.15rem,2.4vw,1.8rem);background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:0 10px 30px rgba(36,23,38,.055)}
+.lex-entry h3{font-size:clamp(1.25rem,2.2vw,1.65rem);margin-bottom:1rem}
+.lex-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.85rem}
+.lex-grid>div{padding:1rem;background:var(--surface-2);border-radius:var(--radius);border-left:3px solid var(--lime)}
+.lex-grid b{display:block;font-family:var(--font-display);font-size:.82rem;letter-spacing:.02em;margin-bottom:.35rem}
+.lex-grid p{margin:0;color:var(--ink-soft);line-height:1.58;font-size:.92rem}
+.lex-deep{display:grid;gap:.75rem;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--line)}
+.deep-block{padding:1rem 1.05rem;background:color-mix(in srgb,var(--ink-deep) 5%,var(--surface));border-radius:var(--radius)}
+.deep-block span{display:block;font-family:var(--font-display);font-weight:700;font-size:.8rem;margin-bottom:.35rem;color:var(--ink)}
+.deep-block p{margin:0;color:var(--ink-soft);line-height:1.62;font-size:.9rem}
+html.lexique-deep .lex-quick{opacity:.58}
+html.dark-theme .lex-entry{box-shadow:none}
+html.dark-theme .lex-grid>div{background:#20221f}
+@media(max-width:680px){.lex-grid{grid-template-columns:1fr}.lex-entry{padding:1rem}}

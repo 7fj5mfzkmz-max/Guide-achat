@@ -35,7 +35,7 @@
     produits.forEach(function(p){
       var label=document.createElement("label"); label.className="compare-choice";
       var input=document.createElement("input"); input.type="checkbox"; input.value=p.id; input.checked=initial.indexOf(p.id)!==-1; input.addEventListener("change",surSelectionChangee);
-      label.appendChild(input); label.appendChild(document.createTextNode(p.nom+" — ≈ "+(typeof p.prix_indicatif==="number"?p.prix_indicatif+" €":"prix à vérifier")));
+      label.appendChild(input); label.appendChild(document.createTextNode(p.nom+" : ≈ "+(typeof p.prix_indicatif==="number"?p.prix_indicatif+" €":"prix à vérifier")));
       picker.appendChild(label);
     });
     updateCount(initial);
@@ -65,7 +65,7 @@
     }].concat(CHAMPS.map(function (c) {
       return {
         label: c.label,
-        get: function (p) { return (p.caracteristiques && p.caracteristiques[c.cle]) || "—"; }
+        get: function (p) { return (p.caracteristiques && p.caracteristiques[c.cle]) || " : "; }
       };
     }));
     rows.forEach(function(row){var tr=document.createElement("tr");var td=document.createElement("td");td.textContent=row.label;tr.appendChild(td);selection.forEach(function(p){var cell=document.createElement("td");cell.textContent=row.get(p);cell.style.whiteSpace="normal";tr.appendChild(cell);});tbody.appendChild(tr);});

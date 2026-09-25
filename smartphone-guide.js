@@ -166,7 +166,7 @@
     var speed = Number(card.getAttribute("data-charge-speed")) || 25;
     var fill = card.querySelector(".battery-fill");
     if (fill) {
-      /* Une valeur moyenne de la plage est utilisée pour 45–67 W et 80–120 W.
+      /* Une valeur moyenne de la plage est utilisée pour 45 : 67 W et 80 : 120 W.
          C'est une illustration relative, pas une simulation de temps de charge réel. */
       var duration = Math.max(1.25, 5.8 * (25 / speed));
       fill.style.setProperty("--charge-duration", duration.toFixed(2) + "s");
