@@ -109,6 +109,12 @@ img,svg{max-width:100%}
 .hero-step b{color:var(--ink-deep);background:var(--lime);width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:.68rem;font-family:var(--font-display)}
 .hero-step:hover{background:var(--lime);transform:translateY(-2px)}
 .hero-route i{width:14px;height:1px;background:var(--line-strong)}
+.hero-route-stacked{flex-direction:column;align-items:flex-start;gap:.5rem;margin-top:2.2rem}
+.hero-step-static{cursor:default;background:none;padding:.15rem 0;border-radius:0;font-size:clamp(1.5rem,3.4vw,2.3rem);font-family:var(--font-display);font-weight:700;letter-spacing:-.01em;color:var(--ink);opacity:.34;transition:opacity .3s var(--ease)}
+.hero-step-static:hover{background:none;transform:none}
+.hero-step-static:last-child{opacity:1}
+.hero-step-static b{width:auto;height:auto;background:none;color:var(--ink-soft);font-size:.62em;font-weight:700;font-family:var(--font-sans,inherit);margin-right:.5rem;border-radius:0}
+.hero-step-static:last-child b{color:var(--lime)}
 
 /* ===== SECTION INTRO / CATEGORY GRID ===== */
 .home-section{padding:clamp(2.6rem,6vw,4.4rem) 0}
@@ -575,6 +581,15 @@ html.dark-theme .trust-grid li{
 }
 html.dark-theme .hero-step b{
   color:#241726;
+}
+html.dark-theme .hero-step-static{
+  color:var(--ink);
+}
+html.dark-theme .hero-step-static b{
+  color:#d9c9df;
+}
+html.dark-theme .hero-step-static:last-child b{
+  color:var(--lime);
 }
 html.dark-theme .section-intro p,
 html.dark-theme .hero-lead{
