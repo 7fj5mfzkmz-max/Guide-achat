@@ -48,9 +48,9 @@
     el.addEventListener("mouseleave", function () { gs.to(el, { y: 0, duration: .3, ease: "power2.out" }); });
   });
 
-  /* Cartes empilées (accueil) : la carte actuellement épinglée en haut
-     reçoit un léger relief pendant qu'elle est "active" au défilement. */
-  var stackCards = document.querySelectorAll(".stack-card");
+  /* Cartes de catégories : même comportement d'empilement que l'ancien
+     bloc "chiffre / usage / décision". */
+  var stackCards = document.querySelectorAll(".cat-stack .cat-card");
   if (stackCards.length && window.ScrollTrigger) {
     stackCards.forEach(function (card) {
       window.ScrollTrigger.create({

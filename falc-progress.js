@@ -1,18 +1,26 @@
 (function () {
   "use strict";
+
   var bar = document.getElementById("falc-progress-bar");
-  var more = document.querySelector(".falc-more");
-  if (!bar || !more) return;
+  var progress = document.querySelector(".falc-progress");
+  var endEl = document.querySelector(".falc-more");
+  if (!bar || !progress || !endEl) return;
+
+  function pageTop(el) {
+    return el.getBoundingClientRect().top + window.scrollY;
+  }
 
   function update() {
-    var start = document.querySelector(".falc-point");
-    if (!start) return;
-    var startTop = start.getBoundingClientRect().top + window.scrollY;
-    var endEl = more;
-    var endTop = endEl.getBoundingClientRect().top + window.scrollY;
-    var total = Math.max(endTop - startTop, 1);
-    var scrolled = window.scrollY + window.innerHeight * 0.4 - startTop;
-    var pct = Math.min(Math.max(scrolled / total, 0), 1) * 100;
+    var startTop = pageTop(progress);
+    var endTop = pageTop(endEl);
+    var range = Math.max(endTop - startTop, 1);
+
+    /* Le remplissage suit réellement la position de lecture,
+       du début de la barre jusqu'au bloc "Approfondir". */
+    var current = window.scrollY + window.innerHeight * 0.45;
+    var pct = ((current - startTop) / range) * 100;
+    pct = Math.min(Math.max(pct, 0), 100);
+
     bar.style.width = pct + "%";
   }
 

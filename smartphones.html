@@ -310,9 +310,7 @@
 <h2>Explorez le catalogue</h2>
 <p>Maintenant que vous savez ce qu'il faut chercher, voici les modèles disponibles filtrés par profil et budget.</p>
 <div class="catalogue-tools">
-<label class="catalogue-search-label" for="catalogue-search">Vous cherchez un modèle, une marque ou un usage ?</label>
-<input autocomplete="off" class="catalogue-search" id="catalogue-search" placeholder="Ex. Samsung, photo, autonomie, compact…" type="search"/>
-<p aria-live="polite" class="hint" id="catalogue-status">Commencez par votre usage principal.</p>
+<p aria-live="polite" class="hint" id="catalogue-status">Choisissez un budget, un critère principal et une marque pour afficher les recommandations.</p>
 <div aria-label="Filtres du catalogue" class="catalogue-filters" id="catalogue-filters">
 <label class="catalogue-filter"><span>Budget</span><select id="catalogue-budget"><option value="">Tous les budgets</option><option value="moins-200">Moins de 200 €</option><option value="200-300">200 à 300 €</option><option value="300-500">300 à 500 €</option><option value="500-700">500 à 700 €</option><option value="700-plus">700 € et plus</option></select></label>
 <label class="catalogue-filter"><span>Critère principal</span><select id="catalogue-criterion"><option value="">Tous les critères</option><option value="autonomie">Autonomie</option><option value="photo">Photo</option><option value="performance">Performance</option><option value="gaming">Jeux</option><option value="taille">Format compact</option><option value="prix">Rapport qualité-prix</option></select></label>
@@ -320,7 +318,9 @@
 <button class="btn" id="catalogue-reset" type="button">Réinitialiser</button>
 </div>
 </div>
-<div data-category="smartphones" id="catalogue"><div id="catalogue-groups"></div></div>
+<div data-category="smartphones" id="catalogue">
+  <div id="catalogue-groups" class="recommendations-only" aria-live="polite"></div>
+</div>
 </section>
 
 <!-- ===== LIEN APPROFONDIR ===== -->
@@ -361,7 +361,6 @@
 
 <script src="catalogue.js"></script>
 <script src="falc-progress.js"></script>
-<script src="profile-demos.js"></script>
 <script src="site-motion.js"></script>
 </body>
 </html>
