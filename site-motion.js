@@ -1,71 +1,74 @@
 (function () {
   "use strict";
-  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   if (!window.gsap) return;
   var gs = window.gsap;
-  if (window.ScrollTrigger) gs.registerPlugin(window.ScrollTrigger);
+  var ST = window.ScrollTrigger;
+  if (ST) gs.registerPlugin(ST);
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* Entrée en scène, groupée par bloc pour un effet en cascade plutôt
-     qu'une simple apparition individuelle. */
-  var groups = [
-    ".stack-card", ".cat-card", ".section", ".lex-entry", ".faq-item",
-    ".tool-box", ".interactive-demo", ".callout", ".keypoints", ".repere",
-    ".why-card", ".why-copy", ".catalogue-group", ".guide-subsection"
-  ];
-
-  groups.forEach(function (selector) {
-    var items = document.querySelectorAll(selector);
-    if (!items.length) return;
-    if (selector === ".stack-card") return; /* déjà géré par position: sticky */
-    if (window.ScrollTrigger) {
-      items.forEach(function (el, i) {
-        gs.fromTo(el, { autoAlpha: 0, y: 26 }, {
-          autoAlpha: 1, y: 0, duration: .55, ease: "power2.out",
-          delay: Math.min((i % 6) * .05, .25),
-          scrollTrigger: { trigger: el, start: "top 88%", once: true }
-        });
-      });
+  // Reveal: still subtle under reduced-motion, but never force elements invisible.
+  document.querySelectorAll(".section, .lex-entry, .faq-item, .tool-box, .interactive-demo, .callout, .keypoints, .repere, .why-card, .why-copy, .catalogue-group, .guide-subsection").forEach(function (el, i) {
+    if (reduced) { gs.set(el, {autoAlpha: 1, y: 0}); return; }
+    if (ST) {
+      gs.fromTo(el, {autoAlpha: 0, y: 22}, {autoAlpha: 1, y: 0, duration: .55, ease: "power2.out", delay: Math.min((i % 5) * .04, .18), scrollTrigger: {trigger: el, start: "top 90%", once: true}});
     } else {
-      items.forEach(function (el, i) {
-        gs.fromTo(el, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .55, ease: "power2.out", delay: Math.min(i * .03, .2) });
-      });
+      gs.fromTo(el, {autoAlpha: 0, y: 18}, {autoAlpha: 1, y: 0, duration: .5, ease: "power2.out"});
     }
   });
 
-  /* Titres : léger effet d'entrée depuis la gauche. */
-  var headings = document.querySelectorAll("main h1, .section-intro h2, .why-copy h2");
-  headings.forEach(function (el) {
-    gs.fromTo(el, { autoAlpha: 0, x: -16 }, {
-      autoAlpha: 1, x: 0, duration: .6, ease: "power2.out",
-      scrollTrigger: window.ScrollTrigger ? { trigger: el, start: "top 92%", once: true } : undefined
+  document.querySelectorAll("main h1, .section-intro h2, .why-copy h2").forEach(function (el) {
+    if (reduced) { gs.set(el, {autoAlpha: 1, x: 0}); return; }
+    gs.fromTo(el, {autoAlpha: 0, x: -14}, {autoAlpha: 1, x: 0, duration: .6, ease: "power2.out", scrollTrigger: ST ? {trigger: el, start: "top 92%", once: true} : undefined});
+  });
+
+  // Home: the six category cards physically stack as the user scrolls.
+  var stack = document.querySelectorAll(".cat-stack-interactive .cat-stack-item");
+  if (stack.length) {
+    stack.forEach(function(card, i) {
+      card.style.zIndex = String(i + 1);
+      card.style.setProperty("--stack-index", i);
+      if (ST) {
+        ST.create({
+          trigger: card,
+          start: "top 34%",
+          end: "bottom 34%",
+          onEnter: function(){ activate(card); },
+          onEnterBack: function(){ activate(card); },
+          onLeave: function(){ if (i < stack.length - 1) activate(stack[i+1]); },
+          onLeaveBack: function(){ if (i > 0) activate(stack[i-1]); }
+        });
+      }
     });
-  });
+    function activate(card) {
+      stack.forEach(function(c){ c.classList.toggle("is-active", c === card); });
+      if (!reduced) gs.to(card, {scale: 1.012, y: -3, duration: .32, ease: "power2.out", overwrite: true});
+      stack.forEach(function(c){ if(c !== card && !reduced) gs.to(c, {scale: 1, y: 0, duration: .28, ease: "power2.out", overwrite: true}); });
+    }
+    activate(stack[0]);
+  }
 
-  /* Survol "lift" doux sur les cartes cliquables (en plus du hover CSS). */
-  var liftables = document.querySelectorAll(".cat-card, .catalogue-card, .hero-step, .search-result");
-  liftables.forEach(function (el) {
-    el.addEventListener("mouseenter", function () { gs.to(el, { y: -4, duration: .25, ease: "power2.out" }); });
-    el.addEventListener("mouseleave", function () { gs.to(el, { y: 0, duration: .3, ease: "power2.out" }); });
-  });
+  // Small continuous hero motion.
+  var orbits = document.querySelectorAll(".hero-orbit");
+  if (!reduced && orbits.length) {
+    gs.to(orbits[0], {y: 24, x: -10, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1});
+    if (orbits[1]) gs.to(orbits[1], {y: -20, x: 12, duration: 8.5, ease: "sine.inOut", yoyo: true, repeat: -1});
+  }
 
-  /* Cartes de catégories : même comportement d'empilement que l'ancien
-     bloc "chiffre / usage / décision". */
-  var stackCards = document.querySelectorAll(".cat-stack .cat-card");
-  if (stackCards.length && window.ScrollTrigger) {
-    stackCards.forEach(function (card) {
-      window.ScrollTrigger.create({
-        trigger: card,
-        start: "top 45%",
-        end: "bottom 45%",
-        toggleClass: { targets: card, className: "is-active" }
+  // FALC deep mode: chapters and notions open/close with a short GSAP transition.
+  document.querySelectorAll(".falc-chapter > summary").forEach(function(summary){
+    summary.addEventListener("click", function(){
+      var details = summary.parentElement;
+      if (reduced) return;
+      requestAnimationFrame(function(){
+        gs.fromTo(details, {opacity: .72, y: 5}, {opacity: 1, y: 0, duration: .25, ease: "power2.out"});
       });
     });
-  }
+  });
 
-  /* Halos du hero : légère dérive continue pour une page qui respire. */
-  var orbits = document.querySelectorAll(".hero-orbit");
-  if (orbits.length) {
-    gs.to(orbits[0], { y: 24, x: -10, duration: 7, ease: "sine.inOut", yoyo: true, repeat: -1 });
-    if (orbits[1]) gs.to(orbits[1], { y: -20, x: 12, duration: 8.5, ease: "sine.inOut", yoyo: true, repeat: -1 });
-  }
+  // Gentle hover/tap feedback, including touch devices.
+  document.querySelectorAll(".cat-card, .catalogue-card, .hero-step, .search-result").forEach(function(el){
+    if (reduced) return;
+    el.addEventListener("pointerenter", function(){ gs.to(el, {y: -4, duration: .22, ease: "power2.out", overwrite: true}); });
+    el.addEventListener("pointerleave", function(){ gs.to(el, {y: 0, duration: .28, ease: "power2.out", overwrite: true}); });
+  });
 })();
