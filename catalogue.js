@@ -115,15 +115,81 @@
     return p.annee_sortie || RELEASE_YEARS[p.nom] || "année ?";
   }
 
+  var CRITERION_LABELS = {
+    autonomie: "Autonomie",
+    photo: "Photo",
+    performance: "Performance",
+    gaming: "Jeux",
+    taille: "Format compact",
+    prix: "Rapport qualité-prix"
+  };
+
+  var CRITERION_PITCH = {
+    autonomie: "tient la journée sans stress",
+    photo: "capture des images nettes, même le soir",
+    performance: "encaisse les usages lourds sans ralentir",
+    gaming: "reste fluide en jeu, sans saccade",
+    taille: "se glisse facilement dans une poche",
+    prix: "offre beaucoup pour ce qu'il coûte"
+  };
+
+  function caracteristiqueCle(p) {
+    var c = p.caracteristiques || {};
+    var mapping = {
+      autonomie: c.batterie,
+      photo: c.photo,
+      performance: c.processeur,
+      gaming: c.processeur,
+      taille: c.ecran,
+      prix: c.stockage
+    };
+    return mapping[criterion.value] || c.ecran || "";
+  }
+
   function createRecommendation(p, index) {
     var article = document.createElement("article");
     article.className = "catalogue-recommendation";
     article.style.animationDelay = (index * 0.06) + "s";
 
+    var visual = document.createElement("div");
+    visual.className = "rec-visual";
+    var initials = (p.marque || "").slice(0, 2).toUpperCase();
+    visual.textContent = initials;
+    article.appendChild(visual);
+
+    var body = document.createElement("div");
+    body.className = "rec-body";
+
+    var badge = document.createElement("span");
+    badge.className = "rec-badge";
+    badge.textContent = CRITERION_LABELS[criterion.value] || "Recommandé";
+    body.appendChild(badge);
+
     var name = document.createElement("h3");
     name.className = "rec-name";
     name.textContent = p.nom || "Modèle non renseigné";
-    article.appendChild(name);
+    body.appendChild(name);
+
+    var pitch = document.createElement("p");
+    pitch.className = "rec-pitch";
+    var pitchText = CRITERION_PITCH[criterion.value] || "correspond à vos critères";
+    pitch.textContent = "Ce modèle " + pitchText + ".";
+    body.appendChild(pitch);
+
+    var spec = caracteristiqueCle(p);
+    if (spec) {
+      var specEl = document.createElement("p");
+      specEl.className = "rec-spec";
+      specEl.textContent = spec;
+      body.appendChild(specEl);
+    }
+
+    if (Array.isArray(p.points_forts) && p.points_forts.length) {
+      var strength = document.createElement("p");
+      strength.className = "rec-strength";
+      strength.innerHTML = "<span aria-hidden=\"true\">✓</span> " + p.points_forts[0];
+      body.appendChild(strength);
+    }
 
     var meta = document.createElement("div");
     meta.className = "rec-meta";
@@ -136,7 +202,19 @@
     year.textContent = yearFor(p);
     meta.appendChild(year);
 
-    article.appendChild(meta);
+    body.appendChild(meta);
+
+    if (p.fabricant_url) {
+      var link = document.createElement("a");
+      link.className = "rec-link";
+      link.href = p.fabricant_url;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.textContent = "Voir la fiche officielle →";
+      body.appendChild(link);
+    }
+
+    article.appendChild(body);
     return article;
   }
 

@@ -47,6 +47,27 @@
     activate(stack[0]);
   }
 
+  // Étape 1.5 : scène en magasin, les indices s'activent au scroll.
+  var storeSteps = document.querySelectorAll(".store-scene-step");
+  if (storeSteps.length) {
+    function activateStoreStep(step) {
+      storeSteps.forEach(function (s) { s.classList.toggle("is-active", s === step); });
+    }
+    if (ST) {
+      storeSteps.forEach(function (step, i) {
+        ST.create({
+          trigger: step,
+          start: "top 62%",
+          end: "bottom 45%",
+          onEnter: function () { activateStoreStep(step); },
+          onEnterBack: function () { activateStoreStep(step); }
+        });
+      });
+    } else {
+      storeSteps.forEach(function (s) { s.classList.add("is-active"); });
+    }
+  }
+
   // Small continuous hero motion.
   var orbits = document.querySelectorAll(".hero-orbit");
   if (!reduced && orbits.length) {
@@ -64,6 +85,28 @@
       });
     });
   });
+
+  // Comparateur interactif OLED / LCD / AMOLED.
+  var displayCompare = document.getElementById("display-compare");
+  if (displayCompare) {
+    var tabs = displayCompare.querySelectorAll(".display-compare-tab");
+    var panels = displayCompare.querySelectorAll(".display-compare-panel");
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var target = tab.dataset.panel;
+        tabs.forEach(function (t) {
+          var active = t === tab;
+          t.classList.toggle("is-active", active);
+          t.setAttribute("aria-selected", String(active));
+        });
+        panels.forEach(function (p) {
+          var active = p.dataset.panel === target;
+          p.classList.toggle("is-active", active);
+          p.hidden = !active;
+        });
+      });
+    });
+  }
 
   // Gentle hover/tap feedback, including touch devices.
   document.querySelectorAll(".cat-card, .catalogue-card, .hero-step, .search-result").forEach(function(el){

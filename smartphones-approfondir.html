@@ -56,6 +56,13 @@
 <p>Vous n'avez pas besoin de tout connaître sur un smartphone. Ce guide part de ce que vous allez réellement faire avec lui, puis vous aide à distinguer les différences qui se voient au quotidien de celles qui restent surtout sur la fiche technique.</p>
 </div>
 
+<div class="detail-mode-floating" id="detail-mode-floating">
+<button aria-pressed="false" class="detail-bubble is-off" id="detail-bubble-toggle" type="button">
+<span data-detail-label="">Mode simple</span>
+</button>
+</div>
+<p class="sr-only" aria-live="polite" id="detail-mode-status">Explications simples affichées.</p>
+
 
 
 
@@ -130,6 +137,36 @@
 <p>L'écran est l'un des rares éléments que vous utilisez à chaque fois que vous prenez votre téléphone. Ne choisissez donc pas uniquement sur la définition ou la fréquence de rafraîchissement.</p>
 <p>Regardez surtout la luminosité, le contraste, la fluidité, la lisibilité au soleil, la taille et la qualité des couleurs.</p>
 <div class="guide-subsection"><h3>OLED, AMOLED ou LCD : quelles différences visibles ?</h3><p><strong>LCD.</strong> Le LCD utilise une source de lumière placée derrière les pixels. Il peut offrir une bonne luminosité et reste souvent moins cher, mais les noirs paraissent généralement plus gris.</p><p><strong>OLED.</strong> Chaque pixel peut produire sa propre lumière. Lorsqu'un pixel affiche du noir, il peut s'éteindre : les scènes sombres paraissent donc plus profondes, surtout le soir.</p><p><strong>AMOLED.</strong> C'est une famille d'écrans OLED utilisée dans de nombreux smartphones. Le mot AMOLED ne suffit pas à juger la qualité : regardez surtout la luminosité, les couleurs, la calibration et la consommation.</p><p><strong>LTPO.</strong> Cette technologie permet d'adapter plus largement la fréquence de rafraîchissement. L'écran peut utiliser une fréquence élevée pendant le défilement puis descendre très bas lorsque l'image reste presque immobile.</p></div>
+<div aria-label="Comparateur interactif OLED, LCD et AMOLED" class="display-compare" id="display-compare">
+<div class="display-compare-track">
+<div class="display-compare-tabs" role="tablist" aria-label="Choisir une technologie d'écran">
+<button class="display-compare-tab is-active" data-panel="lcd" role="tab" aria-selected="true" type="button">LCD</button>
+<button class="display-compare-tab" data-panel="oled" role="tab" aria-selected="false" type="button">OLED</button>
+<button class="display-compare-tab" data-panel="amoled" role="tab" aria-selected="false" type="button">AMOLED</button>
+</div>
+<div class="display-compare-stage">
+<div class="display-compare-panel is-active" data-panel="lcd" role="tabpanel">
+<div class="display-compare-panel-inner">
+<div class="display-tech-screen"><div class="lcd-backlight"></div><div class="lcd-shutter"></div><div class="lcd-pixels"><i></i><i></i><i></i><i></i><i class="lcd-black"></i><i></i><i></i><i></i><i></i></div></div>
+<p class="display-compare-caption"><strong>Rétroéclairage permanent.</strong> Même un pixel noir laisse passer un peu de lumière : les noirs paraissent gris foncé plutôt que profonds.</p>
+</div>
+</div>
+<div class="display-compare-panel" data-panel="oled" role="tabpanel" hidden="">
+<div class="display-compare-panel-inner">
+<div class="display-tech-screen"><div class="oled-pixels"><i></i><i></i><i></i><i></i><i class="oled-black"></i><i></i><i></i><i></i><i></i></div><div class="oled-label">PIXEL OFF</div></div>
+<p class="display-compare-caption"><strong>Chaque pixel s'éteint individuellement.</strong> Un pixel noir n'émet aucune lumière : les scènes sombres paraissent nettement plus profondes.</p>
+</div>
+</div>
+<div class="display-compare-panel" data-panel="amoled" role="tabpanel" hidden="">
+<div class="display-compare-panel-inner">
+<div class="display-tech-screen"><div class="amoled-matrix"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="amoled-scan"></div><div class="amoled-driver">ACTIVE MATRIX</div></div>
+<p class="display-compare-caption"><strong>Une famille d'écrans OLED.</strong> Une matrice active pilote rapidement chaque pixel. Le nom seul ne garantit pas la qualité : la luminosité et la calibration comptent davantage.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 <div aria-label="Illustration animée des différences entre technologies d'affichage" class="display-tech-demo">
 <div class="display-tech-head"><div><strong>La différence visible entre les technologies d'affichage</strong><p class="demo-caption">La scène se répète automatiquement : observez les noirs, la lumière autour des pixels et, pour LTPO, la variation de fréquence.</p></div><span class="display-tech-live">DÉMO EN DIRECT</span></div>
 <div class="display-tech-grid">
@@ -272,6 +309,7 @@
 </div>
 </footer>
 <script src="site-tools.js"></script>
+<script src="detail-mode.js"></script>
 <script src="site-motion.js"></script>
 </body>
 </html>
