@@ -1524,3 +1524,31 @@ html.dark-theme .lexique-principle{background:var(--surface-2);border:1px solid 
 html.dark-theme .lexique-detail-floating .detail-bubble{background:color-mix(in srgb,var(--surface) 88%,transparent);color:var(--ink)}
 .site-nav-disabled{font-weight:600;font-size:.86rem;color:var(--muted);padding:.3rem 0;opacity:.72;cursor:default;white-space:nowrap}
 @media(max-width:1050px){.site-nav-disabled{font-size:.76rem}}
+
+
+/* Guide smartphone : lecture narrative et fiche produit */
+.journey-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.5rem 0 1.4rem}
+.journey-step,.fiche-reading-card,.fiche-example-card,.pitfall-card{border:1px solid var(--line,#dfe5ed);background:var(--surface,#fff);border-radius:22px;padding:1.35rem;box-shadow:0 10px 28px rgba(15,23,42,.05)}
+.journey-number,.pitfall-number{display:inline-flex;align-items:center;justify-content:center;min-width:2.4rem;height:2.2rem;border-radius:999px;background:var(--accent-soft,#eaf2ff);color:var(--accent,#164a9c);font-weight:800;font-size:.82rem;letter-spacing:.04em}
+.journey-step h3,.fiche-reading-card h3,.pitfall-card h3{margin:.7rem 0 .55rem}
+.callout-brief{margin-top:1.2rem}
+.fiche-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);gap:1.2rem;align-items:start}
+.fiche-example-card{overflow:hidden}
+.fiche-example-top{display:flex;justify-content:space-between;gap:1rem;align-items:center;margin:-1.35rem -1.35rem 1rem;padding:.9rem 1.1rem;background:var(--accent-soft,#eef5ff);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+.fiche-example-screen{display:grid;gap:.65rem;background:var(--surface-2,#f7f8fb);padding:1rem;border-radius:16px}
+.fake-spec-row{display:grid;grid-template-columns:8.5rem 1fr;gap:1rem;padding:.75rem;border-bottom:1px solid var(--line,#e1e6ee);font-size:.94rem}
+.fake-spec-row:last-child{border-bottom:0}
+.fake-spec-row b{color:var(--muted-strong,#374151)}
+.fiche-example-card>p{margin:1rem 0 0;color:var(--muted,#64748b);font-size:.9rem}
+.reading-list{display:grid;gap:.8rem}
+.reading-list>div{display:grid;grid-template-columns:7rem 1fr;gap:.9rem;padding:.8rem 0;border-bottom:1px solid var(--line,#e1e6ee)}
+.reading-list>div:last-child{border-bottom:0}
+.reading-list strong{color:var(--accent,#164a9c)}
+.story-strip{display:flex;flex-wrap:wrap;gap:.55rem;align-items:center;padding:1rem;border-radius:16px;background:var(--surface-2,#f7f8fb);font-size:.92rem}
+.story-strip b,.story-strip span{white-space:nowrap}
+.pitfall-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.pitfall-card p{margin:.75rem 0 0}
+@media(max-width:900px){.journey-grid,.fiche-layout,.pitfall-grid{grid-template-columns:1fr}.fake-spec-row{grid-template-columns:1fr}.reading-list>div{grid-template-columns:1fr}}
+:root.dark-theme .journey-step,:root.dark-theme .fiche-reading-card,:root.dark-theme .fiche-example-card,:root.dark-theme .pitfall-card{background:var(--surface-dark,#111827);border-color:rgba(255,255,255,.12);box-shadow:none}
+:root.dark-theme .fiche-example-top,:root.dark-theme .fiche-example-screen,:root.dark-theme .story-strip{background:rgba(255,255,255,.06)}
+:root.dark-theme .fake-spec-row{border-color:rgba(255,255,255,.1)}
