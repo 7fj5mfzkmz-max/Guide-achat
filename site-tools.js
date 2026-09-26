@@ -72,7 +72,17 @@
     esim: ["sim", "double sim", "voyage"],
     nfc: ["sans contact", "paiement"],
     ip68: ["etancheite", "eau", "poussiere"],
-    ip67: ["etancheite", "eau", "poussiere"]
+    ip67: ["etancheite", "eau", "poussiere"],
+    hz: ["rafraichissement", "fluidite", "120hz", "60hz"],
+    "5g": ["reseau", "bandes", "mobile"],
+    "4k": ["video", "uhd", "resolution"],
+    "8k": ["video", "resolution"],
+    "2k": ["resolution", "ecran"],
+    ois: ["stabilisation", "photo", "camera"],
+    mp: ["megapixels", "photo", "capteur"],
+    mah: ["batterie", "autonomie", "capacite"],
+    usb: ["charge", "usb c", "recharge"],
+    "usb-c": ["charge", "usb", "recharge"]
   };
 
   function expandTerms(query) {
@@ -183,21 +193,30 @@
 
     function addPageToIndex(doc, page) {
       var seen = {};
-      doc.querySelectorAll("h1, h2, h3, .faq-item summary").forEach(function (heading) {
+      doc.querySelectorAll("h1, h2, h3, h4, .faq-item summary, .eyebrow").forEach(function (heading) {
         var title = cleanText(heading.textContent);
         if (!title || seen[title]) return;
         seen[title] = true;
         var section = heading.closest("section");
-        var container = section || heading.closest(".cat-card") || heading.parentElement;
+        var container = section || heading.closest("article") || heading.closest(".cat-card") || heading.parentElement;
         var text = cleanText(container ? container.textContent : heading.textContent);
         var id = section && section.id ? section.id : (heading.closest("[id]") ? heading.closest("[id]").id : "");
-        addRecord({
-          title: title,
-          text: text.slice(0, 900),
-          page: page.label,
-          url: page.url + (id ? "#" + id : ""),
-          type: "content"
-        });
+        addRecord({ title:title, text:text.slice(0,1200), page:page.label, url:page.url+(id ? "#"+id : ""), type:"content" });
+      });
+      // Add dense technical blocks that have no heading of their own. This makes
+      // short queries such as 5G, IP68, OIS, 4K and Hz discoverable.
+      doc.querySelectorAll("[id], .check-item, .signal-row, .detail-content, .deep-block").forEach(function (node) {
+        var text = cleanText(node.textContent);
+        if (!text || text.length < 18) return;
+        var titleNode = node.querySelector("strong, h3, span") || node;
+        var title = cleanText(titleNode.textContent);
+        if (!title || title.length > 120) title = text.slice(0,80);
+        var idNode = node.closest("[id]");
+        var id = idNode ? idNode.id : "";
+        var key = title + "|" + id;
+        if (seen[key]) return;
+        seen[key] = true;
+        addRecord({ title:title, text:text.slice(0,700), page:page.label, url:page.url+(id ? "#"+id : ""), type:"detail" });
       });
     }
 
@@ -249,7 +268,7 @@
       "ce","cet","cette","vous","votre","vos","il","elle","ils","elles","se","sont","peut","peuvent"];
 
     function isStopword(token) {
-      return token.length < 3 || STOPWORDS.indexOf(token) !== -1;
+      return token.length < 2 || STOPWORDS.indexOf(token) !== -1;
     }
 
     function tokenMatches(queryToken, candidateTokens, candidateText) {
@@ -261,8 +280,8 @@
       candidateTokens.forEach(function (candidate) {
         if (candidate.length < 4) return;
         // Préfixe partagé significatif seulement (au moins 4 caractères communs), pas un simple "e" ou "de".
-        if (queryToken.length >= 4 && candidate.length >= 4) {
-          if (candidate.indexOf(queryToken) === 0 || queryToken.indexOf(candidate) === 0) best = Math.max(best, .7);
+        if (queryToken.length >= 2 && candidate.length >= 2) {
+          if (candidate.indexOf(queryToken) === 0 || queryToken.indexOf(candidate) === 0) best = Math.max(best, queryToken.length === 2 ? .55 : .7);
         }
         if (queryToken.length >= 6 && candidate.length >= 6) {
           var d = levenshtein(queryToken, candidate);
@@ -282,9 +301,9 @@
       var allTokens = record.titleTokens.concat(record.textTokens);
       var phrase = normalize(query);
       var matchedTerms = 0;
-      if (phrase.length >= 3 && title === phrase) score += 100;
-      if (phrase.length >= 3 && title.indexOf(phrase) !== -1) score += 55;
-      if (phrase.length >= 4 && text.indexOf(phrase) !== -1) score += 18;
+      if (phrase.length >= 2 && title === phrase) score += 100;
+      if (phrase.length >= 2 && title.indexOf(phrase) !== -1) score += 55;
+      if (phrase.length >= 2 && text.indexOf(phrase) !== -1) score += 22;
       base.forEach(function (term) {
         var titleMatch = tokenMatches(term, record.titleTokens, title);
         var textMatch = tokenMatches(term, allTokens, text);
@@ -319,7 +338,7 @@
       }
       var ranked = index.map(function (item) {
         return { item: item, score: scoreRecord(item, q) };
-      }).filter(function (entry) { return entry.score >= 22; })
+      }).filter(function (entry) { return entry.score >= 12; })
         .sort(function (a, b) { return b.score - a.score; });
 
       var unique = [];
@@ -379,6 +398,19 @@
         window.gsap.fromTo(el, { autoAlpha: 0, y: 22 }, { autoAlpha: 1, y: 0, duration: .65, ease: "power2.out", delay: Math.min(i * .025, .18) });
       });
     }
+    (function bindPurchaseAudit(){
+      var board=document.getElementById("purchase-audit");
+      if(!board) return;
+      var buttons=board.querySelectorAll(".audit-toggle"), count=document.getElementById("audit-count"), msg=document.getElementById("audit-message");
+      function update(){
+        var done=Array.prototype.filter.call(buttons,function(b){return b.getAttribute("aria-pressed")==="true";}).length;
+        if(count) count.textContent=done+" / "+buttons.length+" vérifiés";
+        if(msg) msg.textContent=done===buttons.length ? "Les cinq contrôles sont passés : revenez maintenant à votre profil et comparez le prix." : (done>=3 ? "La fiche est suffisamment documentée pour une vraie comparaison." : "Commencez par les critères qui correspondent à votre usage.");
+      }
+      buttons.forEach(function(btn){btn.addEventListener("click",function(){var active=btn.getAttribute("aria-pressed")==="true";btn.setAttribute("aria-pressed",String(!active));btn.textContent=active?"À vérifier":"Vérifié";var row=btn.closest(".audit-row");if(row)row.classList.toggle("is-checked",!active);update();});});
+      update();
+    })();
+
     initEditorialMotion();
   }
 

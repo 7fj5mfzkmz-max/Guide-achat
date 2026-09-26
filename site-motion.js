@@ -88,7 +88,7 @@
   });
 
   // Home: the six category cards physically stack as the user scrolls.
-  var stack = document.querySelectorAll(".cat-stack-interactive .cat-stack-item");
+  var stack = document.querySelectorAll(".cat-stack-interactive .cat-card");
   if (stack.length) {
     stack.forEach(function(card, i) {
       card.style.zIndex = String(i + 1);
