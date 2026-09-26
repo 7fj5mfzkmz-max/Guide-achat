@@ -462,15 +462,12 @@
       function renderGroup(group, selected){
         var opts=group.options.map(function(o){
           var active=selected===o[0];
-          var cls='audit-pill'+(active?' is-selected':'');
-          var visual='';
-          if(group.type==='pill') visual='<span class="pill-visual '+esc(group.key)+'" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
-          if(group.type==='pill-meter') visual='<span class="pill-meter-visual" aria-hidden="true"><i style="--meter:'+Math.min(100,Math.max(8,Number(o[0])/60))+'%"></i></span>';
-          if(group.type==='pill-charge') visual='<span class="pill-charge-visual" aria-hidden="true"><i style="--charge:'+Math.min(100,Number(o[0])/1.25)+'%"></i></span>';
-          return '<button type="button" class="'+cls+'" data-value="'+esc(o[0])+'" aria-pressed="'+active+'">'+visual+'<strong>'+esc(o[1])+'</strong><small>'+esc(o[2])+'</small></button>';
+          var cls='audit-pill audit-pill--'+esc(group.key)+' audit-pill--'+esc(o[0])+(active?' is-selected':'');
+          var visual='<span class="pill-visual" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></span>';
+          return '<button type="button" class="'+cls+'" data-value="'+esc(o[0])+'" aria-pressed="'+active+'">'+visual+'<span class="pill-copy"><strong>'+esc(o[1])+'</strong><small>'+esc(o[2])+'</small></span></button>';
         }).join('');
         if(group.type==='brightness'){
-          opts=group.options.map(function(o){var active=selected===o[0];return '<button type="button" class="audit-pill brightness-pill'+(active?' is-selected':'')+'" data-value="'+o[0]+'" aria-pressed="'+active+'"><span class="brightness-dot" style="--brightness:'+Math.min(100,Number(o[0])/25)+'%"></span><strong>'+esc(o[1])+'</strong><small>'+esc(o[2])+'</small></button>';}).join('');
+          opts=group.options.map(function(o){var active=selected===o[0];return '<button type="button" class="audit-pill audit-pill--brightness audit-pill--'+o[0]+(active?' is-selected':'')+'" data-value="'+o[0]+'" aria-pressed="'+active+'"><span class="pill-visual" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></span><span class="pill-copy"><strong>'+esc(o[1])+'</strong><small>'+esc(o[2])+'</small></span></button>';}).join('');
         }
         return '<div class="audit-control" data-group="'+group.key+'"><div class="audit-control-head"><strong>'+esc(group.label)+'</strong><span class="audit-control-value">'+(selected?esc((group.options.find(function(x){return x[0]===selected;})||['','Choisir'])[1]):'Choisir')+'</span></div><div class="audit-pills">'+opts+'</div></div>';
       }

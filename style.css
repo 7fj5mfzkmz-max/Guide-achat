@@ -1698,3 +1698,81 @@ html.dark-theme .buy-spec-grid span{color:#b9c8c9}
 
 /* ===== Audit interactif : cartes -> critères en pilules ===== */
 .audit-board-interactive{display:grid;gap:.65rem}.audit-card{border:1px solid var(--line,#dfe5ed);border-radius:20px;background:var(--surface,#fff);overflow:hidden;transition:border-color .25s ease,box-shadow .25s ease}.audit-card:hover{box-shadow:0 12px 28px rgba(15,23,42,.06)}.audit-card.is-complete{border-color:#2f9e52}.audit-card-trigger{width:100%;border:0;background:transparent;color:var(--ink);font:inherit;display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:1rem;text-align:left;padding:1rem 1.15rem;cursor:pointer}.audit-card-trigger[aria-expanded="true"]{background:var(--surface-2)}.audit-card-copy strong{display:block;font-size:1rem}.audit-card-copy small{display:block;color:var(--muted);margin-top:.2rem;font-size:.78rem}.audit-status{font-size:.72rem;font-weight:900;color:var(--muted);white-space:nowrap}.is-complete .audit-status{color:#2f9e52}.audit-chevron{font-size:1.2rem;color:var(--muted);line-height:1;transition:transform .25s ease}.audit-card-trigger[aria-expanded="true"] .audit-chevron{transform:rotate(180deg);color:var(--ink)}.audit-panel{display:grid;gap:.85rem;padding:0 1.15rem 1.15rem;overflow:hidden;opacity:0;transform:translateY(-5px);transition:opacity .18s ease,transform .18s ease}.audit-panel[hidden]{display:none}.audit-panel.is-open{opacity:1;transform:translateY(0)}.audit-panel-intro{margin:0;color:var(--muted);font-size:.84rem;line-height:1.5}.audit-control{padding:.8rem 0;border-top:1px solid var(--line,#dfe5ed)}.audit-control-head{display:flex;justify-content:space-between;gap:1rem;align-items:center;margin-bottom:.6rem}.audit-control-head strong{font-size:.82rem}.audit-control-value{font-size:.7rem;font-weight:900;color:var(--muted)}.audit-pills{display:flex;flex-wrap:wrap;gap:.5rem}.audit-pill{position:relative;display:flex;align-items:center;gap:.55rem;flex:1 1 145px;min-width:120px;border:1px solid var(--line,#dfe5ed);background:var(--surface,#fff);color:var(--ink);border-radius:999px;padding:.55rem .72rem;text-align:left;font:inherit;cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease,box-shadow .18s ease}.audit-pill:hover{transform:translateY(-2px);border-color:var(--ink)}.audit-pill.is-selected{border-color:#2f9e52;background:rgba(47,158,82,.08);box-shadow:0 0 0 3px rgba(47,158,82,.07)}.audit-pill strong{font-size:.74rem}.audit-pill small{flex-basis:100%;font-size:.66rem;line-height:1.35;color:var(--muted);margin-left:1.9rem}.pill-visual{width:1.35rem;height:1.35rem;display:grid;grid-template-columns:repeat(2,1fr);gap:2px;flex:none}.pill-visual i{border-radius:2px;background:currentColor;opacity:.7;animation:pillPixel 1.6s infinite alternate}.pill-visual i:nth-child(2){animation-delay:.18s}.pill-visual i:nth-child(3){animation-delay:.34s}.pill-visual i:nth-child(4){animation-delay:.52s}.pill-visual.lcd{position:relative;box-shadow:inset -3px 0 rgba(255,214,80,.55)}.pill-visual.lcd:after{content:"";position:absolute;right:-3px;top:0;bottom:0;width:2px;background:#f2d36b;box-shadow:0 0 5px #f2d36b}.pill-meter-visual,.pill-charge-visual{width:1.35rem;height:.48rem;border:1px solid currentColor;border-radius:4px;padding:2px;display:flex;align-items:center;flex:none}.pill-meter-visual i,.pill-charge-visual i{display:block;height:100%;border-radius:2px;background:#2f9e52;transition:width .45s ease}.pill-meter-visual i{width:var(--meter,30%)}.pill-charge-visual i{width:var(--charge,30%);background:currentColor;animation:chargePill 1.1s infinite alternate}.brightness-dot{width:1.35rem;height:1.35rem;border-radius:50%;background:rgb(calc(45 + var(--brightness)*2),calc(45 + var(--brightness)*2),calc(45 + var(--brightness)*2));box-shadow:0 0 calc(var(--brightness)/8 * 1px) rgba(255,220,80,.9);flex:none}.brightness-pill.is-selected .brightness-dot{box-shadow:0 0 12px rgba(255,220,80,.9)}@keyframes pillPixel{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}@keyframes chargePill{from{transform:scaleX(.65);transform-origin:left}to{transform:scaleX(1);transform-origin:left}}.audit-result-live{margin-top:.7rem}.audit-result-live strong{font-variant-numeric:tabular-nums}@media(max-width:620px){.audit-card-trigger{grid-template-columns:auto 1fr auto;gap:.7rem}.audit-status{grid-column:2;grid-row:2;justify-self:start}.audit-chevron{grid-column:3;grid-row:1}.audit-pills{gap:.4rem}.audit-pill{flex-basis:100%;border-radius:16px}.audit-pill small{margin-left:0}}
+
+/* ===== AUDIT : chaque pilule porte elle-même l'animation ===== */
+.audit-pill{
+  position:relative; min-height:86px; padding:.75rem .9rem; border-radius:18px; overflow:hidden;
+  isolation:isolate; background:var(--surface,#fff); color:var(--ink); border:1px solid var(--line,#dfe5ed);
+  display:flex; align-items:center; gap:.7rem; text-align:left; font:inherit; cursor:pointer;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.audit-pill::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.9;transform:translateZ(0)}
+.audit-pill::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none}
+.audit-pill > *{position:relative;z-index:2}
+.audit-pill:hover{transform:translateY(-3px);border-color:var(--ink);box-shadow:0 10px 24px rgba(15,23,42,.09)}
+.audit-pill.is-selected{border-color:#2f9e52;box-shadow:0 0 0 3px rgba(47,158,82,.09),0 10px 24px rgba(15,23,42,.07)}
+.audit-pill .pill-copy{display:flex;flex-direction:column;gap:.2rem;min-width:0}
+.audit-pill .pill-copy strong{font-size:.8rem;line-height:1.15}.audit-pill .pill-copy small{font-size:.65rem;line-height:1.35;color:var(--muted);max-width:240px}
+.audit-pill .pill-visual{width:48px;height:48px;flex:none;display:block;position:relative}
+.audit-pill .pill-visual i,.audit-pill .pill-visual b{position:absolute;display:block}
+
+/* Technologie : la matrice occupe une vraie zone de la pilule. */
+.audit-pill--oled::before,.audit-pill--amoled::before{background-image:radial-gradient(circle,rgba(122,245,220,.95) 0 2px,transparent 3px);background-size:10px 10px;animation:oledMatrix 1.2s steps(2,end) infinite}
+.audit-pill--oled::after{background:radial-gradient(circle at 72% 50%,rgba(150,100,255,.35),transparent 42%);animation:oledGlow 1.8s ease-in-out infinite}
+.audit-pill--amoled::after{background:linear-gradient(90deg,transparent 0 15%,rgba(255,255,255,.7) 45%,transparent 65%);transform:translateX(-120%);animation:amoledScan 1.35s linear infinite}
+.audit-pill--lcd::before{background-image:linear-gradient(rgba(70,90,110,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(70,90,110,.16) 1px,transparent 1px),linear-gradient(100deg,rgba(255,222,110,.65),rgba(255,255,255,.15));background-size:12px 12px,12px 12px,100% 100%;animation:lcdGlow 2.1s ease-in-out infinite}
+.audit-pill--lcd::after{background:linear-gradient(90deg,rgba(255,220,100,.65),transparent 22%);animation:lcdBacklightSweep 2.1s ease-in-out infinite}
+.audit-pill--ltpo::before{background:repeating-linear-gradient(90deg,rgba(52,190,174,.18) 0 3px,transparent 3px 13px);animation:ltpoFlow 2.8s linear infinite}
+.audit-pill--ltpo::after{background:radial-gradient(circle at 15% 50%,rgba(52,190,174,.55) 0 4px,transparent 5px);animation:ltpoPulseWide 2.8s ease-in-out infinite}
+
+/* Fréquence : toute la pilule pulse plus vite selon la valeur. */
+.audit-pill--60::before,.audit-pill--90::before,.audit-pill--120::before,.audit-pill--144::before{background:repeating-linear-gradient(90deg,rgba(54,190,174,.3) 0 3px,transparent 3px 12px);animation:refreshSweep var(--hz-speed,1.5s) linear infinite}
+.audit-pill--60{--hz-speed:1.5s}.audit-pill--90{--hz-speed:1s}.audit-pill--120{--hz-speed:.7s}.audit-pill--144{--hz-speed:.52s}
+.audit-pill--60::after,.audit-pill--90::after,.audit-pill--120::after,.audit-pill--144::after{background:radial-gradient(circle at 78% 50%,rgba(54,190,174,.5) 0 5px,transparent 6px);animation:hzBlink var(--hz-speed) steps(2,end) infinite}
+
+/* Luminosité : la surface entière monte du gris au blanc, avec bloom chaud. */
+.audit-pill--brightness::before{background:linear-gradient(100deg,#3b3b3b,var(--brightness-color,#eee));animation:brightnessBreath 2.2s ease-in-out infinite}
+.audit-pill--600{--brightness-color:#999}.audit-pill--1000{--brightness-color:#d0d0d0}.audit-pill--1600{--brightness-color:#f4f4f4}.audit-pill--2500{--brightness-color:#fff}
+.audit-pill--brightness::after{background:radial-gradient(circle at 88% 50%,rgba(255,215,80,.72),transparent 16%,transparent 34%);animation:sunBloom 1.8s ease-in-out infinite}
+
+/* Batterie : une charge verte progresse dans toute la pilule. */
+.audit-pill--capacity::before{background:linear-gradient(90deg,rgba(47,168,91,.72) 0 var(--battery-level),rgba(47,168,91,.08) var(--battery-level) 100%);animation:batteryBreath 2.2s ease-in-out infinite alternate}
+.audit-pill--3000{--battery-level:48%}.audit-pill--4000{--battery-level:64%}.audit-pill--5000{--battery-level:80%}.audit-pill--6000{--battery-level:96%}
+.audit-pill--chemistry::before{background:repeating-linear-gradient(90deg,rgba(47,168,91,.2) 0 9px,transparent 9px 15px);background-size:30px 100%;animation:cellFlow 1.5s linear infinite}
+.audit-pill--charge::before{background:linear-gradient(90deg,rgba(47,168,91,.75) 0 35%,rgba(47,168,91,.08) 35%);transform-origin:left;animation:chargeWhole var(--charge-speed,1.6s) ease-in-out infinite alternate}
+.audit-pill--25{--charge-speed:2.4s}.audit-pill--45{--charge-speed:1.5s}.audit-pill--67{--charge-speed:.9s}.audit-pill--100{--charge-speed:.5s}
+
+/* Performance : pas de gadget ; la pilule devient un indicateur de marge/stabilité. */
+.audit-pill--basic::before,.audit-pill--daily::before,.audit-pill--short::before{background:linear-gradient(90deg,rgba(211,154,57,.55) 0 35%,transparent 35%);animation:confidencePulse 2.8s ease-in-out infinite}
+.audit-pill--mid::before,.audit-pill--heavy::before,.audit-pill--sustained::before{background:linear-gradient(90deg,rgba(115,168,93,.5) 0 65%,transparent 65%);animation:confidencePulse 2.5s ease-in-out infinite}
+.audit-pill--high::before,.audit-pill--apple::before,.audit-pill--pro::before,.audit-pill--cooling::before{background:linear-gradient(90deg,rgba(47,168,91,.58) 0 90%,transparent 90%);animation:confidencePulse 2.2s ease-in-out infinite}
+
+/* Photo : objectif qui respire, plus grand selon le capteur/zoom. */
+.audit-pill--sensor::before,.audit-pill--stabilization::before,.audit-pill--zoom::before,.audit-pill--resolution::before{background:radial-gradient(circle at 86% 50%,currentColor 0 7%,transparent 8% 19%,currentColor 20% 24%,transparent 25%);animation:apertureWide 2.2s ease-in-out infinite}
+.audit-pill--small::before{background-size:70% 70%}.audit-pill--medium::before{background-size:85% 85%}.audit-pill--large::before{background-size:110% 110%}
+.audit-pill--digital::before{background-size:60% 60%}.audit-pill--2x::before{background-size:85% 85%}.audit-pill--5x::before{background-size:120% 120%}
+
+/* Durée de vie : cercle/anneau qui avance autour de la pilule. */
+.audit-pill--updates::before,.audit-pill--repair::before,.audit-pill--protection::before{background:conic-gradient(from 0deg,rgba(47,168,91,.7),transparent 35%,rgba(47,168,91,.15) 55%,transparent 75%);animation:ringSpin 2.8s linear infinite}
+.audit-pill--3::before{opacity:.45}.audit-pill--5::before{opacity:.65}.audit-pill--7::before{opacity:.9}.audit-pill--ip68::before{background:radial-gradient(circle at 88% 50%,rgba(60,150,220,.7),transparent 22%),linear-gradient(90deg,rgba(60,150,220,.15),transparent);animation:protectionPulse 2s ease-in-out infinite}
+
+@keyframes oledMatrix{0%{background-position:0 0;opacity:.35}50%{background-position:5px 5px;opacity:1}100%{background-position:10px 0;opacity:.45}}
+@keyframes oledGlow{0%,100%{opacity:.25}50%{opacity:.85}}
+@keyframes amoledScan{to{transform:translateX(120%)}}
+@keyframes lcdGlow{0%,100%{filter:brightness(.8)}50%{filter:brightness(1.25)}}
+@keyframes lcdBacklightSweep{0%,100%{opacity:.25;transform:translateX(-20%)}50%{opacity:.85;transform:translateX(20%)}}
+@keyframes ltpoFlow{to{background-position:30px 0}}
+@keyframes ltpoPulseWide{0%,100%{transform:translateX(0) scale(.7);opacity:.25}50%{transform:translateX(14px) scale(1.4);opacity:1}}
+@keyframes refreshSweep{to{background-position:48px 0}}
+@keyframes hzBlink{50%{opacity:1;transform:scale(1.7)}100%{opacity:.3;transform:scale(.7)}}
+@keyframes brightnessBreath{0%,100%{opacity:.45}50%{opacity:.95}}
+@keyframes sunBloom{0%,100%{filter:brightness(.85);transform:scale(.9)}50%{filter:brightness(1.3);transform:scale(1.12)}}
+@keyframes batteryBreath{from{filter:saturate(.8)}to{filter:saturate(1.25)}}
+@keyframes cellFlow{to{background-position:30px 0}}
+@keyframes chargeWhole{from{background-size:80% 100%}to{background-size:125% 100%}}
+@keyframes confidencePulse{0%,100%{filter:saturate(.8);opacity:.65}50%{filter:saturate(1.35);opacity:1}}
+@keyframes apertureWide{0%,100%{background-size:72% 72%}50%{background-size:115% 115%}}
+@keyframes ringSpin{to{background-position:0 0;transform:rotate(360deg)}}
+@keyframes protectionPulse{0%,100%{opacity:.35}50%{opacity:.95}}
+
+@media(prefers-reduced-motion:reduce){.audit-pill *,.audit-pill::before,.audit-pill::after{animation:none!important}}
