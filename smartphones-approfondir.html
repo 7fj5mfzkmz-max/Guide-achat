@@ -47,7 +47,51 @@
 <div class="falc-reading-rule">Règle de lecture : partez toujours de la ligne que vous avez sous les yeux dans la fiche produit. Puis posez trois questions : qu’est ce que cette caractéristique mesure ? quel élément de l’expérience modifie t elle ? quelles informations manquent encore pour comparer correctement ?</div>
 
 <details class="falc-chapter" id="tech-ecran" open><summary class="falc-chapter-summary"><span class="falc-chapter-index">01</span><span class="falc-chapter-copy"><strong>Écran : quand un beau chiffre devient un vrai confort</strong><small>OLED, luminosité, HDR et fréquence variable.</small></span></summary><div class="falc-chapter-body">
-<section class="section"><h2>Un écran se juge dans la scène où vous l’utilisez</h2><p>Dans le noir, le contraste domine. Au soleil, la luminosité et les reflets dominent. Dans un défilement rapide, la fréquence et la réponse de la dalle deviennent visibles. Cela explique pourquoi « OLED 120 Hz » est une description incomplète plutôt qu’un verdict.</p><div class="guide-subsection"><h3>Pourquoi OLED et LCD ne racontent pas la même histoire</h3><p>Dans un OLED, chaque sous pixel produit sa propre lumière. Un pixel noir peut donc être pratiquement éteint. Dans un LCD, un rétroéclairage reste présent et la dalle module cette lumière. La différence la plus visible est souvent le contraste dans les scènes sombres.</p></div><div class="guide-subsection"><h3>Pourquoi 120 Hz ne signifie pas 120 images par seconde</h3><p>120 Hz décrit la capacité de l’écran à renouveler son affichage. Le jeu ou l’interface doit produire des images suffisamment nombreuses pour utiliser cette capacité. Le duo écran plus puce est donc plus important que le nombre isolé.</p></div><div class="detail-content"><h3>Ce qu’il faut comparer</h3><p>Regardez la luminosité mesurée, la fréquence minimale et maximale, le mode adaptatif, la prise en charge HDR et les mesures de calibration lorsqu’elles sont disponibles. Pour une utilisation extérieure, donnez davantage de poids à la lisibilité réelle qu’au seul type de dalle.</p></div></section>
+<section class="section"><h2>Un écran se juge dans la scène où vous l’utilisez</h2><p>Dans le noir, le contraste domine. Au soleil, la luminosité et les reflets dominent. Dans un défilement rapide, la fréquence et la réponse de la dalle deviennent visibles. Cela explique pourquoi « OLED 120 Hz » est une description incomplète plutôt qu’un verdict.</p><div class="guide-subsection"><h3>Pourquoi OLED et LCD ne racontent pas la même histoire</h3><p>Dans un OLED, chaque sous pixel produit sa propre lumière. Un pixel noir peut donc être pratiquement éteint. Dans un LCD, un rétroéclairage reste présent et la dalle module cette lumière. La différence la plus visible est souvent le contraste dans les scènes sombres.</p></div><div class="guide-subsection"><h3>Pourquoi 120 Hz ne signifie pas 120 images par seconde</h3><p>120 Hz décrit la capacité de l’écran à renouveler son affichage. Le jeu ou l’interface doit produire des images suffisamment nombreuses pour utiliser cette capacité. Le duo écran plus puce est donc plus important que le nombre isolé.</p></div><div class="detail-content"><h3>Ce qu’il faut comparer</h3><p>Regardez la luminosité mesurée, la fréquence minimale et maximale, le mode adaptatif, la prise en charge HDR et les mesures de calibration lorsqu’elles sont disponibles. Pour une utilisation extérieure, donnez davantage de poids à la lisibilité réelle qu’au seul type de dalle.</p></div>
+
+<div class="callout callout-brief"><p>Cliquez sur chaque onglet pour voir la différence entre les technologies d’écran, pixel par pixel.</p></div>
+<div class="display-compare" id="display-compare">
+  <div class="display-compare-track">
+    <div aria-label="Choisir la technologie d’écran" class="display-compare-tabs" role="tablist">
+      <button aria-selected="true" class="display-compare-tab is-active" data-panel="oled" role="tab" type="button">OLED</button>
+      <button aria-selected="false" class="display-compare-tab" data-panel="amoled" role="tab" type="button">AMOLED</button>
+      <button aria-selected="false" class="display-compare-tab" data-panel="lcd" role="tab" type="button">LCD</button>
+      <button aria-selected="false" class="display-compare-tab" data-panel="ltpo" role="tab" type="button">LTPO</button>
+    </div>
+    <div class="display-compare-stage">
+      <div class="display-compare-panel is-active" data-panel="oled">
+        <div class="display-compare-panel-inner">
+          <div aria-hidden="true" class="pixel-scene pixel-scene-oled"><div class="pixel-grid" data-pattern="checker"></div></div>
+          <p class="display-compare-caption"><strong>OLED :</strong> chaque pixel produit sa propre lumière. Un pixel éteint est un noir réel, sans rétroéclairage résiduel derrière lui.</p>
+        </div>
+      </div>
+      <div class="display-compare-panel" data-panel="amoled">
+        <div class="display-compare-panel-inner">
+          <div aria-hidden="true" class="pixel-scene pixel-scene-oled"><div class="pixel-grid" data-pattern="wave"></div></div>
+          <p class="display-compare-caption"><strong>AMOLED :</strong> une architecture OLED à matrice active, qui pilote chaque sous-pixel individuellement pour un contrôle plus précis de la luminosité.</p>
+        </div>
+      </div>
+      <div class="display-compare-panel" data-panel="lcd">
+        <div class="display-compare-panel-inner">
+          <div aria-hidden="true" class="pixel-scene pixel-scene-lcd"><div class="pixel-grid" data-pattern="checker"></div></div>
+          <p class="display-compare-caption"><strong>LCD :</strong> un rétroéclairage reste actif en permanence derrière toute la dalle. Le noir n’est jamais un pixel vraiment éteint, mais une lumière fortement bloquée.</p>
+        </div>
+      </div>
+      <div class="display-compare-panel" data-panel="ltpo">
+        <div class="display-compare-panel-inner">
+          <div aria-hidden="true" class="pixel-scene pixel-scene-ltpo"><div class="pixel-grid" data-pattern="checker"></div></div>
+          <div class="ltpo-speed-controls" role="group" aria-label="Simuler la fréquence de rafraîchissement">
+            <button class="ltpo-speed-btn" data-speed="4.2s" type="button">1 Hz · lecture</button>
+            <button class="ltpo-speed-btn is-active" data-speed="1.6s" type="button">60 Hz · navigation</button>
+            <button class="ltpo-speed-btn" data-speed="0.6s" type="button">120 Hz · jeu</button>
+          </div>
+          <p class="display-compare-caption"><strong>LTPO :</strong> la fréquence de rafraîchissement varie selon le contenu. Testez les trois vitesses : un écran figé n’a pas besoin de se rafraîchir aussi vite qu’un défilement rapide.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
 </div></details>
 
 <details class="falc-chapter" id="tech-performance"><summary class="falc-chapter-summary"><span class="falc-chapter-index">02</span><span class="falc-chapter-copy"><strong>Puissance : comprendre la puce sans se faire piéger par un score</strong><small>CPU, GPU, mémoire et performance soutenue.</small></span></summary><div class="falc-chapter-body">
@@ -87,7 +131,7 @@
 <span><b>Guide</b> <strong>d’achat</strong></span>
 </div>
 <div class="footer-copy">
-<p>Guide indépendant : nous expliquons, comparons et renvoyons vers les sources et comparateurs utiles pour l'achat.</p>
+<p>Guide indépendant : nous expliquons, comparons et renvoyons vers les sources et comparateurs utiles pour l’achat.</p>
 <p>Les fiches indiquent leur date de dernière vérification.</p>
 </div>
 </div>

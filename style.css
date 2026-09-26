@@ -737,23 +737,33 @@ html.dark-theme .stack-card:nth-child(6) .stack-num{background:#94c85a}
 .detail-bubble{min-width:108px;min-height:48px;padding:.78rem 1.18rem;font-size:.9rem;opacity:.92;box-shadow:0 10px 28px rgba(36,23,38,.15)}
 @media(max-width:600px){.detail-mode-floating{right:.8rem;left:auto;bottom:.8rem}.detail-bubble{min-width:102px;min-height:46px;padding:.7rem 1rem;font-size:.82rem}}
 
-/* ===== Carte smartphone illustrée (accueil) ===== */
-.cat-card-smartphone{position:relative}
-.cat-card-phone-mini{position:absolute;right:1.1rem;bottom:1.1rem;width:58px;height:104px;border-radius:14px;background:var(--ink-deep);padding:4px;box-shadow:0 8px 18px rgba(36,23,38,.25)}
-.cat-card-featured .cat-card-phone-mini{width:74px;height:132px;right:1.6rem;bottom:1.6rem}
-.cat-card-phone-mini-screen{position:relative;width:100%;height:100%;border-radius:10px;overflow:hidden;background:linear-gradient(160deg,var(--teal-tint),var(--lime-tint))}
-.cat-card-phone-mini-row{position:absolute;left:8%;right:8%;height:16%;border-radius:5px;background:rgba(36,23,38,.16)}
-.cat-card-phone-mini-row.r1{top:12%}
-.cat-card-phone-mini-row.r2{top:38%}
-.cat-card-phone-mini-row.r3{top:64%}
-.cat-card-phone-mini-thumb{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--lime);left:50%;bottom:8%;box-shadow:0 0 0 4px rgba(232,246,92,.28)}
-.cat-card-featured .cat-card-phone-mini-thumb{background:#fff}
+/* ===== Cartes catégories : scène orbitale flottante (accueil) ===== */
+.cat-card-visual{display:flex;flex-direction:column}
+.cat-card-body{position:relative;z-index:2}
+.cat-card-visual .cat-card-body p{margin:.3rem 0 0}
+.cat-orbit-scene{position:absolute;right:1rem;bottom:.9rem;width:104px;height:104px;pointer-events:none}
+.cat-card-featured .cat-orbit-scene{width:150px;height:150px;right:1.4rem;bottom:1.4rem}
+.cat-orbit-ring{position:absolute;inset:8%;border-radius:50%;border:1.5px dashed rgba(36,23,38,.14)}
+.cat-card-featured .cat-orbit-ring{border-color:rgba(255,255,255,.16)}
+.cat-orbit-chip{position:absolute;width:30%;height:30%;border-radius:30%;background:var(--surface);box-shadow:0 10px 22px rgba(36,23,38,.18);left:50%;top:50%;margin:-15% 0 0 -15%}
+.cat-card-featured .cat-orbit-chip{background:#fff}
+.cat-chip-screen{background:linear-gradient(155deg,var(--teal),var(--teal-tint))}
+.cat-chip-battery{background:linear-gradient(155deg,var(--lime),var(--lime-tint));width:22%;height:22%;margin:-11% 0 0 -11%}
+.cat-chip-camera{background:radial-gradient(circle at 35% 30%,#fff,var(--orchid) 70%);width:20%;height:20%;margin:-10% 0 0 -10%;border-radius:50%}
+.cat-chip-a{background:linear-gradient(155deg,var(--teal),var(--teal-tint))}
+.cat-chip-b{background:linear-gradient(155deg,var(--orchid),var(--orchid-tint));width:22%;height:22%;margin:-11% 0 0 -11%}
 @media(prefers-reduced-motion:no-preference){
-  .cat-card-phone-mini-thumb{animation:phoneMiniSwipe 3.6s ease-in-out infinite}
-  .cat-card-phone-mini-row{animation:phoneMiniRow 3.6s ease-in-out infinite}
+  .cat-orbit-ring{animation:orbitSpin 14s linear infinite}
+  .cat-chip-screen,.cat-chip-a{animation:orbitFloatA 4.2s ease-in-out infinite}
+  .cat-chip-battery,.cat-chip-b{animation:orbitFloatB 4.6s ease-in-out infinite}
+  .cat-chip-camera{animation:orbitFloatC 5s ease-in-out infinite}
+  .cat-card:hover .cat-orbit-chip{animation-duration:1.6s}
 }
-@keyframes phoneMiniSwipe{0%,8%{bottom:8%;opacity:1}45%{bottom:78%;opacity:.4}46%,54%{bottom:8%;opacity:0}55%{opacity:1}100%{bottom:8%}}
-@keyframes phoneMiniRow{0%,45%{transform:translateY(0)}55%,100%{transform:translateY(-120%)}}
+@keyframes orbitSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes orbitFloatA{0%,100%{transform:translate(-58%,-40%)}50%{transform:translate(38%,-62%)}}
+@keyframes orbitFloatB{0%,100%{transform:translate(42%,48%)}50%{transform:translate(-30%,58%)}}
+@keyframes orbitFloatC{0%,100%{transform:translate(6%,-4%) scale(1)}50%{transform:translate(-10%,32%) scale(1.08)}}
+.cat-card-disabled .cat-orbit-scene{opacity:.55;filter:grayscale(.35)}
 
 /* ===== Illustration hero : pouce qui swipe (page smartphones) ===== */
 .smartphone-hero-stage{display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
@@ -807,6 +817,41 @@ html.dark-theme .phone-swipe-thumb{background:var(--lime);box-shadow:0 0 0 6px r
 .checklist{display:flex;flex-direction:column;gap:.7rem}
 .check-item{padding:.7rem .9rem;border-radius:8px;background:rgba(232,246,92,.08);border-left:3px solid var(--lime);font-size:.95rem;line-height:1.5}
 .check-item strong{display:block;font-weight:700;margin-bottom:.2rem;color:var(--ink-deep)}
+
+/* Tableau signal fort / signal faible (+/-) */
+.profile-card-signal{grid-column:1/-1}
+.signal-table{display:flex;flex-direction:column;gap:.55rem;margin-top:.4rem}
+.signal-row{display:flex;align-items:flex-start;gap:.7rem;padding:.6rem .8rem;border-radius:10px;background:var(--surface-2)}
+.signal-row p{margin:0;font-size:.92rem;line-height:1.5}
+.signal-plus,.signal-minus{flex:0 0 auto;width:1.6rem;height:1.6rem;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:1rem;color:#fff;margin-top:.05rem}
+.signal-plus{background:#2f9e52}
+.signal-minus{background:#c8453d}
+html.dark-theme .signal-row{background:rgba(255,255,255,.06)}
+
+/* Carte verdict : conclusion actionnable en fin de profil */
+.profile-card-verdict{grid-column:1/-1;background:var(--ink-deep);color:#fff;border-radius:var(--radius)}
+.profile-card-verdict h3{color:var(--lime)}
+.profile-card-verdict p{color:#e9dcec}
+.profile-card-verdict .story-strip{background:rgba(255,255,255,.1);color:#fff}
+
+/* ===== Sélecteur rapide de profil + profils repliables ===== */
+.profile-picker{padding:1.6rem 1.8rem}
+.profile-picker-tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.9rem}
+.profile-picker-tab{text-decoration:none;font-weight:700;font-size:.86rem;color:var(--ink);background:var(--surface-2);padding:.6rem 1.1rem;border-radius:999px;border:2px solid transparent;transition:background .2s ease,border-color .2s ease}
+.profile-picker-tab:hover{border-color:var(--lime)}
+.profile-picker-tab.is-current{background:var(--lime);color:var(--ink-deep)}
+.profile-picker .hint{margin-top:.8rem;color:var(--ink-soft);font-size:.86rem}
+
+.profile-toggle{margin:1.4rem 0;border-radius:var(--radius-lg);overflow:hidden}
+.profile-toggle > .profile-section{margin:0;border-radius:0}
+.profile-toggle-summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:.9rem;padding:1.1rem 1.4rem;background:var(--surface-2);font-weight:700;font-size:1.05rem;border-radius:var(--radius-lg)}
+.profile-toggle[open] .profile-toggle-summary{border-radius:var(--radius-lg) var(--radius-lg) 0 0}
+.profile-toggle-summary::-webkit-details-marker{display:none}
+.profile-toggle-summary:hover{background:var(--lime-tint)}
+.profile-toggle-index{display:inline-flex;align-items:center;justify-content:center;width:2.1rem;height:2.1rem;border-radius:50%;background:var(--ink-deep);color:var(--lime);font-weight:800;font-size:.78rem;flex:0 0 auto}
+.profile-toggle-caret{margin-left:auto;font-size:1.3rem;transition:transform .25s ease;color:var(--ink-soft)}
+.profile-toggle[open] .profile-toggle-caret{transform:rotate(45deg)}
+html.dark-theme .profile-picker-tab.is-current{background:var(--accent-2);color:var(--ink-deep)}
 
 /* Démo card */
 .profile-card-demo{grid-column:1/-1;border:2px solid var(--lime)}
@@ -1224,6 +1269,49 @@ html.dark-theme .display-compare-tab.is-active{background:var(--lime);color:var(
 .display-compare-caption{font-size:.82rem;color:var(--ink-soft);max-width:320px;line-height:1.5}
 .display-compare-caption strong{color:var(--ink)}
 
+/* ===== Scènes de pixels flottants : OLED / AMOLED / LCD / LTPO ===== */
+/* Inspiré du patron "objet 3D qui flotte, vu de biais" utilisé par decoys.me */
+.display-compare-stage{background:radial-gradient(circle at 50% 30%,var(--surface),var(--surface-2))}
+.pixel-scene{position:relative;width:220px;height:150px;perspective:600px}
+.pixel-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(4,1fr);gap:6px;transform:rotateX(28deg) rotateZ(-6deg);transform-style:preserve-3d}
+.pixel-cell{border-radius:4px;position:relative;box-shadow:0 6px 10px rgba(36,23,38,.18)}
+
+/* OLED / AMOLED : chaque pixel émet sa propre lumière, le noir est un pixel vraiment éteint */
+.pixel-scene-oled .pixel-cell{background:#1c1420}
+.pixel-scene-oled .pixel-cell.is-lit{background:linear-gradient(155deg,var(--orchid),var(--teal))}
+@media(prefers-reduced-motion:no-preference){
+  .pixel-scene-oled .pixel-cell.is-lit{animation:pixelGlow 2.6s ease-in-out infinite}
+}
+@keyframes pixelGlow{0%,100%{box-shadow:0 6px 10px rgba(36,23,38,.18),0 0 0 rgba(199,103,194,0)}50%{box-shadow:0 6px 16px rgba(36,23,38,.22),0 0 16px rgba(199,103,194,.55)}}
+
+/* LCD : rétroéclairage permanent visible derrière toute la dalle, même sur les zones "noires" */
+.pixel-scene-lcd{isolation:isolate}
+.pixel-scene-lcd::before{content:"";position:absolute;inset:10% 8%;border-radius:14px;background:radial-gradient(ellipse at center,rgba(255,246,210,.9),rgba(255,246,210,.15) 70%);filter:blur(2px);z-index:-1}
+.pixel-scene-lcd .pixel-cell{background:rgba(36,23,38,.14)}
+.pixel-scene-lcd .pixel-cell.is-lit{background:linear-gradient(155deg,var(--teal),var(--teal-tint))}
+@media(prefers-reduced-motion:no-preference){
+  .pixel-scene-lcd::before{animation:backlightPulse 3.4s ease-in-out infinite}
+}
+@keyframes backlightPulse{0%,100%{opacity:.85}50%{opacity:1}}
+
+/* LTPO : la fréquence de rafraîchissement varie, illustrée par une pulsation qui ralentit puis accélère */
+.pixel-scene-ltpo .pixel-cell{background:#1c1420}
+.pixel-scene-ltpo .pixel-cell.is-lit{background:linear-gradient(155deg,var(--lime),var(--teal))}
+@media(prefers-reduced-motion:no-preference){
+  .pixel-scene-ltpo .pixel-cell.is-lit{animation:pixelGlow var(--ltpo-speed,2.6s) ease-in-out infinite}
+}
+.ltpo-speed-controls{display:flex;gap:.4rem;margin-top:.5rem;flex-wrap:wrap;justify-content:center}
+.ltpo-speed-btn{border:1.5px solid var(--ink-soft);background:transparent;color:var(--ink);font-size:.72rem;font-weight:700;padding:.3rem .7rem;border-radius:999px;cursor:pointer;transition:background .2s ease,color .2s ease}
+.ltpo-speed-btn.is-active{background:var(--ink-deep);color:#fff;border-color:var(--ink-deep)}
+html.dark-theme .ltpo-speed-btn.is-active{background:var(--lime);color:var(--ink-deep);border-color:var(--lime)}
+
+@media(prefers-reduced-motion:reduce){
+  .pixel-cell.is-lit,.pixel-scene-lcd::before{animation:none!important}
+}
+@media(max-width:640px){
+  .pixel-scene{width:170px;height:120px}
+}
+
 
 /* =========================================================
    ACCUEIL : hiérarchie éditoriale, respiration et outils
@@ -1532,9 +1620,13 @@ html.dark-theme .lexique-detail-floating .detail-bubble{background:color-mix(in 
 .journey-number,.pitfall-number{display:inline-flex;align-items:center;justify-content:center;min-width:2.4rem;height:2.2rem;border-radius:999px;background:var(--accent-soft,#eaf2ff);color:var(--accent,#164a9c);font-weight:800;font-size:.82rem;letter-spacing:.04em}
 .journey-step h3,.fiche-reading-card h3,.pitfall-card h3{margin:.7rem 0 .55rem}
 .callout-brief{margin-top:1.2rem}
-.fiche-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);gap:1.2rem;align-items:start}
+.fiche-layout{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;align-items:start}
+.fiche-layout .fiche-reading-card{grid-column:1/-1}
 .fiche-example-card{overflow:hidden}
+.fiche-example-highlight{border-color:var(--lime);box-shadow:0 10px 28px rgba(232,246,92,.18)}
 .fiche-example-top{display:flex;justify-content:space-between;gap:1rem;align-items:center;margin:-1.35rem -1.35rem 1rem;padding:.9rem 1.1rem;background:var(--accent-soft,#eef5ff);font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+.fiche-shot-frame{border-radius:16px;overflow:hidden;background:var(--surface-2,#f7f8fb);max-height:420px}
+.fiche-shot-frame img{width:100%;height:auto;display:block;object-fit:cover;object-position:top}
 .fiche-example-screen{display:grid;gap:.65rem;background:var(--surface-2,#f7f8fb);padding:1rem;border-radius:16px}
 .fake-spec-row{display:grid;grid-template-columns:8.5rem 1fr;gap:1rem;padding:.75rem;border-bottom:1px solid var(--line,#e1e6ee);font-size:.94rem}
 .fake-spec-row:last-child{border-bottom:0}
@@ -1548,7 +1640,15 @@ html.dark-theme .lexique-detail-floating .detail-bubble{background:color-mix(in 
 .story-strip b,.story-strip span{white-space:nowrap}
 .pitfall-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
 .pitfall-card p{margin:.75rem 0 0}
-@media(max-width:900px){.journey-grid,.fiche-layout,.pitfall-grid{grid-template-columns:1fr}.fake-spec-row{grid-template-columns:1fr}.reading-list>div{grid-template-columns:1fr}}
+.pitfall-card-expanded{display:flex;flex-direction:column}
+.pitfall-compare,.pitfall-why{margin-top:1rem;padding:.9rem 1rem;border-radius:14px}
+.pitfall-compare{background:var(--teal-tint)}
+.pitfall-why{background:var(--orchid-tint)}
+.pitfall-compare strong,.pitfall-why strong{display:block;font-size:.72rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;margin-bottom:.35rem;color:var(--ink-deep)}
+.pitfall-compare p,.pitfall-why p{margin:0;font-size:.88rem;line-height:1.55}
+html.dark-theme .pitfall-compare{background:rgba(138,228,230,.12)}
+html.dark-theme .pitfall-why{background:rgba(199,103,194,.14)}
+@media(max-width:900px){.journey-grid,.pitfall-grid{grid-template-columns:1fr}.fiche-layout{grid-template-columns:1fr}.fake-spec-row{grid-template-columns:1fr}.reading-list>div{grid-template-columns:1fr}}
 :root.dark-theme .journey-step,:root.dark-theme .fiche-reading-card,:root.dark-theme .fiche-example-card,:root.dark-theme .pitfall-card{background:var(--surface-dark,#111827);border-color:rgba(255,255,255,.12);box-shadow:none}
 :root.dark-theme .fiche-example-top,:root.dark-theme .fiche-example-screen,:root.dark-theme .story-strip{background:rgba(255,255,255,.06)}
 :root.dark-theme .fake-spec-row{border-color:rgba(255,255,255,.1)}

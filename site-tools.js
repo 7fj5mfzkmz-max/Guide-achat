@@ -243,15 +243,30 @@
       return Promise.all(jobs);
     }
 
+    // Mots trop courts ou trop fréquents pour porter un sens de recherche à eux seuls.
+    var STOPWORDS = ["le","la","les","un","une","des","de","du","et","ou","est","son","sa","ses",
+      "pour","dans","avec","sur","au","aux","en","que","qui","ne","pas","plus","tout","tous",
+      "ce","cet","cette","vous","votre","vos","il","elle","ils","elles","se","sont","peut","peuvent"];
+
+    function isStopword(token) {
+      return token.length < 3 || STOPWORDS.indexOf(token) !== -1;
+    }
+
     function tokenMatches(queryToken, candidateTokens, candidateText) {
-      if (candidateText.indexOf(queryToken) !== -1) return 1;
+      if (isStopword(queryToken)) return 0;
+      // Correspondance exacte d'un mot entier dans le texte (bornée par des séparateurs).
+      var exactWord = new RegExp("(^| )" + queryToken.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "( |$)");
+      if (exactWord.test(candidateText)) return 1;
       var best = 0;
       candidateTokens.forEach(function (candidate) {
-        if (candidate.indexOf(queryToken) === 0 || queryToken.indexOf(candidate) === 0) best = Math.max(best, .82);
-        if (queryToken.length >= 5 && candidate.length >= 5) {
+        if (candidate.length < 4) return;
+        // Préfixe partagé significatif seulement (au moins 4 caractères communs), pas un simple "e" ou "de".
+        if (queryToken.length >= 4 && candidate.length >= 4) {
+          if (candidate.indexOf(queryToken) === 0 || queryToken.indexOf(candidate) === 0) best = Math.max(best, .7);
+        }
+        if (queryToken.length >= 6 && candidate.length >= 6) {
           var d = levenshtein(queryToken, candidate);
-          var threshold = queryToken.length >= 8 ? 2 : 1;
-          if (d <= threshold) best = Math.max(best, .66);
+          if (d <= 1) best = Math.max(best, .5);
         }
       });
       return best;
@@ -259,29 +274,38 @@
 
     function scoreRecord(record, query) {
       var expanded = expandTerms(query);
-      var base = expanded.base;
+      var base = expanded.base.filter(function (t) { return !isStopword(t); });
       if (!base.length) return 0;
       var score = 0;
       var title = record.normalizedTitle;
       var text = record.normalizedText;
       var allTokens = record.titleTokens.concat(record.textTokens);
       var phrase = normalize(query);
-      if (title === phrase) score += 100;
-      if (title.indexOf(phrase) !== -1) score += 55;
-      if (text.indexOf(phrase) !== -1) score += 20;
+      var matchedTerms = 0;
+      if (phrase.length >= 3 && title === phrase) score += 100;
+      if (phrase.length >= 3 && title.indexOf(phrase) !== -1) score += 55;
+      if (phrase.length >= 4 && text.indexOf(phrase) !== -1) score += 18;
       base.forEach(function (term) {
         var titleMatch = tokenMatches(term, record.titleTokens, title);
         var textMatch = tokenMatches(term, allTokens, text);
-        score += titleMatch * 32;
-        score += textMatch * 8;
+        if (titleMatch > 0 || textMatch > 0) matchedTerms += 1;
+        score += titleMatch * 30;
+        score += textMatch * 6;
         var synonyms = SEARCH_SYNONYMS[term] || [];
         synonyms.forEach(function (syn) {
-          var synTokens = tokens(syn);
-          if (synTokens.some(function (st) { return text.indexOf(st) !== -1; })) score += 5;
+          var synTokens = tokens(syn).filter(function (t) { return !isStopword(t); });
+          if (synTokens.some(function (st) {
+            var re = new RegExp("(^| )" + st.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "( |$)");
+            return re.test(text);
+          })) score += 4;
         });
       });
-      if (record.type === "product") score += 4;
-      if (record.brand && base.some(function (t) { return normalize(record.brand).indexOf(t) !== -1; })) score += 28;
+      // Exige qu'une part significative des termes saisis trouve un écho réel,
+      // sinon une requête à plusieurs mots ne doit pas remonter sur un seul mot vague.
+      var coverage = matchedTerms / base.length;
+      if (base.length >= 2 && coverage < 0.5) score *= 0.25;
+      if (record.type === "product") score += 3;
+      if (record.brand && base.some(function (t) { return t.length >= 3 && normalize(record.brand).indexOf(t) !== -1; })) score += 26;
       return score;
     }
 
@@ -295,7 +319,7 @@
       }
       var ranked = index.map(function (item) {
         return { item: item, score: scoreRecord(item, q) };
-      }).filter(function (entry) { return entry.score >= 8; })
+      }).filter(function (entry) { return entry.score >= 22; })
         .sort(function (a, b) { return b.score - a.score; });
 
       var unique = [];
@@ -339,16 +363,12 @@
       });
     }
 
-    function setSearch(open) {
-      if (!searchPanel) return;
-      searchPanel.hidden = !open;
-      searchPanel.setAttribute("aria-hidden", open ? "false" : "true");
-      document.body.classList.toggle("search-open", open);
-      if (searchButton) searchButton.setAttribute("aria-expanded", open ? "true" : "false");
-      if (open && searchInput) setTimeout(function () { searchInput.focus(); }, 60);
-    }
-
-    if (searchInput) searchInput.addEventListener("input", function () { renderResults(searchInput.value); });
+    var searchDebounce = null;
+    if (searchInput) searchInput.addEventListener("input", function () {
+      var value = searchInput.value;
+      window.clearTimeout(searchDebounce);
+      searchDebounce = window.setTimeout(function () { renderResults(value); }, 90);
+    });
     loadIndex();
 
     function initEditorialMotion() {

@@ -1,10 +1,76 @@
 (function () {
   "use strict";
-  if (!window.gsap) return;
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Construit chaque grille de 24 pixels (6x4) avec un motif d'allumage
+  // différent selon la scène, pour distinguer visuellement OLED / AMOLED / LCD.
+  function buildPixelGrids() {
+    document.querySelectorAll(".pixel-grid").forEach(function (grid) {
+      if (grid.dataset.built) return;
+      grid.dataset.built = "1";
+      var pattern = grid.dataset.pattern || "checker";
+      for (var i = 0; i < 24; i++) {
+        var cell = document.createElement("div");
+        cell.className = "pixel-cell";
+        var row = Math.floor(i / 6), col = i % 6;
+        var lit;
+        if (pattern === "checker") lit = (row + col) % 2 === 0;
+        else lit = ((row * 3 + col * 2) % 5) < 3; // motif "wave" plus organique pour AMOLED
+        if (lit) {
+          cell.classList.add("is-lit");
+          cell.style.animationDelay = ((i % 6) * 0.12) + "s";
+        }
+        grid.appendChild(cell);
+      }
+    });
+  }
+
+  // Les trois boutons de vitesse LTPO changent la durée de l'animation CSS
+  // (variable --ltpo-speed) pour simuler 1 Hz / 60 Hz / 120 Hz.
+  function bindLtpoSpeed() {
+    document.querySelectorAll(".ltpo-speed-controls").forEach(function (group) {
+      var scene = group.closest(".display-compare-panel-inner").querySelector(".pixel-scene-ltpo");
+      var buttons = group.querySelectorAll(".ltpo-speed-btn");
+      buttons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          buttons.forEach(function (b) { b.classList.toggle("is-active", b === btn); });
+          if (scene) scene.style.setProperty("--ltpo-speed", btn.dataset.speed);
+        });
+      });
+    });
+  }
+
+  // Si GSAP n'a pas pu charger (CDN bloqué, réseau coupé), le site ne doit jamais
+  // rester grisé ou figé : on retire toute opacité d'attente posée par le CSS
+  // et on branche quand même les interactions cliquables (onglets, indices).
+  if (!window.gsap) {
+    document.querySelectorAll(
+      ".section, .lex-entry, .faq-item, .tool-box, .interactive-demo, .callout, " +
+      ".keypoints, .repere, .why-card, .why-copy, .catalogue-group, .guide-subsection, " +
+      ".store-scene-step, .cat-stack-item"
+    ).forEach(function (el) { el.style.opacity = "1"; el.style.transform = "none"; });
+    document.querySelectorAll(".store-scene-step").forEach(function (s) { s.classList.add("is-active"); });
+
+    var fallbackCompare = document.getElementById("display-compare");
+    if (fallbackCompare) {
+      var fTabs = fallbackCompare.querySelectorAll(".display-compare-tab");
+      var fPanels = fallbackCompare.querySelectorAll(".display-compare-panel");
+      fTabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          var target = tab.dataset.panel;
+          fTabs.forEach(function (t) { t.classList.toggle("is-active", t === tab); t.setAttribute("aria-selected", String(t === tab)); });
+          fPanels.forEach(function (p) { var active = p.dataset.panel === target; p.classList.toggle("is-active", active); p.hidden = !active; });
+        });
+      });
+    }
+    buildPixelGrids();
+    bindLtpoSpeed();
+    return;
+  }
+
   var gs = window.gsap;
   var ST = window.ScrollTrigger;
   if (ST) gs.registerPlugin(ST);
-  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Reveal: still subtle under reduced-motion, but never force elements invisible.
   document.querySelectorAll(".section, .lex-entry, .faq-item, .tool-box, .interactive-demo, .callout, .keypoints, .repere, .why-card, .why-copy, .catalogue-group, .guide-subsection").forEach(function (el, i) {
@@ -86,9 +152,11 @@
     });
   });
 
-  // Comparateur interactif OLED / LCD / AMOLED.
+  // Comparateur interactif OLED / LCD / AMOLED / LTPO, avec grilles de pixels flottants.
   var displayCompare = document.getElementById("display-compare");
   if (displayCompare) {
+    buildPixelGrids();
+    bindLtpoSpeed();
     var tabs = displayCompare.querySelectorAll(".display-compare-tab");
     var panels = displayCompare.querySelectorAll(".display-compare-panel");
     tabs.forEach(function (tab) {

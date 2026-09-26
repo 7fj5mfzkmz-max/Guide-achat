@@ -17,14 +17,14 @@
 <body class="site-redesign">
 <header class="site-header">
 <div class="header-inner">
-<a aria-label="Guide d'achat  :  accueil" class="brand-logo" href="index.html">
+<a aria-label="Guide d’achat  :  accueil" class="brand-logo" href="index.html">
 <span aria-hidden="true" class="brand-mark">
 <svg focusable="false" viewbox="0 0 56 56">
 <path class="bag" d="M13 20h30l-2.4 27H15.4L13 20Z"></path>
 <path class="handle" d="M20 20v-5.2a8 8 0 0 1 16 0V20"></path>
 </svg>
 </span>
-<span class="brand-name"><b>Guide</b><strong>d'achat</strong><small>Bien choisir, c'est mieux consommer</small></span>
+<span class="brand-name"><b>Guide</b><strong>d’achat</strong><small>Bien choisir, c’est mieux consommer</small></span>
 </a>
 <nav aria-label="Catégories" class="site-nav">
 <a href="smartphones.html">Smartphones</a>
@@ -87,16 +87,19 @@
   <p class="section-lead">Les captures d’écran réelles seront placées ici. Elles serviront de carte de lecture : on repère une ligne dans la fiche, puis on revient dans le guide pour comprendre sa portée.</p>
   <div class="fiche-layout">
     <article class="fiche-example-card">
-      <div class="fiche-example-top"><span>EXEMPLE À CAPTURER</span><strong>Zone « Caractéristiques »</strong></div>
-      <div class="fiche-example-screen" aria-label="Emplacement prévu pour une capture de fiche produit">
-        <div class="fake-spec-row"><b>Écran</b><span>6,7 pouces · OLED · 120 Hz</span></div>
-        <div class="fake-spec-row"><b>Batterie</b><span>5 000 mAh · charge 67 W</span></div>
-        <div class="fake-spec-row"><b>Mémoire</b><span>12 Go RAM · 256 Go</span></div>
-        <div class="fake-spec-row"><b>Photo</b><span>50 Mpx · OIS · ultra grand angle</span></div>
-        <div class="fake-spec-row"><b>Réseau</b><span>5G · Wi Fi 6 · NFC · eSIM</span></div>
-        <div class="fake-spec-row"><b>Protection</b><span>IP68</span></div>
-      </div>
-      <p>Quand la vraie capture sera ajoutée, les zones importantes pourront être surlignées directement sur l’image.</p>
+      <div class="fiche-example-top"><span>CAPTURE RÉELLE</span><strong>Étape 1 · Sur la liste de résultats</strong></div>
+      <div class="fiche-shot-frame"><img alt="Liste de résultats Amazon.fr avec smartphones, prix et notes visibles" loading="lazy" src="assets/capture-amazon-liste-web.jpg"/></div>
+      <p>Sur Amazon comme sur Cdiscount, la liste affiche déjà le prix, la note et parfois une couleur/capacité. Cliquez sur le modèle qui vous intéresse pour ouvrir sa fiche.</p>
+    </article>
+    <article class="fiche-example-card">
+      <div class="fiche-example-top"><span>CAPTURE RÉELLE</span><strong>Étape 2 · La fiche produit</strong></div>
+      <div class="fiche-shot-frame"><img alt="Fiche produit Amazon.fr d’un smartphone avec ses points forts principaux" loading="lazy" src="assets/capture-amazon-fiche-web.jpg"/></div>
+      <p>Sur la fiche, faites défiler au-delà des photos et du titre. Cherchez le bloc « Principaux points forts » ou « Détails du produit » : c’est le début de la zone qui vous intéresse.</p>
+    </article>
+    <article class="fiche-example-card fiche-example-highlight">
+      <div class="fiche-example-top"><span>EXEMPLE À REPÉRER</span><strong>Étape 3 · Zone « Spécifications du produit »</strong></div>
+      <div class="fiche-shot-frame"><img alt="Zone Spécifications du produit sur Amazon.fr : système d’exploitation, processeur, stockage, écran" loading="lazy" src="assets/capture-amazon-caracteristiques-web.jpg"/></div>
+      <p>C’est ici que se trouvent les lignes utiles : système, processeur, stockage, écran, connectique, protection. Repérez le mot, puis revenez dans ce guide pour savoir ce qu’il signifie pour vous.</p>
     </article>
     <article class="fiche-reading-card">
       <h3>Ce que vous devez apprendre à repérer</h3>
@@ -111,6 +114,19 @@
   </div>
 </section>
 
+<section class="section profile-picker" id="choisir-profil">
+  <div class="section-heading"><span class="eyebrow">POUR ALLER PLUS VITE</span><h2>Choisissez votre profil pour ne lire que ce qui vous concerne</h2></div>
+  <div aria-label="Choisir un profil" class="profile-picker-tabs" role="tablist">
+    <a class="profile-picker-tab" data-profile="etudiant" href="#etudiant">01 · Étudiant</a>
+    <a class="profile-picker-tab" data-profile="professionnel" href="#professionnel">02 · Professionnel</a>
+    <a class="profile-picker-tab" data-profile="gamer" href="#gamer">03 · Gamer</a>
+    <a class="profile-picker-tab" data-profile="photographe" href="#photographe">04 · Photographe</a>
+  </div>
+  <p class="hint">Les quatre profils restent tous consultables ; ce raccourci ouvre directement le vôtre et replie les autres.</p>
+</section>
+
+<details class="profile-toggle" id="etudiant-toggle" open>
+<summary class="profile-toggle-summary"><span class="profile-toggle-index">01</span><span>Profil 1 · L’étudiant</span><span aria-hidden="true" class="profile-toggle-caret">＋</span></summary>
 <section class="section profile-section" id="etudiant">
   <div class="profile-header">
     <div aria-hidden="true" class="profile-icon">01</div>
@@ -118,30 +134,58 @@
     <p class="profile-situation">Le téléphone accompagne les cours, les messages, les transports, la vidéo et les photos. Le problème n’est pas d’obtenir le plus gros chiffre. C’est d’éviter un modèle qui devient pénible au quotidien ou trop juste avant la fin de vos études.</p>
   </div>
   <div class="profile-grid">
-    <article class="profile-card"><h3>Votre priorité</h3><p><strong>Autonomie, écran, stockage et durée de support.</strong> Ce sont les points qui peuvent rester gênants pendant des années.</p><div class="checklist"><div class="check-item"><strong>Écran</strong> : privilégiez la lisibilité et la luminosité avant de vous arrêter au nom OLED.</div><div class="check-item"><strong>Stockage</strong> : si vous gardez beaucoup de vidéos et de photos, 256 Go peuvent apporter une marge utile.</div><div class="check-item"><strong>Mises à jour</strong> : un téléphone encore suivi dans plusieurs années évite un remplacement prématuré.</div></div></article>
-    <article class="profile-card"><h3>Dans la fiche produit</h3><p>Cherchez les lignes <strong>écran</strong>, <strong>capacité</strong>, <strong>stockage</strong> et <strong>mises à jour</strong>. Le chiffre des mAh ne doit pas être lu tout seul. Un écran très lumineux et une puce énergivore peuvent consommer davantage.</p><p>Pour le stockage, regardez aussi si une carte mémoire est possible. Quand ce n’est pas le cas, la capacité achetée aujourd’hui est celle avec laquelle vous vivrez.</p></article>
-    <article class="profile-card profile-card-demo"><h3>La bonne question</h3><p class="demo-caption">Ne demandez pas « combien de mAh ? ». Demandez « est ce que ce téléphone peut tenir ma journée réelle avec mon réseau, mon écran et mes usages ? ».</p><div class="story-strip"><span>8 h</span><b>cours</b><span>18 h</span><b>retour</b><span>22 h</span><b>encore de la batterie</b></div></article>
+    <article class="profile-card"><h3>Votre priorité</h3><div class="checklist"><div class="check-item"><strong>Écran</strong> : la lisibilité et la luminosité comptent avant le nom OLED.</div><div class="check-item"><strong>Stockage</strong> : 256 Go si vous gardez beaucoup de photos et vidéos.</div><div class="check-item"><strong>Mises à jour</strong> : un téléphone encore suivi évite un remplacement prématuré.</div></div></article>
+    <article class="profile-card profile-card-signal"><h3>Signal fort / signal faible dans la fiche</h3><div class="signal-table" role="table" aria-label="Signaux positifs et négatifs pour un usage étudiant">
+      <div class="signal-row" role="row"><span class="signal-plus" role="cell">+</span><p role="cell"><strong>256 Go et plus</strong> avec carte mémoire possible : marge confortable pour plusieurs années.</p></div>
+      <div class="signal-row" role="row"><span class="signal-minus" role="cell">−</span><p role="cell"><strong>64 Go non extensible</strong> : capacité qui devient vite juste avec les vidéos et applications.</p></div>
+      <div class="signal-row" role="row"><span class="signal-plus" role="cell">+</span><p role="cell"><strong>Mises à jour annoncées 4 ans ou plus</strong> : le logiciel reste suivi pendant les études.</p></div>
+      <div class="signal-row" role="row"><span class="signal-minus" role="cell">−</span><p role="cell"><strong>Mises à jour non précisées</strong> : risque d’arrêt du suivi avant la fin du cursus.</p></div>
+      <div class="signal-row" role="row"><span class="signal-plus" role="cell">+</span><p role="cell"><strong>mAh élevé et luminosité mesurée</strong> ensemble : bon indice d’une vraie journée d’autonomie.</p></div>
+      <div class="signal-row" role="row"><span class="signal-minus" role="cell">−</span><p role="cell"><strong>mAh élevé isolé</strong>, sans mention d’écran ni de puce : chiffre qui ne garantit rien seul.</p></div>
+    </div></article>
+    <article class="profile-card profile-card-demo"><h3>La bonne question</h3><p class="demo-caption">Ne demandez pas « combien de mAh ? ». Demandez « est-ce que ce téléphone peut tenir ma journée réelle avec mon réseau, mon écran et mes usages ? ».</p><div class="story-strip"><span>8 h</span><b>cours</b><span>18 h</span><b>retour</b><span>22 h</span><b>encore de la batterie</b></div></article>
   </div>
 </section>
+</details>
 
+<details class="profile-toggle" id="professionnel-toggle">
+<summary class="profile-toggle-summary"><span class="profile-toggle-index">02</span><span>Profil 2 · Le professionnel</span><span aria-hidden="true" class="profile-toggle-caret">＋</span></summary>
 <section class="section profile-section" id="professionnel">
   <div class="profile-header"><div aria-hidden="true" class="profile-icon">02</div><h2>Profil 2 · Le professionnel</h2><p class="profile-situation">Le téléphone doit tenir dans une journée de déplacements et permettre de lire, appeler, naviguer, scanner, photographier un document ou répondre rapidement. Ici, la constance compte plus qu’un chiffre impressionnant.</p></div>
   <div class="profile-grid">
     <article class="profile-card"><h3>Votre priorité</h3><div class="checklist"><div class="check-item"><strong>Lisibilité dehors</strong> : regardez la luminosité annoncée et les tests réels. Une fiche peut afficher une valeur maximale mesurée dans des conditions précises.</div><div class="check-item"><strong>Réactivité</strong> : privilégiez une puce récente et une quantité de RAM cohérente avec votre multitâche.</div><div class="check-item"><strong>Recharge</strong> : vérifiez la puissance maximale et, idéalement, des tests de temps de charge.</div></div></article>
     <article class="profile-card"><h3>Le test concret</h3><p>Affichez un PDF, ouvrez une carte, passez à un appel, revenez au document. Ce parcours ressemble davantage à votre travail qu’un score de benchmark.</p><p>Pour les métiers de terrain, ajoutez deux questions souvent oubliées : <strong>combien coûte une réparation ?</strong> et <strong>le téléphone est il bien protégé ?</strong>.</p></article>
-    <article class="profile-card profile-card-demo"><h3>À retenir</h3><p class="demo-caption">Un appareil professionnel doit rester fiable lorsque les conditions sont mauvaises : soleil, réseau mobile moyen, nombreuses applications ouvertes ou batterie déjà entamée.</p><div class="story-strip"><b>lire</b><span>→</span><b>appeler</b><span>→</span><b>naviguer</b><span>→</span><b>partager</b></div></article>
+    <article class="profile-card profile-card-signal"><h3>Signal fort / signal faible dans la fiche</h3><div class="signal-table" role="table" aria-label="Signaux positifs et négatifs pour un usage professionnel">
+      <div class="signal-row" role="row"><span class="signal-plus" role="cell">+</span><p role="cell"><strong>Luminosité mesurée au-delà de 1 000 nits</strong> en usage typique : lisible en extérieur.</p></div>
+      <div class="signal-row" role="row"><span class="signal-minus" role="cell">−</span><p role="cell"><strong>Seul un pic maximal annoncé</strong>, sans valeur typique : lisibilité réelle incertaine.</p></div>
+      <div class="signal-row" role="row"><span class="signal-plus" role="cell">+</span><p role="cell"><strong>Puce récente et charge rapide documentée</strong> : autonomie et réactivité en déplacement.</p></div>
+      <div class="signal-row" role="row"><span class="signal-minus" role="cell">−</span><p role="cell"><strong>Pièces ou réparation non précisées</strong> : coût imprévisible en cas de casse sur le terrain.</p></div>
+    </div></article>
+    <article class="profile-card profile-card-verdict"><h3>Ce que vous devez retenir en sortant</h3><p>Un smartphone professionnel se juge sur sa <strong>constance</strong>, pas sur un chiffre isolé. Achetez un modèle qui coche : luminosité mesurée en usage réel, puce récente, charge rapide documentée et pièces disponibles. Si l’une de ces quatre lignes manque dans la fiche, considérez l’information comme absente, pas comme acquise.</p><div class="story-strip"><b>lire</b><span>→</span><b>appeler</b><span>→</span><b>naviguer</b><span>→</span><b>partager</b></div></article>
   </div>
 </section>
+</details>
 
+<details class="profile-toggle" id="gamer-toggle">
+<summary class="profile-toggle-summary"><span class="profile-toggle-index">03</span><span>Profil 3 · Le gamer</span><span aria-hidden="true" class="profile-toggle-caret">＋</span></summary>
 <section class="section profile-section" id="gamer">
   <div class="profile-header"><div aria-hidden="true" class="profile-icon">03</div><h2>Profil 3 · Le gamer</h2><p class="profile-situation">Ici, la difficulté est de tenir la charge pendant la durée d’une partie. Un téléphone peut être très rapide pendant quelques minutes puis réduire sa fréquence de fonctionnement lorsqu’il chauffe.</p></div>
   <div class="profile-grid">
     <article class="profile-card"><h3>Votre priorité</h3><div class="checklist"><div class="check-item"><strong>Puce</strong> : regardez le modèle exact, pas seulement le nombre de cœurs.</div><div class="check-item"><strong>GPU</strong> : important pour le rendu des jeux en 3D.</div><div class="check-item"><strong>Écran</strong> : une fréquence élevée est intéressante si le jeu et le système peuvent réellement l’exploiter.</div><div class="check-item"><strong>Refroidissement</strong> : recherchez des tests de performance prolongée, pas uniquement un score instantané.</div></div></article>
     <article class="profile-card"><h3>Le piège du benchmark</h3><p>Un benchmark mesure une fenêtre de temps précise. Votre partie, elle, peut durer trente minutes ou plus. La chaleur peut réduire les performances pour protéger le téléphone.</p><p>La bonne comparaison demande donc deux informations : <strong>à quelle vitesse le téléphone démarre</strong> et <strong>à quelle vitesse il continue</strong>.</p></article>
-    <article class="profile-card profile-card-demo"><h3>À regarder dans la fiche</h3><p class="demo-caption">Puce exacte, GPU lorsque l’information est disponible, fréquence d’écran, capacité de stockage et tests de chauffe.</p><div class="story-strip"><span>départ</span><b>100 %</b><span>après 10 min</span><b>chauffe</b><span>après 30 min</span><b>stabilité</b></div></article>
+    <article class="profile-card profile-card-signal"><h3>Signal fort / signal faible dans la fiche</h3><div class="signal-table" role="table" aria-label="Signaux positifs et négatifs pour un usage gamer">
+      <div class="signal-row" role="row"><span class="signal-plus" role="cell">+</span><p role="cell"><strong>Puce exacte nommée</strong> (modèle précis, pas seulement « octa-core ») : comparaison fiable possible.</p></div>
+      <div class="signal-row" role="row"><span class="signal-minus" role="cell">−</span><p role="cell"><strong>Puce non précisée ou générique</strong> : impossible de vérifier les performances réelles.</p></div>
+      <div class="signal-row" role="row"><span class="signal-plus" role="cell">+</span><p role="cell"><strong>Tests de performance prolongée</strong> disponibles (30 min et plus) : bon indice de tenue en jeu.</p></div>
+      <div class="signal-row" role="row"><span class="signal-minus" role="cell">−</span><p role="cell"><strong>Seul un score instantané</strong> mis en avant : ne dit rien de la chauffe après 20-30 minutes.</p></div>
+    </div></article>
+    <article class="profile-card profile-card-verdict"><h3>Ce que vous devez retenir en sortant</h3><p>N’achetez pas sur un score de benchmark isolé. Cherchez la <strong>puce exacte</strong>, le <strong>GPU</strong> quand il est mentionné et, si possible, un test de <strong>performance après 20 à 30 minutes</strong>. Un téléphone qui commence fort et tient sa fréquence vaut mieux qu’un téléphone qui commence très fort puis chute.</p><div class="story-strip"><span>départ</span><b>100 %</b><span>après 10 min</span><b>chauffe</b><span>après 30 min</span><b>stabilité</b></div></article>
   </div>
 </section>
+</details>
 
+<details class="profile-toggle" id="photographe-toggle">
+<summary class="profile-toggle-summary"><span class="profile-toggle-index">04</span><span>Profil 4 · Le photographe et créatif</span><span aria-hidden="true" class="profile-toggle-caret">＋</span></summary>
 <section class="section profile-section" id="photographe">
   <div class="profile-header"><div aria-hidden="true" class="profile-icon">04</div><h2>Profil 4 · Le photographe et créatif</h2><p class="profile-situation">Pour la photo et la vidéo, le téléphone doit gérer des scènes très différentes : visage en mouvement, paysage, intérieur sombre, contre jour et vidéo stabilisée. Le nombre de mégapixels n’est qu’une partie du système.</p></div>
   <div class="profile-grid">
@@ -150,26 +194,36 @@
     <article class="profile-card profile-card-demo"><h3>La bonne question</h3><p class="demo-caption">« Est ce que ce téléphone me permet de réussir mes photos habituelles ? » vient avant « combien de mégapixels ? ».</p><div class="story-strip"><b>nuit</b><span>+</span><b>mouvement</b><span>+</span><b>contre jour</b><span>→</span><b>qualité réelle</b></div></article>
   </div>
 </section>
+</details>
 
 <section class="section store-scene-section" id="en-magasin">
-  <div class="profile-header"><div aria-hidden="true" class="profile-icon">05</div><h2>Vous avez sélectionné un modèle : maintenant, vérifiez ce qui est écrit</h2><p class="profile-situation">En magasin, utilisez les mêmes réflexes. En ligne, vous avez encore mieux : la fiche produit est souvent plus complète. Le guide sert précisément à vous accompagner à cet endroit.</p></div>
+  <div class="profile-header"><div aria-hidden="true" class="profile-icon">05</div><h2>Vous avez sélectionné un modèle : maintenant, vérifiez ce qui est écrit</h2><p class="profile-situation">Vous savez déjà où chercher. Voici ce que ça donne appliqué à une vraie fiche : selon votre profil, les mêmes lignes ne comptent pas de la même façon.</p></div>
   <div class="store-scene" id="store-scene">
     <div class="store-scene-track">
-      <article class="store-scene-step" data-step="1"><div aria-hidden="true" class="store-scene-visual"><div class="store-phone-mock"><div class="store-phone-mock-screen store-phone-mock-screen-dim"></div></div><span class="store-scene-cursor">01</span></div><div class="store-scene-copy"><span class="store-scene-index">INDICE 1</span><h3>Allez à « Caractéristiques »</h3><p>Sur un site marchand, ne restez pas seulement sur les photos, les slogans et les quatre arguments de la publicité. Faites défiler jusqu’à la fiche technique. Cherchez les lignes qui décrivent réellement l’appareil.</p></div></article>
-      <article class="store-scene-step" data-step="2"><div aria-hidden="true" class="store-scene-visual"><div class="store-phone-mock"><div class="store-phone-mock-screen store-phone-mock-screen-scroll"></div></div><span class="store-scene-cursor">02</span></div><div class="store-scene-copy"><span class="store-scene-index">INDICE 2</span><h3>Repérez le mot, pas seulement le nombre</h3><p>Vous voyez « 5 000 mAh » ? Cherchez ce que cela mesure. Vous voyez « 120 Hz » ? Cherchez si la fréquence est fixe ou adaptative. Vous voyez « 200 Mpx » ? Cherchez la taille du capteur et la stabilisation.</p></div></article>
-      <article class="store-scene-step" data-step="3"><div aria-hidden="true" class="store-scene-visual"><div class="store-phone-mock"><div class="store-phone-mock-screen store-phone-mock-screen-cam"></div></div><span class="store-scene-cursor">03</span></div><div class="store-scene-copy"><span class="store-scene-index">INDICE 3</span><h3>Revenez au besoin qui vous a fait choisir</h3><p>Vous êtes photographe ? Allez à la photo. Vous jouez ? Allez à la puce, au GPU et aux tests prolongés. Vous travaillez dehors ? Allez à la luminosité, à l’autonomie et à la protection. Une même fiche ne se lit pas de la même manière selon la personne.</p></div></article>
-      <article class="store-scene-step" data-step="4"><div aria-hidden="true" class="store-scene-visual"><div class="store-phone-mock"><div class="store-phone-mock-screen store-phone-mock-screen-weight"></div></div><span class="store-scene-cursor">04</span></div><div class="store-scene-copy"><span class="store-scene-index">INDICE 4</span><h3>Éliminez les chiffres qui ne vous servent pas</h3><p>Si deux modèles répondent déjà à vos besoins, ne transformez pas l’achat en concours de caractéristiques. La meilleure fiche n’est pas celle qui comporte le plus gros chiffre. C’est celle qui répond correctement à votre usage.</p></div></article>
+      <article class="store-scene-step" data-step="1"><div aria-hidden="true" class="store-scene-visual"><div class="store-phone-mock"><div class="store-phone-mock-screen store-phone-mock-screen-dim"></div></div><span class="store-scene-cursor">01</span></div><div class="store-scene-copy"><span class="store-scene-index">SUR LA FICHE</span><h3>« Écran 6,7″ OLED 120 Hz »</h3><p><strong>Étudiant/pro</strong> : bonne lisibilité au quotidien. <strong>Gamer</strong> : vérifiez si 120 Hz est fixe ou adaptatif (LTPO). <strong>Photographe</strong> : utile pour juger vos photos à l’écran, pas pour la prise de vue elle-même.</p></div></article>
+      <article class="store-scene-step" data-step="2"><div aria-hidden="true" class="store-scene-visual"><div class="store-phone-mock"><div class="store-phone-mock-screen store-phone-mock-screen-scroll"></div></div><span class="store-scene-cursor">02</span></div><div class="store-scene-copy"><span class="store-scene-index">SUR LA FICHE</span><h3>« Batterie 5 000 mAh · charge 67 W »</h3><p><strong>Étudiant</strong> : tient la journée si l’écran n’est pas trop sollicité. <strong>Pro en déplacement</strong> : la charge rapide compte autant que la capacité. <strong>Gamer</strong> : la charge en jouant révèle la vraie gestion thermique.</p></div></article>
+      <article class="store-scene-step" data-step="3"><div aria-hidden="true" class="store-scene-visual"><div class="store-phone-mock"><div class="store-phone-mock-screen store-phone-mock-screen-cam"></div></div><span class="store-scene-cursor">03</span></div><div class="store-scene-copy"><span class="store-scene-index">SUR LA FICHE</span><h3>« Photo 50 Mpx · OIS »</h3><p><strong>Photographe</strong> : regardez la taille du capteur et la stabilisation, pas seulement les Mpx. <strong>Étudiant/pro</strong> : suffisant pour un usage courant si l’OIS est présent. <strong>Gamer</strong> : critère secondaire ici.</p></div></article>
+      <article class="store-scene-step" data-step="4"><div aria-hidden="true" class="store-scene-visual"><div class="store-phone-mock"><div class="store-phone-mock-screen store-phone-mock-screen-weight"></div></div><span class="store-scene-cursor">04</span></div><div class="store-scene-copy"><span class="store-scene-index">SUR LA FICHE</span><h3>« 12 Go RAM · 256 Go »</h3><p><strong>Gamer</strong> : la RAM aide à garder le jeu en mémoire entre deux sessions. <strong>Étudiant</strong> : le stockage compte plus que la RAM pour vos fichiers de cours. <strong>Pro</strong> : suffisant dans la majorité des usages bureautiques.</p></div></article>
     </div>
   </div>
-  <div class="callout callout-brief"><strong>La méthode en une phrase</strong><p>Je pars de mon usage, je trouve la fiche produit, je repère les caractéristiques utiles, je vérifie ce qu’elles signifient, puis je compare seulement ce qui peut changer mon expérience.</p></div>
+  <div class="callout callout-brief"><strong>La méthode en une phrase</strong><p>La même ligne de fiche technique change de poids selon votre profil : relisez-la avec vos priorités, pas avec celles d’une fiche générique.</p></div>
 </section>
 
 <section class="section pitfalls-section" id="pieges">
   <div class="section-heading"><span class="eyebrow">LES PIÈGES CLASSIQUES</span><h2>Trois chiffres séduisants qui racontent une histoire incomplète</h2></div>
   <div class="pitfall-grid">
-    <article class="pitfall-card"><div class="pitfall-number">01</div><h3>200 Mpx</h3><p><strong>Ce que vous savez :</strong> le capteur peut produire une image avec beaucoup de pixels.</p><p><strong>Ce que vous ne savez pas encore :</strong> la lumière captée, la qualité de l’objectif, la stabilisation et le traitement.</p></article>
-    <article class="pitfall-card"><div class="pitfall-number">02</div><h3>5 000 mAh</h3><p><strong>Ce que vous savez :</strong> la capacité nominale de la batterie.</p><p><strong>Ce que vous ne savez pas encore :</strong> combien de temps l’appareil tient avec votre écran, votre réseau, votre puce et vos usages.</p></article>
-    <article class="pitfall-card"><div class="pitfall-number">03</div><h3>12 Go de RAM</h3><p><strong>Ce que vous savez :</strong> la quantité de mémoire vive disponible pour le système et les applications.</p><p><strong>Ce que vous ne savez pas encore :</strong> la qualité de la gestion mémoire, l’efficacité de la puce et ce que vos applications consomment réellement.</p></article>
+    <article class="pitfall-card pitfall-card-expanded"><div class="pitfall-number">01</div><h3>200 Mpx</h3><p><strong>Ce que vous savez :</strong> le capteur peut produire une image avec beaucoup de pixels.</p><p><strong>Ce que vous ne savez pas encore :</strong> la lumière captée, la qualité de l’objectif, la stabilisation et le traitement.</p>
+      <div class="pitfall-compare"><strong>Comparaison concrète</strong><p>Les appareils photo experts utilisés par des photographes professionnels (type Fujifilm ou Canon haut de gamme) tournent souvent autour de <strong>12 à 24 Mpx</strong>, pas 200. Le capteur d’un smartphone reste par ailleurs environ <strong>10 fois plus petit</strong> qu’un capteur d’appareil photo classique : davantage de pixels y sont entassés sur une surface bien plus réduite, donc chaque pixel capte moins de lumière individuellement.</p></div>
+      <div class="pitfall-why"><strong>Pourquoi si peu utile seul ?</strong><p>Au-delà d’un certain point, la définition sert surtout à recadrer une photo ou à l’imprimer en très grand format sans perte de netteté. Sur un usage courant (partage, réseaux sociaux, écran de téléphone), la différence entre 50 et 200 Mpx est rarement perceptible. La plupart des téléphones fusionnent d’ailleurs plusieurs pixels en un seul (« pixel binning ») pour améliorer le rendu en basse lumière, ce qui revient en pratique à publier des photos à une définition bien inférieure aux 200 Mpx annoncés.</p></div>
+    </article>
+    <article class="pitfall-card pitfall-card-expanded"><div class="pitfall-number">02</div><h3>5 000 mAh</h3><p><strong>Ce que vous savez :</strong> la capacité nominale de la batterie.</p><p><strong>Ce que vous ne savez pas encore :</strong> combien de temps l’appareil tient avec votre écran, votre réseau, votre puce et vos usages.</p>
+      <div class="pitfall-compare"><strong>Comparaison concrète</strong><p>5 000 mAh représente à peu près l’énergie nécessaire pour recharger entièrement deux à trois fois une paire d’écouteurs sans fil, ou faire fonctionner une petite ampoule LED pendant environ une journée complète. Rapporté à un écran OLED lumineux affiché en continu, cette même énergie peut être épuisée en moins de dix heures.</p></div>
+      <div class="pitfall-why"><strong>Pourquoi si peu utile seul ?</strong><p>La capacité en mAh ne dit rien de ce qui consomme cette énergie. Un écran très lumineux, un modem 5G actif en permanence et une puce peu optimisée peuvent vider une grosse batterie plus vite qu’une petite batterie associée à un écran sobre et une puce efficace. Deux téléphones à 5 000 mAh peuvent ainsi finir la journée à des niveaux de charge très différents.</p></div>
+    </article>
+    <article class="pitfall-card pitfall-card-expanded"><div class="pitfall-number">03</div><h3>12 Go de RAM</h3><p><strong>Ce que vous savez :</strong> la quantité de mémoire vive disponible pour le système et les applications.</p><p><strong>Ce que vous ne savez pas encore :</strong> la qualité de la gestion mémoire, l’efficacité de la puce et ce que vos applications consomment réellement.</p>
+      <div class="pitfall-compare"><strong>Comparaison concrète</strong><p>12 Go de RAM, c’est environ la quantité de mémoire vive d’un ordinateur portable de bureautique standard vendu il y a quelques années. Sur un smartphone, cette mémoire sert surtout à garder plusieurs applications ouvertes en même temps sans avoir à les recharger entièrement.</p></div>
+      <div class="pitfall-why"><strong>Pourquoi si peu utile seul ?</strong><p>Au-delà d’un certain seuil (généralement 6 à 8 Go pour un usage courant), ajouter de la RAM apporte un gain de confort de plus en plus faible. La gestion mémoire du système d’exploitation et l’efficacité de la puce comptent souvent davantage que le chiffre brut affiché sur la fiche produit.</p></div>
+    </article>
   </div>
 </section>
 
@@ -209,10 +263,10 @@
 <span aria-hidden="true" class="footer-logo-mark">
 <svg viewbox="0 0 56 56"><path class="bag" d="M13 20h30l-2.4 27H15.4L13 20Z"></path><path class="handle" d="M20 20v-5.2a8 8 0 0 1 16 0V20"></path></svg>
 </span>
-<span><b>Guide</b> <strong>d'achat</strong></span>
+<span><b>Guide</b> <strong>d’achat</strong></span>
 </div>
 <div class="footer-copy">
-<p>Guide indépendant : nous expliquons, comparons et renvoyons vers les sources et comparateurs utiles pour l'achat.</p>
+<p>Guide indépendant : nous expliquons, comparons et renvoyons vers les sources et comparateurs utiles pour l’achat.</p>
 <p>Les fiches indiquent leur date de dernière vérification.</p>
 </div>
 </div>
