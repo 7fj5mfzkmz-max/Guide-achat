@@ -403,117 +403,117 @@
       if(!board) return;
       var configs={
         screen:{
-          intro:"Commencez par l’usage : un bon écran est celui dont les caractéristiques répondent à votre contexte.",
+          intro:"Lisez les valeurs du modèle et comparez-les à votre usage. Les pilules donnent immédiatement le sens du chiffre.",
           groups:[
             {key:"profile",label:"Profil",type:"choice",options:[
-              ["student","Étudiant","Priorité à la lisibilité, au confort et à l’autonomie."],["pro","Professionnel","Priorité à la lisibilité, à la fiabilité et à l’usage prolongé."],["gamer","Gamer","Priorité à la fluidité, au temps de réponse et à la stabilité."],["mixed","Polyvalent","Cherchez un équilibre plutôt qu’un maximum partout."]]},
-            {key:"tech",label:"Technologie",type:"choice",options:[
-              ["oled","OLED","Chaque pixel peut s’éteindre : contraste très élevé et noirs profonds."],["amoled","AMOLED","Une famille d’OLED à matrice active ; le terme seul ne garantit pas la qualité."],["lcd","LCD","Rétroéclairage commun : technologie mature, souvent économique et lisible selon la dalle."],["ltpo","LTPO","Dalle permettant une fréquence variable plus fine, utile pour combiner fluidité et économie d’énergie."]]},
-            {key:"refresh",label:"Fréquence",type:"choice",options:[
-              ["60","60 Hz","Animation sobre ; suffisante pour les usages classiques."],["90","90 Hz","Défilement plus fluide avec un coût énergétique modéré."],["120","120 Hz","Très fluide ; particulièrement intéressant pour le défilement et les jeux compatibles."],["144","144 Hz","Marge supplémentaire surtout pertinente pour le jeu ; à mettre en relation avec la puissance du téléphone."]]},
-            {key:"brightness",label:"Luminosité",type:"brightness",options:[["600","600 nits"],["1000","1 000 nits"],["1600","1 600 nits"],["2500","2 500+ nits"]]}
+              ["student","Étudiant","Confort de lecture, autonomie et usage quotidien."],["pro","Professionnel","Lisibilité, fiabilité et usage prolongé."],["gamer","Gamer","Fluidité, réactivité et stabilité."],["mixed","Polyvalent","Équilibre entre confort, autonomie et fluidité."]]},
+            {key:"tech",label:"Technologie",type:"pill",options:[
+              ["oled","OLED","Pixels autoémissifs : un pixel peut s’éteindre pour obtenir un noir profond."],["amoled","AMOLED","OLED à matrice active : c’est une famille d’OLED, pas une garantie de qualité."],["lcd","LCD","Une source de rétroéclairage éclaire la dalle : les noirs sont moins indépendants."],["ltpo","LTPO","Permet de faire varier finement la fréquence pour économiser de l’énergie hors interaction."]]},
+            {key:"refresh",label:"Fréquence",type:"pill",options:[
+              ["60","60 Hz","60 images/s : suffisant pour la plupart des usages classiques."],["90","90 Hz","Défilement sensiblement plus fluide sans viser le maximum."],["120","120 Hz","Très fluide : intéressant pour navigation, animations et jeux compatibles."],["144","144 Hz","Gain surtout pertinent pour le jeu ; il faut que la puce et les jeux suivent."]]},
+            {key:"brightness",label:"Luminosité",type:"brightness",options:[
+              ["600","600 nits","Correct en intérieur et par temps modéré."],["1000","1 000 nits","Bonne marge pour l’extérieur."],["1600","1 600 nits","Très bonne lisibilité dans une forte lumière."],["2500","2 500+ nits","Très forte luminosité, à vérifier selon le mode de mesure utilisé."]]}
           ]
         },
         battery:{
-          intro:"La capacité indique le réservoir. L’autonomie dépend aussi de la consommation et de la chimie.",
+          intro:"Ne regardez pas uniquement les mAh : capacité, chimie et puissance de recharge répondent à trois questions différentes.",
           groups:[
-            {key:"capacity",label:"Capacité",type:"capacity",options:[["3000","3 000 mAh"],["4000","4 000 mAh"],["5000","5 000 mAh"],["6000","6 000+ mAh"]]},
-            {key:"chemistry",label:"Technologie / chimie",type:"choice",options:[["liion","Li-ion","Technologie courante et éprouvée."],["lipoly","Li-polymère","Architecture de cellule flexible, très répandue dans les appareils fins."],["silicon","Silicium-carbone","Permet de viser une densité énergétique plus élevée dans un volume donné."]]},
-            {key:"charge",label:"Recharge",type:"charge",options:[["25","25 W"],["45","45 W"],["67","67 W"],["100","100 W+" ]]}
+            {key:"capacity",label:"Capacité",type:"pill-meter",options:[["3000","3 000 mAh","Petit réservoir."],["4000","4 000 mAh","Capacité courante."],["5000","5 000 mAh","Base confortable pour beaucoup de téléphones."],["6000","6 000+ mAh","Réserve importante, mais le poids et la consommation comptent."]]},
+            {key:"chemistry",label:"Technologie / chimie",type:"pill",options:[["liion","Li-ion","Technologie courante et éprouvée."],["lipoly","Li-polymère","Architecture très répandue dans les appareils fins."],["silicon","Silicium-carbone","Densité énergétique potentiellement supérieure à volume comparable."]]},
+            {key:"charge",label:"Recharge",type:"pill-charge",options:[["25","25 W","Recharge relativement lente."],["45","45 W","Compromis courant entre vitesse et chauffe."],["67","67 W","Recharge rapide pour réduire fortement l’attente."],["100","100 W+","Très rapide sur les appareils compatibles ; la gestion thermique compte."]]}
           ]
         },
         performance:{
-          intro:"Le chiffre d’une puce ne suffit pas : cherchez l’usage visé et la tenue dans le temps.",
+          intro:"Remplaçons « entrée / milieu / haut de gamme » par des références que vous pouvez reconnaître sur une fiche.",
           groups:[
-            {key:"usage",label:"Usage",type:"choice",options:[["basic","Basique","Web, messages, vidéo et applications courantes."],["pro","Productivité","Multitâche, photo, vidéo et applications lourdes."],["game","Jeu","GPU, refroidissement et stabilité des performances deviennent prioritaires."]]},
-            {key:"tier",label:"Niveau de puce",type:"choice",options:[["entry","Entrée de gamme","Pour les tâches courantes avec des compromis sur les jeux lourds."],["mid","Milieu de gamme","Bon compromis pour la majorité des usages."],["high","Haut de gamme","Marge importante pour les tâches lourdes et la longévité des performances."]]},
-            {key:"thermal",label:"Performance soutenue",type:"choice",options:[["short","Test court","Une pointe de performance : utile mais incomplète."],["sustained","Test 20–30 min","Montre mieux la stabilité après montée en température."],["cooling","Refroidissement travaillé","Intéressant pour le jeu et les charges prolongées."]]}
+            {key:"reference",label:"Référence de puce",type:"choice",options:[
+              ["basic","Ex. Snapdragon 4 / Dimensity 600","Adapté aux usages courants ; marge plus limitée pour les jeux lourds."],["mid","Ex. Snapdragon 7 / Dimensity 8000","Zone de compromis : applications lourdes et jeux généralement plus confortables."],["high","Ex. Snapdragon 8 / Dimensity 9000+","Marge importante pour jeux, vidéo et traitement intensif."],["apple","Ex. Apple A-series récente","Très bonnes performances générales ; comparez aussi l’efficacité et la chauffe."]]},
+            {key:"gaming",label:"Indice de performance",type:"choice",options:[
+              ["daily","★★★☆☆ Quotidien","Web, réseaux, vidéo et applications courantes."],["heavy","★★★★☆ Lourd","Montage, multitâche et jeux exigeants avec une marge correcte."],["pro","★★★★★ Très lourd","Jeux poussés et calcul intensif : cherchez aussi les tests prolongés."]]},
+            {key:"thermal",label:"Tenue dans le temps",type:"choice",options:[
+              ["short","Test court","Une pointe de performance ne dit pas ce qui arrive après chauffe."],["sustained","Test 20–30 min","Plus révélateur de la stabilité réelle."],["cooling","Refroidissement travaillé","Point important pour maintenir les performances sur une longue session."]]}
           ]
         },
         photo:{
-          intro:"Pour la photo, vérifiez le système complet plutôt qu’un seul nombre de mégapixels.",
+          intro:"Remplaçons le jargon par des références visibles sur une fiche ou dans un test photo.",
           groups:[
-            {key:"sensor",label:"Capteur principal",type:"choice",options:[["small","Petit","Le traitement logiciel prend davantage d’importance lorsque la lumière manque."],["large","Grand","Plus de marge pour capter de la lumière et préserver les détails."],["highres","Haute définition","Utile pour le recadrage si l’optique et le traitement suivent."]]},
-            {key:"stabilization",label:"Stabilisation",type:"choice",options:[["none","Numérique","Correction logicielle, utile mais limitée dans certaines scènes."],["ois","OIS","Stabilisation optique : particulièrement utile à main levée et en basse lumière."],["ois-eis","OIS + EIS","Combinaison fréquente pour photo et vidéo, selon le mode utilisé."]]},
-            {key:"scene",label:"Scène à vérifier",type:"choice",options:[["night","Nuit","Regardez bruit, détails et couleurs dans une scène sombre."],["motion","Mouvement","Vérifiez les visages et sujets qui bougent."],["zoom","Zoom","Vérifiez le vrai téléobjectif plutôt qu’un simple recadrage numérique."]]},
-            {key:"resolution",label:"Résolution",type:"choice",options:[["12","12 Mpx","Souvent suffisant pour partager et imprimer à taille courante."],["50","50 Mpx","Bon niveau de détail avec davantage de marge de recadrage."],["108","108 Mpx","Potentiel élevé, à juger avec le capteur et l’optique."],["200","200 Mpx","Très haute définition : utile dans certaines conditions, mais pas un verdict sur la qualité."]]}
+            {key:"sensor",label:"Capteur principal",type:"choice",options:[
+              ["small","Ex. 1/2,76\"","Capteur plutôt petit : la lumière et le traitement deviennent plus critiques."],["medium","Ex. 1/1,56\"","Capteur plus grand : davantage de marge en basse lumière."],["large","Ex. 1\"","Très grand capteur pour smartphone : avantage potentiel en lumière et profondeur, selon l’optique."]]},
+            {key:"stabilization",label:"Stabilisation",type:"choice",options:[
+              ["none","EIS / numérique","Correction logicielle : utile, mais moins directe qu’une stabilisation optique."],["ois","OIS / optique","Le bloc optique compense les petits mouvements, notamment en basse lumière."],["both","OIS + EIS","Combinaison fréquente pour photo et vidéo."]]},
+            {key:"zoom",label:"Zoom",type:"choice",options:[
+              ["digital","Recadrage numérique","On agrandit l’image existante : la définition utile diminue avec le zoom."],["2x","Téléobjectif ~2×","Vrai module dédié : utile pour portraits et cadrages serrés."],["5x","Téléobjectif ~5×","Intérêt net à longue distance ; vérifiez la qualité entre les focales."]]},
+            {key:"resolution",label:"Résolution",type:"choice",options:[
+              ["12","12 Mpx","Déjà suffisant pour beaucoup d’usages ; la qualité dépend surtout du système complet."],["50","50 Mpx","Très courant : bonne marge de détail lorsque capteur, optique et traitement suivent."],["108","108 Mpx","Beaucoup de pixels : intéressant pour le recadrage dans de bonnes conditions."],["200","200 Mpx","Très haute définition : ne garantit ni plus de lumière ni de meilleures photos."]]}
           ]
         },
         longevity:{
-          intro:"Un bon achat doit rester utilisable : vérifiez ce qui est garanti au-delà du jour d’achat.",
+          intro:"La cinquième vérification porte sur ce qui restera vrai après plusieurs années d’utilisation.",
           groups:[
-            {key:"updates",label:"Mises à jour",type:"choice",options:[["3","3 ans ou moins","Durée à considérer si vous changez régulièrement."],["5","Environ 5 ans","Meilleure marge pour garder le téléphone plus longtemps."],["7","7 ans ou plus","Politique de suivi particulièrement importante pour un achat long terme."]]},
-            {key:"repair",label:"Réparation",type:"choice",options:[["low","Pièces limitées","Risque de coût ou d’attente plus élevé."],["standard","Pièces disponibles","Situation plus simple pour les réparations courantes."],["good","Réparable + pièces accessibles","Meilleure visibilité sur la durée de possession."]]},
-            {key:"protection",label:"Protection",type:"choice",options:[["basic","Protection basique","Coque et verre restent importants."],["ip67","IP67","Protection définie contre poussière et immersion dans des conditions précises."],["ip68","IP68","Niveau de protection supérieur dans les conditions prévues par le fabricant."]]}
+            {key:"updates",label:"Mises à jour",type:"choice",options:[["3","3 ans ou moins","À considérer si vous changez régulièrement."],["5","Environ 5 ans","Marge correcte pour garder l’appareil plus longtemps."],["7","7 ans ou plus","À privilégier si la durée de possession est un critère majeur."]]},
+            {key:"repair",label:"Réparation",type:"choice",options:[["low","Pièces limitées","Réparation potentiellement plus coûteuse ou lente."],["standard","Pièces disponibles","Meilleure visibilité pour les réparations courantes."],["good","Réparable + pièces accessibles","Plus simple à maintenir dans le temps."]]},
+            {key:"protection",label:"Protection",type:"choice",options:[["basic","Protection basique","Coque et protection d’écran restent importantes."],["ip67","IP67","Résistance à la poussière et à l’eau selon les conditions prévues."],["ip68","IP68","Protection supérieure selon les conditions définies par le fabricant."]]}
           ]
         }
       };
-      var totalGroups=Object.keys(configs).reduce(function(n,k){return n+configs[k].groups.length;},0);
+      var totalGroups=Object.keys(configs).length;
       var state={};
       function esc(v){return String(v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c];});}
       function renderGroup(group, selected){
+        var opts=group.options.map(function(o){
+          var active=selected===o[0];
+          var cls='audit-pill'+(active?' is-selected':'');
+          var visual='';
+          if(group.type==='pill') visual='<span class="pill-visual '+esc(group.key)+'" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
+          if(group.type==='pill-meter') visual='<span class="pill-meter-visual" aria-hidden="true"><i style="--meter:'+Math.min(100,Math.max(8,Number(o[0])/60))+'%"></i></span>';
+          if(group.type==='pill-charge') visual='<span class="pill-charge-visual" aria-hidden="true"><i style="--charge:'+Math.min(100,Number(o[0])/1.25)+'%"></i></span>';
+          return '<button type="button" class="'+cls+'" data-value="'+esc(o[0])+'" aria-pressed="'+active+'">'+visual+'<strong>'+esc(o[1])+'</strong><small>'+esc(o[2])+'</small></button>';
+        }).join('');
         if(group.type==='brightness'){
-          var opts=group.options.map(function(o){return '<button type="button" class="audit-option" data-value="'+o[0]+'" aria-pressed="'+(selected===o[0])+'"><span>'+esc(o[1])+'</span></button>';}).join('');
-          var val=selected||group.options[0][0];
-          return '<div class="audit-control" data-group="'+group.key+'"><div class="audit-control-head"><strong>'+esc(group.label)+'</strong><span class="audit-control-value" data-value-label>'+esc(selected?group.options.find(function(x){return x[0]===selected;})[1]:'Choisir')+'</span></div><div class="brightness-stage" data-brightness="'+val+'"><div class="brightness-glow"></div><div class="brightness-surface"></div></div><div class="audit-options">'+opts+'</div></div>';
+          opts=group.options.map(function(o){var active=selected===o[0];return '<button type="button" class="audit-pill brightness-pill'+(active?' is-selected':'')+'" data-value="'+o[0]+'" aria-pressed="'+active+'"><span class="brightness-dot" style="--brightness:'+Math.min(100,Number(o[0])/25)+'%"></span><strong>'+esc(o[1])+'</strong><small>'+esc(o[2])+'</small></button>';}).join('');
         }
-        if(group.type==='capacity'){
-          var opts=group.options.map(function(o){return '<button type="button" class="audit-option" data-value="'+o[0]+'" aria-pressed="'+(selected===o[0])+'"><span>'+esc(o[1])+'</span></button>';}).join('');
-          var pct=Math.min(100,Math.max(0,((Number(selected||group.options[0][0])-2500)/4000)*100));
-          return '<div class="audit-control" data-group="'+group.key+'"><div class="audit-control-head"><strong>'+esc(group.label)+'</strong><span class="audit-control-value" data-value-label>'+esc(selected?group.options.find(function(x){return x[0]===selected;})[1]:'Choisir')+'</span></div><div class="capacity-meter"><i style="width:'+pct+'%"></i></div><div class="audit-options">'+opts+'</div></div>';
-        }
-        if(group.type==='charge'){
-          var opts=group.options.map(function(o){return '<button type="button" class="audit-option" data-value="'+o[0]+'" aria-pressed="'+(selected===o[0])+'"><span>'+esc(o[1])+'</span></button>';}).join('');
-          return '<div class="audit-control" data-group="'+group.key+'"><div class="audit-control-head"><strong>'+esc(group.label)+'</strong><span class="audit-control-value" data-value-label>'+esc(selected?group.options.find(function(x){return x[0]===selected;})[1]:'Choisir')+'</span></div><div class="charge-animation" data-charge="'+(selected||25)+'"><div class="charge-battery"><i></i><b>↯</b></div><span>Temps relatif : <strong data-charge-time>—</strong></span></div><div class="audit-options">'+opts+'</div></div>';
-        }
-        return '<div class="audit-control" data-group="'+group.key+'"><div class="audit-control-head"><strong>'+esc(group.label)+'</strong><span class="audit-control-value" data-value-label>'+esc(selected?group.options.find(function(x){return x[0]===selected;})[1]:'Choisir')+'</span></div><div class="audit-options">'+group.options.map(function(o){return '<button type="button" class="audit-option" data-value="'+o[0]+'" aria-pressed="'+(selected===o[0])+'"><strong>'+esc(o[1])+'</strong><small>'+esc(o[2])+'</small></button>';}).join('')+'</div></div>';
+        return '<div class="audit-control" data-group="'+group.key+'"><div class="audit-control-head"><strong>'+esc(group.label)+'</strong><span class="audit-control-value">'+(selected?esc((group.options.find(function(x){return x[0]===selected;})||['','Choisir'])[1]):'Choisir')+'</span></div><div class="audit-pills">'+opts+'</div></div>';
       }
       function renderCard(card,key){
         var cfg=configs[key]; state[key]=state[key]||{};
         var panel=card.querySelector('.audit-panel');
-        panel.innerHTML='<p class="audit-panel-intro">'+esc(cfg.intro)+'</p>'+cfg.groups.map(function(g){return renderGroup(g,state[key][g.key]);}).join('')+'<div class="audit-score" data-score>Choisissez les options pour construire votre profil.</div>';
+        panel.innerHTML='<p class="audit-panel-intro">'+esc(cfg.intro)+'</p>'+cfg.groups.map(function(g){return renderGroup(g,state[key][g.key]);}).join('');
         panel.hidden=false;
         requestAnimationFrame(function(){panel.classList.add('is-open');});
       }
       function updateCard(card,key){
-        var cfg=configs[key], done=cfg.groups.filter(function(g){return state[key]&&state[key][g.key];}).length;
-        card.querySelector('.audit-status').textContent=done+'/'+cfg.groups.length;
-        card.classList.toggle('is-complete',done===cfg.groups.length);
-        var score=card.querySelector('[data-score]');
-        if(score){
-          if(key==='battery'){
-            var cap=Number(state[key].capacity||0), ch=Number(state[key].charge||25), auto=cap>=5500?5:cap>=5000?4:cap>=4000?3:2;
-            if(ch>=67) auto=Math.min(5,auto+1);
-            score.innerHTML='<strong>Score autonomie indicatif : '+auto+'/5</strong><span>Capacité + technologie de cellule + recharge. Ce score ne remplace pas un test d’autonomie.</span>';
-          } else if(done) score.innerHTML='<strong>'+done+' choix documentés</strong><span>Le but est de relier la fiche technique à votre usage, pas de collectionner les chiffres.</span>';
-        }
+        var cfg=configs[key], complete=cfg.groups.every(function(g){return state[key]&&state[key][g.key];});
+        card.querySelector('.audit-status').textContent=complete?'Vérifié':'À vérifier';
+        card.classList.toggle('is-complete',complete);
         updateTotal();
       }
       function updateTotal(){
-        var done=Object.keys(configs).reduce(function(n,k){return n+(configs[k].groups.filter(function(g){return state[k]&&state[k][g.key];}).length);},0);
+        var done=Object.keys(configs).reduce(function(n,k){return n+(configs[k].groups.every(function(g){return state[k]&&state[k][g.key];})?1:0);},0);
         var count=document.getElementById('audit-count'),msg=document.getElementById('audit-message');
-        if(count) count.textContent=done+' / '+totalGroups+' vérifiés';
-        if(msg) msg.textContent=done===totalGroups?'Audit complet : vous avez maintenant une grille de comparaison exploitable.':done>=6?'Vous avez assez d’éléments pour comparer deux modèles sans vous laisser guider par un seul chiffre.':'Ouvrez une carte et choisissez les options qui correspondent au modèle que vous regardez.';
+        if(count) count.textContent=done+' / 5 vérifiés';
+        if(msg) msg.textContent=done===5?'Audit complet : vous avez maintenant une grille de comparaison exploitable.':done?'Chaque catégorie entièrement vérifiée compte pour 1/5.':'Ouvrez une catégorie et vérifiez les critères importants pour ce modèle.';
       }
       board.querySelectorAll('.audit-card').forEach(function(card){
         var key=card.getAttribute('data-audit-card');
         var trigger=card.querySelector('.audit-card-trigger');
         trigger.addEventListener('click',function(){
           var open=trigger.getAttribute('aria-expanded')==='true';
-          board.querySelectorAll('.audit-card').forEach(function(other){if(other!==card){other.querySelector('.audit-card-trigger').setAttribute('aria-expanded','false');other.querySelector('.audit-panel').hidden=true;other.querySelector('.audit-panel').classList.remove('is-open');}});
+          board.querySelectorAll('.audit-card').forEach(function(other){
+            if(other!==card){other.querySelector('.audit-card-trigger').setAttribute('aria-expanded','false');var p=other.querySelector('.audit-panel');p.classList.remove('is-open');setTimeout(function(){p.hidden=true;},180);}
+          });
           trigger.setAttribute('aria-expanded',String(!open));
-          if(!open) renderCard(card,key); else {card.querySelector('.audit-panel').classList.remove('is-open');setTimeout(function(){card.querySelector('.audit-panel').hidden=true;},220);}
+          if(!open) renderCard(card,key); else {card.querySelector('.audit-panel').classList.remove('is-open');setTimeout(function(){card.querySelector('.audit-panel').hidden=true;},180);}
         });
         card.addEventListener('click',function(e){
-          var opt=e.target.closest('.audit-option');
+          var opt=e.target.closest('.audit-pill');
           if(!opt) return;
           var group=opt.closest('.audit-control').getAttribute('data-group');
           state[key]=state[key]||{}; state[key][group]=opt.getAttribute('data-value');
-          var cfg=configs[key], panel=card.querySelector('.audit-panel');
-          panel.innerHTML='<p class="audit-panel-intro">'+esc(cfg.intro)+'</p>'+cfg.groups.map(function(g){return renderGroup(g,state[key][g.key]);}).join('')+'<div class="audit-score" data-score></div>';
+          var panel=card.querySelector('.audit-panel');
+          panel.innerHTML='<p class="audit-panel-intro">'+esc(configs[key].intro)+'</p>'+configs[key].groups.map(function(g){return renderGroup(g,state[key][g.key]);}).join('');
           updateCard(card,key);
-          var active=panel.querySelector('.audit-control[data-group="'+group+'"] .audit-option[data-value="'+CSS.escape(state[key][group])+'"]');
-          if(active){active.animate([{transform:'scale(.96)'},{transform:'scale(1)'}],{duration:280,easing:'cubic-bezier(.2,.8,.2,1)'});}
+          var active=panel.querySelector('.audit-control[data-group="'+group+'"]').querySelector('.audit-pill[data-value="'+CSS.escape(state[key][group])+'"]');
+          if(active) active.animate([{transform:'translateY(3px) scale(.97)'},{transform:'translateY(0) scale(1)'}],{duration:300,easing:'cubic-bezier(.2,.8,.2,1)'});
         });
       });
       updateTotal();
