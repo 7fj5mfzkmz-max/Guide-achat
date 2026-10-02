@@ -65,13 +65,16 @@
     stage.querySelector('[data-act="no"]').addEventListener("click", onNo);
   }
   function viewManual(note, withCapture) {
-    show('<div class="model-analyzer-card"><h3>Quel modèle recherchez-vous ?</h3><p>' + esc(note || "Le lien ne permet pas d’identifier le modèle avec certitude.") + " Saisissez sa marque et sa référence complète.</p>" +
-      (withCapture ? '<p>Ce site bloque la lecture automatique : la <a href="capture.html">capture depuis votre navigateur</a> lit la page telle que vous la voyez.</p>' : "") +
-      '<form class="model-analyzer-input-row" data-manual><input type="text" data-autofocus required placeholder="Ex. Samsung Galaxy A56" aria-label="Marque et modèle" autocomplete="off"><button class="btn" type="submit">Chercher</button></form>' + retryButton() + "</div>");
+    var capture = withCapture ? '<div class="model-analyzer-capture"><strong>Le site bloque la lecture automatique.</strong><p>Sur Safari, vous pouvez lire la fiche telle que vous la voyez et la transmettre au guide.</p><a class="btn" href="capture.html">Lire la page avec Safari</a></div>' : '';
+    show('<div class="model-analyzer-card"><h3>Quel modèle recherchez-vous ?</h3><p>' + esc(note || "Le lien ne permet pas d’identifier le modèle avec certitude.") + " Saisissez sa marque et sa référence complète.</p>" + capture +
+      '<form class="model-analyzer-input-row" data-manual><input type="text" data-autofocus required placeholder="Ex. Nokia G10" aria-label="Marque et modèle" autocomplete="off"><button class="btn" type="submit">Utiliser ce modèle</button></form>' + retryButton() + "</div>");
     stage.querySelector("[data-manual]").addEventListener("submit", function (e) {
       e.preventDefault();
       var text = e.target.querySelector("input").value.trim();
-      if (text) searchAndContinue({ hints: [text] }, true);
+      if (text) {
+        state.pageOffered = true;
+        showAnalysis(null, { product: { name: text }, clues: { name: text, title: text }, specs: {} });
+      }
     });
   }
   function scoreBar(v) { var n = Math.max(0, Math.min(9, v)); return '<span class="model-analyzer-bar" aria-hidden="true"><i style="width:' + Math.round(n / 9 * 100) + '%"></i></span>'; }
@@ -139,39 +142,16 @@
       state.pageOffered = true;
       return viewConfirm(name, function () { showAnalysis(null, state.page); }, nextCandidate);
     }
-    // Un modèle lisible sur la page mais absent du catalogue reste analysable.
-    // Ne jamais transformer « absent du catalogue » en « modèle introuvable ».
-    if (name && state.page) return showAnalysis(null, state.page);
-    viewManual("Le modèle n’a pas pu être identifié à partir du lien.", state.needsCapture);
+    viewManual("Aucun autre modèle ne correspond.", state.needsCapture);
   }
-  function externalPageFromManual(text) {
-    return {
-      ok: true,
-      kind: "product",
-      strategy: "manual",
-      product: { name: text, brand: null, sku: null, mpn: null, gtin: null, price: null, currency: null, availability: null, source: "manual", evidence: "saisie utilisateur" },
-      clues: { name: text, title: text, urlHint: text },
-      specs: {},
-      evidence: ["saisie utilisateur"],
-      warning: "Modèle fourni manuellement : aucune donnée technique n’a encore été vérifiée sur une page produit."
-    };
-  }
-
   function searchAndContinue(clues, manual) {
-    loading(manual ? "Recherche de la référence…" : "Recherche du modèle…");
+    loading("Recherche du modèle…");
     loadCatalogue().then(function (catalogue) {
       var res = window.PhoneAnalyzerCrosscheck.search(catalogue, clues);
       if (res.status === "identified" && !manual) return showAnalysis(res.best, state.page);
       state.queue = res.status === "unknown" ? [] : res.ranked.map(function (r) { return r.candidate; });
-      if (manual) {
-        state.pageOffered = true; // la saisie manuelle remplace toute proposition précédente
-        // Une saisie manuelle n’est jamais bloquée par l’absence du modèle dans le catalogue.
-        // Si le catalogue ne connaît pas la référence, on passe en mode « modèle externe ».
-        if (!state.queue.length) {
-          state.page = externalPageFromManual(clues.hints && clues.hints[0] ? clues.hints[0] : "Modèle saisi");
-          return showAnalysis(null, state.page);
-        }
-      }
+      if (manual) state.pageOffered = true; // la saisie manuelle remplace la proposition tirée de la page
+      if (!state.queue.length && manual) return viewManual("Aucun modèle du catalogue ne correspond à cette saisie.");
       nextCandidate();
     });
   }
