@@ -27,7 +27,7 @@ async function assertPublicHost(hostname) {
   if (!addrs.length || addrs.some(a => isPrivateIp(a.address))) throw new Error('Adresse non publique refusée.');
 }
 
-const REQUEST_TIMEOUT = 15000;
+const REQUEST_TIMEOUT = 12000;
 const USER_AGENT = 'Mozilla/5.0 (compatible; GuideAchatProductResolver/1.0; +https://github.com/7fj5mfzkmz-max/Guide-achat)';
 
 function clean(value) {
@@ -158,6 +158,32 @@ function extractYear(...texts) {
 }
 
 /* Décide si le contenu reçu décrit UN modèle ou une page générale. Pure et testable. */
+
+const BLOCK_TITLE = /robot check|captcha|just a moment|access denied|attention required|are you (?:a )?human|verify(?:ing)? you are human|pardon our interruption|request blocked|accès refusé|acces refuse|vérification requise|verification requise|enable javascript|activer javascript|challenge|défi|complétez la vérification|complete the challenge/i;
+const BLOCK_MARKERS = /validateCaptcha|api-services-support@amazon|cf-chl-|challenge-platform|px-captcha|_Incapsula_Resource|captcha-delivery\.com|datadome|fingerprint|amazon-ask\.amazon\.com|Gorgias|Shopify\.queue/i;
+const EMPTY_BODY_MARKERS = /<body[^>]*>\s*(?:<(?:script|noscript)[^>]*>|<!--[\s\S]*?-->|\s)*<\/body>/i;
+
+function looksBlocked(html, title) {
+  if (title && BLOCK_TITLE.test(title)) return 'title';
+  const head = String(html || '').slice(0, 200000);
+  if (BLOCK_MARKERS.test(head)) return 'markers';
+  // Page vide avec "activez JS" est probablement JavaScript-only
+  if (EMPTY_BODY_MARKERS.test(head) && /javascript|noscript|enable|activez/i.test(head)) return 'js-only';
+  return null;
+}
+
+function pageTitle(html) {
+  const m = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  return m ? clean(decodeHtml(m[1])) : null;
+}
+
+function readTitle(html) {
+  const t = meta(html || '', 'og:title') || meta(html || '', 'twitter:title') || pageTitle(html || '');
+  const generic = /^(?:amazon|fnac|cdiscount|darty|rakuten|idealo|accueil|home|produit|product|loading|chargement|panier|cart|404|error)$/i;
+  if (!t || generic.test(t)) return null;
+  return t;
+}
+
 function classifyContent({ urlClass, ld, html, text }) {
   const products = ld.filter(x => hasType(x, 'Product'));
   const listing = ld.some(x => hasType(x, 'ItemList') || hasType(x, 'CollectionPage') || hasType(x, 'OfferCatalog'));
@@ -190,28 +216,41 @@ async function resolve(target) {
   let parsed;
   try { parsed = new URL(target); } catch (_) { return { ok: false, error: 'URL invalide.' }; }
   if (!/^https?:$/.test(parsed.protocol)) return { ok: false, error: 'Seules les URL HTTP/HTTPS sont acceptées.' };
+  
   const urlClass = identify.classifyUrl(target);
   // Page générale évidente d'après l'URL : inutile de la télécharger.
   if (urlClass.kind === 'page' && urlClass.strong) {
     return { ok: true, kind: 'page', pageLabel: urlClass.label, finalUrl: target, merchantHost: parsed.hostname, clues: buildClues(target, null, '') };
   }
+  
   let fetched;
   try { fetched = await fetchHtml(target); } catch (error) {
     return { ok: false, kind: urlClass.kind, pageLabel: urlClass.label, error: 'Impossible de récupérer la page.', detail: error.name === 'AbortError' ? 'timeout' : error.message, clues: buildClues(target, null, '') };
   }
+  
   if (fetched.status >= 400) {
-    return { ok: false, blocked: true, kind: urlClass.kind, pageLabel: urlClass.label, status: fetched.status, finalUrl: fetched.finalUrl, error: `Le site a répondu HTTP ${fetched.status}.`, clues: buildClues(target, null, '') };
+    return { ok: false, blocked: true, reason: 'http', status: fetched.status, finalUrl: fetched.finalUrl, error: `HTTP ${fetched.status}.`, clues: buildClues(target, null, '') };
   }
+  
+  // Vérifier blocage
+  const blockReason = looksBlocked(fetched.html, pageTitle(fetched.html));
+  if (blockReason) {
+    return { ok: false, blocked: true, reason: blockReason, finalUrl: fetched.finalUrl, error: blockReason === 'js-only' ? 'La page ne peut pas être lue sans navigateur.' : 'Le site demande une vérification anti-robot.', clues: buildClues(target, null, '') };
+  }
+  
   const ld = extractJsonLd(fetched.html);
   const product = pickProduct(ld);
   const text = htmlToText(fetched.html);
   const verdict = classifyContent({ urlClass, ld, html: fetched.html, text });
-  const named = product || { name: meta(fetched.html, 'og:title') || meta(fetched.html, 'twitter:title') || pageTitle(fetched.html), brand: null, sku: null, mpn: null, gtin: null, price: null, currency: null, availability: null, source: 'url', evidence: 'meta title' };
+  const named = product || { name: readTitle(fetched.html), brand: null, sku: null, mpn: null, gtin: null, price: null, currency: null, availability: null, source: 'url', evidence: 'meta title' };
   const base = { ok: true, kind: verdict.kind, pageLabel: verdict.label, finalUrl: fetched.finalUrl, merchantHost: parsed.hostname, clues: buildClues(fetched.finalUrl, product, fetched.html) };
+  
   if (verdict.kind === 'page') return base;
+  
   return Object.assign(base, {
-    product: named, specs: candidateFromText(text), evidence: ld.length ? ['JSON-LD'] : ['HTML/meta'],
+    product: named, specs: candidateFromText(text), evidence: (ld.length ? ['JSON-LD'] : ['HTML/meta']),
     warning: product ? null : 'Aucun objet Product structuré trouvé; identification à confirmer.'
   });
 }
-module.exports = { resolve, classifyContent, isPrivateIp, assertPublicHost };
+
+module.exports = { resolve, classifyContent, isPrivateIp, assertPublicHost, looksBlocked, readTitle, pageTitle };
