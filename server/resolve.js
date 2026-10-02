@@ -100,10 +100,16 @@ async function resolve(target) {
     return { ok: true, kind: 'page', pageLabel: urlClass.label, finalUrl: target, merchantHost: parsed.hostname, clues: buildClues([target], null, null), trace };
   }
 
-  const fail = extra => Object.assign({
-    ok: false, kind: urlClass.kind, pageLabel: urlClass.label, merchantHost: parsed.hostname, needsCapture: true,
-    clues: buildClues([target].concat(extra && extra.finalUrl ? [extra.finalUrl] : []), null, null), trace
-  }, extra);
+  const fail = extra => {
+    const clues = buildClues([target].concat(extra && extra.finalUrl ? [extra.finalUrl] : []), null, null);
+    // Même lorsqu’une page bloque la lecture serveur, l’indice du modèle contenu
+    // dans l’URL reste exploitable pour demander une confirmation ou proposer une
+    // analyse externe. L’absence du catalogue ne doit pas effacer cet indice.
+    return Object.assign({
+      ok: false, kind: urlClass.kind, pageLabel: urlClass.label, merchantHost: parsed.hostname, needsCapture: true,
+      clues, trace
+    }, extra);
+  };
 
   /* 2 + 3 : lecture directe puis analyse du code, variantes d'URL */
   let good = null, last = null, shell = null, blockedBy = null;
