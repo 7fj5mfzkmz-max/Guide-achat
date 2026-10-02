@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capture depuis votre navigateur — Guide d’achat</title>
+<style>
+:root{--bg:#fff;--fg:#1a1a1a;--muted:#555;--card:#f4f4f6;--accent:#0b57d0}
+@media (prefers-color-scheme:dark){:root{--bg:#121214;--fg:#eee;--muted:#aaa;--card:#1e1e22;--accent:#8ab4f8}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 -apple-system,system-ui,sans-serif;padding:1rem;max-width:42rem;margin-inline:auto}
+h1{font-size:1.4rem}h2{font-size:1.1rem;margin-top:1.6rem}
+.card{background:var(--card);border-radius:12px;padding:1rem;margin:1rem 0}
+textarea{width:100%;height:7rem;font:12px/1.4 ui-monospace,monospace;box-sizing:border-box}
+button{font:inherit;padding:.7rem 1rem;border-radius:10px;border:0;background:var(--accent);color:#fff;min-height:44px}
+a{color:var(--accent)} p.muted{color:var(--muted)}
+</style>
+</head>
+<body>
+<h1>Capture depuis votre navigateur</h1>
+<p>Quand un site bloque la lecture automatique, votre propre navigateur, lui, voit la page. Ce signet lit le nom du modèle sur la page ouverte et le transmet au guide. Rien n’est envoyé à un autre site : le guide s’ouvre avec le résultat.</p>
+
+<div class="card">
+<p><strong>Étape 1.</strong> Touchez « Copier le signet ».</p>
+<button id="copy" type="button">Copier le signet</button>
+<p class="muted" id="status" role="status"></p>
+</div>
+
+<h2>Installer sur iPhone (Safari)</h2>
+<ol>
+<li>Ouvrez n’importe quelle page, touchez <strong>Partager</strong> puis <strong>Ajouter aux favoris</strong>. Nommez-le « Analyser ce modèle » et enregistrez.</li>
+<li>Ouvrez vos favoris, touchez <strong>Modifier</strong>, puis le favori « Analyser ce modèle ».</li>
+<li>Dans le champ adresse (URL), effacez tout et <strong>collez</strong> le signet copié. Validez.</li>
+</ol>
+
+<h2>Utiliser</h2>
+<ol>
+<li>Ouvrez la fiche du téléphone sur Amazon, Fnac, Darty… (dans Safari, pas dans l’application du marchand).</li>
+<li>Touchez la barre d’adresse, puis votre favori « Analyser ce modèle » : le guide s’ouvre et analyse le modèle lu.</li>
+</ol>
+
+<details class="card"><summary>Voir le code du signet</summary>
+<textarea id="code" readonly aria-label="Code du signet"></textarea>
+<p class="muted">Il lit les données structurées de la page (JSON-LD Product), le titre produit, la marque et l’EAN s’ils existent, puis ouvre <code id="target"></code>.</p>
+</details>
+
+<p><a href="smartphones.html#analyse-modele">← Retour à l’analyse</a></p>
+
+<script src="phone-analyzer/normalizer.js"></script>
+<script src="phone-analyzer/identify.js"></script>
+<script src="phone-analyzer/capture.js"></script>
+<script>
+(function(){
+  var code = window.PhoneAnalyzerCapture.bookmarklet(location.origin);
+  var box = document.getElementById("code"), status = document.getElementById("status");
+  box.value = code;
+  document.getElementById("target").textContent = location.origin + "/smartphones.html";
+  document.getElementById("copy").addEventListener("click", function(){
+    function ok(){ status.textContent = "Copié. Passez à l’installation ci-dessous."; }
+    function fallback(){ box.closest("details").open = true; box.focus(); box.select(); status.textContent = "Sélectionné : touchez « Copier » dans le menu qui s’affiche."; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(ok, fallback); else fallback();
+  });
+})();
+</script>
+</body>
+</html>
