@@ -9,7 +9,7 @@
   var PROFILS = { etudiant: "Étudiant", professionnel: "Professionnel", gamer: "Gamer", photographe: "Photographe" };
   var SPEC_LABELS = { ecran: "Écran", refresh: "Fréquence d’écran", processeur: "Processeur", ram: "Mémoire", stockage: "Stockage", batterie: "Batterie", charge: "Charge", photo: "Photo", etancheite: "Étanchéité", os: "Système" };
   var CRIT_LABELS = { autonomie: "autonomie", performance: "performance", gaming: "jeu", prix: "prix" };
-  var state = { catalogue: null, page: null, queue: [], year: null, pageOffered: false };
+  var state = { catalogue: null, page: null, queue: [], year: null, pageOffered: false, needsCapture: false };
 
   function esc(v) { return String(v == null ? "" : v).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[c]; }); }
   function norm(s) { return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim(); }
@@ -64,8 +64,9 @@
     stage.querySelector('[data-act="yes"]').addEventListener("click", onYes);
     stage.querySelector('[data-act="no"]').addEventListener("click", onNo);
   }
-  function viewManual(note) {
+  function viewManual(note, withCapture) {
     show('<div class="model-analyzer-card"><h3>Quel modèle recherchez-vous ?</h3><p>' + esc(note || "Le lien ne permet pas d’identifier le modèle avec certitude.") + " Saisissez sa marque et sa référence complète.</p>" +
+      (withCapture ? '<p>Ce site bloque la lecture automatique : la <a href="capture.html">capture depuis votre navigateur</a> lit la page telle que vous la voyez.</p>' : "") +
       '<form class="model-analyzer-input-row" data-manual><input type="text" data-autofocus required placeholder="Ex. Samsung Galaxy A56" aria-label="Marque et modèle" autocomplete="off"><button class="btn" type="submit">Chercher</button></form>' + retryButton() + "</div>");
     stage.querySelector("[data-manual]").addEventListener("submit", function (e) {
       e.preventDefault();
@@ -138,7 +139,7 @@
       state.pageOffered = true;
       return viewConfirm(name, function () { showAnalysis(null, state.page); }, nextCandidate);
     }
-    viewManual("Aucun autre modèle ne correspond.");
+    viewManual("Aucun autre modèle ne correspond.", state.needsCapture);
   }
   function searchAndContinue(clues, manual) {
     loading("Recherche du modèle…");
@@ -162,16 +163,26 @@
     var raw = input.value.trim();
     if (!/^https?:\/\//i.test(raw)) raw = "https://" + raw;
     try { new URL(raw); } catch (_) { return viewManual("Ce lien n’est pas valide."); }
-    state.page = null; state.queue = []; state.pageOffered = false;
+    state.page = null; state.queue = []; state.pageOffered = false; state.needsCapture = false;
     loading("Analyse du lien en cours…");
     window.PhoneAnalyzerFetcher.resolveProduct(raw).catch(function () { return localFallback(raw); }).then(function (data) {
       if (data.kind === "page") return viewNotAModel(data.pageLabel);
       var k = data.clues || {};
       state.year = k.year || null;
+      state.needsCapture = !!data.needsCapture;
       if (data.ok && data.kind === "product") state.page = data;
-      searchAndContinue({ hints: [k.name, k.title, k.urlHint], ean: k.ean, asin: k.asin }, false);
+      searchAndContinue({ hints: [k.name, k.title, k.urlHint].concat(k.searchTitles || []), ean: k.ean, asin: k.asin }, false);
     });
   });
+  /* Arrivée depuis le signet de capture : #capture=… */
+  var captured = window.PhoneAnalyzerCapture && window.PhoneAnalyzerCapture.fromHash(location.hash, window.PhoneAnalyzerIdentify);
+  if (captured) {
+    try { history.replaceState(null, "", location.pathname + location.search + "#analyse-modele"); } catch (_) {}
+    state.page = captured; state.year = captured.clues.year || null; state.queue = []; state.pageOffered = false; state.needsCapture = false;
+    var ck = captured.clues;
+    searchAndContinue({ hints: [ck.name, ck.title, ck.urlHint], ean: ck.ean, asin: ck.asin }, false);
+    if (card.scrollIntoView) card.scrollIntoView({ block: "start" });
+  }
   stage.addEventListener("click", function (event) {
     var t = event.target.closest && event.target.closest('[data-act="reset"]');
     if (t) reset();

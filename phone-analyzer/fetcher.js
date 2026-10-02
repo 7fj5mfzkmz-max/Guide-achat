@@ -4,7 +4,7 @@
     options = options || {};
     var endpoint = options.endpoint || ((typeof window !== "undefined" && window.GUIDE_API_BASE) ? window.GUIDE_API_BASE.replace(/\/$/, "") + "/api/resolve" : "/api/resolve");
     var controller = typeof AbortController !== "undefined" ? new AbortController() : null;
-    var timeoutMs = typeof options.timeout === "number" ? options.timeout : 12000;
+    var timeoutMs = typeof options.timeout === "number" ? options.timeout : 28000;
     var timer = controller ? setTimeout(function () { controller.abort(); }, timeoutMs) : null;
     return fetch(endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ url: url }), signal: controller ? controller.signal : undefined })
       .then(function (response) {
@@ -18,7 +18,7 @@
       }, function (err) {
         if (timer) clearTimeout(timer);
         if (err && err.name === "AbortError") {
-          throw new Error("Le serveur n’a pas répondu dans les 12 secondes.");
+          throw new Error("Le serveur n’a pas répondu dans les 28 secondes.");
         }
         throw err;
       });

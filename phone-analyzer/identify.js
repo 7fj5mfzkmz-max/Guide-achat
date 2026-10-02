@@ -28,34 +28,31 @@
   }
 
 
-  /* Meilleur indice de nom dans un chemin d'URL.
-     Fnac: /Apple-iPhone-15-128-Go-Noir/a17594063/w-4 -> Apple iPhone 15 128 Go Noir
-     Cdiscount: /f-1234567-appleiphone15.html -> apple iphone 15
-     Darty: /apple_iphone_15_128go_noir.html -> apple iphone 15 128go noir
-  */
+  /* Meilleur indice de nom dans un chemin d'URL (les identifiants techniques sont écartés).
+     Fnac     /Apple-iPhone-15-128-Go-Noir/a17594063/w-4
+     Darty    /nav/achat/telephonie/apple_iphone_15_128go_noir.html
+     Cdiscount /telephonie/f-1440402-appleiphone15128gonoir.html  (mots collés)
+     Rakuten  /offer/buy/123456/samsung-galaxy-a56-5g.html */
+  var BRAND_WORDS = /(apple|iphone|samsung|galaxy|xiaomi|redmi|poco|oneplus|google|pixel|motorola|nokia|oppo|realme|honor|huawei|sony|xperia|asus|zenfone|fairphone|nothing)/gi;
+
+  function unglue(seg) {
+    if (/[-_+\s]/.test(seg)) return seg;
+    return seg.replace(BRAND_WORDS, " $1 ").replace(/([a-z])(\d)/gi, "$1 $2").replace(/(\d)([a-z])/gi, "$1 $2").replace(/\s+/g, " ").trim();
+  }
+
+  var NOISE_SEGMENT = /^(?:a\d{5,}|w-\d+|dp|gp|aw|d|p|ref|mfp|nav|achat|fiche|produit|product|offer|buy|telephonie|telephone|telephones|mobile|mobiles|smartphone|smartphones|\d+)$/i;
+
   function slugHint(pathname) {
     var best = "", bestWords = 0;
-    var segments = pathname.replace(/\.(?:html?|php|aspx?|htm)$/i, "").split("/").filter(Boolean);
-    segments.forEach(function (seg) {
-      // Cdiscount pattern: f-<id>-<name>
-      if (/^f-\d+-/i.test(seg)) {
-        seg = seg.replace(/^f-\d+-/i, "");
-        // Tenter de découper appleiphone15 en "apple iphone 15"
-        seg = unglueTokens(seg);
-      }
-      if (!seg || /^(?:a\d{5,}|w-\d+|dp|gp|p|mfp|nav|achat|fiche|produit|product|\d+)$/i.test(seg)) return;
-      var words = seg.split(/[-_+\\s]+/).filter(function (w) { return /[a-z]/i.test(w); }).length;
+    decode(pathname).replace(/\.(?:html?|php|aspx?)$/i, "").split("/").filter(Boolean).forEach(function (seg) {
+      var cdiscount = /^f-\d+-/i.test(seg);
+      if (cdiscount) seg = unglue(seg.replace(/^f-\d+-/i, ""));
+      if (!seg || NOISE_SEGMENT.test(seg) || /^(?=.*\d)[A-Z0-9]{10}$/.test(seg)) return;
+      var words = seg.split(/[-_+\s]+/).filter(function (w) { return /[a-z]/i.test(w); }).length;
+      if (cdiscount) words += 100;               // le segment f-<id>-<nom> est la fiche produit
       if (words >= bestWords) { best = seg; bestWords = words; }
     });
     return best;
-  }
-  
-  function unglueTokens(seg) {
-    if (/[-_+\\s]/.test(seg)) return seg;
-    // Essayer de séparer marques et chiffres: appleiphone15 -> apple iphone 15
-    var brands = /apple|iphone|samsung|galaxy|xiaomi|redmi|poco|oneplus|google|pixel|motorola|nokia|oppo|realme|honor|huawei|sony|xperia|asus|rog|zenfone|nokia|nokia|fairphone|sony/i;
-    seg = seg.replace(brands, " \$& ").replace(/(\d)/g, " \$1 ");
-    return seg.replace(/\s+/g, " ").trim();
   }
 
   function identifyFromUrl(rawUrl) {
@@ -64,7 +61,7 @@
     var path = decode(url.pathname + " " + url.search).trim();
     var merchant = merchantFromHost(host);
     var p = params(rawUrl);
-    var asin = (path.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})(?:[/?\s]|$)/i) || [])[1];
+    var asin = (path.match(/\/(?:dp|gp\/product|gp\/aw\/d|product|exec\/obidos\/ASIN)\/([A-Z0-9]{10})(?:[/?\s]|$)/i) || [])[1];
     var ean = (path.match(/(?:ean|gtin)[=/:-]?(\d{8,14})/i) || [])[1] || p.ean || p.gtin;
     var titleHint = p.q || p.search || p.title || p.name || "";
     if (!titleHint && merchant === "amazon") titleHint = (path.match(/\/([^/]+?)(?:\/dp|\/gp\/)/i) || [])[1] || "";
