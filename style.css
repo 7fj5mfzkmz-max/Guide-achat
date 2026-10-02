@@ -2063,3 +2063,5 @@ html.dark-theme .buy-spec-grid span{color:#b9c8c9}
   .profile-toggle-summary > span:nth-child(2){min-width:0;overflow-wrap:anywhere;}
   .journey-step,.fiche-reading-card,.fiche-example-card,.pitfall-card{min-width:0;}
 }
+
+.model-analyzer-capture{margin:1rem 0;padding:1rem;border-radius:12px;background:var(--surface-2,#f3f4f6)}.model-analyzer-capture .btn{display:inline-block;margin-top:.35rem;text-decoration:none}

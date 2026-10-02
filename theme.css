@@ -486,3 +486,5 @@ main{padding-top:5rem}
 .hx-debunk-section p{margin:0;font-size:.95rem;line-height:1.6;color:var(--ink-soft)}
 .hx-debunk-section.is-impact p{color:var(--ink);font-weight:500}
 @media(max-width:980px){.hx-comparateur-grid{grid-template-columns:auto 1fr}.hx-debunk-container{grid-template-columns:1fr}}
+
+.model-analyzer-capture{margin:1rem 0;padding:1rem;border-radius:12px;background:var(--surface-2,#f3f4f6)}.model-analyzer-capture .btn{display:inline-block;margin-top:.35rem;text-decoration:none}
