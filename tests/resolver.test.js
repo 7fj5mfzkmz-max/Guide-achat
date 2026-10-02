@@ -210,3 +210,56 @@ test('capture navigateur : le signet est du JavaScript valide et le retour est l
   assert.equal(capture.fromHash('#capture=%7Bnope', identify), null);
   assert.equal(capture.fromHash('#autre', identify), null);
 });
+
+
+test('Cdiscount : le nom seul ne suffit pas, les caractéristiques lisibles sont aussi extraites', async () => {
+  const url = 'https://www.cdiscount.com/telephonie/telephone-mobile/nokia-g10.html';
+  const body = page('<meta property="og:title" content="Nokia G10 3 Go 32 Go Bleu - Smartphone">' +
+    '<script type="application/ld+json">' + JSON.stringify({ '@type':'Product', name:'Nokia G10 3 Go 32 Go Bleu', brand:{'@type':'Brand',name:'Nokia'}, description:'Écran 6,52 pouces 60 Hz. Batterie 5050 mAh. Appareil photo 13 MP. Android 11.' , additionalProperty:[{name:'RAM',value:'3 Go'},{name:'Stockage',value:'32 Go'}]}) + '</script>',
+    '<h1>Nokia G10</h1><p>Écran 6,52 pouces, batterie 5050 mAh, caméra 13 MP, Android 11, 3 Go RAM, 32 Go stockage.</p>');
+  await withWeb({ [url]: { body } }, async () => {
+    const r = await resolve(url);
+    assert.equal(r.ok, true);
+    assert.equal(r.clues.name, 'Nokia G10 3 Go 32 Go Bleu');
+    assert.ok(r.specs.ecran); assert.ok(r.specs.batterie); assert.ok(r.specs.ram); assert.ok(r.specs.stockage); assert.ok(r.specs.photo); assert.ok(r.specs.os);
+  });
+});
+
+
+test('lecteur secondaire : une page pauvre peut être lue sans clé de recherche', async () => {
+  const url = 'https://www.cdiscount.com/telephonie/telephone-mobile/nokia-g10.html';
+  const realReader = process.env.READER_ENDPOINT;
+  process.env.READER_ENDPOINT = 'https://reader.example';
+  try {
+    await withWeb({
+      [url]: { body: '<html><head><title>Cdiscount</title></head><body><div id="app"></div></body></html>' },
+      ['https://reader.example/' + url]: { body: '# Nokia G10\n\nÉcran 6,52 pouces\nBatterie 5050 mAh\n3 Go RAM\n32 Go stockage' }
+    }, async w => {
+      const r = await resolve(url);
+      assert.equal(r.ok, true);
+      assert.equal(r.strategy, 'reader');
+      assert.match(r.clues.name, /Nokia G10/i);
+      assert.ok(r.specs.ecran); assert.ok(r.specs.batterie); assert.ok(r.specs.ram); assert.ok(r.specs.stockage);
+      assert.ok(w.calls.some(c => /reader\.example/.test(c.url)));
+    });
+  } finally {
+    if (realReader == null) delete process.env.READER_ENDPOINT; else process.env.READER_ENDPOINT = realReader;
+  }
+});
+
+test('lecteur secondaire : jamais utilisé après une vérification anti-robot', async () => {
+  const realReader = process.env.READER_ENDPOINT;
+  process.env.READER_ENDPOINT = 'https://reader.example';
+  try {
+    await withWeb({
+      [AMZ_CANON]: { body: PAGES.amazonCaptcha },
+      ['https://reader.example/' + AMZ]: { body: '# Apple iPhone 15' }
+    }, async w => {
+      const r = await resolve(AMZ);
+      assert.equal(r.blocked, true);
+      assert.ok(!w.calls.some(c => /reader\.example/.test(c.url)));
+    });
+  } finally {
+    if (realReader == null) delete process.env.READER_ENDPOINT; else process.env.READER_ENDPOINT = realReader;
+  }
+});
