@@ -90,9 +90,16 @@ function pickProduct(ld) {
   if (!product) return null;
   const offers = Array.isArray(product.offers) ? product.offers[0] : product.offers;
   const brand = product.brand && typeof product.brand === 'object' ? product.brand.name : product.brand;
+  const additional = Array.isArray(product.additionalProperty) ? product.additionalProperty : [];
+  const additionalProperty = additional.map(p => ({
+    name: clean(p && (p.name || p.propertyID)),
+    value: clean(p && (p.value || p.valueReference))
+  })).filter(p => p.name && p.value);
   return {
-    name: clean(decodeHtml(product.name)), brand: clean(brand), sku: clean(product.sku), mpn: clean(product.mpn),
+    name: clean(decodeHtml(product.name)), brand: clean(brand), model: clean(product.model), sku: clean(product.sku), mpn: clean(product.mpn),
     gtin: clean(product.gtin || product.gtin13 || product.gtin14 || product.gtin12 || product.gtin8),
+    description: clean(decodeHtml(product.description)),
+    additionalProperty,
     price: offers ? clean(offers.price || offers.lowPrice) : null,
     currency: offers ? clean(offers.priceCurrency) : null,
     availability: offers ? clean(offers.availability) : null,

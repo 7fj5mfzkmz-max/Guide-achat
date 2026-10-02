@@ -98,4 +98,32 @@ async function fetchHtml(target, options) {
   } finally { clearTimeout(timer); }
 }
 
-module.exports = { isPrivateIp, assertPublicHost, fetchHtml, MAX_BYTES };
+
+/* Lecture secondaire via un service de lecture public. Ce n'est pas un contournement de CAPTCHA :
+   elle n'est utilisée que lorsque la page n'est pas détectée comme une vérification anti-robot.
+   Le service renvoie du texte/Markdown, que le résolveur transforme en HTML minimal pour réutiliser
+   exactement la même chaîne d'extraction. */
+async function fetchReader(target, options) {
+  const timeout = (options && options.timeout) || 8000;
+  const endpoint = process.env.READER_ENDPOINT || 'https://r.jina.ai/http://';
+  let readerUrl;
+  if (process.env.READER_ENDPOINT) {
+    readerUrl = process.env.READER_ENDPOINT.replace(/\/$/, '') + '/' + target;
+  } else {
+    readerUrl = 'https://r.jina.ai/http://' + target.replace(/^https?:\/\//i, '');
+  }
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeout);
+  try {
+    const response = await fetch(readerUrl, {
+      headers: { 'accept': 'text/plain,text/markdown,text/html;q=0.9,*/*;q=0.5', 'user-agent': BROWSER_HEADERS['user-agent'] },
+      signal: controller.signal
+    });
+    const buffer = await readCapped(response);
+    const text = decodeBody(buffer, response.headers.get('content-type'));
+    if (!response.ok || !text || text.trim().length < 40) return null;
+    return { status: response.status, finalUrl: target, text, sourceUrl: readerUrl };
+  } finally { clearTimeout(timer); }
+}
+
+module.exports = { isPrivateIp, assertPublicHost, fetchHtml, fetchReader, MAX_BYTES };

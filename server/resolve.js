@@ -22,16 +22,36 @@ function extractYear(...texts) {
   return m ? Number(m[1]) : null;
 }
 
-function candidateFromText(text) {
+function candidateFromText(text, product) {
+  const source = [
+    text,
+    product && product.description,
+    product && product.model,
+    product && (product.additionalProperty || []).map(p => (p.name || '') + ': ' + (p.value || '')).join(' ')
+  ].filter(Boolean).join(' ');
   const specs = {};
-  const patterns = {
-    ecran: /(\d+(?:[.,]\d+)?)\s*(?:pouces|"|″)[^.]{0,100}(?:OLED|AMOLED|LCD|LTPO)/i,
-    refresh: /(\d{2,3})\s*Hz/i,
-    batterie: /(\d[\d\s.]*)\s*mAh/i,
-    ram: /(\d+(?:[.,]\d+)?)\s*Go\s*(?:de\s*)?RAM/i,
-    charge: /(\d{2,3})\s*W\s*(?:charge|recharge)/i
+  const first = (...patterns) => {
+    for (const re of patterns) { const m = source.match(re); if (m) return ex.clean(m[0]); }
+    return null;
   };
-  for (const [key, re] of Object.entries(patterns)) { const m = text.match(re); if (m) specs[key] = ex.clean(m[0]); }
+  const screen = first(/(?:écran|display|screen)[^\d]{0,80}(\d+(?:[.,]\d+)?)\s*(?:pouces|po|inch|inches|"|″)/i, /(\d+(?:[.,]\d+)?)\s*(?:pouces|po|inch|inches|"|″)\b/i);
+  if (screen) specs.ecran = screen;
+  const refresh = first(/(?:écran|display|refresh|fréquence|taux)[^\d]{0,50}(\d{2,3})\s*Hz/i, /\b(\d{2,3})\s*Hz\b/i);
+  if (refresh) specs.refresh = refresh;
+  const battery = first(/(?:batterie|battery|capacité)[^\d]{0,50}(\d[\d\s.]*)\s*mAh/i, /\b(\d[\d\s.]*)\s*mAh\b/i);
+  if (battery) specs.batterie = battery;
+  const ram = first(/(?:RAM|mémoire vive|mémoire)[^\d]{0,30}(\d+(?:[.,]\d+)?)\s*(?:Go|GB)\b/i, /\b(\d+(?:[.,]\d+)?)\s*(?:Go|GB)\s*RAM\b/i);
+  if (ram) specs.ram = ram;
+  const storage = first(/(?:stockage|mémoire interne|storage)[^\d]{0,40}(\d+(?:[.,]\d+)?)\s*(?:Go|GB|To|TB)\b/i, /\b(\d+(?:[.,]\d+)?)\s*(?:Go|GB|To|TB)\s*(?:de stockage|stockage|mémoire interne)\b/i);
+  if (storage) specs.stockage = storage;
+  const charge = first(/(?:charge|recharge|charging)[^\d]{0,50}(\d{2,3})\s*W\b/i, /\b(\d{2,3})\s*W\s*(?:charge|recharge|charging)\b/i);
+  if (charge) specs.charge = charge;
+  const photo = first(/(?:appareil photo|caméra|camera|photo)[^\d]{0,60}(\d{2,3})\s*MP/i, /\b(\d{2,3})\s*MP\b/i);
+  if (photo) specs.photo = photo;
+  const processor = source.match(/\b(?:Snapdragon|MediaTek|Dimensity|Helio|Tensor|Exynos|A\d{2}|Kirin|Unisoc|Apple Silicon)[^,;|\n]{0,60}/i);
+  if (processor) specs.processeur = ex.clean(processor[0]);
+  const os = source.match(/\b(?:Android\s+[\d.]+|iOS\s+[\d.]+|HarmonyOS\s+[\d.]+)\b/i);
+  if (os) specs.os = ex.clean(os[0]);
   return specs;
 }
 
@@ -84,6 +104,22 @@ function inspectHtml(fetched) {
   return { html, text: ex.htmlToText(html), ld: c.ld, product: c.product, list: c.list, usable: usable && !block, block };
 }
 
+
+function readerPage(text) {
+  const raw = String(text || '').replace(/\r/g, '');
+  const lines = raw.split('\n').map(x => x.trim()).filter(Boolean);
+  const titleLine = lines.find(x => /^#{1,2}\s+/.test(x)) || lines.find(x => /^Title\s*:/i.test(x));
+  let title = titleLine ? titleLine.replace(/^#{1,2}\s+/, '').replace(/^Title\s*:\s*/i, '').trim() : '';
+  title = ex.cleanName(title);
+  if (!title || !ex.usableName(title)) {
+    const candidate = lines.find(x => ex.usableName(x) && !/^https?:\/\//i.test(x) && x.length < 220);
+    title = candidate ? ex.cleanName(candidate) : '';
+  }
+  const safe = String(title || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const body = raw.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+  return { html: '<html><head><title>' + safe + '</title></head><body><h1>' + safe + '</h1><div>' + body + '</div></body></html>', title };
+}
+
 async function resolve(target) {
   const started = Date.now();
   const left = () => BUDGET_MS - (Date.now() - started);
@@ -100,16 +136,10 @@ async function resolve(target) {
     return { ok: true, kind: 'page', pageLabel: urlClass.label, finalUrl: target, merchantHost: parsed.hostname, clues: buildClues([target], null, null), trace };
   }
 
-  const fail = extra => {
-    const clues = buildClues([target].concat(extra && extra.finalUrl ? [extra.finalUrl] : []), null, null);
-    // Même lorsqu’une page bloque la lecture serveur, l’indice du modèle contenu
-    // dans l’URL reste exploitable pour demander une confirmation ou proposer une
-    // analyse externe. L’absence du catalogue ne doit pas effacer cet indice.
-    return Object.assign({
-      ok: false, kind: urlClass.kind, pageLabel: urlClass.label, merchantHost: parsed.hostname, needsCapture: true,
-      clues, trace
-    }, extra);
-  };
+  const fail = extra => Object.assign({
+    ok: false, kind: urlClass.kind, pageLabel: urlClass.label, merchantHost: parsed.hostname, needsCapture: true,
+    clues: buildClues([target].concat(extra && extra.finalUrl ? [extra.finalUrl] : []), null, null), trace
+  }, extra);
 
   /* 2 + 3 : lecture directe puis analyse du code, variantes d'URL */
   let good = null, last = null, shell = null, blockedBy = null;
@@ -146,10 +176,40 @@ async function resolve(target) {
     if (verdict.kind === 'page') return base;
     return Object.assign(base, {
       product: page.product || { name: best.name, brand: null, sku: null, mpn: null, gtin: null, price: null, currency: null, availability: null, source: 'url', evidence: best.source },
-      specs: candidateFromText(page.text),
+      specs: candidateFromText(page.text, page.product),
       evidence: [best.source].concat(strategy === 'render' ? ['rendu navigateur'] : []),
       warning: page.product ? null : 'Aucun objet Product structuré trouvé; identification à confirmer.'
     });
+  }
+
+  /* 5 : lecteur secondaire. Il sert surtout aux pages dont le HTML serveur est pauvre
+     (JS léger, contenu masqué, structure difficile à parser). On ne l'utilise jamais après
+     une détection explicite de CAPTCHA/anti-robot. */
+  if (!good && !blockedBy && left() > 6000) {
+    try {
+      await netlib.assertPublicHost(parsed.hostname);
+      const reader = await netlib.fetchReader(target, { timeout: Math.min(7000, left() - 2500) });
+      if (reader) {
+        const rp = readerPage(reader.text);
+        const page = inspectHtml({ status: 200, finalUrl: target, html: rp.html, headers: {} });
+        trace.push({ step: 'reader', outcome: page.usable ? 'lu' : 'sans modèle', source: 'reader', title: rp.title || null });
+        if (page.usable) {
+          const verdict = classifyContent({ urlClass, ld: page.ld, html: page.html, text: page.text });
+          const best = page.list[0];
+          const clues = buildClues([target], page.product, best.name);
+          const base = { ok: true, kind: verdict.kind, pageLabel: verdict.label, finalUrl: target, merchantHost: parsed.hostname, strategy: 'reader', clues, trace };
+          if (verdict.kind === 'page') return base;
+          return Object.assign(base, {
+            product: page.product || { name: best.name, brand: null, sku: null, mpn: null, gtin: null, price: null, currency: null, availability: null, source: 'reader', evidence: 'lecteur secondaire' },
+            specs: candidateFromText(page.text, page.product),
+            evidence: ['lecteur secondaire'],
+            warning: 'Informations extraites par un lecteur secondaire ; à confirmer si la page affiche plusieurs variantes.'
+          });
+        }
+      }
+    } catch (error) {
+      trace.push({ step: 'reader', outcome: 'erreur', detail: error.message });
+    }
   }
 
   /* 5 : recherche web (ASIN / EAN / nom de l'URL) quand la page n'a rien donné */
