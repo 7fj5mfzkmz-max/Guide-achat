@@ -1,193 +1,45 @@
+'use strict';
+/* Résolveur multi-marchands : une cascade de méthodes, chacune tracée.
+   1. Indices de l'URL (ASIN, EAN, nom dans le chemin)       — toujours, sans réseau
+   2. Lecture directe de la page (en-têtes de navigateur)      — variantes d'URL canoniques
+   3. Analyse du code : JSON-LD, microdonnées, état embarqué, og:/twitter:, h1, title
+   4. Rendu navigateur (service que vous exploitez)            — seulement pour les pages vides
+   5. Recherche web via API officielle                         — ASIN / EAN / nom de l'URL
+   6. Capture depuis le navigateur de l'utilisateur / saisie manuelle (côté front)
+   Une page de vérification anti-robot arrête la cascade : aucun contournement n'est tenté. */
 const { URL } = require('node:url');
-const dns = require('node:dns').promises;
-const net = require('node:net');
 const identify = require('../phone-analyzer/identify.js');
+const netlib = require('./net.js');
+const ex = require('./extract.js');
+const search = require('./search.js');
+const render = require('./render.js');
 
-const MAX_BYTES = 2 * 1024 * 1024;
-const MAX_REDIRECTS = 5;
+const BUDGET_MS = 24000;      // Vercel : maxDuration 30 s
+const FETCH_TIMEOUT = 9000;
 
-function isPrivateIp(ip) {
-  if (net.isIPv4(ip)) {
-    const [a, b] = ip.split('.').map(Number);
-    return a === 0 || a === 10 || a === 127 || (a === 169 && b === 254) || (a === 172 && b >= 16 && b <= 31) || (a === 192 && b === 168) || (a === 100 && b >= 64 && b <= 127) || a >= 224;
-  }
-  if (net.isIPv6(ip)) {
-    const v = ip.toLowerCase();
-    if (v === '::1' || v === '::') return true;
-    if (v.startsWith('::ffff:')) return isPrivateIp(v.slice(7));
-    return /^f[cd]/.test(v) || /^fe[89ab]/.test(v);
-  }
-  return true;
-}
-async function assertPublicHost(hostname) {
-  const host = hostname.replace(/^\[|\]$/g, '');
-  if (host === 'localhost' || host.endsWith('.localhost') || host.endsWith('.local') || host.endsWith('.internal')) throw new Error('Hôte non autorisé.');
-  if (net.isIP(host)) { if (isPrivateIp(host)) throw new Error('Adresse non publique refusée.'); return; }
-  const addrs = await dns.lookup(host, { all: true });
-  if (!addrs.length || addrs.some(a => isPrivateIp(a.address))) throw new Error('Adresse non publique refusée.');
-}
-
-const REQUEST_TIMEOUT = 12000;
-const USER_AGENT = 'Mozilla/5.0 (compatible; GuideAchatProductResolver/1.0; +https://github.com/7fj5mfzkmz-max/Guide-achat)';
-
-function clean(value) {
-  return String(value ?? '').replace(/\s+/g, ' ').trim();
-}
-function htmlToText(html) {
-  return clean(html.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<[^>]+>/g, ' '));
-}
-function stripJsonLd(raw) {
-  try { return JSON.parse(raw); } catch (_) {
-    try { return JSON.parse(raw.replace(/&quot;/g, '"').replace(/&#39;/g, "'")); } catch (_) { return null; }
-  }
-}
-function extractJsonLd(html) {
-  const out = [];
-  const re = /<script\b[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
-  let m;
-  while ((m = re.exec(html))) {
-    const parsed = stripJsonLd(m[1].trim());
-    flattenJsonLd(parsed, out);
-  }
-  return out;
-}
-function meta(html, property) {
-  // Les attributs HTML peuvent être dans n'importe quel ordre :
-  // <meta property="og:title" content="..."> et
-  // <meta content="..." property="og:title"> sont tous deux valides.
-  const wanted = String(property || '').toLowerCase();
-  const tags = String(html || '').match(/<meta\b[^>]*>/gi) || [];
-  for (const tag of tags) {
-    const attrs = {};
-    const re = /([:\w-]+)\s*=\s*(["'])([\s\S]*?)\2/g;
-    let m;
-    while ((m = re.exec(tag))) attrs[m[1].toLowerCase()] = m[3];
-    if ((attrs.property || '').toLowerCase() === wanted || (attrs.name || '').toLowerCase() === wanted) {
-      return clean(decodeHtml(attrs.content || ''));
-    }
-  }
-  return null;
-}
-function decodeHtml(value) {
-  return String(value || '')
-    .replace(/&amp;/gi, '&').replace(/&quot;/gi, '"').replace(/&#39;|&apos;/gi, "'")
-    .replace(/&lt;/gi, '<').replace(/&gt;/gi, '>');
-}
-function jsonLdTypeIs(node, type) {
-  const t = node && node['@type'];
-  if (Array.isArray(t)) return t.some(v => String(v).toLowerCase().split('/').pop() === type.toLowerCase());
-  return String(t || '').toLowerCase().split('/').pop() === type.toLowerCase();
-}
-function flattenJsonLd(value, out) {
-  if (!value) return out;
-  if (Array.isArray(value)) { value.forEach(v => flattenJsonLd(v, out)); return out; }
-  if (typeof value !== 'object') return out;
-  if (value['@graph']) flattenJsonLd(value['@graph'], out);
-  out.push(value);
-  return out;
-}
-function pickProduct(ld) {
-  const products = [];
-  flattenJsonLd(ld, products);
-  const product = products.find(x => jsonLdTypeIs(x, 'Product'));
-  if (!product) return null;
-  const offers = Array.isArray(product.offers) ? product.offers[0] : product.offers;
-  const brandValue = typeof product.brand === 'object' ? product.brand.name : product.brand;
-  return {
-    name: clean(product.name), brand: clean(brandValue), sku: clean(product.sku), mpn: clean(product.mpn),
-    gtin: clean(product.gtin || product.gtin13 || product.gtin14 || product.gtin12 || product.gtin8),
-    price: offers ? clean(offers.price || offers.lowPrice) : null,
-    currency: offers ? clean(offers.priceCurrency) : null,
-    availability: offers ? clean(offers.availability) : null, source: 'url', evidence: 'JSON-LD Product'
-  };
-}
-async function readCapped(response) {
-  const reader = response.body && response.body.getReader ? response.body.getReader() : null;
-  if (!reader) return (await response.text()).slice(0, MAX_BYTES);
-  const chunks = []; let total = 0;
-  for (;;) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    total += value.length;
-    if (total > MAX_BYTES) { chunks.push(value.subarray(0, value.length - (total - MAX_BYTES))); await reader.cancel(); break; }
-    chunks.push(value);
-  }
-  return Buffer.concat(chunks.map(c => Buffer.from(c))).toString('utf8');
-}
-async function fetchHtml(target) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT);
-  try {
-    let current = target;
-    for (let hop = 0; hop <= MAX_REDIRECTS; hop++) {
-      const u = new URL(current);
-      if (!/^https?:$/.test(u.protocol)) throw new Error('Protocole non autorisé.');
-      await assertPublicHost(u.hostname);
-      const response = await fetch(current, { headers: { 'user-agent': USER_AGENT, accept: 'text/html,application/xhtml+xml' }, redirect: 'manual', signal: controller.signal });
-      const location = response.headers.get('location');
-      if (response.status >= 300 && response.status < 400 && location) { current = new URL(location, current).toString(); continue; }
-      const html = await readCapped(response);
-      return { status: response.status, finalUrl: current, html };
-    }
-    throw new Error('Trop de redirections.');
-  } finally { clearTimeout(timer); }
-}
-function candidateFromText(text) {
-  const specs = {};
-  const patterns = {
-    ecran: /(\d+(?:[.,]\d+)?)\s*(?:pouces|\"|″)[^\.]{0,100}(?:OLED|AMOLED|LCD|LTPO)/i,
-    refresh: /(\d{2,3})\s*Hz/i,
-    batterie: /(\d[\d\s.]*)\s*mAh/i,
-    ram: /(\d+(?:[.,]\d+)?)\s*Go\s*(?:de\s*)?RAM/i,
-    charge: /(\d{2,3})\s*W\s*(?:charge|recharge)/i
-  };
-  for (const [key, re] of Object.entries(patterns)) { const m = text.match(re); if (m) specs[key] = clean(m[0]); }
-  return specs;
-}
-function hasType(node, type) {
-  const t = node && node['@type'];
-  return t === type || (Array.isArray(t) && t.includes(type));
-}
-function pageTitle(html) {
-  const m = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-  return m ? clean(decodeHtml(m[1])) : null;
-}
 function extractYear(...texts) {
   const m = texts.filter(Boolean).join(' ').match(/\b(20(?:1[8-9]|2[0-7]))\b/);
   return m ? Number(m[1]) : null;
 }
 
+function candidateFromText(text) {
+  const specs = {};
+  const patterns = {
+    ecran: /(\d+(?:[.,]\d+)?)\s*(?:pouces|"|″)[^.]{0,100}(?:OLED|AMOLED|LCD|LTPO)/i,
+    refresh: /(\d{2,3})\s*Hz/i,
+    batterie: /(\d[\d\s.]*)\s*mAh/i,
+    ram: /(\d+(?:[.,]\d+)?)\s*Go\s*(?:de\s*)?RAM/i,
+    charge: /(\d{2,3})\s*W\s*(?:charge|recharge)/i
+  };
+  for (const [key, re] of Object.entries(patterns)) { const m = text.match(re); if (m) specs[key] = ex.clean(m[0]); }
+  return specs;
+}
+
 /* Décide si le contenu reçu décrit UN modèle ou une page générale. Pure et testable. */
-
-const BLOCK_TITLE = /robot check|captcha|just a moment|access denied|attention required|are you (?:a )?human|verify(?:ing)? you are human|pardon our interruption|request blocked|accès refusé|acces refuse|vérification requise|verification requise|enable javascript|activer javascript|challenge|défi|complétez la vérification|complete the challenge/i;
-const BLOCK_MARKERS = /validateCaptcha|api-services-support@amazon|cf-chl-|challenge-platform|px-captcha|_Incapsula_Resource|captcha-delivery\.com|datadome|fingerprint|amazon-ask\.amazon\.com|Gorgias|Shopify\.queue/i;
-const EMPTY_BODY_MARKERS = /<body[^>]*>\s*(?:<(?:script|noscript)[^>]*>|<!--[\s\S]*?-->|\s)*<\/body>/i;
-
-function looksBlocked(html, title) {
-  if (title && BLOCK_TITLE.test(title)) return 'title';
-  const head = String(html || '').slice(0, 200000);
-  if (BLOCK_MARKERS.test(head)) return 'markers';
-  // Page vide avec "activez JS" est probablement JavaScript-only
-  if (EMPTY_BODY_MARKERS.test(head) && /javascript|noscript|enable|activez/i.test(head)) return 'js-only';
-  return null;
-}
-
-function pageTitle(html) {
-  const m = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
-  return m ? clean(decodeHtml(m[1])) : null;
-}
-
-function readTitle(html) {
-  const t = meta(html || '', 'og:title') || meta(html || '', 'twitter:title') || pageTitle(html || '');
-  const generic = /^(?:amazon|fnac|cdiscount|darty|rakuten|idealo|accueil|home|produit|product|loading|chargement|panier|cart|404|error)$/i;
-  if (!t || generic.test(t)) return null;
-  return t;
-}
-
 function classifyContent({ urlClass, ld, html, text }) {
-  const products = ld.filter(x => hasType(x, 'Product'));
-  const listing = ld.some(x => hasType(x, 'ItemList') || hasType(x, 'CollectionPage') || hasType(x, 'OfferCatalog'));
-  const ogType = (meta(html, 'og:type') || '').toLowerCase();
+  const products = ld.filter(x => ex.pickProduct([x]));
+  const listing = ld.some(x => /^(itemlist|collectionpage|offercatalog)$/.test(String(x['@type'] || '').toLowerCase()));
+  const ogType = (ex.meta(html, 'og:type') || '').toLowerCase();
   if (listing || products.length > 1) return { kind: 'page', label: 'une page de catégorie ou de liste de produits' };
   if (products.length === 1 || ogType.includes('product') || urlClass.kind === 'product') return { kind: 'product', label: null };
   if (urlClass.kind === 'page') return { kind: 'page', label: urlClass.label };
@@ -196,61 +48,128 @@ function classifyContent({ urlClass, ld, html, text }) {
   return { kind: 'unknown', label: null };
 }
 
-function buildClues(target, product, html) {
-  const fromUrl = identify.identifyFromUrl(target);
-  const title = meta(html || '', 'og:title') || meta(html || '', 'twitter:title') || pageTitle(html || '');
-  const name = (product && product.name) || title || fromUrl.titleHint || null;
+function buildClues(urls, product, bestName, extra) {
+  const locals = urls.map(u => { try { return identify.identifyFromUrl(u); } catch (_) { return {}; } });
+  const pick = key => (locals.find(l => l[key]) || {})[key] || null;
+  const urlHint = pick('titleHint');
+  const name = (product && product.name) || bestName || (extra && extra.searchBest) || urlHint || null;
   return {
-    title: title || null,
-    name: name,
+    title: bestName || null,
+    name,
     brand: (product && product.brand) || null,
-    ean: (product && product.gtin) || fromUrl.ean || null,
+    ean: (product && product.gtin) || pick('ean'),
     mpn: (product && (product.mpn || product.sku)) || null,
-    asin: fromUrl.asin || null,
-    urlHint: fromUrl.titleHint || null,
-    year: extractYear(name, title, fromUrl.titleHint)
+    asin: pick('asin'),
+    urlHint,
+    searchTitles: (extra && extra.searchTitles) || undefined,
+    year: extractYear(name, bestName, urlHint)
   };
 }
 
+function variantsOf(parsed, asin) {
+  const out = [];
+  if (asin && /(^|\.)amazon\./i.test(parsed.hostname)) out.push('https://' + parsed.hostname + '/dp/' + asin);
+  out.push(parsed.toString());
+  const bare = new URL(parsed.toString()); bare.search = ''; bare.hash = '';
+  out.push(bare.toString());
+  return Array.from(new Set(out)).slice(0, 3);
+}
+
+/* Lit une page déjà téléchargée : candidats, produit, verdict de blocage. */
+function inspectHtml(fetched) {
+  const html = fetched.html || '';
+  const c = ex.candidates(html);
+  const usable = fetched.status < 400 && c.list.length > 0;
+  const block = ex.detectBlock({ status: fetched.status, html, headers: fetched.headers, usable });
+  return { html, text: ex.htmlToText(html), ld: c.ld, product: c.product, list: c.list, usable: usable && !block, block };
+}
+
 async function resolve(target) {
+  const started = Date.now();
+  const left = () => BUDGET_MS - (Date.now() - started);
+  const trace = [];
   let parsed;
   try { parsed = new URL(target); } catch (_) { return { ok: false, error: 'URL invalide.' }; }
   if (!/^https?:$/.test(parsed.protocol)) return { ok: false, error: 'Seules les URL HTTP/HTTPS sont acceptées.' };
-  
+
   const urlClass = identify.classifyUrl(target);
-  // Page générale évidente d'après l'URL : inutile de la télécharger.
+  const urlLocal = identify.identifyFromUrl(target);
+  trace.push({ step: 'url', asin: urlLocal.asin || null, ean: urlLocal.ean || null, hint: urlLocal.titleHint || null });
+
   if (urlClass.kind === 'page' && urlClass.strong) {
-    return { ok: true, kind: 'page', pageLabel: urlClass.label, finalUrl: target, merchantHost: parsed.hostname, clues: buildClues(target, null, '') };
+    return { ok: true, kind: 'page', pageLabel: urlClass.label, finalUrl: target, merchantHost: parsed.hostname, clues: buildClues([target], null, null), trace };
   }
-  
-  let fetched;
-  try { fetched = await fetchHtml(target); } catch (error) {
-    return { ok: false, kind: urlClass.kind, pageLabel: urlClass.label, error: 'Impossible de récupérer la page.', detail: error.name === 'AbortError' ? 'timeout' : error.message, clues: buildClues(target, null, '') };
+
+  const fail = extra => Object.assign({
+    ok: false, kind: urlClass.kind, pageLabel: urlClass.label, merchantHost: parsed.hostname, needsCapture: true,
+    clues: buildClues([target].concat(extra && extra.finalUrl ? [extra.finalUrl] : []), null, null), trace
+  }, extra);
+
+  /* 2 + 3 : lecture directe puis analyse du code, variantes d'URL */
+  let good = null, last = null, shell = null, blockedBy = null;
+  for (const variant of variantsOf(parsed, urlLocal.asin)) {
+    if (left() < 3000) { trace.push({ step: 'fetch', url: variant, outcome: 'budget' }); break; }
+    let fetched;
+    try { fetched = await netlib.fetchHtml(variant, { timeout: Math.min(FETCH_TIMEOUT, left() - 1500) }); }
+    catch (error) { trace.push({ step: 'fetch', url: variant, outcome: error.name === 'AbortError' ? 'timeout' : 'erreur', detail: error.message }); break; }
+    const page = inspectHtml(fetched);
+    last = { fetched, page };
+    trace.push({ step: 'fetch', url: variant, status: fetched.status, outcome: page.usable ? 'lu' : (page.block ? page.block.reason + (page.block.vendor ? ':' + page.block.vendor : '') : 'sans nom'), source: page.list[0] ? page.list[0].source : null });
+    if (page.usable) { good = { fetched, page, strategy: 'fetch' }; break; }
+    if (page.block && page.block.reason === 'challenge') { blockedBy = page.block; break; }   // on ne insiste pas, on ne contourne pas
+    if (page.block && page.block.reason === 'js') { shell = fetched; break; }
   }
-  
-  if (fetched.status >= 400) {
-    return { ok: false, blocked: true, reason: 'http', status: fetched.status, finalUrl: fetched.finalUrl, error: `HTTP ${fetched.status}.`, clues: buildClues(target, null, '') };
+
+  /* 4 : rendu navigateur, uniquement pour une page vide sans JavaScript */
+  if (!good && shell && render.enabled() && left() > 4000) {
+    const html = await render.renderHtml(shell.finalUrl, Math.min(12000, left() - 1500));
+    if (html) {
+      const fetched = { status: 200, finalUrl: shell.finalUrl, html, headers: {} };
+      const page = inspectHtml(fetched);
+      trace.push({ step: 'render', outcome: page.usable ? 'lu' : (page.block ? page.block.reason : 'sans nom'), source: page.list[0] ? page.list[0].source : null });
+      if (page.usable) good = { fetched, page, strategy: 'render' };
+    } else trace.push({ step: 'render', outcome: 'indisponible' });
   }
-  
-  // Vérifier blocage
-  const blockReason = looksBlocked(fetched.html, pageTitle(fetched.html));
-  if (blockReason) {
-    return { ok: false, blocked: true, reason: blockReason, finalUrl: fetched.finalUrl, error: blockReason === 'js-only' ? 'La page ne peut pas être lue sans navigateur.' : 'Le site demande une vérification anti-robot.', clues: buildClues(target, null, '') };
+
+  if (good) {
+    const { fetched, page, strategy } = good;
+    const verdict = classifyContent({ urlClass, ld: page.ld, html: page.html, text: page.text });
+    const best = page.list[0];
+    const clues = buildClues([target, fetched.finalUrl], page.product, best.name);
+    const base = { ok: true, kind: verdict.kind, pageLabel: verdict.label, finalUrl: fetched.finalUrl, merchantHost: parsed.hostname, strategy, clues, trace };
+    if (verdict.kind === 'page') return base;
+    return Object.assign(base, {
+      product: page.product || { name: best.name, brand: null, sku: null, mpn: null, gtin: null, price: null, currency: null, availability: null, source: 'url', evidence: best.source },
+      specs: candidateFromText(page.text),
+      evidence: [best.source].concat(strategy === 'render' ? ['rendu navigateur'] : []),
+      warning: page.product ? null : 'Aucun objet Product structuré trouvé; identification à confirmer.'
+    });
   }
-  
-  const ld = extractJsonLd(fetched.html);
-  const product = pickProduct(ld);
-  const text = htmlToText(fetched.html);
-  const verdict = classifyContent({ urlClass, ld, html: fetched.html, text });
-  const named = product || { name: readTitle(fetched.html), brand: null, sku: null, mpn: null, gtin: null, price: null, currency: null, availability: null, source: 'url', evidence: 'meta title' };
-  const base = { ok: true, kind: verdict.kind, pageLabel: verdict.label, finalUrl: fetched.finalUrl, merchantHost: parsed.hostname, clues: buildClues(fetched.finalUrl, product, fetched.html) };
-  
-  if (verdict.kind === 'page') return base;
-  
-  return Object.assign(base, {
-    product: named, specs: candidateFromText(text), evidence: (ld.length ? ['JSON-LD'] : ['HTML/meta']),
-    warning: product ? null : 'Aucun objet Product structuré trouvé; identification à confirmer.'
-  });
+
+  /* 5 : recherche web (ASIN / EAN / nom de l'URL) quand la page n'a rien donné */
+  const finalUrl = last ? last.fetched.finalUrl : target;
+  const baseClues = buildClues([target, finalUrl], null, null);
+  if (search.enabled() && left() > 3000) {
+    const found = await search.lookup(baseClues, Math.min(6000, left() - 1000));
+    trace.push({ step: 'search', outcome: found ? 'trouvé' : 'rien', n: found ? found.titles.length : 0 });
+    if (found) {
+      return {
+        ok: true, kind: 'product', finalUrl, merchantHost: parsed.hostname, strategy: 'search',
+        product: { name: found.best, brand: null, sku: null, mpn: null, gtin: null, price: null, currency: null, availability: null, source: 'search', evidence: 'recherche web' },
+        specs: {}, evidence: ['recherche web'], warning: 'Page illisible : modèle déduit d’une recherche web, à confirmer.',
+        clues: buildClues([target, finalUrl], null, null, { searchBest: found.best, searchTitles: found.titles }), trace
+      };
+    }
+  } else trace.push({ step: 'search', outcome: 'non configurée' });
+
+  /* 6 : rien de lisible côté serveur → capture dans le navigateur de l'utilisateur */
+  const status = last ? last.fetched.status : null;
+  if (blockedBy) return fail({ blocked: true, reason: 'challenge', vendor: blockedBy.vendor, status, finalUrl, error: 'Le site demande une vérification anti-robot.' });
+  if (last && last.page.block && last.page.block.reason === 'http') return fail({ blocked: true, reason: 'http', status, finalUrl, error: 'Le site a répondu HTTP ' + status + '.' });
+  if (last && last.page.block && last.page.block.reason === 'notfound') return fail({ reason: 'notfound', status, finalUrl, error: 'Page introuvable.' });
+  if (shell || (last && last.page.block && last.page.block.reason === 'js')) return fail({ jsOnly: true, reason: 'js', status, finalUrl, error: 'La page ne contient pas de données lisibles sans navigateur.' });
+  if (last) return fail({ reason: 'unreadable', status, finalUrl, error: 'Aucun nom de produit lisible sur la page.' });
+  return fail({ reason: 'network', error: 'Impossible de récupérer la page.' });
 }
 
-module.exports = { resolve, classifyContent, isPrivateIp, assertPublicHost, looksBlocked, readTitle, pageTitle };
+module.exports = { resolve, classifyContent, candidateFromText, isPrivateIp: netlib.isPrivateIp, assertPublicHost: netlib.assertPublicHost, looksBlocked: ex.detectBlock, readTitle: html => { const c = ex.candidates(html).list[0]; return c ? c.name : null; }, pageTitle: ex.pageTitle };
