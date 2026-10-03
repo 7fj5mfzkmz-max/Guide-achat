@@ -1,6 +1,7 @@
 'use strict';
 /* Résolveur multi-marchands : une cascade de méthodes, chacune tracée.
    1. Indices de l'URL (ASIN, EAN, nom dans le chemin)       — toujours, sans réseau
+   1b. Pivot par identifiant (GTIN → référentiel produit Icecat), lancé en parallèle de la lecture directe
    2. Lecture directe de la page (en-têtes de navigateur)      — variantes d'URL canoniques
    3. Analyse du code : JSON-LD, microdonnées, état embarqué, og:/twitter:, h1, title
    4. Rendu navigateur (service que vous exploitez)            — seulement pour les pages vides
@@ -9,6 +10,8 @@
    Une page de vérification anti-robot arrête la cascade : aucun contournement n'est tenté. */
 const { URL } = require('node:url');
 const identify = require('../phone-analyzer/identify.js');
+const identity = require('../phone-analyzer/identity.js');
+const icecat = require('./icecat.js');
 const netlib = require('./net.js');
 const ex = require('./extract.js');
 const search = require('./search.js');
@@ -120,6 +123,53 @@ function readerPage(text) {
   return { html: '<html><head><title>' + safe + '</title></head><body><h1>' + safe + '</h1><div>' + body + '</div></body></html>', title };
 }
 
+/* ---- Pivot par identifiant : le modèle est confirmé et complété par un référentiel indépendant du marchand ---- */
+const CORE_SPECS = ['ecran', 'processeur', 'ram', 'batterie', 'charge', 'refresh'];
+
+async function enrich(ctx) {
+  const { gtins, brand, mpn, names, weakNames, early, earlyGtin, timeout, trace } = ctx;
+  if (!icecat.enabled()) { trace.push({ step: 'icecat', outcome: 'non configuré' }); return null; }
+  let r = early ? await early : null;
+  if (!(r && r.found)) {
+    const rest = gtins.filter(g => g !== earlyGtin || !early);
+    if (!rest.length && !(brand && mpn)) {
+      if (!early) { trace.push({ step: 'icecat', outcome: 'aucun identifiant' }); return null; }
+    } else r = await icecat.lookup({ gtins: rest, brand, mpn }, { timeout });
+  }
+  if (!r || !r.found) { trace.push({ step: 'icecat', outcome: 'absent', detail: (r && r.reason) || null }); return null; }
+  const label = [r.brand, r.title].filter(Boolean).join(' ');
+  const v = identity.verifyReference(label, names, weakNames);
+  trace.push({ step: 'icecat', outcome: v.verdict === 'conflict' ? 'conflit' : 'trouvé', by: r.by, verification: v.verdict, specs: Object.keys(r.specs).length, detail: v.detail });
+  if (v.verdict === 'conflict') return { conflict: true, reference: label, detail: v.detail };
+  return Object.assign({}, r, { verification: v.verdict, label });
+}
+
+/* Priorité : référentiel > texte de la page. Chaque valeur garde sa provenance ; ce qui manque est « inconnu ». */
+function mergeSpecs(pageSpecs, ic) {
+  const specs = Object.assign({}, pageSpecs), specSources = {};
+  Object.keys(pageSpecs).forEach(k => { specSources[k] = 'page'; });
+  if (ic && ic.specs) Object.keys(ic.specs).forEach(k => { specs[k] = ic.specs[k]; specSources[k] = 'icecat'; });
+  return { specs, specSources, specsUnknown: CORE_SPECS.filter(k => !specs[k]) };
+}
+
+/* Identification du modèle, indépendante de sa présence au catalogue (jugée côté navigateur). */
+function buildIdentity({ name, product, ic }) {
+  if (ic && !ic.conflict) {
+    return {
+      status: ic.verification === 'confirmed' ? 'identified' : 'partial',
+      name: ic.label || name || null, brand: ic.brand || null, gtin: ic.by === 'gtin' ? ic.matched : null, mpn: ic.mpn || null,
+      basis: [ic.by === 'gtin' ? 'code-barres (GTIN) → fiche du référentiel produit' : 'marque + référence → fiche du référentiel produit'],
+      verification: ic.verification
+    };
+  }
+  if (ic && ic.conflict) {
+    return { status: 'partial', name: name || null, brand: (product && product.brand) || null, basis: ['page du marchand'],
+      conflict: 'Le référentiel désigne « ' + ic.reference + ' » alors que la page indique un autre modèle (' + ic.detail + ') : aucune donnée du référentiel n’a été utilisée.' };
+  }
+  if (name) return { status: 'partial', name, brand: (product && product.brand) || null, gtin: (product && identity.cleanGtin(product.gtin)) || null, mpn: (product && (product.mpn || product.sku)) || null, basis: ['page du marchand'] };
+  return { status: 'unknown', name: null, basis: [] };
+}
+
 async function resolve(target) {
   const started = Date.now();
   const left = () => BUDGET_MS - (Date.now() - started);
@@ -131,6 +181,12 @@ async function resolve(target) {
   const urlClass = identify.classifyUrl(target);
   const urlLocal = identify.identifyFromUrl(target);
   trace.push({ step: 'url', asin: urlLocal.asin || null, ean: urlLocal.ean || null, hint: urlLocal.titleHint || null });
+
+  /* Pivot par identifiant : si l'URL contient un code-barres valide, la fiche du référentiel est demandée
+     en parallèle de la lecture de la page (aucune dépendance au marchand). */
+  const urlGtin = identity.cleanGtin(urlLocal.ean);
+  const icecatEarly = (urlGtin && icecat.enabled() && !(urlClass.kind === 'page' && urlClass.strong))
+    ? icecat.lookup({ gtins: [urlGtin] }, { timeout: 5000 }).catch(() => null) : null;
 
   if (urlClass.kind === 'page' && urlClass.strong) {
     return { ok: true, kind: 'page', pageLabel: urlClass.label, finalUrl: target, merchantHost: parsed.hostname, clues: buildClues([target], null, null), trace };
@@ -174,12 +230,41 @@ async function resolve(target) {
     const clues = buildClues([target, fetched.finalUrl], page.product, best.name);
     const base = { ok: true, kind: verdict.kind, pageLabel: verdict.label, finalUrl: fetched.finalUrl, merchantHost: parsed.hostname, strategy, clues, trace };
     if (verdict.kind === 'page') return base;
-    return Object.assign(base, {
-      product: page.product || { name: best.name, brand: null, sku: null, mpn: null, gtin: null, price: null, currency: null, availability: null, source: 'url', evidence: best.source },
-      specs: candidateFromText(page.text, page.product),
-      evidence: [best.source].concat(strategy === 'render' ? ['rendu navigateur'] : []),
-      warning: page.product ? null : 'Aucun objet Product structuré trouvé; identification à confirmer.'
+    const gtins = Array.from(new Set([urlGtin, identity.cleanGtin(page.product && page.product.gtin)].concat(identity.gtinsInHtml(page.html)).filter(Boolean))).slice(0, 3);
+    const ic = await enrich({
+      gtins, brand: page.product && page.product.brand, mpn: page.product && (page.product.mpn || page.product.sku),
+      names: [page.product && page.product.name, best.name], weakNames: [urlLocal.titleHint], early: icecatEarly, earlyGtin: urlGtin,
+      timeout: Math.min(5000, left() - 1500), trace
     });
+    const merged = mergeSpecs(candidateFromText(page.text, page.product), ic && !ic.conflict ? ic : null);
+    const product = page.product || { name: best.name, brand: null, sku: null, mpn: null, gtin: null, price: null, currency: null, availability: null, source: 'url', evidence: best.source };
+    let warning = page.product ? null : 'Aucun objet Product structuré trouvé; identification à confirmer.';
+    if (ic && ic.conflict) warning = 'Le référentiel produit désigne un autre modèle que la page : ses données n’ont pas été utilisées.';
+    return Object.assign(base, {
+      product, specs: merged.specs, specSources: merged.specSources, specsUnknown: merged.specsUnknown,
+      identity: buildIdentity({ name: product.name, product, ic }),
+      evidence: [best.source].concat(strategy === 'render' ? ['rendu navigateur'] : []).concat(ic && !ic.conflict ? ['référentiel produit'] : []),
+      warning
+    });
+  }
+
+  /* 4b : la page est illisible mais l'URL contenait un code-barres : le référentiel suffit à identifier le modèle
+     et à lire ses caractéristiques (aucun contournement du marchand). */
+  if (!good && icecatEarly) {
+    const ic = await enrich({ gtins: [urlGtin], names: [], weakNames: [urlLocal.titleHint], early: icecatEarly, earlyGtin: urlGtin, timeout: Math.min(5000, left() - 1000), trace });
+    if (ic && !ic.conflict) {
+      const furl = last ? last.fetched.finalUrl : target;
+      const merged = mergeSpecs({}, ic);
+      return {
+        ok: true, kind: 'product', finalUrl: furl, merchantHost: parsed.hostname, strategy: 'icecat',
+        product: { name: ic.label, brand: ic.brand, sku: null, mpn: ic.mpn, gtin: ic.by === 'gtin' ? ic.matched : null, price: null, currency: null, availability: null, source: 'icecat', evidence: 'référentiel produit' },
+        specs: merged.specs, specSources: merged.specSources, specsUnknown: merged.specsUnknown,
+        identity: buildIdentity({ name: ic.label, product: null, ic }),
+        evidence: ['référentiel produit (code-barres de l’URL)'],
+        warning: 'La page du marchand n’a pas pu être lue : modèle et caractéristiques issus du référentiel produit, à partir du code-barres de l’URL.',
+        clues: buildClues([target, furl], null, ic.label), trace
+      };
+    }
   }
 
   /* 5 : lecteur secondaire. Il sert surtout aux pages dont le HTML serveur est pauvre
