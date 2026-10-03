@@ -9,7 +9,8 @@
   var PROFILS = { etudiant: "Étudiant", professionnel: "Professionnel", gamer: "Gamer", photographe: "Photographe" };
   var SPEC_LABELS = { ecran: "Écran", refresh: "Fréquence d’écran", processeur: "Processeur", ram: "Mémoire", stockage: "Stockage", batterie: "Batterie", charge: "Charge", photo: "Photo", etancheite: "Étanchéité", os: "Système" };
   var CRIT_LABELS = { autonomie: "autonomie", performance: "performance", gaming: "jeu", prix: "prix" };
-  var state = { catalogue: null, page: null, queue: [], year: null, pageOffered: false, needsCapture: false };
+  var state = { catalogue: null, page: null, identity: null, queue: [], year: null, pageOffered: false, needsCapture: false };
+  var CORE_SPECS = ["ecran", "processeur", "ram", "batterie", "charge", "refresh"];
 
   function esc(v) { return String(v == null ? "" : v).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[c]; }); }
   function norm(s) { return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim(); }
@@ -49,6 +50,8 @@
   function pageName() {
     var p = state.page;
     if (!p) return null;
+    /* Identification confirmée par le référentiel produit (code-barres) : son libellé fait foi. */
+    if (state.identity && state.identity.status === "identified" && state.identity.name) return shorten(state.identity.name, 110);
     var n = (p.product && p.product.name) || (p.clues && (p.clues.name || p.clues.title));
     return n ? shorten(n, 110) : null;
   }
@@ -117,8 +120,12 @@
     var list = function (arr) { return arr.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join(""); };
     var title = c ? displayName(c, state.year) : (pageName() || "Modèle lu sur la page");
 
+    var sources = (page && page.specSources) || {};
+    var fromRef = Object.keys(sources).filter(function (k) { return sources[k] === "icecat"; }).map(function (k) { return SPEC_LABELS[k] || k; });
+    var unknownKeys = CORE_SPECS.filter(function (k) { return !merged[k]; }).map(function (k) { return SPEC_LABELS[k] || k; });
     var notes = "";
-    if (!c) notes += "<p>Ce modèle n’est pas encore présent dans notre catalogue ; l’analyse utilise uniquement les informations lisibles sur la page.</p>";
+    if (!c) notes += "<p>Ce modèle est identifié mais n’est pas encore présent dans notre catalogue ; l’analyse utilise " + (fromRef.length ? "les informations lisibles sur la page et la fiche du référentiel produit." : "uniquement les informations lisibles sur la page.") + "</p>";
+    if (state.identity && state.identity.conflict) notes += '<p class="model-analyzer-note">' + esc(state.identity.conflict) + "</p>";
     else if (estimated) notes += "<p>Certaines données du catalogue sont incomplètes ; le résultat repose uniquement sur les informations disponibles.</p>";
     var scoreNote = !profs ? "<p><strong>Score indisponible pour le moment :</strong> aucune caractéristique fiable n’est disponible pour ce modèle. Une information absente n’est pas considérée comme un défaut.</p>"
       : (estimated ? (chemistry && chemistry.status !== "documente" ? '<p class="model-analyzer-note">Technologie de batterie détectée : ' + esc(chemistry.label) + ". Son effet sur le score sera pris en compte quand des sources fiables auront été documentées.</p>" : "") + '<p class="model-analyzer-note">Score estimé à partir de : ' + esc(documented.map(function (k) { return CRIT_LABELS[k] || k; }).join(", ")) + ". Une donnée non documentée n’est pas comptée comme un point négatif. * = provisoire (moins de la moitié des critères du profil documentés), plafonné à 6/9.</p>"
@@ -127,6 +134,8 @@
     show('<div class="model-analyzer-card"><span class="eyebrow">ANALYSE</span><h3>' + esc(title) + "</h3>" + notes +
       (price ? "<p><strong>" + (cat.prix_indicatif ? "Prix indicatif" : "Prix trouvé sur la page") + " :</strong> " + esc(price) + " €</p>" : "") +
       (rows ? '<dl class="model-analyzer-specs">' + rows + "</dl>" : "") +
+      (fromRef.length ? '<p class="model-analyzer-note">Issu du référentiel produit (code-barres) : ' + esc(fromRef.join(", ")) + ".</p>" : "") +
+      (unknownKeys.length ? '<p class="model-analyzer-note"><strong>Inconnu (non trouvé) :</strong> ' + esc(unknownKeys.join(", ")) + ". Une information inconnue n’est jamais comptée comme un défaut.</p>" : "") +
       (profs ? '<h4>Compatibilité par profil</h4><ul class="model-analyzer-profiles">' + profs + "</ul>" : "") + scoreNote +
       ((cat.points_forts && cat.points_forts.length) ? "<h4>Points forts</h4><ul>" + list(cat.points_forts) + "</ul>" : "") +
       ((cat.points_faibles && cat.points_faibles.length) ? "<h4>Points de vigilance</h4><ul>" + list(cat.points_faibles) + "</ul>" : "") +
@@ -147,8 +156,12 @@
   function searchAndContinue(clues, manual) {
     loading("Recherche du modèle…");
     loadCatalogue().then(function (catalogue) {
+      clues.strict = !manual;   // indices issus d'une page : jamais de substitution silencieuse par une variante
       var res = window.PhoneAnalyzerCrosscheck.search(catalogue, clues);
       if (res.status === "identified" && !manual) return showAnalysis(res.best, state.page);
+      /* Identification et catalogue sont deux questions distinctes : modèle confirmé par le référentiel
+         mais absent du catalogue → on garde le modèle et on analyse ce qui a été trouvé. */
+      if (!manual && !(res.ranked && res.ranked.length) && state.page && state.identity && state.identity.status === "identified") return showAnalysis(null, state.page);
       state.queue = res.status === "unknown" ? [] : res.ranked.map(function (r) { return r.candidate; });
       if (manual) state.pageOffered = true; // la saisie manuelle remplace la proposition tirée de la page
       if (!state.queue.length && manual) return viewManual("Aucun modèle du catalogue ne correspond à cette saisie.");
@@ -166,15 +179,16 @@
     var raw = input.value.trim();
     if (!/^https?:\/\//i.test(raw)) raw = "https://" + raw;
     try { new URL(raw); } catch (_) { return viewManual("Ce lien n’est pas valide."); }
-    state.page = null; state.queue = []; state.pageOffered = false; state.needsCapture = false;
+    state.page = null; state.identity = null; state.queue = []; state.pageOffered = false; state.needsCapture = false;
     loading("Analyse du lien en cours…");
     window.PhoneAnalyzerFetcher.resolveProduct(raw).catch(function () { return localFallback(raw); }).then(function (data) {
       if (data.kind === "page") return viewNotAModel(data.pageLabel);
       var k = data.clues || {};
       state.year = k.year || null;
       state.needsCapture = !!data.needsCapture;
-      if (data.ok && data.kind === "product") state.page = data;
-      searchAndContinue({ hints: [k.name, k.title, k.urlHint].concat(k.searchTitles || []), ean: k.ean, asin: k.asin }, false);
+      if (data.ok && data.kind === "product") { state.page = data; state.identity = data.identity || null; }
+      var idName = state.identity && state.identity.status === "identified" ? state.identity.name : null;
+      searchAndContinue({ hints: [idName, k.name, k.title, k.urlHint].concat(k.searchTitles || []), ean: k.ean, asin: k.asin }, false);
     });
   });
   /* Arrivée depuis le signet de capture : #capture=… */

@@ -1,6 +1,8 @@
 (function (root) {
   "use strict";
 
+  var Identity = root.PhoneAnalyzerIdentity || (typeof require === "function" ? (function () { try { return require("./identity.js"); } catch (_) { return null; } })() : null);
+
   function norm(s) { return String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim(); }
 
   function scoreCandidate(candidate, clues) {
@@ -85,15 +87,32 @@
     return best;
   }
 
+  /* Verdict d'identité entre une fiche du catalogue et les indices : same | compatible | different | unknown.
+     « different » seulement si TOUS les indices comparables désignent un autre modèle. */
+  function identityVerdict(candidate, hints) {
+    if (!Identity) return "unknown";
+    var name = candidate.nom || candidate.model || "", brand = candidate.marque || candidate.brand || "";
+    var label = brand && norm(name).indexOf(norm(brand)) < 0 ? brand + " " + name : name;
+    var order = { same: 3, compatible: 2, different: 0 }, best = null;
+    hints.forEach(function (h) {
+      var v = Identity.compareHint(label, h).verdict;
+      if (v === "unknown") return;
+      if (best === null || order[v] > order[best]) best = v;
+    });
+    return best || "unknown";
+  }
+
   function search(candidates, clues) {
     clues = clues || {};
     var hints = (clues.hints || []).filter(Boolean);
-    var ranked = (candidates || []).map(function (c) { return { candidate: c, score: scoreHints(c, hints, clues) }; })
+    var strict = clues.strict !== false;   // indices venant d'une page : jamais de substitution silencieuse
+    var ranked = (candidates || []).map(function (c) { return { candidate: c, score: scoreHints(c, hints, clues), identity: identityVerdict(c, hints) }; })
       .filter(function (r) { return r.score >= 6; })
+      .filter(function (r) { return !(strict && r.identity === "different"); })
       .sort(function (a, b) { return b.score - a.score; });
     if (!ranked.length) return { status: "unknown", ranked: [] };
     var top = ranked[0], second = ranked[1];
-    var strong = top.score >= 14 && (!second || top.score - second.score >= 5);
+    var strong = top.score >= 14 && (!second || top.score - second.score >= 5) && top.identity !== "compatible";
     return { status: strong ? "identified" : "to_confirm", ranked: ranked.slice(0, 3), best: top.candidate };
   }
 
